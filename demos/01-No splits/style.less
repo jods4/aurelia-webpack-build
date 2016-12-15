@@ -1,0 +1,32 @@
+@font: "Segoe UI", Arial, Sans;
+@red: #a00;
+
+body {
+  font-family: @font;  
+}
+
+hello-tag {
+  border: solid 1px @red;
+  border-radius: 5px;
+  display: block;
+  width: 200px;
+  margin: 20px;
+  transform: rotate(-5deg);
+}
+
+.tag-header {
+  color: #fff;
+  background: @red;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;  
+}
+
+.tag-body {
+  @height: 100px;
+  height: @height;
+  line-height: @height;
+  text-align: center;
+  font-family: cursive;
+  font-size: 1.3em;
+}

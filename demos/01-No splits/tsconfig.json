@@ -1,0 +1,9 @@
+{
+  "compilerOptions": { 
+    "target": "es2015",
+    "module": "commonjs",  
+    "lib": [ "es6", "dom" ],
+    
+    "experimentalDecorators": true
+  }
+}

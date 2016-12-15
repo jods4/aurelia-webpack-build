@@ -1,0 +1,11 @@
+<template>
+  <require from="customElements/hello-tag"></require>
+
+  <h2>Aurelia + Webpack</h2>
+  <div>
+    What's your name? <br>
+    <input value.bind="name" />
+  </div>
+
+  <hello-tag name.bind="name | upper"></hello-tag>  
+</template>
