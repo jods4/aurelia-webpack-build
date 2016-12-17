@@ -1,5 +1,6 @@
 const path = require('path');
 const AureliaDependenciesPlugin = require('./webpack/AureliaDependenciesPlugin');
+const ExtensionDependenciesPlugin = require('./webpack/ExtensionDependenciesPlugin');
 const HtmlDependenciesPlugin = require('./webpack/HtmlDependenciesPlugin');
 const GlobDependenciesPlugin = require('./webpack/GlobDependenciesPlugin');
 const { MappedModuleIdsPlugin } = require('webpack-dependency-suite');
@@ -24,7 +25,7 @@ module.exports = {
       { test: /\.ts$/i, use: "ts-loader" },
       { test: /\.html$/i, use: ["html-loader", "./webpack/html-requires-loader"] },
       
-      // TODO: replace with PLATFORM.moduleName() plugin
+      // TODO: when aurelia code is instrumented with PLATFORM.moduleName() this won't be necessary anymore
       // This rule ensures dynamic dependencies of aurelia are properly included
       {
         test: /\.[tj]s$/i,
@@ -42,14 +43,13 @@ module.exports = {
   },  
 
   plugins: [
-    // Includes all *.html templates
-    // TODO: links them by convention to the same-named .ts/.js file 
-    new GlobDependenciesPlugin({ "main": { include: "src/**/*.html", normalize: /^src\// } }),
-
     // This plugin traces dependencies in code that are wrapped in PLATFORM.moduleName() calls
     new AureliaDependenciesPlugin(),
     // This plugin adds dependencies traced by html-requires-loader
     new HtmlDependenciesPlugin(),
+    // This plugin looks for companion files by swapping extensions,
+    // e.g. the view of a ViewModel. @useView and co should use PLATFORM.moduleName().
+    new ExtensionDependenciesPlugin('src/**/*.ts', '.html'),
 
     // This preserves module names so that aurelia-loader can request them properly
     // TODO: simplify!    

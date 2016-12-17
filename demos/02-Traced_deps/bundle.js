@@ -117,21 +117,16 @@ if(false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_less__ = __webpack_require__("1-duplicate!../style.less");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__style_less__);
 Object.defineProperty(exports, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(exports, "AppViewModel", function() { return AppViewModel; });
 
-var AppViewModel = (function () {
-    function AppViewModel() {
+class AppViewModel {
+    constructor() {
         this.name = '';
     }
-    Object.defineProperty(AppViewModel.prototype, "welcome", {
-        get: function () {
-            return this.name;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return AppViewModel;
-}());
+    get welcome() {
+        return this.name;
+    }
+}
+/* harmony export (immutable) */ exports["AppViewModel"] = AppViewModel;
 
 
 
@@ -140,7 +135,7 @@ var AppViewModel = (function () {
 /***/ "app.html":
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = "<template>\r\n  <require from=\"customElements/hello-tag\"></require>\r\n  <require from=\"inherit\"></require>\r\n\r\n  <h2>Aurelia + Webpack</h2>\r\n  <div>\r\n    What's your name? <br>\r\n    <input value.bind=\"name\" />\r\n  </div>\r\n\r\n  <hello-tag name.bind=\"name | upper\"></hello-tag>  \r\n\r\n  <div>\r\n    <p>2 + 3<add x.bind=2 y.bind=3></add></p>\r\n    <p>2 * 3<multiply x.bind=2 y.bind=3></multiply></p>\r\n  </div>\r\n</template>";
+module.exports = "<template>\r\n  <require from=\"customElements/hello-tag\"></require>\r\n\r\n  <h2>Aurelia + Webpack</h2>\r\n  <div>\r\n    What's your name? <br>\r\n    <input value.bind=\"name\" />\r\n  </div>\r\n\r\n  <hello-tag name.bind=\"name | upper\"></hello-tag>  \r\n</template>";
 
 /***/ },
 
@@ -22079,27 +22074,17 @@ var RouterView = exports.RouterView = (_dec = (0, _aureliaTemplating.customEleme
 
 /***/ },
 
-/***/ "calculator.html":
-/***/ function(module, exports) {
-
-module.exports = "<template> = ${result}</template>";
-
-/***/ },
-
 /***/ "converters/upper":
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(exports, "UpperValueConverter", function() { return UpperValueConverter; });
-var UpperValueConverter = (function () {
-    function UpperValueConverter() {
-    }
-    UpperValueConverter.prototype.toView = function (name) {
+class UpperValueConverter {
+    toView(name) {
         return name && name.toUpperCase();
-    };
-    return UpperValueConverter;
-}());
+    }
+}
+/* harmony export (immutable) */ exports["UpperValueConverter"] = UpperValueConverter;
 
 
 
@@ -22170,14 +22155,11 @@ module.exports = function() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_framework___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_aurelia_framework__);
 Object.defineProperty(exports, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(exports, "HelloTagCustomElement", function() { return HelloTagCustomElement; });
 
 
-var HelloTagCustomElement = (function () {
-    function HelloTagCustomElement() {
-    }
-    return HelloTagCustomElement;
-}());
+class HelloTagCustomElement {
+}
+/* harmony export (immutable) */ exports["HelloTagCustomElement"] = HelloTagCustomElement;
 
 __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
     __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["bindable"]
@@ -22190,66 +22172,6 @@ __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 /***/ function(module, exports) {
 
 module.exports = "<template>\r\n  <div class=\"tag-header\">\r\n    HELLO<br>\r\n    MY NAME IS\r\n  </div>\r\n  <div class=\"tag-body\">${name}</div>\r\n</template>";
-
-/***/ },
-
-/***/ "inherit":
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__("tslib");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__ = __webpack_require__("aurelia-framework");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_framework___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_aurelia_framework__);
-Object.defineProperty(exports, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(exports, "AddCustomElement", function() { return AddCustomElement; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "MultiplyCustomElement", function() { return MultiplyCustomElement; });
-
-
-var CalculatorCustomElement = (function () {
-    function CalculatorCustomElement() {
-        this.x = 0;
-        this.y = 0;
-    }
-    return CalculatorCustomElement;
-}());
-__WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["bindable"])({ changeHandler: 'compute' })
-], CalculatorCustomElement.prototype, "x", void 0);
-__WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["bindable"])({ changeHandler: 'compute' })
-], CalculatorCustomElement.prototype, "y", void 0);
-var AddCustomElement = (function (_super) {
-    __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __extends */](AddCustomElement, _super);
-    function AddCustomElement() {
-        return _super.apply(this, arguments) || this;
-    }
-    AddCustomElement.prototype.compute = function () {
-        this.result = this.x + this.y;
-    };
-    return AddCustomElement;
-}(CalculatorCustomElement));
-AddCustomElement = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["useView"])('calculator.html'),
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["customElement"])('add')
-], AddCustomElement);
-
-var MultiplyCustomElement = (function (_super) {
-    __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __extends */](MultiplyCustomElement, _super);
-    function MultiplyCustomElement() {
-        return _super.apply(this, arguments) || this;
-    }
-    MultiplyCustomElement.prototype.compute = function () {
-        console.log("x");
-        this.result = this.x * this.y;
-    };
-    return MultiplyCustomElement;
-}(CalculatorCustomElement));
-MultiplyCustomElement = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["useView"])('calculator.html'),
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["customElement"])('multiply')
-], MultiplyCustomElement);
-
-
 
 /***/ },
 
@@ -22267,7 +22189,7 @@ function configure(aurelia) {
         .standardConfiguration()
         .developmentLogging()
         .globalResources('converters/upper');
-    aurelia.start().then(function () { return aurelia.setRoot('app'); });
+    aurelia.start().then(() => aurelia.setRoot('app'));
 }
 
 
@@ -22971,7 +22893,7 @@ exports.clearImmediate = clearImmediate;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ exports["b"] = __extends;
+/* unused harmony export __extends */
 /* unused harmony export __assign */
 /* unused harmony export __rest */
 /* harmony export (immutable) */ exports["a"] = __decorate;
