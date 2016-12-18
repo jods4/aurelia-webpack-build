@@ -114,9 +114,9 @@ if(false) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_less__ = __webpack_require__("1-duplicate!../style.less");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__style_less__);
-Object.defineProperty(exports, "__esModule", { value: true });
 
 class AppViewModel {
     constructor() {
@@ -143,7 +143,7 @@ module.exports = "<template>\r\n  <require from=\"customElements/hello-tag\"></r
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -5578,7 +5578,7 @@ function observable(targetOrConfig, key, descriptor) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process, module) {'use strict';
+/* WEBPACK VAR INJECTION */(function(process, module) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -5668,9 +5668,9 @@ function createLoader() {
 function initializePal(loader) {
   var type = void 0;
 
-  var isElectronRenderer = isNodeLike && process.type === 'renderer';
+  var isRenderer = isNodeLike && (process.type === 'renderer' || process.versions['node-webkit']);
 
-  if (isNodeLike && !isElectronRenderer) {
+  if (isNodeLike && !isRenderer) {
     type = 'nodejs';
   } else if (typeof window !== 'undefined') {
     type = 'browser';
@@ -5779,7 +5779,7 @@ undefined;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -6381,7 +6381,13 @@ var Container = exports.Container = function () {
         return this.autoRegister(key).get(this, key);
       }
 
-      return this.parent._get(key);
+      var _registration2 = _aureliaMetadata.metadata.get(_aureliaMetadata.metadata.registration, key);
+
+      if (_registration2 === undefined) {
+        return this.parent._get(key);
+      }
+
+      return _registration2.registerResolver(this, key, key).get(this, key);
     }
 
     return resolver.get(this, key);
@@ -6478,7 +6484,7 @@ var Container = exports.Container = function () {
 
 function autoinject(potentialTarget) {
   var deco = function deco(target) {
-    var previousInject = target.inject;
+    var previousInject = target.inject ? target.inject.slice() : null;
     var autoInject = _aureliaMetadata.metadata.getOwn(_aureliaMetadata.metadata.paramTypes, target) || _emptyParameters;
     if (!previousInject) {
       target.inject = autoInject;
@@ -6494,6 +6500,7 @@ function autoinject(potentialTarget) {
           previousInject[i] = autoInject[i];
         }
       }
+      target.inject = previousInject;
     }
   };
 
@@ -6534,7 +6541,7 @@ function inject() {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -6690,7 +6697,7 @@ function configure(config) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -7252,10 +7259,10 @@ var LogManager = exports.LogManager = TheLogManager;
 /***/ },
 
 /***/ "aurelia-history":
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -7305,7 +7312,7 @@ var History = exports.History = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -7621,7 +7628,7 @@ function createOrigin(protocol, hostname, port) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-"use strict";
+
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -7897,7 +7904,7 @@ exports.HmrContext = HmrContext;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-"use strict";
+
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -8015,7 +8022,7 @@ exports._createCSSResource = _createCSSResource;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-"use strict";
+
 var aurelia_templating_1 = __webpack_require__("aurelia-templating");
 function recreateView(viewFactory, oldViewContainer) {
     var parentContainer = oldViewContainer.parent || oldViewContainer;
@@ -8125,10 +8132,10 @@ exports.rerenderMatchingSlotChildren = rerenderMatchingSlotChildren;
 /***/ },
 
 /***/ "aurelia-hot-module-reload/view-model-traverse-controller":
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-"use strict";
+
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -8348,7 +8355,7 @@ exports.traverseViewSlot = traverseViewSlot;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-"use strict";
+
 var aurelia_templating_1 = __webpack_require__("aurelia-templating");
 var aurelia_hot_module_reload_1 = __webpack_require__("aurelia-hot-module-reload");
 function getViewSlots(view) {
@@ -8417,7 +8424,7 @@ exports.getElementsToRerender = getElementsToRerender;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -8564,7 +8571,7 @@ var Loader = exports.Loader = function () {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(module) {/// <reference path="webpack-module.d.ts" />
-"use strict";
+
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -8897,10 +8904,10 @@ aurelia_pal_1.PLATFORM.Loader = WebpackLoader;
 /***/ },
 
 /***/ "aurelia-logging":
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -9048,7 +9055,7 @@ var Logger = exports.Logger = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -9113,7 +9120,7 @@ var ConsoleAppender = exports.ConsoleAppender = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -9385,7 +9392,7 @@ protocol.create = function (name, options) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+/* WEBPACK VAR INJECTION */(function(global) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -9433,7 +9440,20 @@ var FEATURE = exports.FEATURE = {};
 
 var PLATFORM = exports.PLATFORM = {
   noop: function noop() {},
-  eachModule: function eachModule() {}
+  eachModule: function eachModule() {},
+  moduleName: function (_moduleName) {
+    function moduleName(_x) {
+      return _moduleName.apply(this, arguments);
+    }
+
+    moduleName.toString = function () {
+      return _moduleName.toString();
+    };
+
+    return moduleName;
+  }(function (moduleName) {
+    return moduleName;
+  })
 };
 
 PLATFORM.global = function () {
@@ -9480,7 +9500,7 @@ function reset() {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -9992,10 +10012,10 @@ function initialize() {
 /***/ },
 
 /***/ "aurelia-path":
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -10212,7 +10232,7 @@ function parseQueryString(queryString) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
@@ -11024,7 +11044,7 @@ if (typeof Reflect.ownKeys !== 'function') {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -11547,7 +11567,7 @@ function addSegment(currentState, segment) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -13365,7 +13385,7 @@ function restorePreviousLocation(router) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(setImmediate) {'use strict';
+/* WEBPACK VAR INJECTION */(function(setImmediate) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -13521,7 +13541,7 @@ var TaskQueue = exports.TaskQueue = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -18306,7 +18326,7 @@ var TemplatingEngine = exports.TemplatingEngine = (_dec11 = (0, _aureliaDependen
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -18953,7 +18973,7 @@ function configure(config) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -19075,10 +19095,10 @@ exports.viewsRequireLifecycle = _analyzeViewFactory.viewsRequireLifecycle;
 /***/ },
 
 /***/ "aurelia-templating-resources/abstract-repeater":
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -19146,10 +19166,10 @@ var AbstractRepeater = exports.AbstractRepeater = function () {
 /***/ },
 
 /***/ "aurelia-templating-resources/analyze-view-factory":
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -19211,7 +19231,7 @@ function viewsRequireLifecycle(viewFactory) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -19463,7 +19483,7 @@ var ArrayRepeatStrategy = exports.ArrayRepeatStrategy = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -19494,7 +19514,7 @@ var AttrBindingBehavior = exports.AttrBindingBehavior = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -19526,7 +19546,7 @@ function injectAureliaHideStyleAtBoundary(domBoundary) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -19574,7 +19594,7 @@ var TwoWayBindingBehavior = exports.TwoWayBindingBehavior = (_dec3 = (0, _aureli
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -19612,7 +19632,7 @@ var BindingSignaler = exports.BindingSignaler = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -19818,7 +19838,7 @@ function processInstruction(composer, instruction) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -19943,7 +19963,7 @@ function _createCSSResource(address) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -20012,7 +20032,7 @@ var DebounceBindingBehavior = exports.DebounceBindingBehavior = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -20050,7 +20070,7 @@ function _createDynamicElement(name, viewUrl, bindableNames) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -20139,7 +20159,7 @@ var Focus = exports.Focus = (_dec = (0, _aureliaTemplating.customAttribute)('foc
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -20192,7 +20212,7 @@ var Hide = exports.Hide = (_dec = (0, _aureliaTemplating.customAttribute)('hide'
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -20239,10 +20259,10 @@ function configure(config) {
 /***/ },
 
 /***/ "aurelia-templating-resources/html-sanitizer":
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -20270,7 +20290,7 @@ var HTMLSanitizer = exports.HTMLSanitizer = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -20395,7 +20415,7 @@ var If = exports.If = (_dec = (0, _aureliaTemplating.customAttribute)('if'), _de
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -20514,10 +20534,10 @@ var MapRepeatStrategy = exports.MapRepeatStrategy = function () {
 /***/ },
 
 /***/ "aurelia-templating-resources/null-repeat-strategy":
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-"use strict";
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -20545,7 +20565,7 @@ var NullRepeatStrategy = exports.NullRepeatStrategy = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -20617,7 +20637,7 @@ var NumberRepeatStrategy = exports.NumberRepeatStrategy = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -20931,7 +20951,7 @@ var Repeat = exports.Repeat = (_dec = (0, _aureliaTemplating.customAttribute)('r
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21000,7 +21020,7 @@ var RepeatStrategyLocator = exports.RepeatStrategyLocator = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21112,7 +21132,7 @@ function indexOf(array, item, matcher, startIndex) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21158,7 +21178,7 @@ var Replaceable = exports.Replaceable = (_dec = (0, _aureliaTemplating.customAtt
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21199,7 +21219,7 @@ var SanitizeHTMLValueConverter = exports.SanitizeHTMLValueConverter = (_dec = (0
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21309,7 +21329,7 @@ var SetRepeatStrategy = exports.SetRepeatStrategy = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21362,7 +21382,7 @@ var Show = exports.Show = (_dec = (0, _aureliaTemplating.customAttribute)('show'
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21433,7 +21453,7 @@ var SignalBindingBehavior = exports.SignalBindingBehavior = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21510,7 +21530,7 @@ var ThrottleBindingBehavior = exports.ThrottleBindingBehavior = function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21571,7 +21591,7 @@ var UpdateTriggerBindingBehavior = exports.UpdateTriggerBindingBehavior = (_temp
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21631,7 +21651,7 @@ var With = exports.With = (_dec = (0, _aureliaTemplating.customAttribute)('with'
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21663,7 +21683,7 @@ exports.configure = configure;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21746,7 +21766,7 @@ var RouteHref = exports.RouteHref = (_dec = (0, _aureliaTemplating.customAttribu
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -21814,7 +21834,7 @@ var TemplatingRouteLoader = exports.TemplatingRouteLoader = (_dec = (0, _aurelia
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-'use strict';
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -22151,10 +22171,10 @@ module.exports = function() {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__("tslib");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_framework___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_aurelia_framework__);
-Object.defineProperty(exports, "__esModule", { value: true });
 
 
 class HelloTagCustomElement {
@@ -22179,9 +22199,9 @@ module.exports = "<template>\r\n  <div class=\"tag-header\">\r\n    HELLO<br>\r\
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_bootstrapper__ = __webpack_require__("aurelia-bootstrapper");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_bootstrapper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_aurelia_bootstrapper__);
-Object.defineProperty(exports, "__esModule", { value: true });
 /* harmony export (immutable) */ exports["configure"] = configure;
 
 function configure(aurelia) {
