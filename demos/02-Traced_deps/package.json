@@ -10,7 +10,7 @@
     "ts-loader": "^1.2.2",
     "tslib": "^1.2.0",
     "typescript": "^2.1",
-    "webpack": "^2.1.0-beta.28",
+    "webpack": "^2.2.0-rc.1",
     "webpack-dependency-suite": "^1.5.0",
     "webpack-dev-server": "^2.1.0-beta.12"
   },

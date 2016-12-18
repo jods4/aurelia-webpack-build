@@ -1,7 +1,6 @@
 const IncludeDependency = require("./IncludeDependency");
 const minimatch = require("minimatch");
 const path = require("path");
-const fs = require("fs");
 
 module.exports = class ExtensionDependenciesPlugin {
   constructor(glob, extensions = [".html", ".htm"]) {
@@ -26,8 +25,11 @@ module.exports = class ExtensionDependenciesPlugin {
           const base = file.replace(/\.[^\\/.]*$/, "");
           for (let ext of extensions) {
             const probe = base + ext;
-            if (fs.existsSync(probe))
+            try {
+              compilation.inputFileSystem.statSync(probe);  // Check if file exists
               this.state.current.addDependency(new IncludeDependency(probe));
+            } 
+            catch (ex) { }
           }
         });
       });
