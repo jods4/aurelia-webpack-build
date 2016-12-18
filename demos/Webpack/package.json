@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "html-loader": "^0.4.4",
+    "minimatch": "^3.0.3",
+    "webpack": "^2.2.0-rc.1"
+  }
+}

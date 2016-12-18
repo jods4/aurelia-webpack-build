@@ -1,4 +1,5 @@
 const IncludeDependency = require('./IncludeDependency');
+const NullDependencyTemplate = require('webpack/lib/dependencies/NullDependencyTemplate');
 const minimatch = require("minimatch");
 const path = require("path");
 

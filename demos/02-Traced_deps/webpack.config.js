@@ -1,8 +1,8 @@
 const path = require('path');
-const AureliaDependenciesPlugin = require('./webpack/AureliaDependenciesPlugin');
-const ExtensionDependenciesPlugin = require('./webpack/ExtensionDependenciesPlugin');
-const HtmlDependenciesPlugin = require('./webpack/HtmlDependenciesPlugin');
-const GlobDependenciesPlugin = require('./webpack/GlobDependenciesPlugin');
+const AureliaDependenciesPlugin = require('../webpack/AureliaDependenciesPlugin');
+const ExtensionDependenciesPlugin = require('../webpack/ExtensionDependenciesPlugin');
+const HtmlDependenciesPlugin = require('../webpack/HtmlDependenciesPlugin');
+const GlobDependenciesPlugin = require('../webpack/GlobDependenciesPlugin');
 const { MappedModuleIdsPlugin } = require('webpack-dependency-suite');
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
     rules: [
       { test: /\.less$/i, use: ["style-loader", "css-loader", "less-loader"] },
       { test: /\.ts$/i, use: "ts-loader" },
-      { test: /\.html$/i, use: ["html-loader", "./webpack/html-requires-loader"] },
+      { test: /\.html$/i, use: ["html-loader", "../webpack/html-requires-loader"] },
       
       // TODO: when aurelia code is instrumented with PLATFORM.moduleName() this won't be necessary anymore
       // This rule ensures dynamic dependencies of aurelia are properly included

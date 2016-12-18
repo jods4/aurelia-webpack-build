@@ -4,7 +4,6 @@
     "html-loader": "^0.4.4",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
-    "minimatch": "^3.0.3",
     "style-loader": "^0.13.1",
     "ts-loader": "^1.2.2",
     "tslib": "^1.2.0",

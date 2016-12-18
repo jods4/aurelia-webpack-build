@@ -1,5 +1,5 @@
 const path = require('path');
-const GlobDependenciesPlugin = require('./GlobDependenciesPlugin');
+const GlobDependenciesPlugin = require('../Webpack/GlobDependenciesPlugin');
 const { MappedModuleIdsPlugin } = require('webpack-dependency-suite');
 
 module.exports = {
