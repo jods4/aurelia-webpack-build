@@ -1,7 +1,6 @@
 {
   "devDependencies": {
     "css-loader": "^0.26.1",
-    "glob": "^7.1.1",
     "html-loader": "^0.4.4",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
@@ -12,7 +11,7 @@
     "typescript": "^2.1",
     "webpack": "^2.2.0-rc.1",
     "webpack-dependency-suite": "^1.5.0",
-    "webpack-dev-server": "^2.1.0-beta.12"
+    "webpack-dev-server": "^2.2.0-rc.0"
   },
   "dependencies": {
     "aurelia-bootstrapper": "^2.0.0",

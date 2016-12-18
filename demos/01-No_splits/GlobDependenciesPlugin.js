@@ -1,11 +1,29 @@
 const ModuleDependency = require("webpack/lib/dependencies/ModuleDependency");
 const NullDependencyTemplate = require("webpack/lib/dependencies/NullDependencyTemplate");
-const glob = require("glob");
+const minimatch = require("minimatch");
+const path = require("path");
 
 class GlobDependency extends ModuleDependency {
   constructor(request) {
     super(request);    
   }  
+}
+
+function listAllFiles(root, fs) {
+  let results = [];
+  let subfolders = [root];
+  let folder;
+  while (folder = subfolders.pop()) {
+    for (let name of fs.readdirSync(folder)) {
+      let full = path.resolve(folder, name);
+      let stats = fs.statSync(full);
+      if (stats.isDirectory())
+        subfolders.push(full);
+      else if (stats.isFile())
+        results.push(path.relative(root, full));
+    }
+  }
+  return results;
 }
 
 module.exports = class GlobDependenciesPlugin {
@@ -34,12 +52,13 @@ module.exports = class GlobDependenciesPlugin {
   }
 
   apply(compiler) {
-    let hash = this.hash;
+    const hash = this.hash;
+    const root = path.resolve();
     
     compiler.plugin("compilation", function(compilation, data) {
 		  const normalModuleFactory = data.normalModuleFactory;
 		  compilation.dependencyFactories.set(GlobDependency, normalModuleFactory);
-      compilation.dependencyTemplates.set(GlobDependency, NullDependencyTemplate);      
+      compilation.dependencyTemplates.set(GlobDependency, NullDependencyTemplate);
 
       normalModuleFactory.plugin("parser", function (parser) {
 					parser.plugin("program", function () {
@@ -53,10 +72,13 @@ module.exports = class GlobDependenciesPlugin {
               normalize = name => patterns.reduce((prev, cur) => prev.replace(cur, ""), name);
             }
 
-            for (let pattern of include)
-              for (let file of glob.sync(pattern)) {
+            for (let file of listAllFiles(root, compilation.inputFileSystem)) 
+              for (let pattern of include) {
+                if (!minimatch(file, pattern)) continue;
+                file = file.replace(/\\/g, "/");
                 if (normalize) file = normalize(file);                
                 this.state.current.addDependency(new GlobDependency(file));
+                break;
               }
           });
 				});
