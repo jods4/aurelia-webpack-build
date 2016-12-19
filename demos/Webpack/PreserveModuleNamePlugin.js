@@ -49,8 +49,8 @@ function getPreservedModules(modules) {
   const result = new Set();
   for (let module of modules)
     for (let dep of module.dependencies)
-      if (dep.preserveName === true)
-        result.add(dep.module);
+      if (dep.preserveName === true && dep.module)  // dep.module == null is a missing module, which will be caught and reported by webpack later
+          result.add(dep.module);      
   // TODO: for now we preserve the name of all aurelia-* modules, 
   //       until proper PLATFORM.moduleName() support
   for (let module of modules)
