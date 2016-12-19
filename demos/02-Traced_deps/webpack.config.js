@@ -2,7 +2,6 @@ const path = require('path');
 const AureliaDependenciesPlugin = require('../webpack/AureliaDependenciesPlugin');
 const ExtensionDependenciesPlugin = require('../webpack/ExtensionDependenciesPlugin');
 const HtmlDependenciesPlugin = require('../webpack/HtmlDependenciesPlugin');
-const GlobDependenciesPlugin = require('../webpack/GlobDependenciesPlugin');
 const PreserveModuleNamePlugin = require('../webpack/PreserveModuleNamePlugin');
 
 module.exports = {
