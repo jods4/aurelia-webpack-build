@@ -5,6 +5,7 @@ class AureliaDependency extends ModuleDependency {
   constructor(request, range) {
     super(request);
     this.range = range;
+    this.preserveName = true;
   }
 }
 

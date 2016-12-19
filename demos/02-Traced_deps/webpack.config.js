@@ -3,7 +3,7 @@ const AureliaDependenciesPlugin = require('../webpack/AureliaDependenciesPlugin'
 const ExtensionDependenciesPlugin = require('../webpack/ExtensionDependenciesPlugin');
 const HtmlDependenciesPlugin = require('../webpack/HtmlDependenciesPlugin');
 const GlobDependenciesPlugin = require('../webpack/GlobDependenciesPlugin');
-const { MappedModuleIdsPlugin } = require('webpack-dependency-suite');
+const PreserveModuleNamePlugin = require('../webpack/PreserveModuleNamePlugin');
 
 module.exports = {
   entry: 'main',
@@ -50,37 +50,8 @@ module.exports = {
     // This plugin looks for companion files by swapping extensions,
     // e.g. the view of a ViewModel. @useView and co should use PLATFORM.moduleName().
     new ExtensionDependenciesPlugin('src/**/*.ts', '.html'),
-
-    // This preserves module names so that aurelia-loader can request them properly
-    // TODO: simplify!    
-    // TODO: LESS dependency results in a seemingly duplicated module (but not quite when looking in bundle.js)
-    //       Is that expected? If not, what is wrong?
-    new MappedModuleIdsPlugin({
-      appDir: path.resolve('src'),
-      prefixLoaders: [
-        {loader: 'less-loader', prefix: false},
-        {loader: 'css-loader', prefix: false},
-        {loader: 'style-loader', prefix: false},
-      ],
-      logWhenRawRequestDiffers: true,
-      dotSlashWhenRelativeToAppDir: false,
-      beforeLoadersTransform: (moduleId) => {
-        if (!moduleId.startsWith('aurelia-')) return moduleId
-        return moduleId
-          .replace('/dist/native-modules', '')
-          .replace('/dist/commonjs', '')
-      },
-
-      afterExtensionTrimmingTransform: (moduleId) => {
-        if (!moduleId.startsWith('aurelia-')) return moduleId
-        const split = moduleId.split('/')
-        if (split.length === 2 && split[0] === split[1]) {
-          // aurelia uses custom main path
-          return split[0]
-        }
-        return moduleId
-      }
-    }),
+    // This plugin preserves module names for dynamic loading by aurelia-loader
+    new PreserveModuleNamePlugin()
   ],
 
   performance: { hints: false },

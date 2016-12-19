@@ -3,8 +3,9 @@ const NullDependencyTemplate = require("webpack/lib/dependencies/NullDependencyT
 
 class IncludeDependency extends ModuleDependency {
   constructor(request) {
-    super(request);    
-  }  
+    super(request);
+    this.preserveName = true;
+  }
 }
 
 IncludeDependency.Template = NullDependencyTemplate;
