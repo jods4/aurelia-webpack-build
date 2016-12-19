@@ -1,0 +1,12 @@
+<template>
+  <require from="customElements/hello-tag"></require>
+
+  <h3>Hello page</h3>
+
+  <div>
+    What's your name? <br>
+    <input value.bind="name" />
+  </div>
+
+  <hello-tag name.bind="name | upper" if.bind="name"></hello-tag>  
+</template>
