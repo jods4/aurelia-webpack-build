@@ -1,7 +1,7 @@
 const path = require("path");
 
 // This plugins preserves the module names of IncludeDependency and 
-// AureliaDependency  so that they can be dynamically requested by 
+// AureliaDependency so that they can be dynamically requested by 
 // aurelia-loader.
 // All other dependencies are handled by webpack itself and don't
 // need special treatment.
@@ -26,7 +26,7 @@ module.exports = class PreserveModuleNamePlugin {
             module.id = appRelative.replace(/\\/g, "/");
           }
           // For PLATFORM.moduleName() dependencies in libraries, preserve their rawRequest if not relative, 
-          // other build the relative path from package name.
+          // otherwise build the relative path from package name.
           else {
             let name = module.rawRequest;
             if (name.startsWith('.')) {
