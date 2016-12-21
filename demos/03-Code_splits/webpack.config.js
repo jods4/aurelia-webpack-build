@@ -21,7 +21,7 @@ module.exports = {
 
   resolveLoader: {
     alias: {
-      'async': '../../webpack/async-loader.js',
+      'async': path.resolve(__dirname, '../webpack/async-loader.js'),
     }
   },
 
