@@ -10,12 +10,19 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: "dist",
-    filename: "bundle.js",    
+    filename: "[name].js",    
+    chunkFilename: "[name].js"
   },
 
   resolve: {
     extensions: [".ts", ".js"],
     modules: ["src", "node_modules"]
+  },
+
+  resolveLoader: {
+    alias: {
+      'async': '../../webpack/async-loader.js',
+    }
   },
 
   module: {

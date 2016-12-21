@@ -21,6 +21,8 @@ module.exports = class ExtensionDependenciesPlugin {
         parser.plugin("program", function () {
           const file = this.state.current.resource;
           if (!file) return;
+          // We don't want to bring in dependencies of the async! loader
+          if (/^async[!?]/.test(this.state.current.rawRequest)) return;
           if (!minimatch(path.relative(root, file), glob)) return;
           const base = file.replace(/\.[^\\/.]*$/, "");
           for (let ext of extensions) {

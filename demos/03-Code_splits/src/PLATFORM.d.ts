@@ -1,3 +1,3 @@
 declare namespace PLATFORM {
-  function moduleName(module: string): string;
+  function moduleName(module: string, chunk?: string): string;
 }

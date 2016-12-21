@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "bundle-loader": "^0.5.4",
     "css-loader": "^0.26.1",
     "html-loader": "^0.4.4",
     "less": "^2.7.1",

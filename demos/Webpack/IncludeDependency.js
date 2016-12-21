@@ -5,6 +5,7 @@ class IncludeDependency extends ModuleDependency {
   constructor(request) {
     super(request);
     this.preserveName = true;
+    this.moved = false;
   }
 }
 

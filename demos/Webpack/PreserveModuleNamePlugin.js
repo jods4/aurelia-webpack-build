@@ -1,5 +1,9 @@
 const path = require("path");
 
+// TODO:
+// module.libIdent({ context: this.options.context || compiler.options.context });
+// could be an alternative?
+
 // This plugins preserves the module names of IncludeDependency and 
 // AureliaDependency so that they can be dynamically requested by 
 // aurelia-loader.
@@ -23,6 +27,8 @@ module.exports = class PreserveModuleNamePlugin {
           if (!appRelative.startsWith("..")) {
             if (this.normalize)
               appRelative = appRelative.replace(this.normalize, "");
+            if (/^async[?!]/.test(module.rawRequest))
+              appRelative = 'async!' + appRelative;
             module.id = appRelative.replace(/\\/g, "/");
           }
           // For PLATFORM.moduleName() dependencies in libraries, preserve their rawRequest if not relative, 
@@ -47,10 +53,17 @@ module.exports = class PreserveModuleNamePlugin {
 
 function getPreservedModules(modules) {
   const result = new Set();
-  for (let module of modules)
-    for (let dep of module.dependencies)
+  for (let module of modules) {
+    for (let dep of module.dependencies) {
       if (dep.preserveName === true && dep.module)  // dep.module == null is a missing module, which will be caught and reported by webpack later
           result.add(dep.module);      
+    }
+    for (let block of module.blocks) 
+      for (let dep of block.dependencies) {
+        if (dep.preserveName === true && dep.module)
+          result.add(dep.module);
+      }
+  }
   // TODO: for now we preserve the name of all aurelia-* modules, 
   //       until proper PLATFORM.moduleName() support
   for (let module of modules)

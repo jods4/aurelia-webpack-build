@@ -11,22 +11,34 @@ class AureliaDependency extends ModuleDependency {
 
 class Template {
   apply(dep, source, outputOptions, requestShortener) {
-    source.replace(dep.range[0], dep.range[1] - 1, "'" + dep.request + "'");
+    source.replace(dep.range[0], dep.range[1] - 1, "'" + dep.request.replace(/^async(?:\?[^!]*)?!/, "") + "'");
   };
 }
 
 function callParser(expr) {
-  if (expr.arguments.length !== 1) return;
+  if (expr.arguments.length === 0) return;
   let param = this.evaluateExpression(expr.arguments[0]);
   if (!param.isString()) return;
-  let dep = new AureliaDependency(param.string, expr.range);
+  // Normal module dependency
+  // PLATFORM.moduleName('some-module')
+  if (expr.arguments.length === 1) {
+    let dep = new AureliaDependency(param.string, expr.range);
+    this.state.current.addDependency(dep);
+    return true;
+  }
+  if (expr.arguments.length > 2) return;
+  let param2 = this.evaluateExpression(expr.arguments[1]);
+  if (!param2.isString()) return;
+  // Async module dependency
+  // PLATFORM.moduleName('some-module', 'chunk name');
+  let dep = new AureliaDependency(`async?lazy&name=${param2.string}!${param.string}`, expr.range);
   this.state.current.addDependency(dep);
   return true;
 }
 
 module.exports = class AureliaDependenciesPlugin {
   constructor(...methods) {
-    if (methods.length === 0) methods = ['PLATFORM.moduleName'];
+    if (methods.length === 0) methods = ['PLATFORM.moduleName'];    
     let plugin = {};
     for (let method of methods) plugin["call " + method] = callParser;
     this.parserPlugin = AbstractPlugin.create(plugin);
