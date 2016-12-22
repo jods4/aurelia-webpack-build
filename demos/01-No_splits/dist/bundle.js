@@ -924,9 +924,6 @@ class AppViewModel {
     constructor() {
         this.name = '';
     }
-    get welcome() {
-        return this.name;
-    }
 }
 exports.AppViewModel = AppViewModel;
 

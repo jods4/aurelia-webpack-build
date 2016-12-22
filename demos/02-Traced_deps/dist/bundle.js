@@ -1031,9 +1031,6 @@ class AppViewModel {
     constructor() {
         this.name = '';
     }
-    get welcome() {
-        return this.name;
-    }
 }
 /* harmony export (immutable) */ exports["AppViewModel"] = AppViewModel;
 

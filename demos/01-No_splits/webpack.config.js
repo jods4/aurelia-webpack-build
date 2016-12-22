@@ -1,6 +1,5 @@
 const path = require('path');
-const GlobDependenciesPlugin = require('../Webpack/GlobDependenciesPlugin');
-const PreserveModuleNamePlugin = require('../webpack/PreserveModuleNamePlugin');
+const { GlobDependenciesPlugin, PreserveModuleNamePlugin } = require('../Webpack');
 
 module.exports = {
   entry: 'main',
@@ -14,7 +13,6 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
     modules: ['src', 'node_modules'],
-    plugins: [ ]
   },
 
   module: {
