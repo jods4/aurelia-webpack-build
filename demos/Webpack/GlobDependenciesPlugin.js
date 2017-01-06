@@ -1,5 +1,4 @@
-const IncludeDependency = require('./IncludeDependency');
-const NullDependencyTemplate = require('webpack/lib/dependencies/NullDependencyTemplate');
+const BaseIncludePlugin = require("./BaseIncludePlugin");
 const minimatch = require("minimatch");
 const path = require("path");
 
@@ -20,69 +19,63 @@ function listAllFiles(root, fs) {
   return results;
 }
 
-module.exports = class GlobDependenciesPlugin {
+module.exports = class GlobDependenciesPlugin extends BaseIncludePlugin {
   /**
-   * hash: { 
-   *   [string]: string | string[]
-   * }
-   * Each hash member is a module name, for which its globbed value(s) will be added as dependencies
+   * hash: { [string]: string | string[] }
+   * Each hash member is a module name, for which globbed value(s) will be added as dependencies
    **/
   constructor(hash) {
+    super();
     for (let module in hash) {
       let glob = hash[module];
       if (!Array.isArray(glob)) glob = [glob];
       hash[module] = glob;
     }    
     this.hash = hash;
+    this.root = path.resolve();
   }
 
   apply(compiler) {
-    const modules = Object.getOwnPropertyNames(this.hash);
-    if (modules.length === 0) return;
-    const root = path.resolve();
-    let hash = null;
+    const hashKeys = Object.getOwnPropertyNames(this.hash);
+    if (hashKeys.length === 0) return;
 
     compiler.plugin("before-compile", (params, cb) => {
       // Map the modules passed in ctor to actual resources (files) so that we can
       // recognize them no matter what the rawRequest was (loaders, relative paths, etc.)
-      hash = { };
-      const resolve = compiler.resolvers.normal.resolve.bind(compiler.resolvers.normal, null, root);      
-      let countdown = modules.length;
-      for (let module of modules) {
+      this.modules = { };
+      const resolve = compiler.resolvers.normal.resolve.bind(compiler.resolvers.normal, null, this.root);
+      let countdown = hashKeys.length;
+      for (let module of hashKeys) {
         resolve(module, (err, resource) => {
-          hash[resource] = this.hash[module];
+          this.modules[resource] = this.hash[module];
           if (--countdown === 0) cb();
         });
       }
     });
 
-    compiler.plugin("compilation", (compilation, data) => {
-      const resolveFolders = compilation.options.resolve.modules;
-      // `resolveFolders` can be absolute paths, but by definition this plugin only 
-      // looks for files in subfolders of the current `root` path.
-      const normalizers = resolveFolders.map(x => path.relative(root, x))
-                                        .filter(x => !x.startsWith(".."))
-                                        .map(x => new RegExp("^" + x + "/", "ig"));
-      
-		  const normalModuleFactory = data.normalModuleFactory;
-		  compilation.dependencyFactories.set(IncludeDependency, normalModuleFactory);
-      compilation.dependencyTemplates.set(IncludeDependency, NullDependencyTemplate);
+    super.apply(compiler);
+  }
 
-      normalModuleFactory.plugin("parser", parser => {
-					parser.plugin("program", () => {
-            const globs = hash[parser.state.module.resource];
-            if (!globs) return;
+  parser(compilation, parser, addDependency) {
+    const resolveFolders = compilation.options.resolve.modules;
+    // `resolveFolders` can be absolute paths, but by definition this plugin only 
+    // looks for files in subfolders of the current `root` path.
+    const normalizers = resolveFolders.map(x => path.relative(this.root, x))
+                                      .filter(x => !x.startsWith(".."))
+                                      .map(x => new RegExp("^" + x + "/", "ig"));
 
-            for (let file of listAllFiles(root, compilation.inputFileSystem)) 
-              for (let glob of globs) {
-                if (!minimatch(file, glob)) continue;
-                file = file.replace(/\\/g, "/");
-                normalizers.forEach(x => file = file.replace(x, ""));
-                parser.state.current.addDependency(new IncludeDependency(file));
-                break;
-              }
-          });
-				});
+    parser.plugin("program", () => {      
+      const globs = this.modules[parser.state.module.resource];
+      if (!globs) return;
+
+      for (let file of listAllFiles(this.root, compilation.inputFileSystem)) 
+        for (let glob of globs) {
+          if (!minimatch(file, glob)) continue;
+          file = file.replace(/\\/g, "/");
+          normalizers.forEach(x => file = file.replace(x, ""));
+          addDependency(file);
+          break;
+        }
     });
   }
 };
