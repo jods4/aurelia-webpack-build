@@ -38,9 +38,14 @@ function callParser(expr) {
 
 module.exports = class AureliaDependenciesPlugin {
   constructor(...methods) {
-    if (methods.length === 0) methods = ['PLATFORM.moduleName'];    
+    // Always include PLATFORM.moduleName as it's what used in libs.
+    if (!methods.includes("PLATFORM.moduleName"))
+      methods.push("PLATFORM.moduleName");
+    
     let plugin = {};
-    for (let method of methods) plugin["call " + method] = callParser;
+    for (let method of methods) 
+      plugin["call " + method] = callParser;
+    
     this.parserPlugin = AbstractPlugin.create(plugin);
   }
 
@@ -52,7 +57,7 @@ module.exports = class AureliaDependenciesPlugin {
       compilation.dependencyTemplates.set(AureliaDependency, new Template());
 
       normalModuleFactory.plugin("parser", (parser, parserOptions) => {
-        parser.apply(new this.parserPlugin());        
+        parser.apply(new this.parserPlugin());
       });
     });
   }
