@@ -1,50 +1,32 @@
 const path = require("path");
 
-// TODO:
-// module.libIdent({ context: this.options.context || compiler.options.context });
-// could be an alternative?
-
 // This plugins preserves the module names of IncludeDependency and 
 // AureliaDependency so that they can be dynamically requested by 
 // aurelia-loader.
 // All other dependencies are handled by webpack itself and don't
 // need special treatment.
-// Dependencies that are marked with PLATFORM.moduleName() or 
-// that are view conventions (extension swaps) or that simply are
-// globbed (for convenience) are processed with a predictable name.
 module.exports = class PreserveModuleNamePlugin {
-  constructor(appRoot = "src", normalize = /\.[tj]s$/) {
-    this.appRoot = path.resolve(appRoot);
-    this.normalize = normalize;
-  }
-
   apply(compiler) {
     compiler.plugin("compilation", compilation => {
       compilation.plugin("before-module-ids", modules => {
+        let { modules: roots, extensions } = compilation.options.resolve;
+        roots = roots.map(x => path.resolve(x));
+        const normalizers = extensions.map(x => new RegExp(x.replace(/\./g, "\\.") + "$", "i"));
+
         for (module of getPreservedModules(modules)) {
-          let appRelative = path.relative(this.appRoot, module.resource);          
-          // For project dependencies, their name is based on the app-relative path.
-          if (!appRelative.startsWith("..")) {
-            if (this.normalize)
-              appRelative = appRelative.replace(this.normalize, "");
-            if (/^async[?!]/.test(module.rawRequest))
-              appRelative = 'async!' + appRelative;
-            module.id = appRelative.replace(/\\/g, "/");
-          }
-          // For PLATFORM.moduleName() dependencies in libraries, preserve their rawRequest if not relative, 
-          // otherwise build the relative path from package name.
-          else {
-            let name = module.rawRequest;
-            if (name.startsWith('.')) {
-              name = path.join(module.context, name);
-              const packageRoot = module.context.substr(0, module.context.lastIndexOf('node_modules') + 'node_modules'.length);
-              name = path.relative(packageRoot, name).replace(/\\/g, "/");
-              // TODO: this is a hack, I need to find a better solution
-              name = name.replace(/dist\/[^/]*\//, "");
-            }
-            module.id = name;
-          }
-          // TODO: code splits require a second dependency with an added async! loader in their name.
+          let relative = fixNodeModule(module, modules) || 
+                         makeModuleRelative(roots, module.resource);
+          
+          if (!relative) continue;  // An absolute resource that is not in any module folder? Ignore.
+          
+          // Remove default extensions 
+          normalizers.forEach(n => relative = relative.replace(n, ""));
+          
+          // Keep "async!" in front of code splits proxies, they are used by aurelia-loader
+          if (/^async[?!]/.test(module.rawRequest)) 
+            relative = "async!" + relative;
+                  
+          module.id = relative.replace(/\\/g, "/");
         }
       })
     });
@@ -70,4 +52,30 @@ function getPreservedModules(modules) {
     if (/node_modules[\\/]aurelia-.*?[\\/]/i.test(module.resource))
       result.add(module);
   return result;
+}
+
+function makeModuleRelative(roots, resource) {
+  for (let root of roots) {
+    let relative = path.relative(root, resource);
+    if (!relative.startsWith('..')) return relative;
+  }
+  return null;
+}
+
+function fixNodeModule(module, allModules) {
+  if (!/\bnode_modules\b/i.test(module.resource)) return null;
+  // The problem with node_modules is that often the root of the module is not /node_modules/my-lib
+  // Webpack is going to look for `main` in `project.json` to find where the main file actually is.
+  // And this can of course be configured differently with `resolve.alias`, `resolve.mainFields` & co.
+  
+  // Our best hope is that the file was not required as a relative path, then we can just preserve that.
+  if (!module.rawRequest.startsWith(".")) return module.rawRequest;
+
+  // Otherwise we need to build the relative path from the module root, which as explained above is hard to find.
+  // Ideally we could use webpack resolvers, but they are currently async-only, which can't be used in before-modules-id
+  // See https://github.com/webpack/webpack/issues/1634
+  // Instead, we'll look for the root library module, because it should have been requested somehow and work from there.
+  let name = /\bnode_modules[\\/]([^\\/]*)/i.exec(module.resource)[1];
+  let entry = allModules.find(m => m.rawRequest === name);
+  return name + "/" + path.relative(path.dirname(entry.resource), module.resource);
 }
