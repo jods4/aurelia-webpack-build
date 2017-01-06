@@ -1,8 +1,8 @@
-const path = require('path');
-const { GlobDependenciesPlugin, PreserveModuleNamePlugin } = require('../Webpack');
+const path = require("path");
+const { AureliaPlugin } = require("../Webpack");
 
 module.exports = {
-  entry: 'main',
+  entry: "main",
 
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -11,15 +11,15 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.ts', '.js'],
-    modules: ['src', 'node_modules']
+    extensions: [".ts", ".js"],
+    modules: ["src", "node_modules"]
   },
 
   module: {
     rules: [
       { test: /\.less$/i, use: ["style-loader", "css-loader", "less-loader"] },
       { test: /\.ts$/i, use: "ts-loader" },
-      { test: /\.html$/i, use: 'html-loader' },
+      { test: /\.html$/i, use: "html-loader" },
       
       // TODO: replace with PLATFORM.moduleName() plugin
       // This rule ensures dynamic dependencies of aurelia are properly included
@@ -39,12 +39,7 @@ module.exports = {
   },  
 
   plugins: [
-    // This plugin ensures that everything in /src is included in the bundle.
-    // This prevents splitting in several chunks but is super easy to use and setup,
-    // no change in existing code or PLATFORM.nameModule() calls are required.
-    new GlobDependenciesPlugin({ main: "src/**/*.*" }),
-    // This plugin preserves module names for dynamic loading by aurelia-loader
-    new PreserveModuleNamePlugin()
+    new AureliaPlugin({ includeAll: "src" }),
   ],
 
   performance: { hints: false },
