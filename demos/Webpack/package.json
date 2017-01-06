@@ -1,10 +1,11 @@
 {
+  "license": "MIT",
   "main": "./index.js",
   
   "dependencies": {
     "bundle-loader": "^0.5.4",
     "html-loader": "^0.4.4",
     "minimatch": "^3.0.3",
-    "webpack": "^2.2.0-rc.1"
+    "webpack": "^2.2.0-rc.3"
   }
 }

@@ -1,20 +1,21 @@
 {
+  "license": "MIT",
   "devDependencies": {
     "bundle-loader": "^0.5.4",
     "css-loader": "^0.26.1",
     "html-loader": "^0.4.4",
-    "less": "^2.7.1",
+    "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
     "ts-loader": "^1.2.2",
-    "tslib": "^1.2.0",
+    "tslib": "^1.5.0",
     "typescript": "^2.1",
-    "webpack": "^2.2.0-rc.1",
+    "webpack": "^2.2.0-rc.3",
     "webpack-dependency-suite": "^1.5.0",
     "webpack-dev-server": "^2.2.0-rc.0"
   },
   "dependencies": {
-    "aurelia-bootstrapper": "^2.0.0",
+    "aurelia-bootstrapper": "^2.0.1",
     "aurelia-loader-webpack": "^2.0.0"
   },
   "scripts": {
