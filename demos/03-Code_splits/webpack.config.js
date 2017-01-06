@@ -1,5 +1,5 @@
 const path = require("path");
-const { AureliaDependenciesPlugin, ExtensionDependenciesPlugin, HtmlDependenciesPlugin, PreserveModuleNamePlugin } = require("../webpack");
+const { AureliaDependenciesPlugin, ConventionDependenciesPlugin, HtmlDependenciesPlugin, PreserveModuleNamePlugin } = require("../webpack");
 
 module.exports = {
   entry: "main",
@@ -51,8 +51,8 @@ module.exports = {
     // This plugin adds dependencies traced by html-requires-loader
     new HtmlDependenciesPlugin(),
     // This plugin looks for companion files by swapping extensions,
-    // e.g. the view of a ViewModel. @useView and co should use PLATFORM.moduleName().
-    new ExtensionDependenciesPlugin("src/**/*.ts", ".html"),
+    // e.g. the view of a ViewModel. @useView and co. should use PLATFORM.moduleName().
+    new ConventionDependenciesPlugin("src/**/*.ts", ".html"),
     // This plugin preserves module names for dynamic loading by aurelia-loader
     new PreserveModuleNamePlugin()
   ],

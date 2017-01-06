@@ -1,6 +1,6 @@
 module.exports = {
     AureliaDependenciesPlugin: require('./AureliaDependenciesPlugin'),
-    ExtensionDependenciesPlugin: require('./ExtensionDependenciesPlugin'),
+    ConventionDependenciesPlugin: require('./ConventionDependenciesPlugin'),
     GlobDependenciesPlugin: require('./GlobDependenciesPlugin'),
     HtmlDependenciesPlugin: require('./HtmlDependenciesPlugin'),
     PreserveModuleNamePlugin: require('./PreserveModuleNamePlugin'),
