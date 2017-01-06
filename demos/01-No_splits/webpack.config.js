@@ -13,8 +13,7 @@ module.exports = {
 
   resolve: {
     extensions: ['.ts', '.js'],
-    modules: ['src', 'node_modules'],
-    plugins: [ ]
+    modules: ['src', 'node_modules']
   },
 
   module: {
@@ -44,7 +43,7 @@ module.exports = {
     // This plugin ensures that everything in /src is included in the bundle.
     // This prevents splitting in several chunks but is super easy to use and setup,
     // no change in existing code or PLATFORM.nameModule() calls are required.
-    new GlobDependenciesPlugin('main', 'src'),
+    new GlobDependenciesPlugin({ main: "src/**/*.*" }),
     // This plugin preserves module names for dynamic loading by aurelia-loader
     new PreserveModuleNamePlugin()
   ],
