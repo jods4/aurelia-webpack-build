@@ -1,15 +1,20 @@
-const parse = require('html-loader/lib/attributesParser');
+const parse = require("html-loader/lib/attributesParser");
 
-const htmlSymbol = loader.htmlSymbol = Symbol('HTML dependencies');
+const htmlSymbol = loader.htmlSymbol = Symbol("HTML dependencies");
+
+loader.attributes = {
+  "require": [ "from" ],
+  "compose": [ "view", "view-model" ],
+};
 
 function loader(content) {
-  this.cacheable && this.cacheable();  
+  this.cacheable && this.cacheable();
   this._module[htmlSymbol] = 
-    parse(content, (tag, attr) => 
-      tag === 'require' && attr === 'from' ||
-      attr === 'view' ||
-      attr === 'view-model')
-    .map(r => r.value);
+    parse(content, (tag, attr) => {
+      const attrs = loader.attributes[tag];
+      return attrs && attrs.includes(attr);
+    })
+    .map(attr => attr.value);
   return content;
 }
 
