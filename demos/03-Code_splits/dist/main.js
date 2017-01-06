@@ -88,12 +88,14 @@
 /******/ 				installedChunks[chunkId] = undefined;
 /******/ 			}
 /******/ 		};
-/******/ 		head.appendChild(script);
 
 /******/ 		var promise = new Promise(function(resolve, reject) {
 /******/ 			installedChunks[chunkId] = [resolve, reject];
 /******/ 		});
-/******/ 		return installedChunks[chunkId][2] = promise;
+/******/ 		installedChunks[chunkId][2] = promise;
+
+/******/ 		head.appendChild(script);
+/******/ 		return promise;
 /******/ 	};
 
 /******/ 	// expose the modules object (__webpack_modules__)
@@ -1020,7 +1022,7 @@ module.exports = "<template>\r\n  <h2>Aurelia + Webpack</h2>\r\n  <nav>\r\n    N
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports = function(cb) {
-	__webpack_require__.e/* nsure */(1).then((function(require) {
+	__webpack_require__.e/* require.ensure */(1).then((function(require) {
 		cb(__webpack_require__(9));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
@@ -1031,7 +1033,7 @@ module.exports = function(cb) {
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports = function(cb) {
-	__webpack_require__.e/* nsure */(0).then((function(require) {
+	__webpack_require__.e/* require.ensure */(0).then((function(require) {
 		cb(__webpack_require__(10));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
