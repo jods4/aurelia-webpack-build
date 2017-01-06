@@ -1,15 +1,12 @@
 const path = require('path');
-const AureliaDependenciesPlugin = require('../webpack/AureliaDependenciesPlugin');
-const ExtensionDependenciesPlugin = require('../webpack/ExtensionDependenciesPlugin');
-const HtmlDependenciesPlugin = require('../webpack/HtmlDependenciesPlugin');
-const PreserveModuleNamePlugin = require('../webpack/PreserveModuleNamePlugin');
+const { AureliaDependenciesPlugin, ExtensionDependenciesPlugin, HtmlDependenciesPlugin, PreserveModuleNamePlugin } = require('../webpack');
 
 module.exports = {
   entry: 'main',
 
   output: {
-    path: __dirname,
-    publicPath: '/',
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "dist",
     filename: "bundle.js",    
   },
 

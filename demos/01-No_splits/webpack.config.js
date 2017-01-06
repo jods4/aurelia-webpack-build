@@ -1,13 +1,12 @@
 const path = require('path');
-const GlobDependenciesPlugin = require('../Webpack/GlobDependenciesPlugin');
-const PreserveModuleNamePlugin = require('../webpack/PreserveModuleNamePlugin');
+const { GlobDependenciesPlugin, PreserveModuleNamePlugin } = require('../Webpack');
 
 module.exports = {
   entry: 'main',
 
   output: {
-    path: __dirname,
-    publicPath: '/',
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "dist",
     filename: "bundle.js",    
   },
 

@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "dist";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = "main");
@@ -1030,9 +1030,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class AppViewModel {
     constructor() {
         this.name = '';
-    }
-    get welcome() {
-        return this.name;
     }
 }
 /* harmony export (immutable) */ exports["AppViewModel"] = AppViewModel;
