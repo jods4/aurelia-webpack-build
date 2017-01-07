@@ -21,6 +21,10 @@ module.exports = class AureliaPlugin {
     if (opts.includeAll) {
       // Grab everything approach
       let entry = compiler.options.entry;
+      // Fix: ideally we would require `entry` to be a string
+      //      but in practice, using webpack-dev-server might shift one (or two --hot) extra entries.
+      if (Array.isArray(entry))
+        entry = entry[entry.length - 1];
       if (typeof entry !== "string")
         throw new Error("includeAll option only works with a single entry point.")
       compiler.apply(
