@@ -27,7 +27,7 @@ module.exports = class AureliaPlugin {
         // This plugin ensures that everything in /src is included in the bundle.
         // This prevents splitting in several chunks but is super easy to use and setup,
         // no change in existing code or PLATFORM.nameModule() calls are required.
-        new GlobDependenciesPlugin({ [entry]: opts.includeAll + "/**/*.*" })
+        new GlobDependenciesPlugin({ [entry]: opts.includeAll + "/**" })
       );
     }
 

@@ -1,22 +1,31 @@
 const BaseIncludePlugin = require("./BaseIncludePlugin");
-const minimatch = require("minimatch");
+const Minimatch = require("minimatch").Minimatch;
 const path = require("path");
 
-function listAllFiles(root, fs) {
-  let results = [];
-  let subfolders = [root];
-  let folder;
-  while (folder = subfolders.pop()) {
-    for (let name of fs.readdirSync(folder)) {
-      let full = path.resolve(folder, name);
-      let stats = fs.statSync(full);
-      if (stats.isDirectory())
-        subfolders.push(full);
-      else if (stats.isFile())
-        results.push(path.relative(root, full));
+function* findFiles(root, glob, fs) {
+  // An easiest, naive approach consist of listing all files and then pass them through minimatch.
+  // This is a bad idea as `root` typically includes node_modules, which can contain *lots* of files.
+  // So we have to test partial paths to prune them early on.
+  const m = new Minimatch(glob);  
+  const queue = [''];
+  while (true) {
+    let folder = queue.pop();
+    if (folder === undefined) return;
+    let full = path.resolve(root, folder);
+    for (let name of fs.readdirSync(full)) {
+      let stats = fs.statSync(path.resolve(full, name));
+      if (stats.isDirectory()) {       
+        let subfolder = path.join(folder, name);
+        if (m.match(subfolder, /*partial:*/ true))
+          queue.push(subfolder);
+      }
+      else if (stats.isFile()) {
+        let file = path.join(folder, name);
+        if (m.match(file))
+          yield file;
+      }
     }
   }
-  return results;
 }
 
 module.exports = class GlobDependenciesPlugin extends BaseIncludePlugin {
@@ -68,13 +77,11 @@ module.exports = class GlobDependenciesPlugin extends BaseIncludePlugin {
       const globs = this.modules[parser.state.module.resource];
       if (!globs) return;
 
-      for (let file of listAllFiles(this.root, compilation.inputFileSystem)) 
-        for (let glob of globs) {
-          if (!minimatch(file, glob)) continue;
+      for (let glob of globs) 
+        for (let file of findFiles(this.root, glob, compilation.inputFileSystem)) {
           file = file.replace(/\\/g, "/");
           normalizers.forEach(x => file = file.replace(x, ""));
           addDependency(file);
-          break;
         }
     });
   }
