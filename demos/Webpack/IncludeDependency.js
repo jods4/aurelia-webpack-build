@@ -1,5 +1,5 @@
 const ModuleDependency = require("webpack/lib/dependencies/ModuleDependency");
-const NullDependencyTemplate = require("webpack/lib/dependencies/NullDependencyTemplate");
+const { Template: NullDependencyTemplate } = require("webpack/lib/dependencies/NullDependency");
 
 class IncludeDependency extends ModuleDependency {
   constructor(request) {

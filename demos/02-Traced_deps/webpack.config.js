@@ -41,6 +41,4 @@ module.exports = {
   plugins: [
     new AureliaPlugin(),
   ],
-
-  performance: { hints: false },
 };
