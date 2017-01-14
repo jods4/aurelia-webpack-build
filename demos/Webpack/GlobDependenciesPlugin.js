@@ -37,8 +37,8 @@ module.exports = class GlobDependenciesPlugin extends BaseIncludePlugin {
     super();
     for (let module in hash) {
       let glob = hash[module];
-      if (!Array.isArray(glob)) glob = [glob];
-      hash[module] = glob;
+      if (!Array.isArray(glob))
+        hash[module] = [glob];
     }    
     this.hash = hash;
     this.root = path.resolve();

@@ -4,5 +4,6 @@ module.exports = {
     ConventionDependenciesPlugin: require('./ConventionDependenciesPlugin'),
     GlobDependenciesPlugin: require('./GlobDependenciesPlugin'),
     HtmlDependenciesPlugin: require('./HtmlDependenciesPlugin'),
+    ModuleDependenciesPlugin: require('./ModuleDependenciesPlugin'),
     PreserveModuleNamePlugin: require('./PreserveModuleNamePlugin'),
 };

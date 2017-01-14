@@ -1,8 +1,8 @@
 const path = require("path");
-const { AureliaPlugin } = require("../webpack");
+const { AureliaPlugin, ModuleDependenciesPlugin } = require("../webpack");
 
 module.exports = {
-  entry: "main",
+  entry: { main: "aurelia-bootstrapper" },
 
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -47,5 +47,8 @@ module.exports = {
 
   plugins: [
     new AureliaPlugin(),
+    new ModuleDependenciesPlugin({ 
+      "aurelia-bootstrapper": "main" 
+    }),
   ],
 };

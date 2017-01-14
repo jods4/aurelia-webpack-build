@@ -23,6 +23,8 @@ module.exports = class AureliaPlugin {
       let entry = compiler.options.entry;
       // Fix: ideally we would require `entry` to be a string
       //      but in practice, using webpack-dev-server might shift one (or two --hot) extra entries.
+      if (typeof entry === "object")
+        entry = entry[Object.getOwnPropertyNames(entry)[0]];
       if (Array.isArray(entry))
         entry = entry[entry.length - 1];
       if (typeof entry !== "string")

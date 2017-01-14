@@ -1,8 +1,4 @@
-import 'aurelia-bootstrapper';
 import { Aurelia } from 'aurelia-framework';
-
-// HACK: this string is in my starting index.html file :(
-PLATFORM.moduleName('main');
 
 export function configure(aurelia: Aurelia) {
   aurelia.use
