@@ -2,12 +2,15 @@ const AureliaDependenciesPlugin = require("./AureliaDependenciesPlugin");
 const ConventionDependenciesPlugin = require("./ConventionDependenciesPlugin");
 const GlobDependenciesPlugin = require("./GlobDependenciesPlugin");
 const HtmlDependenciesPlugin = require("./HtmlDependenciesPlugin");
+const ModuleDependenciesPlugin = require("./ModuleDependenciesPlugin");
 const PreserveModuleNamePlugin = require("./PreserveModuleNamePlugin");
 
 module.exports = class AureliaPlugin {
   constructor(options = {}) {
     this.options = Object.assign({
       includeAll: undefined,  // or folder, e.g. "src"
+
+      aureliaApp: "main",
       moduleMethods: [],
       viewsFor: "src/**/*.{ts,js}",
       viewsExtensions: ".html",
@@ -35,6 +38,8 @@ module.exports = class AureliaPlugin {
         // no change in existing code or PLATFORM.nameModule() calls are required.
         new GlobDependenciesPlugin({ [entry]: opts.includeAll + "/**" })
       );
+      // We don't use aureliaApp as we assume it's included in the folder above
+      opts.aureliaApp = undefined;
     }
 
     else {
@@ -51,6 +56,10 @@ module.exports = class AureliaPlugin {
 
     // Common plugins
     compiler.apply(
+      // Adds some dependencies that are not documented by `PLATFORM.moduleName`
+      new ModuleDependenciesPlugin({
+        "aurelia-bootstrapper": opts.aureliaApp
+      }),
       // This plugin traces dependencies in code that are wrapped in PLATFORM.moduleName() calls
       new AureliaDependenciesPlugin(...opts.moduleMethods),
       // This plugin preserves module names for dynamic loading by aurelia-loader

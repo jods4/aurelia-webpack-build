@@ -11,7 +11,11 @@ module.exports = class ModuleDependenciesPlugin extends BaseIncludePlugin {
     for (let module in hash) {
       let deps = hash[module];
       if (!Array.isArray(deps)) 
-        hash[module] = [deps];
+        deps = [deps];
+      if (!deps.some(x => !!x))
+        delete hash[module];
+      else
+        hash[module] = deps;
     }
     this.hash = hash;
     this.root = path.resolve();

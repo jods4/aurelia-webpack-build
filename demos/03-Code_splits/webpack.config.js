@@ -47,8 +47,5 @@ module.exports = {
 
   plugins: [
     new AureliaPlugin(),
-    new ModuleDependenciesPlugin({ 
-      "aurelia-bootstrapper": "main" 
-    }),
   ],
 };
