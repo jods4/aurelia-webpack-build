@@ -1,5 +1,5 @@
 const path = require("path");
-const { AureliaPlugin } = require("../Webpack");
+const { AureliaPlugin, ModuleDependenciesPlugin } = require("../Webpack");
 
 module.exports = {
   entry: "main",
@@ -12,7 +12,8 @@ module.exports = {
 
   resolve: {
     extensions: [".ts", ".js"],
-    modules: ["src", "node_modules"]
+    modules: ["src", "node_modules"].map(x => path.resolve(x)),
+    symlinks: false,
   },
 
   module: {
@@ -20,25 +21,25 @@ module.exports = {
       { test: /\.less$/i, use: ["style-loader", "css-loader", "less-loader"] },
       { test: /\.ts$/i, use: "ts-loader" },
       { test: /\.html$/i, use: "html-loader" },
-      
-      // TODO: replace with PLATFORM.moduleName() plugin
-      // This rule ensures dynamic dependencies of aurelia are properly included
-      {
-        test: /\.[tj]s$/i,
-        include: /node_modules[\\/]aurelia-(?!templating-resources|templating-router)/i,
-        use: {
-          loader: 'webpack-dependency-suite/loaders/list-based-require-loader',
-          options: { 
-            packagePropertyPath: 'aurelia.build.resources',
-            enableGlobbing: true,
-            rootDir: path.resolve(),
-          }
-        }
-      }
     ]
   },  
 
   plugins: [
     new AureliaPlugin({ includeAll: "src" }),
+    new ModuleDependenciesPlugin({
+      "aurelia-bootstrapper": [ 
+        // "aurelia-loader-webpack",    // detected by webpack itself
+        "aurelia-pal-browser", 
+        "aurelia-framework", 
+      ],
+      "aurelia-framework": [
+        "aurelia-history-browser",
+        "aurelia-logging-console", 
+        "aurelia-templating-binding",
+        "aurelia-templating-resources",
+        "aurelia-templating-router",
+        "aurelia-event-aggregator",
+      ],
+    }),
   ],
 };

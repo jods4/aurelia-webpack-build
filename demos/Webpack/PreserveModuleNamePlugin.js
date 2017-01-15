@@ -46,11 +46,6 @@ function getPreservedModules(modules) {
           result.add(dep.module);
       }
   }
-  // TODO: for now we preserve the name of all aurelia-* modules, 
-  //       until proper PLATFORM.moduleName() support
-  for (let module of modules)
-    if (/node_modules[\\/]aurelia-.*?[\\/]/i.test(module.resource))
-      result.add(module);
   return result;
 }
 
@@ -75,7 +70,9 @@ function fixNodeModule(module, allModules) {
   // Ideally we could use webpack resolvers, but they are currently async-only, which can't be used in before-modules-id
   // See https://github.com/webpack/webpack/issues/1634
   // Instead, we'll look for the root library module, because it should have been requested somehow and work from there.
-  let name = /\bnode_modules[\\/]([^\\/]*)/i.exec(module.resource)[1];
+  // Note that the negative lookahead (?!.*node_modules) ensures that we only match the last node_modules/ folder in the path,
+  // in case the package was located in a sub-node_modules (which can occur in special circumstances).
+  let name = /\bnode_modules[\\/](?!.*\bnode_modules\b)([^\\/]*)/i.exec(module.resource)[1];
   let entry = allModules.find(m => m.rawRequest === name);
   return name + "/" + path.relative(path.dirname(entry.resource), module.resource);
 }

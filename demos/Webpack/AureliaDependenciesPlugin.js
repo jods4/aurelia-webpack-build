@@ -1,4 +1,5 @@
 const ModuleDependency = require("webpack/lib/dependencies/ModuleDependency");
+const BasicEvaluatedExpression = require("webpack/lib/BasicEvaluatedExpression");
 
 class AureliaDependency extends ModuleDependency {  
   constructor(request, range) {
@@ -20,6 +21,21 @@ class ParserPlugin {
   }
 
   apply(parser) {
+    // evaluate xxx.PLATFORM.moduleName() to "PLATFORM.moduleName" Identifier
+    // This is hacky, but transpiled ES6 code looks like this.
+    // For instance: 
+    //    import { PLATFORM } from "aurelia-pal";
+    //    PLATFORM.moduleName("frob");
+    // Becomes when using commonjs modules:
+    //    var _aureliaPal = require("aurelia-pal");
+    //    _aureliaPal.PLATFORM.moduleName("frob");
+    parser.plugin("evaluate MemberExpression", expr => {
+      if (expr.property.name === "moduleName" &&
+          expr.object.property.name === "PLATFORM" &&
+          expr.object.object.type === "Identifier")
+        return new BasicEvaluatedExpression().setIdentifier("PLATFORM.moduleName").setRange(expr.range);
+    });
+
     for (let method of this.methods) {
       parser.plugin("call " + method, expr => {
         if (expr.arguments.length === 0) return;
