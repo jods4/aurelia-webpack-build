@@ -3,8 +3,8 @@ const path = require("path");
 
 module.exports = class ModuleDependenciesPlugin extends BaseIncludePlugin {
   /**
-   * hash: { [string]: string | string[] }
-   * Each hash member is a module name, for which additional module names are added as dependencies.
+   * hash: { [string]: string | Object | (string|Object)[] }
+   * Each hash member is a module name, for which additional module names (or options) are added as dependencies.
    */
   constructor(hash) {
     super();

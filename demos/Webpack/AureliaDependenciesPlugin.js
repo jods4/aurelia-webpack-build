@@ -1,11 +1,10 @@
-const ModuleDependency = require("webpack/lib/dependencies/ModuleDependency");
+const IncludeDependency = require("./IncludeDependency");
 const BasicEvaluatedExpression = require("webpack/lib/BasicEvaluatedExpression");
 
-class AureliaDependency extends ModuleDependency {  
-  constructor(request, range) {
-    super(request);
+class AureliaDependency extends IncludeDependency {  
+  constructor(request, range, options) {
+    super(request, options);
     this.range = range;
-    this.preserveName = true;
   }
 }
 
@@ -21,41 +20,84 @@ class ParserPlugin {
   }
 
   apply(parser) {
-    // evaluate xxx.PLATFORM.moduleName() to "PLATFORM.moduleName" Identifier
-    // This is hacky, but transpiled ES6 code looks like this.
-    // For instance: 
+
+    function addDependency(module, range, options) {
+      let dep = new AureliaDependency(module, range, options);
+      parser.state.current.addDependency(dep);
+      return true;
+    }
+
+    // The parser will only apply "call PLATFORM.moduleName" on free variables.
+    // So we must first trick it into thinking PLATFORM.moduleName is an unbound identifier
+    // in the various situations where it is not.
+
+    // This covers native ES module, for example:
     //    import { PLATFORM } from "aurelia-pal";
-    //    PLATFORM.moduleName("frob");
-    // Becomes when using commonjs modules:
-    //    var _aureliaPal = require("aurelia-pal");
-    //    _aureliaPal.PLATFORM.moduleName("frob");
+    //    PLATFORM.moduleName("id");
+    parser.plugin("evaluate Identifier imported var.moduleName", expr => {
+      if (expr.property.name === "moduleName" &&
+          expr.object.name === "PLATFORM" &&
+          expr.object.type === "Identifier") {
+        return new BasicEvaluatedExpression().setIdentifier("PLATFORM.moduleName").setRange(expr.range);
+      }
+    });
+
+    // This covers commonjs modules, for example:
+    //    const _aureliaPal = require("aurelia-pal");
+    //    _aureliaPal.PLATFORM.moduleName("id");    
     parser.plugin("evaluate MemberExpression", expr => {
       if (expr.property.name === "moduleName" &&
-          expr.object.property.name === "PLATFORM" &&
-          expr.object.object.type === "Identifier")
+          expr.object.property.name === "PLATFORM") {
         return new BasicEvaluatedExpression().setIdentifier("PLATFORM.moduleName").setRange(expr.range);
+      }
     });
 
     for (let method of this.methods) {
       parser.plugin("call " + method, expr => {
-        if (expr.arguments.length === 0) return;
-        let param = parser.evaluateExpression(expr.arguments[0]);
-        if (!param.isString()) return;
-        // Normal module dependency
-        // PLATFORM.moduleName('some-module')
+        if (expr.arguments.length === 0 || expr.arguments.length > 2) 
+          return;
+        
+        let [arg1, arg2] = expr.arguments;
+        let param1 = parser.evaluateExpression(arg1);
+        if (!param1.isString()) return;
         if (expr.arguments.length === 1) {
-          let dep = new AureliaDependency(param.string, expr.range);
-          parser.state.current.addDependency(dep);
-          return true;
+          // Normal module dependency
+          // PLATFORM.moduleName('some-module')
+          return addDependency(param1.string, expr.range);
         }
-        if (expr.arguments.length > 2) return;
-        let param2 = parser.evaluateExpression(expr.arguments[1]);
-        if (!param2.isString()) return;
-        // Async module dependency
-        // PLATFORM.moduleName('some-module', 'chunk name');
-        let dep = new AureliaDependency(`async?lazy&name=${param2.string}!${param.string}`, expr.range);
-        parser.state.current.addDependency(dep);
-        return true;
+
+        let chunk, options;
+        let param2 = parser.evaluateExpression(arg2);
+        if (param2.isString()) {
+          // Async module dependency
+          // PLATFORM.moduleName('some-module', 'chunk name');
+          chunk = param2.string;
+        }
+        else if (arg2.type === "ObjectExpression") {
+          // Module dependency with extended options
+          // PLATFORM.moduleName('some-module', { option: value });
+          options = {};
+          for (let prop of arg2.properties) {
+            if (prop.key.type !== "Identifier") continue;
+            let value = parser.evaluateExpression(prop.value);
+            switch (prop.key.name) {
+              case "chunk": 
+                if (value.isString()) chunk = value.string;
+                break;
+              case "exports": 
+                if (value.isArray() && value.items.every(v => v.isString()))
+                  options.exports = value.items.map(v => v.string);
+                break;
+            }
+          }
+        }
+        else {
+          // Unknown PLATFORM.moduleName() signature
+          return;
+        }        
+        return addDependency(chunk ? `async?lazy&name=${chunk}!${param1.string}` : param1.string, 
+                             expr.range,
+                             options);
       });
     }
   }
@@ -76,7 +118,7 @@ module.exports = class AureliaDependenciesPlugin {
       compilation.dependencyFactories.set(AureliaDependency, normalModuleFactory);
       compilation.dependencyTemplates.set(AureliaDependency, new Template());
 
-      normalModuleFactory.plugin("parser", (parser, parserOptions) => {
+      normalModuleFactory.plugin("parser", parser => {
         parser.apply(this.parserPlugin);
       });
     });

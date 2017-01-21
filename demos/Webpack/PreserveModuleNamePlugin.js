@@ -1,3 +1,4 @@
+const preserveModuleName = Symbol();
 const path = require("path");
 
 // This plugins preserves the module names of IncludeDependency and 
@@ -5,7 +6,8 @@ const path = require("path");
 // aurelia-loader.
 // All other dependencies are handled by webpack itself and don't
 // need special treatment.
-module.exports = class PreserveModuleNamePlugin {
+module.exports = 
+class PreserveModuleNamePlugin {
   apply(compiler) {
     compiler.plugin("compilation", compilation => {
       compilation.plugin("before-module-ids", modules => {
@@ -33,16 +35,19 @@ module.exports = class PreserveModuleNamePlugin {
   }
 };
 
+module.exports.preserveModuleName = preserveModuleName;
+
 function getPreservedModules(modules) {
+  // TODO: looking at module.reasons seems better...
   const result = new Set();
   for (let module of modules) {
     for (let dep of module.dependencies) {
-      if (dep.preserveName === true && dep.module)  // dep.module == null is a missing module, which will be caught and reported by webpack later
+      if (dep[preserveModuleName] && dep.module)  // dep.module == null is a missing module, which will be caught and reported by webpack later
           result.add(dep.module);      
     }
     for (let block of module.blocks) 
       for (let dep of block.dependencies) {
-        if (dep.preserveName === true && dep.module)
+        if (dep[preserveModuleName] && dep.module)
           result.add(dep.module);
       }
   }

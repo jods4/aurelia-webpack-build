@@ -15,6 +15,7 @@ module.exports = {
     extensions: [".ts", ".js"],
     modules: ["src", "node_modules"].map(x => path.resolve(x)),
     symlinks: false,
+    alias: { "./dist/commonjs": "./dist/native-modules" },
   },
 
   resolveLoader: {
@@ -35,17 +36,15 @@ module.exports = {
     new AureliaPlugin(),
     new ModuleDependenciesPlugin({
       "aurelia-bootstrapper": [ 
-        // "aurelia-loader-webpack",    // detected by webpack itself
         "aurelia-pal-browser", 
-        "aurelia-framework", 
       ],
       "aurelia-framework": [
-        "aurelia-history-browser",
-        "aurelia-logging-console", 
-        "aurelia-templating-binding",
-        "aurelia-templating-resources",
-        "aurelia-templating-router",
-        "aurelia-event-aggregator",
+        { name: "aurelia-history-browser", exports: ["configure"] },
+        { name: "aurelia-logging-console",  exports: ["configure", "ConsoleAppender"] },
+        { name: "aurelia-templating-binding", exports: ["configure"] },
+        { name: "aurelia-templating-resources", exports: ["configure"] },
+        { name: "aurelia-templating-router", exports: ["configure"] },
+        { name: "aurelia-event-aggregator", exports: ["configure"] },
       ],
     }),
   ],

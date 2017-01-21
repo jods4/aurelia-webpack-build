@@ -10,7 +10,9 @@ module.exports = class BaseIncludePlugin {
 
       normalModuleFactory.plugin("parser", parser => {
         function addDependency(request) {
-          parser.state.current.addDependency(new IncludeDependency(request));
+          let options = typeof request === 'object' ? request : undefined;
+          let name = options ? options.name : request;
+          parser.state.current.addDependency(new IncludeDependency(name, options));
         }
         
         this.parser(compilation, parser, addDependency);

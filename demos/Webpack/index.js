@@ -5,5 +5,6 @@ module.exports = {
     GlobDependenciesPlugin: require('./GlobDependenciesPlugin'),
     HtmlDependenciesPlugin: require('./HtmlDependenciesPlugin'),
     ModuleDependenciesPlugin: require('./ModuleDependenciesPlugin'),
+    PreserveExportsPlugin: require('./PreserveExportsPlugin'),
     PreserveModuleNamePlugin: require('./PreserveModuleNamePlugin'),
 };

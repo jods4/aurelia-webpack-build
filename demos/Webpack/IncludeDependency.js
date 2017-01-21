@@ -1,13 +1,33 @@
+const { dependencyImports } = require("./PreserveExportsPlugin");
+const { preserveModuleName } = require("./PreserveModuleNamePlugin");
 const ModuleDependency = require("webpack/lib/dependencies/ModuleDependency");
 const { Template: NullDependencyTemplate } = require("webpack/lib/dependencies/NullDependency");
 
+module.exports = 
 class IncludeDependency extends ModuleDependency {
-  constructor(request) {
+  constructor(request, options) {
     super(request);
-    this.preserveName = true;
+    this.options = options;
   }
-}
 
-IncludeDependency.Template = NullDependencyTemplate;
+  get type() {
+    return "aurelia module";
+  }
 
-module.exports = IncludeDependency;
+  getReference() {
+    let importedNames = this.options && this.options.exports;
+    return importedNames ? 
+      { module: this.module, importedNames } :
+      super.getReference();
+  }
+
+  get [preserveModuleName]() {
+    return true;
+  }
+
+  get [dependencyImports]() {
+    return this.options && this.options.exports;
+  }
+};
+
+module.exports.Template = NullDependencyTemplate;

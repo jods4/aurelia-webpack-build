@@ -3,6 +3,7 @@ const ConventionDependenciesPlugin = require("./ConventionDependenciesPlugin");
 const GlobDependenciesPlugin = require("./GlobDependenciesPlugin");
 const HtmlDependenciesPlugin = require("./HtmlDependenciesPlugin");
 const ModuleDependenciesPlugin = require("./ModuleDependenciesPlugin");
+const PreserveExportsPlugin = require("./PreserveExportsPlugin");
 const PreserveModuleNamePlugin = require("./PreserveModuleNamePlugin");
 
 module.exports = class AureliaPlugin {
@@ -63,7 +64,10 @@ module.exports = class AureliaPlugin {
       // This plugin traces dependencies in code that are wrapped in PLATFORM.moduleName() calls
       new AureliaDependenciesPlugin(...opts.moduleMethods),
       // This plugin preserves module names for dynamic loading by aurelia-loader
-      new PreserveModuleNamePlugin()
+      new PreserveModuleNamePlugin(),
+      // This plugin supports preserving specific exports names when dynamically loading modules
+      // with aurelia-loader, while still enabling tree shaking all other exports.
+      new PreserveExportsPlugin()
     );
   }
 }
