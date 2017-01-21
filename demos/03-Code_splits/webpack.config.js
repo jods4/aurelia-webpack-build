@@ -35,9 +35,6 @@ module.exports = {
   plugins: [
     new AureliaPlugin(),
     new ModuleDependenciesPlugin({
-      "aurelia-bootstrapper": [ 
-        "aurelia-pal-browser", 
-      ],
       "aurelia-framework": [
         { name: "aurelia-history-browser", exports: ["configure"] },
         { name: "aurelia-logging-console",  exports: ["configure", "ConsoleAppender"] },

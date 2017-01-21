@@ -27,11 +27,6 @@ module.exports = {
   plugins: [
     new AureliaPlugin({ includeAll: "src" }),
     new ModuleDependenciesPlugin({
-      "aurelia-bootstrapper": [ 
-        // "aurelia-loader-webpack",    // detected by webpack itself
-        "aurelia-pal-browser", 
-        "aurelia-framework", 
-      ],
       "aurelia-framework": [
         "aurelia-history-browser",
         "aurelia-logging-console", 

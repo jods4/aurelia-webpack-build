@@ -6,10 +6,11 @@ const ModuleDependenciesPlugin = require("./ModuleDependenciesPlugin");
 const PreserveExportsPlugin = require("./PreserveExportsPlugin");
 const PreserveModuleNamePlugin = require("./PreserveModuleNamePlugin");
 
-module.exports = class AureliaPlugin {
+module.exports =
+class AureliaPlugin {
   constructor(options = {}) {
     this.options = Object.assign({
-      includeAll: undefined,  // or folder, e.g. "src"
+      includeAll: false,  // or folder, e.g. "src"
 
       aureliaApp: "main",
       moduleMethods: [],
@@ -58,8 +59,11 @@ module.exports = class AureliaPlugin {
     // Common plugins
     compiler.apply(
       // Adds some dependencies that are not documented by `PLATFORM.moduleName`
-      new ModuleDependenciesPlugin({
-        "aurelia-bootstrapper": opts.aureliaApp
+      new ModuleDependenciesPlugin({        
+        "aurelia-bootstrapper": [
+          opts.aureliaApp,                // entry point
+          getPAL(compiler.options.target) // PAL for target
+        ],
       }),
       // This plugin traces dependencies in code that are wrapped in PLATFORM.moduleName() calls
       new AureliaDependenciesPlugin(...opts.moduleMethods),
@@ -69,5 +73,13 @@ module.exports = class AureliaPlugin {
       // with aurelia-loader, while still enabling tree shaking all other exports.
       new PreserveExportsPlugin()
     );
+  }
+};
+
+function getPAL(target) {
+  switch (target) {
+    case "web": return "aurelia-pal-browser";
+    case "webworker": return "aurelia-pal-worker";
+    default: return "aurelia-pal-node";
   }
 }

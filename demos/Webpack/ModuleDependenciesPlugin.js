@@ -12,7 +12,11 @@ module.exports = class ModuleDependenciesPlugin extends BaseIncludePlugin {
       let deps = hash[module];
       if (!Array.isArray(deps)) 
         deps = [deps];
-      if (!deps.some(x => !!x))
+      // For convenience we accept null or undefined entries in the input array.
+      // This is for example used by AureliaPlugin to pass the aurelia-app module, 
+      // which could be undefined.
+      deps = deps.filter(x => !!x);
+      if (deps.length === 0)
         delete hash[module];
       else
         hash[module] = deps;
