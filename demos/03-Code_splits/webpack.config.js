@@ -15,7 +15,6 @@ module.exports = {
     extensions: [".ts", ".js"],
     modules: ["src", "node_modules"].map(x => path.resolve(x)),
     symlinks: false,
-    alias: { "./dist/commonjs": "./dist/native-modules" },
   },
 
   resolveLoader: {

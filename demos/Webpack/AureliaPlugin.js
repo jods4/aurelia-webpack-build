@@ -1,5 +1,6 @@
 const AureliaDependenciesPlugin = require("./AureliaDependenciesPlugin");
 const ConventionDependenciesPlugin = require("./ConventionDependenciesPlugin");
+const DistPlugin = require("./DistPlugin");
 const GlobDependenciesPlugin = require("./GlobDependenciesPlugin");
 const HtmlDependenciesPlugin = require("./HtmlDependenciesPlugin");
 const ModuleDependenciesPlugin = require("./ModuleDependenciesPlugin");
@@ -14,6 +15,7 @@ class AureliaPlugin {
 
       aureliaApp: "main",
       aureliaConfig: ["standard", "developmentLogging"],
+      dist: "native-modules",
       moduleMethods: [],
       viewsFor: "src/**/*.{ts,js}",
       viewsExtensions: ".html",
@@ -24,17 +26,15 @@ class AureliaPlugin {
   apply(compiler) {
     const opts = this.options;
 
+    if (opts.dist) {
+      let resolve = compiler.options.resolve;
+      let plugins = resolve.plugins || (resolve.plugins = []);
+      plugins.push(new DistPlugin(opts.dist));
+    }
+
     if (opts.includeAll) {
       // Grab everything approach
-      let entry = compiler.options.entry;
-      // Fix: ideally we would require `entry` to be a string
-      //      but in practice, using webpack-dev-server might shift one (or two --hot) extra entries.
-      if (typeof entry === "object")
-        entry = entry[Object.getOwnPropertyNames(entry)[0]];
-      if (Array.isArray(entry))
-        entry = entry[entry.length - 1];
-      if (typeof entry !== "string")
-        throw new Error("includeAll option only works with a single entry point.")
+      let entry = getEntry(compiler.options.entry);
       compiler.apply(
         // This plugin ensures that everything in /src is included in the bundle.
         // This prevents splitting in several chunks but is super easy to use and setup,
@@ -81,6 +81,18 @@ class AureliaPlugin {
     );
   }
 };
+
+function getEntry(entry) {
+  // Fix: ideally we would require `entry` to be a string
+  //      but in practice, using webpack-dev-server might shift one (or two --hot) extra entries.
+  if (typeof entry === "object")
+    entry = entry[Object.getOwnPropertyNames(entry)[0]];
+  if (Array.isArray(entry))
+    entry = entry[entry.length - 1];
+  if (typeof entry !== "string")
+    throw new Error("includeAll option only works with a single entry point.")
+  return entry;
+}
 
 function getPAL(target) {
   switch (target) {
