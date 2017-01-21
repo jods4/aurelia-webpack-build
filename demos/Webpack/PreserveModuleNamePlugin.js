@@ -38,20 +38,9 @@ class PreserveModuleNamePlugin {
 module.exports.preserveModuleName = preserveModuleName;
 
 function getPreservedModules(modules) {
-  // TODO: looking at module.reasons seems better...
-  const result = new Set();
-  for (let module of modules) {
-    for (let dep of module.dependencies) {
-      if (dep[preserveModuleName] && dep.module)  // dep.module == null is a missing module, which will be caught and reported by webpack later
-          result.add(dep.module);      
-    }
-    for (let block of module.blocks) 
-      for (let dep of block.dependencies) {
-        if (dep[preserveModuleName] && dep.module)
-          result.add(dep.module);
-      }
-  }
-  return result;
+  return new Set(
+    modules.filter(m => m.reasons.some(r => r.dependency[preserveModuleName]))
+  );
 }
 
 function makeModuleRelative(roots, resource) {
