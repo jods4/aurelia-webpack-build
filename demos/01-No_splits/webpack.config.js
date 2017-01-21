@@ -1,5 +1,5 @@
 const path = require("path");
-const { AureliaPlugin, ModuleDependenciesPlugin } = require("../Webpack");
+const { AureliaPlugin } = require("../Webpack");
 
 module.exports = {
   entry: "main",
@@ -26,15 +26,5 @@ module.exports = {
 
   plugins: [
     new AureliaPlugin({ includeAll: "src" }),
-    new ModuleDependenciesPlugin({
-      "aurelia-framework": [
-        "aurelia-history-browser",
-        "aurelia-logging-console", 
-        "aurelia-templating-binding",
-        "aurelia-templating-resources",
-        "aurelia-templating-router",
-        "aurelia-event-aggregator",
-      ],
-    }),
   ],
 };

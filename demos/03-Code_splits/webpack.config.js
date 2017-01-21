@@ -1,5 +1,5 @@
 const path = require("path");
-const { AureliaPlugin, ModuleDependenciesPlugin } = require("../webpack");
+const { AureliaPlugin } = require("../webpack");
 
 module.exports = {
   entry: { main: "aurelia-bootstrapper" },
@@ -34,15 +34,5 @@ module.exports = {
 
   plugins: [
     new AureliaPlugin(),
-    new ModuleDependenciesPlugin({
-      "aurelia-framework": [
-        { name: "aurelia-history-browser", exports: ["configure"] },
-        { name: "aurelia-logging-console",  exports: ["configure", "ConsoleAppender"] },
-        { name: "aurelia-templating-binding", exports: ["configure"] },
-        { name: "aurelia-templating-resources", exports: ["configure"] },
-        { name: "aurelia-templating-router", exports: ["configure"] },
-        { name: "aurelia-event-aggregator", exports: ["configure"] },
-      ],
-    }),
   ],
 };

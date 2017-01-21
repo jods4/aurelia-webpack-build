@@ -13,6 +13,7 @@ class AureliaPlugin {
       includeAll: false,  // or folder, e.g. "src"
 
       aureliaApp: "main",
+      aureliaConfig: ["standard", "developmentLogging"],
       moduleMethods: [],
       viewsFor: "src/**/*.{ts,js}",
       viewsExtensions: ".html",
@@ -64,6 +65,11 @@ class AureliaPlugin {
           opts.aureliaApp,                // entry point
           getPAL(compiler.options.target) // PAL for target
         ],
+        // `aurelia-framework` exposes configuration helpers like `.standardConfiguration()`,
+        // that load plugins, but we can't know if they are actually used or not.
+        // User indicates what he uses at build time in `aureliaConfig` option.
+        // Custom config is performed in use code and can use `.moduleName()` like normal.
+        "aurelia-framework": getConfigModules(opts.aureliaConfig),
       }),
       // This plugin traces dependencies in code that are wrapped in PLATFORM.moduleName() calls
       new AureliaDependenciesPlugin(...opts.moduleMethods),
@@ -82,4 +88,32 @@ function getPAL(target) {
     case "webworker": return "aurelia-pal-worker";
     default: return "aurelia-pal-node";
   }
+}
+
+const configModules = {
+  "defaultBindingLanguage": "aurelia-templating-binding",
+  "router": "aurelia-templating-router",
+  "history": "aurelia-history-browser",
+  "defaultResources": "aurelia-templating-resources",
+  "eventAggregator": "aurelia-event-aggregator",
+  "developmentLogging": "aurelia-logging-console",
+};
+// "configure" is the only method used by .plugin()
+for (let c in configModules) 
+  configModules[c] = { name: configModules[c], exports: ["configure"] };
+// developmentLogging has a pre-task that uses ConsoleAppender
+configModules.developmentLogging.exports.push("ConsoleAppender");
+
+function getConfigModules(config) {  
+  if (!config) return undefined;
+  if (!Array.isArray(config)) config = [config];
+
+  // Expand "standard"
+  let i = config.indexOf("standard");
+  if (i >= 0) config.splice(i, 1, "basic", "history", "router");
+  // Expand "basic"
+  i = config.indexOf("basic");
+  if (i >= 0) config.splice(i, 1, "defaultBindingLanguage", "defaultResources", "eventAggregator");
+
+  return config.map(c => configModules[c]);
 }
