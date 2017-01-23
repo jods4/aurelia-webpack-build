@@ -1,5 +1,5 @@
 const path = require("path");
-const { AureliaPlugin } = require("../Webpack");
+const { AureliaPlugin } = require("aurelia-webpack-plugin");
 
 module.exports = {
   entry: "main",

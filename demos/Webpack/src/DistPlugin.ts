@@ -9,15 +9,16 @@
 // The configuration above will fail the build if a third party lib also uses ./dist/commonjs
 // but does not include a ./dist/native-modules
 
-const path = require('path');
+import path = require("path");
 
-module.exports = 
-class DistPlugin {
-  constructor(dist) {
+export class DistPlugin {
+  private dist: string;
+
+  constructor(dist: string) {
     this.dist = `./dist/${dist}/`;
   }
 
-  apply(resolver) {
+  apply(resolver: Webpack.Resolver) {
     if (!this.dist) return;
     resolver.plugin("resolve-step", (type, request) => {      
       if (type !== "described-resolve") return;

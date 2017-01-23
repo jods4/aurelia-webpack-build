@@ -1,23 +1,25 @@
-const BaseIncludePlugin = require("./BaseIncludePlugin");
-const minimatch = require("minimatch");
-const path = require("path");
+import { BaseIncludePlugin, AddDependency } from "./BaseIncludePlugin";
+import minimatch = require("minimatch");
+import path = require("path");
 
-module.exports = class ConventionDependenciesPlugin extends BaseIncludePlugin {
+export type Convention = (filename: string) => string;
+
+export class ConventionDependenciesPlugin extends BaseIncludePlugin {
+  conventions: Convention[];
+
   /**
    * glob: a pattern that filters which files are affected
    */
-  constructor(glob, conventions = [".html", ".htm"]) {
+  constructor(private glob: string, 
+              conventions: string | Convention | (string | Convention)[] = [".html", ".htm"]) {
     super();
-    this.glob = glob;
     if (!Array.isArray(conventions)) conventions = [conventions];
-    conventions.forEach((c, i) => {
-      if (typeof c === "string") 
-        conventions[i] = swapExtension.bind(null, c);
-    });
-    this.conventions = conventions;
+    this.conventions = conventions.map(c => typeof c === "string" ? 
+                                            swapExtension.bind(null, c) : 
+                                            c);
   }
 
-  parser(compilation, parser, addDependency) {
+  parser(compilation: Webpack.Compilation, parser: Webpack.Parser, addDependency: AddDependency) {
     const root = path.resolve();
 
     parser.plugin("program", () => {
@@ -38,6 +40,6 @@ module.exports = class ConventionDependenciesPlugin extends BaseIncludePlugin {
   }
 };
 
-function swapExtension(newExtension, file) {
+function swapExtension(newExtension: string, file: string) {
   return file.replace(/\.[^\\/.]*$/, "") + newExtension;
 }

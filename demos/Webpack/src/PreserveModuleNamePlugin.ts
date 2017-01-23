@@ -1,28 +1,27 @@
-const preserveModuleName = Symbol();
-const path = require("path");
+import path = require("path");
+export const preserveModuleName = Symbol();
 
 // This plugins preserves the module names of IncludeDependency and 
 // AureliaDependency so that they can be dynamically requested by 
 // aurelia-loader.
 // All other dependencies are handled by webpack itself and don't
 // need special treatment.
-module.exports = 
-class PreserveModuleNamePlugin {
-  apply(compiler) {
+export class PreserveModuleNamePlugin {
+  apply(compiler: Webpack.Compiler) {
     compiler.plugin("compilation", compilation => {
       compilation.plugin("before-module-ids", modules => {
         let { modules: roots, extensions } = compilation.options.resolve;
         roots = roots.map(x => path.resolve(x));
         const normalizers = extensions.map(x => new RegExp(x.replace(/\./g, "\\.") + "$", "i"));
 
-        for (module of getPreservedModules(modules)) {
+        for (let module of getPreservedModules(modules)) {
           let relative = fixNodeModule(module, modules) || 
                          makeModuleRelative(roots, module.resource);
           
           if (!relative) continue;  // An absolute resource that is not in any module folder? Ignore.
           
           // Remove default extensions 
-          normalizers.forEach(n => relative = relative.replace(n, ""));
+          normalizers.forEach(n => relative = relative!.replace(n, ""));
           
           // Keep "async!" in front of code splits proxies, they are used by aurelia-loader
           if (/^async[?!]/.test(module.rawRequest)) 
@@ -35,15 +34,13 @@ class PreserveModuleNamePlugin {
   }
 };
 
-module.exports.preserveModuleName = preserveModuleName;
-
-function getPreservedModules(modules) {
+function getPreservedModules(modules: Webpack.Module[]) {
   return new Set(
     modules.filter(m => m.reasons.some(r => r.dependency[preserveModuleName]))
   );
 }
 
-function makeModuleRelative(roots, resource) {
+function makeModuleRelative(roots: string[], resource: string) {
   for (let root of roots) {
     let relative = path.relative(root, resource);
     if (!relative.startsWith('..')) return relative;
@@ -51,7 +48,7 @@ function makeModuleRelative(roots, resource) {
   return null;
 }
 
-function fixNodeModule(module, allModules) {
+function fixNodeModule(module: Webpack.Module, allModules: Webpack.Module[]) {
   if (!/\bnode_modules\b/i.test(module.resource)) return null;
   // The problem with node_modules is that often the root of the module is not /node_modules/my-lib
   // Webpack is going to look for `main` in `project.json` to find where the main file actually is.
@@ -66,7 +63,8 @@ function fixNodeModule(module, allModules) {
   // Instead, we'll look for the root library module, because it should have been requested somehow and work from there.
   // Note that the negative lookahead (?!.*node_modules) ensures that we only match the last node_modules/ folder in the path,
   // in case the package was located in a sub-node_modules (which can occur in special circumstances).
-  let name = /\bnode_modules[\\/](?!.*\bnode_modules\b)([^\\/]*)/i.exec(module.resource)[1];
+  let name = /\bnode_modules[\\/](?!.*\bnode_modules\b)([^\\/]*)/i.exec(module.resource)![1];
   let entry = allModules.find(m => m.rawRequest === name);
+  if (!entry) throw new Error("PreserveModuleNamePlugin: Unable to find root of module " + name);
   return name + "/" + path.relative(path.dirname(entry.resource), module.resource);
 }

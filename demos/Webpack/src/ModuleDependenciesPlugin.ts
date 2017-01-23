@@ -1,12 +1,15 @@
-const BaseIncludePlugin = require("./BaseIncludePlugin");
-const path = require("path");
+import { BaseIncludePlugin, AddDependency } from "./BaseIncludePlugin";
+import path = require("path");
 
-module.exports = class ModuleDependenciesPlugin extends BaseIncludePlugin {
+export class ModuleDependenciesPlugin extends BaseIncludePlugin {
+  root = path.resolve();
+  hash: { [name: string]: (string | DependencyOptionsEx)[] };
+  modules: { [module: string]: (string | DependencyOptionsEx)[] }; // Same has hash but with module names resolved to actual resources
+
   /**
-   * hash: { [string]: string | Object | (string|Object)[] }
    * Each hash member is a module name, for which additional module names (or options) are added as dependencies.
    */
-  constructor(hash) {
+  constructor(hash: { [module: string]: undefined | string | DependencyOptionsEx | (undefined|string|DependencyOptionsEx)[] }) {
     super();
     for (let module in hash) {
       let deps = hash[module];
@@ -21,11 +24,10 @@ module.exports = class ModuleDependenciesPlugin extends BaseIncludePlugin {
       else
         hash[module] = deps;
     }
-    this.hash = hash;
-    this.root = path.resolve();
+    this.hash = hash as { [name: string]: (string | DependencyOptionsEx)[] };
   }
 
-  apply(compiler) {
+  apply(compiler: Webpack.Compiler) {
     const hashKeys = Object.getOwnPropertyNames(this.hash);
     if (hashKeys.length === 0) return;
 
@@ -33,7 +35,8 @@ module.exports = class ModuleDependenciesPlugin extends BaseIncludePlugin {
       // Map the modules passed in ctor to actual resources (files) so that we can
       // recognize them no matter what the rawRequest was (loaders, relative paths, etc.)
       this.modules = { };
-      const resolve = compiler.resolvers.normal.resolve.bind(compiler.resolvers.normal, null, this.root);
+      const resolve: (module: string, cb: (err: any, resource: string) => void) => void = 
+        compiler.resolvers.normal.resolve.bind(compiler.resolvers.normal, null, this.root);
       let countdown = hashKeys.length;
       for (let module of hashKeys) {
         resolve(module, (err, resource) => {
@@ -46,7 +49,7 @@ module.exports = class ModuleDependenciesPlugin extends BaseIncludePlugin {
     super.apply(compiler);
   }
 
-  parser(compilation, parser, addDependency) {
+  parser(compilation: Webpack.Compilation, parser: Webpack.Parser, addDependency: AddDependency) {
     parser.plugin("program", () => {
       const deps = this.modules[parser.state.module.resource];
       if (deps) deps.forEach(addDependency);

@@ -1,8 +1,14 @@
-const BaseIncludePlugin = require("./BaseIncludePlugin");
-const Minimatch = require("minimatch").Minimatch;
-const path = require("path");
+import { BaseIncludePlugin, AddDependency } from "./BaseIncludePlugin";
+import { Minimatch } from "minimatch";
+import path = require("path");
 
-function* findFiles(root, glob, fs) {
+declare module "minimatch" {
+  interface IMinimatch {
+    match(fname: string, partial: boolean): boolean; // Missing overload in current minimatch tds
+  }
+}
+
+function* findFiles(root: string, glob: string, fs: Webpack.FileSystem) {
   // An easiest, naive approach consist of listing all files and then pass them through minimatch.
   // This is a bad idea as `root` typically includes node_modules, which can contain *lots* of files.
   // So we have to test partial paths to prune them early on.
@@ -28,23 +34,25 @@ function* findFiles(root, glob, fs) {
   }
 }
 
-module.exports = class GlobDependenciesPlugin extends BaseIncludePlugin {
+export class GlobDependenciesPlugin extends BaseIncludePlugin {
+  private root = path.resolve();
+  private hash: { [module: string]: string[] };
+  private modules: { [module: string]: string[] }; // Same as hash, but names are resolved to actual resources
+
   /**
-   * hash: { [string]: string | string[] }
    * Each hash member is a module name, for which globbed value(s) will be added as dependencies
    **/
-  constructor(hash) {
+  constructor(hash: { [module: string]: string | string[] }) {
     super();
     for (let module in hash) {
       let glob = hash[module];
       if (!Array.isArray(glob))
         hash[module] = [glob];
     }    
-    this.hash = hash;
-    this.root = path.resolve();
+    this.hash = hash as { [module: string]: string[] };
   }
 
-  apply(compiler) {
+  apply(compiler: Webpack.Compiler) {
     const hashKeys = Object.getOwnPropertyNames(this.hash);
     if (hashKeys.length === 0) return;
 
@@ -52,7 +60,8 @@ module.exports = class GlobDependenciesPlugin extends BaseIncludePlugin {
       // Map the modules passed in ctor to actual resources (files) so that we can
       // recognize them no matter what the rawRequest was (loaders, relative paths, etc.)
       this.modules = { };
-      const resolve = compiler.resolvers.normal.resolve.bind(compiler.resolvers.normal, null, this.root);
+      const resolve: (request: string, cb: (err: any, resource: string) => void) => void = 
+        compiler.resolvers.normal.resolve.bind(compiler.resolvers.normal, null, this.root);
       let countdown = hashKeys.length;
       for (let module of hashKeys) {
         resolve(module, (err, resource) => {
@@ -65,7 +74,7 @@ module.exports = class GlobDependenciesPlugin extends BaseIncludePlugin {
     super.apply(compiler);
   }
 
-  parser(compilation, parser, addDependency) {
+  parser(compilation: Webpack.Compilation, parser: Webpack.Parser, addDependency: AddDependency) {
     const resolveFolders = compilation.options.resolve.modules;
     // `resolveFolders` can be absolute paths, but by definition this plugin only 
     // looks for files in subfolders of the current `root` path.

@@ -1,27 +1,27 @@
-const IncludeDependency = require("./IncludeDependency");
-const BasicEvaluatedExpression = require("webpack/lib/BasicEvaluatedExpression");
+import { IncludeDependency } from "./IncludeDependency";
+import BasicEvaluatedExpression = require("webpack/lib/BasicEvaluatedExpression");
 
-class AureliaDependency extends IncludeDependency {  
-  constructor(request, range, options) {
+class AureliaDependency extends IncludeDependency {
+  constructor(request: string, 
+              public range: [number, number], 
+              options?: DependencyOptions) {
     super(request, options);
-    this.range = range;
   }
 }
 
 class Template {
-  apply(dep, source, outputOptions, requestShortener) {
+  apply(dep: AureliaDependency, source: Webpack.Source) {
     source.replace(dep.range[0], dep.range[1] - 1, "'" + dep.request.replace(/^async(?:\?[^!]*)?!/, "") + "'");
   };
 }
 
 class ParserPlugin {
-  constructor(methods) {
-    this.methods = methods;
+  constructor(private methods: string[]) {
   }
 
-  apply(parser) {
+  apply(parser: Webpack.Parser) {
 
-    function addDependency(module, range, options) {
+    function addDependency(module: string, range: [number, number], options?: DependencyOptions) {
       let dep = new AureliaDependency(module, range, options);
       parser.state.current.addDependency(dep);
       return true;
@@ -34,26 +34,28 @@ class ParserPlugin {
     // This covers native ES module, for example:
     //    import { PLATFORM } from "aurelia-pal";
     //    PLATFORM.moduleName("id");
-    parser.plugin("evaluate Identifier imported var.moduleName", expr => {
+    parser.plugin("evaluate Identifier imported var.moduleName", (expr: Webpack.MemberExpression) => {
       if (expr.property.name === "moduleName" &&
           expr.object.name === "PLATFORM" &&
           expr.object.type === "Identifier") {
         return new BasicEvaluatedExpression().setIdentifier("PLATFORM.moduleName").setRange(expr.range);
       }
+      return undefined;
     });
 
     // This covers commonjs modules, for example:
     //    const _aureliaPal = require("aurelia-pal");
     //    _aureliaPal.PLATFORM.moduleName("id");    
-    parser.plugin("evaluate MemberExpression", expr => {
+    parser.plugin("evaluate MemberExpression", (expr: Webpack.MemberExpression) => {
       if (expr.property.name === "moduleName" &&
           expr.object.property.name === "PLATFORM") {
         return new BasicEvaluatedExpression().setIdentifier("PLATFORM.moduleName").setRange(expr.range);
       }
+      return undefined;
     });
 
     for (let method of this.methods) {
-      parser.plugin("call " + method, expr => {
+      parser.plugin("call " + method, (expr: Webpack.CallExpression) => {
         if (expr.arguments.length === 0 || expr.arguments.length > 2) 
           return;
         
@@ -63,10 +65,11 @@ class ParserPlugin {
         if (expr.arguments.length === 1) {
           // Normal module dependency
           // PLATFORM.moduleName('some-module')
-          return addDependency(param1.string, expr.range);
+          return addDependency(param1.string!, expr.range);
         }
 
-        let chunk, options;
+        let chunk: string | undefined;
+        let options: DependencyOptions | undefined;
         let param2 = parser.evaluateExpression(arg2);
         if (param2.isString()) {
           // Async module dependency
@@ -85,8 +88,8 @@ class ParserPlugin {
                 if (value.isString()) chunk = value.string;
                 break;
               case "exports": 
-                if (value.isArray() && value.items.every(v => v.isString()))
-                  options.exports = value.items.map(v => v.string);
+                if (value.isArray() && value.items!.every(v => v.isString()))
+                  options.exports = value.items!.map(v => v.string!);
                 break;
             }
           }
@@ -95,7 +98,7 @@ class ParserPlugin {
           // Unknown PLATFORM.moduleName() signature
           return;
         }        
-        return addDependency(chunk ? `async?lazy&name=${chunk}!${param1.string}` : param1.string, 
+        return addDependency(chunk ? `async?lazy&name=${chunk}!${param1.string}` : param1.string!, 
                              expr.range,
                              options);
       });
@@ -103,15 +106,17 @@ class ParserPlugin {
   }
 }
 
-module.exports = class AureliaDependenciesPlugin {
-  constructor(...methods) {
+export class AureliaDependenciesPlugin {
+  private parserPlugin: ParserPlugin;
+
+  constructor(...methods: string[]) {
     // Always include PLATFORM.moduleName as it's what used in libs.
     if (!methods.includes("PLATFORM.moduleName"))
       methods.push("PLATFORM.moduleName");
     this.parserPlugin = new ParserPlugin(methods);
   }
 
-  apply(compiler) {
+  apply(compiler: Webpack.Compiler) {
     compiler.plugin("compilation", (compilation, params) => {
       const normalModuleFactory = params.normalModuleFactory;
 
@@ -124,3 +129,4 @@ module.exports = class AureliaDependenciesPlugin {
     });
   }
 };
+

@@ -1,13 +1,13 @@
+export const dependencyImports = Symbol();
 const moduleExports = Symbol();
-const dependencyImports = Symbol();
 const nativeIsUsed = Symbol();
 
-function getModuleExports(module) {
+function getModuleExports(module: Webpack.Module) {
   let set = module[moduleExports];
   if (!set) {
     module[moduleExports] = set = new Set();
     module[nativeIsUsed] = module.isUsed;
-    module.isUsed = function (name) {
+    module.isUsed = function (this: Webpack.Module, name) {
     return this[moduleExports].has(name) ?
       name :
       module[nativeIsUsed](name);
@@ -16,9 +16,8 @@ function getModuleExports(module) {
   return set;
 }
 
-module.exports = 
-class PreserveExportsPlugin {  
-  apply(compiler) {
+export class PreserveExportsPlugin {
+  apply(compiler: Webpack.Compiler) {
     compiler.plugin("compilation", compilation => {
       compilation.plugin("finish-modules", modules => {        
         for (let module of modules) {
@@ -35,5 +34,3 @@ class PreserveExportsPlugin {
     });
   }
 };
-
-module.exports.dependencyImports = dependencyImports;

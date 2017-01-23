@@ -1,6 +1,7 @@
 {
   "license": "MIT",
   "devDependencies": {
+    "aurelia-webpack-plugin": "^2.0.0",
     "css-loader": "^0.26.1",
     "html-loader": "^0.4.4",
     "less": "^2.7.2",

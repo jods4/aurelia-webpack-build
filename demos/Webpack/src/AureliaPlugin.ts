@@ -1,14 +1,26 @@
-const AureliaDependenciesPlugin = require("./AureliaDependenciesPlugin");
-const ConventionDependenciesPlugin = require("./ConventionDependenciesPlugin");
-const DistPlugin = require("./DistPlugin");
-const GlobDependenciesPlugin = require("./GlobDependenciesPlugin");
-const HtmlDependenciesPlugin = require("./HtmlDependenciesPlugin");
-const ModuleDependenciesPlugin = require("./ModuleDependenciesPlugin");
-const PreserveExportsPlugin = require("./PreserveExportsPlugin");
-const PreserveModuleNamePlugin = require("./PreserveModuleNamePlugin");
+import { AureliaDependenciesPlugin } from "./AureliaDependenciesPlugin";
+import { ConventionDependenciesPlugin, Convention } from "./ConventionDependenciesPlugin";
+import { DistPlugin } from "./DistPlugin";
+import { GlobDependenciesPlugin } from "./GlobDependenciesPlugin";
+import { HtmlDependenciesPlugin } from "./HtmlDependenciesPlugin";
+import { ModuleDependenciesPlugin } from "./ModuleDependenciesPlugin";
+import { PreserveExportsPlugin } from "./PreserveExportsPlugin";
+import { PreserveModuleNamePlugin } from "./PreserveModuleNamePlugin";
 
-module.exports =
-class AureliaPlugin {
+export interface Options {
+  includeAll: boolean;
+  
+  aureliaApp?: string;
+  aureliaConfig: string | string[];
+  dist: string;
+  moduleMethods: string[];
+  viewsFor: string;
+  viewsExtensions: string | Convention | (string|Convention)[];
+}
+
+export class AureliaPlugin {
+  options: Options;
+
   constructor(options = {}) {
     this.options = Object.assign({
       includeAll: false,  // or folder, e.g. "src"
@@ -23,7 +35,7 @@ class AureliaPlugin {
     options);
   }
 
-  apply(compiler) {
+  apply(compiler: Webpack.Compiler) {
     const opts = this.options;
 
     if (opts.dist) {
@@ -47,7 +59,7 @@ class AureliaPlugin {
 
     else {
       // Traced dependencies approach
-      compiler.apply(      
+      compiler.apply(
         // This plugin looks for companion files by swapping extensions,
         // e.g. the view of a ViewModel. @useView and co. should use PLATFORM.moduleName().
         new ConventionDependenciesPlugin(opts.viewsFor, opts.viewsExtensions),
@@ -60,7 +72,7 @@ class AureliaPlugin {
     // Common plugins
     compiler.apply(
       // Adds some dependencies that are not documented by `PLATFORM.moduleName`
-      new ModuleDependenciesPlugin({        
+      new ModuleDependenciesPlugin({
         "aurelia-bootstrapper": [
           opts.aureliaApp,                // entry point
           getPAL(compiler.options.target) // PAL for target
@@ -82,7 +94,7 @@ class AureliaPlugin {
   }
 };
 
-function getEntry(entry) {
+function getEntry(entry: string | Object | (string|Object)[]) {
   // Fix: ideally we would require `entry` to be a string
   //      but in practice, using webpack-dev-server might shift one (or two --hot) extra entries.
   if (typeof entry === "object")
@@ -94,7 +106,7 @@ function getEntry(entry) {
   return entry;
 }
 
-function getPAL(target) {
+function getPAL(target: string) {
   switch (target) {
     case "web": return "aurelia-pal-browser";
     case "webworker": return "aurelia-pal-worker";
@@ -102,7 +114,8 @@ function getPAL(target) {
   }
 }
 
-const configModules = {
+const configModules: { [config: string]: DependencyOptionsEx } = {};
+let configModuleNames = {
   "defaultBindingLanguage": "aurelia-templating-binding",
   "router": "aurelia-templating-router",
   "history": "aurelia-history-browser",
@@ -111,12 +124,12 @@ const configModules = {
   "developmentLogging": "aurelia-logging-console",
 };
 // "configure" is the only method used by .plugin()
-for (let c in configModules) 
-  configModules[c] = { name: configModules[c], exports: ["configure"] };
+for (let c in configModuleNames) 
+  configModules[c] = { name: configModuleNames[c], exports: ["configure"] };
 // developmentLogging has a pre-task that uses ConsoleAppender
-configModules.developmentLogging.exports.push("ConsoleAppender");
+configModules['developmentLogging'].exports!.push("ConsoleAppender");
 
-function getConfigModules(config) {  
+function getConfigModules(config: string | string[]) {  
   if (!config) return undefined;
   if (!Array.isArray(config)) config = [config];
 

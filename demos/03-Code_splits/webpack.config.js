@@ -1,5 +1,5 @@
 const path = require("path");
-const { AureliaPlugin } = require("../webpack");
+const { AureliaPlugin } = require("aurelia-webpack-plugin");
 
 module.exports = {
   entry: { main: "aurelia-bootstrapper" },
@@ -19,7 +19,8 @@ module.exports = {
 
   resolveLoader: {
     alias: {
-      'async': path.resolve(__dirname, '../webpack/async-loader.js'),
+      'aurelia-webpack-plugin': 'aurelia-webpack-plugin/dist',
+      'async': 'bundle-loader',
     }
   },
 
@@ -27,7 +28,8 @@ module.exports = {
     rules: [
       { test: /\.less$/i, use: ["style-loader", "css-loader", "less-loader"] },
       { test: /\.ts$/i, use: "ts-loader" },
-      { test: /\.html$/i, use: ["html-loader", "../webpack/html-requires-loader"] },      
+      { test: /\.html$/i, use: "html-loader" },
+      { test: /\.html?$/i, use: "aurelia-webpack-plugin/html-requires-loader" },
     ]
   },  
 
