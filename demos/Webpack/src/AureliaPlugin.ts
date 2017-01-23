@@ -13,6 +13,7 @@ export interface Options {
   aureliaApp?: string;
   aureliaConfig: string | string[];
   dist: string;
+  noHtmlLoader: boolean;
   moduleMethods: string[];
   viewsFor: string;
   viewsExtensions: string | Convention | (string|Convention)[];
@@ -29,6 +30,7 @@ export class AureliaPlugin {
       aureliaConfig: ["standard", "developmentLogging"],
       dist: "native-modules",
       moduleMethods: [],
+      noHtmlLoader: false,
       viewsFor: "src/**/*.{ts,js}",
       viewsExtensions: ".html",
     },
@@ -38,11 +40,19 @@ export class AureliaPlugin {
   apply(compiler: Webpack.Compiler) {
     const opts = this.options;
 
+    // Make sure the loaders are easy to load at the root like `aurelia-webpack-plugin/html-resource-loader`
+    let resolveLoader = compiler.options.resolveLoader;
+    let alias = resolveLoader.alias || (resolveLoader.alias = {});
+    alias["aurelia-webpack-plugin"] = "aurelia-webpack-plugin/dist";
+    // Our async! loader is in fact just bundle-loader!.
+    alias["async"] = "bundle-loader";
+
     if (opts.dist) {
+      // This plugin enables easy switching to a different module distribution (default for Aurelia is dist/commonjs).
       let resolve = compiler.options.resolve;
       let plugins = resolve.plugins || (resolve.plugins = []);
       plugins.push(new DistPlugin(opts.dist));
-    }
+    }    
 
     if (opts.includeAll) {
       // Grab everything approach
@@ -67,6 +77,15 @@ export class AureliaPlugin {
         // Note: the config extension point for this one is html-requires-loader.attributes.
         new HtmlDependenciesPlugin()
       );
+
+      if (!opts.noHtmlLoader) {
+        // Ensure that we trace HTML dependencies
+        let module = compiler.options.module;
+        let rules = module.rules || (module.rules = []);
+        // Note that this loader will be in last place, which is important 
+        // because it will process the file first, before any other loader.
+        rules.push({ test: /\.html?$/i, use: "aurelia-webpack-plugin/html-requires-loader" });
+      }
     }
 
     // Common plugins

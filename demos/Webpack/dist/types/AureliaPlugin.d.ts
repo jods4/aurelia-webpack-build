@@ -4,6 +4,7 @@ export interface Options {
     aureliaApp?: string;
     aureliaConfig: string | string[];
     dist: string;
+    noHtmlLoader: boolean;
     moduleMethods: string[];
     viewsFor: string;
     viewsExtensions: string | Convention | (string | Convention)[];

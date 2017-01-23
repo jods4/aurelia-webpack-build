@@ -92,10 +92,16 @@ declare namespace Webpack {
   interface Options {
     entry: string | Object | (string|Object)[];
     target: string;
+    module: {
+      rules?: { test?: RegExp; use: string | string[] }[];
+    };
     resolve: {
       modules: string[];
       extensions: string[];
       plugins: Object[];
+    }; 
+    resolveLoader: {
+      alias?: { [key: string]: string };      
     }
   }
 
