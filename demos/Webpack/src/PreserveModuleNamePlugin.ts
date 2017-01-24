@@ -18,7 +18,10 @@ export class PreserveModuleNamePlugin {
           let relative = fixNodeModule(module, modules) || 
                          makeModuleRelative(roots, module.resource);
           
-          if (!relative) continue;  // An absolute resource that is not in any module folder? Ignore.
+          // A resource that could not be made relative to node_modules or a source folder?
+          // We just preserve its rawRequest... It might be a relative path that goes outside,
+          // src/, for example when trying to use a locally developped plugin.
+          if (!relative) relative = module.rawRequest;
           
           // Remove default extensions 
           normalizers.forEach(n => relative = relative!.replace(n, ""));
