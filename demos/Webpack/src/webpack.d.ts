@@ -129,7 +129,9 @@ declare namespace Webpack {
 
   export class Resolver {
     fileSystem: FileSystem;
-    plugin(type: "resolve-step", cb: (type: string, request: ResolveRequest) => void): void;
+    plugin(type: "resolve-step", handler: (type: string, request: ResolveRequest) => void): void;
+    plugin(type: "before-described-resolve", handler: (request: ResolveRequest, cb: (err?: any, result?: any) => void) => void): void;
+    doResolve(step: string, request: ResolveRequest, message: string, cb: (err?: any, result?: any) => void): void;
     resolve(context: string|null, path: string, request: string, cb: (err: any, result: string) => void): void;
   }
 
