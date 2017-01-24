@@ -19,8 +19,7 @@ export class PreserveModuleNamePlugin {
                          makeModuleRelative(roots, module.resource);
           
           // A resource that could not be made relative to node_modules or a source folder?
-          // We just preserve its rawRequest... It might be a relative path that goes outside,
-          // src/, for example when trying to use a locally developped plugin.
+          // We just preserve its rawRequest... it might be an alias, which works at runtime.
           if (!relative) relative = module.rawRequest;
           
           // Remove default extensions 
