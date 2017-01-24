@@ -6,6 +6,7 @@ import { HtmlDependenciesPlugin } from "./HtmlDependenciesPlugin";
 import { ModuleDependenciesPlugin } from "./ModuleDependenciesPlugin";
 import { PreserveExportsPlugin } from "./PreserveExportsPlugin";
 import { PreserveModuleNamePlugin } from "./PreserveModuleNamePlugin";
+import { SubFolderPlugin } from "./SubFolderPlugin";
 
 export interface Options {
   includeAll: boolean;
@@ -14,6 +15,7 @@ export interface Options {
   aureliaConfig: string | string[];
   dist: string;
   noHtmlLoader: boolean;
+  noModulePathResolve: boolean;
   moduleMethods: string[];
   viewsFor: string;
   viewsExtensions: string | Convention | (string|Convention)[];
@@ -31,6 +33,7 @@ export class AureliaPlugin {
       dist: "native-modules",
       moduleMethods: [],
       noHtmlLoader: false,
+      noModulePathResolve: false,
       viewsFor: "src/**/*.{ts,js}",
       viewsExtensions: ".html",
     },
@@ -52,7 +55,15 @@ export class AureliaPlugin {
       let resolve = compiler.options.resolve;
       let plugins = resolve.plugins || (resolve.plugins = []);
       plugins.push(new DistPlugin(opts.dist));
-    }    
+    }
+
+    if (!opts.noModulePathResolve) {
+      // This plugin enables sub-path in modules that are not at the root (e.g. in a /dist folder),
+      // for example aurelia-chart/pie might resolve to aurelia-chart/dist/commonjs/pie
+      let resolve = compiler.options.resolve;
+      let plugins = resolve.plugins || (resolve.plugins = []);
+      plugins.push(new SubFolderPlugin());
+    }
 
     if (opts.includeAll) {
       // Grab everything approach
@@ -66,7 +77,6 @@ export class AureliaPlugin {
       // We don't use aureliaApp as we assume it's included in the folder above
       opts.aureliaApp = undefined;
     }
-
     else {
       // Traced dependencies approach
       compiler.apply(

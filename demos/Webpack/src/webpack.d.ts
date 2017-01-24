@@ -127,10 +127,13 @@ declare namespace Webpack {
     plugin(type: "parser", cb: (parser: Parser) => void): void;
   }
 
-  export class Resolver {
+  type ResolverCallback = (request: ResolveRequest, cb: (err?: any, result?: any) => void) => void;
+
+  export class Resolver {    
     fileSystem: FileSystem;
     plugin(type: "resolve-step", handler: (type: string, request: ResolveRequest) => void): void;
-    plugin(type: "before-described-resolve", handler: (request: ResolveRequest, cb: (err?: any, result?: any) => void) => void): void;
+    plugin(type: "after-resolve", handler: ResolverCallback): void;
+    plugin(type: "before-described-resolve", handler: ResolverCallback): void;
     doResolve(step: string, request: ResolveRequest, message: string, cb: (err?: any, result?: any) => void): void;
     resolve(context: string|null, path: string, request: string, cb: (err: any, result: string) => void): void;
   }
@@ -138,6 +141,7 @@ declare namespace Webpack {
   export class ResolveRequest {
     path: string;
     request: string;
+    context: any;
   }
 
   export interface FileSystem {

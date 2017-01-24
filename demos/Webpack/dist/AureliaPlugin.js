@@ -7,6 +7,7 @@ const HtmlDependenciesPlugin_1 = require("./HtmlDependenciesPlugin");
 const ModuleDependenciesPlugin_1 = require("./ModuleDependenciesPlugin");
 const PreserveExportsPlugin_1 = require("./PreserveExportsPlugin");
 const PreserveModuleNamePlugin_1 = require("./PreserveModuleNamePlugin");
+const SubFolderPlugin_1 = require("./SubFolderPlugin");
 class AureliaPlugin {
     constructor(options = {}) {
         this.options = Object.assign({
@@ -16,6 +17,7 @@ class AureliaPlugin {
             dist: "native-modules",
             moduleMethods: [],
             noHtmlLoader: false,
+            noModulePathResolve: false,
             viewsFor: "src/**/*.{ts,js}",
             viewsExtensions: ".html",
         }, options);
@@ -33,6 +35,13 @@ class AureliaPlugin {
             let resolve = compiler.options.resolve;
             let plugins = resolve.plugins || (resolve.plugins = []);
             plugins.push(new DistPlugin_1.DistPlugin(opts.dist));
+        }
+        if (!opts.noModulePathResolve) {
+            // This plugin enables sub-path in modules that are not at the root (e.g. in a /dist folder),
+            // for example aurelia-chart/pie might resolve to aurelia-chart/dist/commonjs/pie
+            let resolve = compiler.options.resolve;
+            let plugins = resolve.plugins || (resolve.plugins = []);
+            plugins.push(new SubFolderPlugin_1.SubFolderPlugin());
         }
         if (opts.includeAll) {
             // Grab everything approach
