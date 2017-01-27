@@ -1,5 +1,7 @@
 const path = require("path");
 const { AureliaPlugin } = require("aurelia-webpack-plugin");
+// TODO: this is only temporary until a patched aurelia release is published.
+const coreDeps = require("aurelia-core-dependencies");
 
 module.exports = {
   entry: "main",
@@ -26,5 +28,6 @@ module.exports = {
 
   plugins: [
     new AureliaPlugin({ includeAll: "src" }),
+    coreDeps,
   ],
 };

@@ -1,7 +1,8 @@
 {
   "license": "MIT",
   "devDependencies": {
-    "aurelia-webpack-plugin": "^2.0.0",
+    "aurelia-webpack-plugin": "https://github.com/aurelia/webpack-plugin.git#v2.0",
+    "aurelia-core-dependencies": "https://github.com/jods4/aurelia-webpack-build.git#aurelia-core-deps",
     "css-loader": "^0.26.1",
     "html-loader": "^0.4.4",
     "less": "^2.7.2",
