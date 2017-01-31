@@ -9,7 +9,7 @@
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
-    "ts-loader": "^1.2.2",
+    "ts-loader": "^2.0.0",
     "tslib": "^1.5.0",
     "typescript": "^2.1",
     "webpack": "^2.2",

@@ -1,14 +1,14 @@
 {
   "license": "MIT",
   "devDependencies": {
-    "aurelia-webpack-plugin": "https://github.com/aurelia/webpack-plugin.git#v2.0",
     "aurelia-core-dependencies": "https://github.com/jods4/aurelia-webpack-build.git#aurelia-core-deps",
+    "aurelia-webpack-plugin": "https://github.com/aurelia/webpack-plugin.git#v2.0",
     "css-loader": "^0.26.1",
     "html-loader": "^0.4.4",
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
-    "ts-loader": "^1.3.3",
+    "ts-loader": "^2.0.0",
     "typescript": "^2.1",
     "webpack": "^2.2",
     "webpack-dev-server": "^2.2"
