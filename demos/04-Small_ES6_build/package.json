@@ -10,15 +10,15 @@
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
     "ts-loader": "^2.0.0",
-    "tslib": "^1.5.0",
+    "tslib": "^1.6.0",
     "typescript": "^2.1",
     "webpack": "^2.2",
     "webpack-bundle-analyzer": "^2.2.1",
-    "webpack-dev-server": "^2.2"
+    "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
     "aurelia-bootstrapper": "^2.0.1",
-    "aurelia-loader-webpack": "^2.0.0"
+    "aurelia-loader-webpack": "^2.1.0"
   },
   "scripts": {
     "web": "webpack-dev-server --hot --inline"

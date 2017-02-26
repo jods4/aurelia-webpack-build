@@ -4,7 +4,7 @@ const { AureliaPlugin } = require("aurelia-webpack-plugin");
 const coreDeps = require("aurelia-core-dependencies");
 
 module.exports = {
-  entry: { "main": "aurelia-bootstrapper" },
+  entry: "aurelia-bootstrapper",
 
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -16,7 +16,6 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".js"],
     modules: ["src", "node_modules"].map(x => path.resolve(x)),
-    symlinks: false,
   },
 
   module: {
