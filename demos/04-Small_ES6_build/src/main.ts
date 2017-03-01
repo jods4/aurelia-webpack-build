@@ -1,5 +1,4 @@
-import { PLATFORM } from 'aurelia-pal';
-import { Aurelia, ViewEngine } from 'aurelia-framework';
+import { Aurelia, PLATFORM, ViewEngine } from 'aurelia-framework';
 
 export function configure(aurelia: Aurelia) {
   aurelia.use

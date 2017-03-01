@@ -1,5 +1,5 @@
 {
-  "name": "vendor_db8dfcac856dbb637df2",
+  "name": "vendor_438d7aebff22691b4ad7",
   "content": {
     "./node_modules/aurelia-pal/dist/native-modules/aurelia-pal.js": {
       "id": 0,
@@ -64,6 +64,7 @@
         "HtmlBehaviorResource",
         "children",
         "child",
+        "SwapStrategies",
         "CompositionEngine",
         "ElementConfigResource",
         "resource",
@@ -215,8 +216,23 @@
         "observable"
       ]
     },
-    "./node_modules/aurelia-metadata/dist/native-modules/aurelia-metadata.js": {
+    "./node_modules/aurelia-logging/dist/native-modules/aurelia-logging.js": {
       "id": 4,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "logLevel",
+        "getLogger",
+        "addAppender",
+        "removeAppender",
+        "setLevel",
+        "getLevel",
+        "Logger"
+      ]
+    },
+    "./node_modules/aurelia-metadata/dist/native-modules/aurelia-metadata.js": {
+      "id": 5,
       "meta": {
         "harmonyModule": true
       },
@@ -227,20 +243,6 @@
         "deprecated",
         "mixin",
         "protocol"
-      ]
-    },
-    "./node_modules/aurelia-logging/dist/native-modules/aurelia-logging.js": {
-      "id": 5,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "logLevel",
-        "getLogger",
-        "addAppender",
-        "setLevel",
-        "getLevel",
-        "Logger"
       ]
     },
     "./node_modules/aurelia-path/dist/native-modules/aurelia-path.js": {
@@ -255,27 +257,8 @@
         "parseQueryString"
       ]
     },
-    "./node_modules/aurelia-pal-browser/dist/native-modules/aurelia-pal-browser.js": {
-      "id": 7,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-pal-browser"
-      },
-      "exports": [
-        "_PLATFORM",
-        "_ensureFunctionName",
-        "_ensureClassList",
-        "_ensurePerformance",
-        "_ensureCustomEvent",
-        "_ensureElementMatches",
-        "_FEATURE",
-        "_ensureHTMLTemplateElement",
-        "_DOM",
-        "initialize"
-      ]
-    },
     "./node_modules/aurelia-templating-resources/dist/native-modules/repeat-utilities.js": {
-      "id": 8,
+      "id": 7,
       "meta": {
         "harmonyModule": true
       },
@@ -291,7 +274,7 @@
       ]
     },
     "./node_modules/aurelia-router/dist/native-modules/aurelia-router.js": {
-      "id": 9,
+      "id": 8,
       "meta": {
         "harmonyModule": true
       },
@@ -322,6 +305,15 @@
         "AppRouter"
       ]
     },
+    "./node_modules/aurelia-task-queue/dist/native-modules/aurelia-task-queue.js": {
+      "id": 9,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "TaskQueue"
+      ]
+    },
     "./node_modules/aurelia-loader/dist/native-modules/aurelia-loader.js": {
       "id": 10,
       "meta": {
@@ -333,17 +325,30 @@
         "Loader"
       ]
     },
-    "./node_modules/aurelia-task-queue/dist/native-modules/aurelia-task-queue.js": {
+    "./node_modules/aurelia-templating-resources/dist/native-modules/aurelia-hide-style.js": {
       "id": 11,
       "meta": {
         "harmonyModule": true
       },
       "exports": [
-        "TaskQueue"
+        "aureliaHideClassName",
+        "injectAureliaHideStyleAtHead",
+        "injectAureliaHideStyleAtBoundary"
+      ]
+    },
+    "./node_modules/aurelia-templating-router/dist/native-modules/router-view.js": {
+      "id": 12,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-router/router-view"
+      },
+      "exports": [
+        "RouterView",
+        "RouterViewLocator"
       ]
     },
     "./node_modules/aurelia-event-aggregator/dist/native-modules/aurelia-event-aggregator.js": {
-      "id": 12,
+      "id": 13,
       "meta": {
         "harmonyModule": true,
         "aurelia-id": "aurelia-event-aggregator"
@@ -354,8 +359,317 @@
         "configure"
       ]
     },
+    "./node_modules/aurelia-history/dist/native-modules/aurelia-history.js": {
+      "id": 14,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "History"
+      ]
+    },
+    "./node_modules/aurelia-pal-browser/dist/native-modules/aurelia-pal-browser.js": {
+      "id": 15,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-pal-browser"
+      },
+      "exports": [
+        "_PLATFORM",
+        "_ensureFunctionName",
+        "_ensureClassList",
+        "_ensurePerformance",
+        "_ensureCustomEvent",
+        "_ensureElementMatches",
+        "_FEATURE",
+        "_ensureHTMLTemplateElement",
+        "_DOM",
+        "initialize"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/abstract-repeater.js": {
+      "id": 16,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "AbstractRepeater"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/analyze-view-factory.js": {
+      "id": 17,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "lifecycleOptionalBehaviors",
+        "viewsRequireLifecycle"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/array-repeat-strategy.js": {
+      "id": 18,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "ArrayRepeatStrategy"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/attr-binding-behavior.js": {
+      "id": 19,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/attr-binding-behavior"
+      },
+      "exports": [
+        "AttrBindingBehavior"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/binding-mode-behaviors.js": {
+      "id": 20,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/binding-mode-behaviors"
+      },
+      "exports": [
+        "OneTimeBindingBehavior",
+        "OneWayBindingBehavior",
+        "TwoWayBindingBehavior"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/binding-signaler.js": {
+      "id": 21,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "BindingSignaler"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/compose.js": {
+      "id": 22,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/compose"
+      },
+      "exports": [
+        "Compose"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/debounce-binding-behavior.js": {
+      "id": 23,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/debounce-binding-behavior"
+      },
+      "exports": [
+        "DebounceBindingBehavior"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/focus.js": {
+      "id": 24,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/focus"
+      },
+      "exports": [
+        "Focus"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/hide.js": {
+      "id": 25,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/hide"
+      },
+      "exports": [
+        "Hide"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/html-sanitizer.js": {
+      "id": 26,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "HTMLSanitizer"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/if.js": {
+      "id": 27,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/if"
+      },
+      "exports": [
+        "If"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/map-repeat-strategy.js": {
+      "id": 28,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "MapRepeatStrategy"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/null-repeat-strategy.js": {
+      "id": 29,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "NullRepeatStrategy"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/number-repeat-strategy.js": {
+      "id": 30,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "NumberRepeatStrategy"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/repeat-strategy-locator.js": {
+      "id": 31,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "RepeatStrategyLocator"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/repeat.js": {
+      "id": 32,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/repeat"
+      },
+      "exports": [
+        "Repeat"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/replaceable.js": {
+      "id": 33,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/replaceable"
+      },
+      "exports": [
+        "Replaceable"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/sanitize-html.js": {
+      "id": 34,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/sanitize-html"
+      },
+      "exports": [
+        "SanitizeHTMLValueConverter"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/self-binding-behavior.js": {
+      "id": 35,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/self-binding-behavior"
+      },
+      "exports": [
+        "SelfBindingBehavior"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/set-repeat-strategy.js": {
+      "id": 36,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "SetRepeatStrategy"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/show.js": {
+      "id": 37,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/show"
+      },
+      "exports": [
+        "Show"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/signal-binding-behavior.js": {
+      "id": 38,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/signal-binding-behavior"
+      },
+      "exports": [
+        "SignalBindingBehavior"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/throttle-binding-behavior.js": {
+      "id": 39,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/throttle-binding-behavior"
+      },
+      "exports": [
+        "ThrottleBindingBehavior"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/update-trigger-binding-behavior.js": {
+      "id": 40,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/update-trigger-binding-behavior"
+      },
+      "exports": [
+        "UpdateTriggerBindingBehavior"
+      ]
+    },
+    "./node_modules/aurelia-templating-resources/dist/native-modules/with.js": {
+      "id": 41,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-resources/with"
+      },
+      "exports": [
+        "With"
+      ]
+    },
+    "./node_modules/aurelia-templating-router/dist/native-modules/route-href.js": {
+      "id": 42,
+      "meta": {
+        "harmonyModule": true,
+        "aurelia-id": "aurelia-templating-router/route-href"
+      },
+      "exports": [
+        "RouteHref"
+      ]
+    },
+    "./node_modules/process/browser.js": {
+      "id": 43,
+      "meta": {}
+    },
+    "./node_modules/webpack/buildin/global.js": {
+      "id": 44,
+      "meta": {}
+    },
+    "./node_modules/aurelia-bootstrapper/dist/native-modules/aurelia-bootstrapper.js": {
+      "id": 45,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "bootstrap",
+        "starting"
+      ]
+    },
     "./node_modules/aurelia-framework/dist/native-modules/aurelia-framework.js": {
-      "id": 13,
+      "id": 46,
       "meta": {
         "harmonyModule": true,
         "aurelia-id": "aurelia-framework"
@@ -525,6 +839,7 @@
         "HtmlBehaviorResource",
         "children",
         "child",
+        "SwapStrategies",
         "CompositionEngine",
         "ElementConfigResource",
         "resource",
@@ -562,19 +877,8 @@
         "reset"
       ]
     },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/aurelia-hide-style.js": {
-      "id": 14,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "aureliaHideClassName",
-        "injectAureliaHideStyleAtHead",
-        "injectAureliaHideStyleAtBoundary"
-      ]
-    },
     "./node_modules/aurelia-history-browser/dist/native-modules/aurelia-history-browser.js": {
-      "id": 15,
+      "id": 47,
       "meta": {
         "harmonyModule": true,
         "aurelia-id": "aurelia-history-browser"
@@ -586,17 +890,8 @@
         "BrowserHistory"
       ]
     },
-    "./node_modules/aurelia-history/dist/native-modules/aurelia-history.js": {
-      "id": 16,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "History"
-      ]
-    },
     "./node_modules/aurelia-logging-console/dist/native-modules/aurelia-logging-console.js": {
-      "id": 17,
+      "id": 48,
       "meta": {
         "harmonyModule": true,
         "aurelia-id": "aurelia-logging-console"
@@ -605,8 +900,28 @@
         "ConsoleAppender"
       ]
     },
+    "./node_modules/aurelia-polyfills/dist/native-modules/aurelia-polyfills.js": {
+      "id": 49,
+      "meta": {
+        "harmonyModule": true
+      }
+    },
+    "./node_modules/aurelia-route-recognizer/dist/native-modules/aurelia-route-recognizer.js": {
+      "id": 50,
+      "meta": {
+        "harmonyModule": true
+      },
+      "exports": [
+        "State",
+        "StaticSegment",
+        "DynamicSegment",
+        "StarSegment",
+        "EpsilonSegment",
+        "RouteRecognizer"
+      ]
+    },
     "./node_modules/aurelia-templating-binding/dist/native-modules/aurelia-templating-binding.js": {
-      "id": 18,
+      "id": 51,
       "meta": {
         "harmonyModule": true,
         "aurelia-id": "aurelia-templating-binding"
@@ -621,46 +936,8 @@
         "configure"
       ]
     },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/abstract-repeater.js": {
-      "id": 19,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "AbstractRepeater"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/analyze-view-factory.js": {
-      "id": 20,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "lifecycleOptionalBehaviors",
-        "viewsRequireLifecycle"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/array-repeat-strategy.js": {
-      "id": 21,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "ArrayRepeatStrategy"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/attr-binding-behavior.js": {
-      "id": 22,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/attr-binding-behavior"
-      },
-      "exports": [
-        "AttrBindingBehavior"
-      ]
-    },
     "./node_modules/aurelia-templating-resources/dist/native-modules/aurelia-templating-resources.js": {
-      "id": 23,
+      "id": 52,
       "meta": {
         "harmonyModule": true,
         "aurelia-id": "aurelia-templating-resources"
@@ -683,6 +960,7 @@
         "TwoWayBindingBehavior",
         "ThrottleBindingBehavior",
         "DebounceBindingBehavior",
+        "SelfBindingBehavior",
         "SignalBindingBehavior",
         "BindingSignaler",
         "UpdateTriggerBindingBehavior",
@@ -702,213 +980,36 @@
         "viewsRequireLifecycle"
       ]
     },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/binding-mode-behaviors.js": {
-      "id": 24,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/binding-mode-behaviors"
-      },
-      "exports": [
-        "OneTimeBindingBehavior",
-        "OneWayBindingBehavior",
-        "TwoWayBindingBehavior"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/binding-signaler.js": {
-      "id": 25,
+    "./node_modules/aurelia-templating-resources/dist/native-modules/css-resource.js": {
+      "id": 53,
       "meta": {
         "harmonyModule": true
       },
       "exports": [
-        "BindingSignaler"
+        "_createCSSResource"
       ]
     },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/compose.js": {
-      "id": 26,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/compose"
-      },
-      "exports": [
-        "Compose"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/debounce-binding-behavior.js": {
-      "id": 27,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/debounce-binding-behavior"
-      },
-      "exports": [
-        "DebounceBindingBehavior"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/focus.js": {
-      "id": 28,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/focus"
-      },
-      "exports": [
-        "Focus"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/hide.js": {
-      "id": 29,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/hide"
-      },
-      "exports": [
-        "Hide"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/html-sanitizer.js": {
-      "id": 30,
+    "./node_modules/aurelia-templating-resources/dist/native-modules/dynamic-element.js": {
+      "id": 54,
       "meta": {
         "harmonyModule": true
       },
       "exports": [
-        "HTMLSanitizer"
+        "_createDynamicElement"
       ]
     },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/if.js": {
-      "id": 31,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/if"
-      },
-      "exports": [
-        "If"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/map-repeat-strategy.js": {
-      "id": 32,
+    "./node_modules/aurelia-templating-resources/dist/native-modules/html-resource-plugin.js": {
+      "id": 55,
       "meta": {
         "harmonyModule": true
       },
       "exports": [
-        "MapRepeatStrategy"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/null-repeat-strategy.js": {
-      "id": 33,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "NullRepeatStrategy"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/number-repeat-strategy.js": {
-      "id": 34,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "NumberRepeatStrategy"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/repeat-strategy-locator.js": {
-      "id": 35,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "RepeatStrategyLocator"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/repeat.js": {
-      "id": 36,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/repeat"
-      },
-      "exports": [
-        "Repeat"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/replaceable.js": {
-      "id": 37,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/replaceable"
-      },
-      "exports": [
-        "Replaceable"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/sanitize-html.js": {
-      "id": 38,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/sanitize-html"
-      },
-      "exports": [
-        "SanitizeHTMLValueConverter"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/set-repeat-strategy.js": {
-      "id": 39,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "SetRepeatStrategy"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/show.js": {
-      "id": 40,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/show"
-      },
-      "exports": [
-        "Show"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/signal-binding-behavior.js": {
-      "id": 41,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/signal-binding-behavior"
-      },
-      "exports": [
-        "SignalBindingBehavior"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/throttle-binding-behavior.js": {
-      "id": 42,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/throttle-binding-behavior"
-      },
-      "exports": [
-        "ThrottleBindingBehavior"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/update-trigger-binding-behavior.js": {
-      "id": 43,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/update-trigger-binding-behavior"
-      },
-      "exports": [
-        "UpdateTriggerBindingBehavior"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/with.js": {
-      "id": 44,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-resources/with"
-      },
-      "exports": [
-        "With"
+        "getElementName",
+        "configure"
       ]
     },
     "./node_modules/aurelia-templating-router/dist/native-modules/aurelia-templating-router.js": {
-      "id": 45,
+      "id": 56,
       "meta": {
         "harmonyModule": true,
         "aurelia-id": "aurelia-templating-router"
@@ -920,98 +1021,8 @@
         "configure"
       ]
     },
-    "./node_modules/aurelia-templating-router/dist/native-modules/route-href.js": {
-      "id": 46,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-router/route-href"
-      },
-      "exports": [
-        "RouteHref"
-      ]
-    },
-    "./node_modules/aurelia-templating-router/dist/native-modules/router-view.js": {
-      "id": 47,
-      "meta": {
-        "harmonyModule": true,
-        "aurelia-id": "aurelia-templating-router/router-view"
-      },
-      "exports": [
-        "RouterView"
-      ]
-    },
-    "./node_modules/process/browser.js": {
-      "id": 48,
-      "meta": {}
-    },
-    "./node_modules/webpack/buildin/global.js": {
-      "id": 49,
-      "meta": {}
-    },
-    "./node_modules/webpack/buildin/harmony-module.js": {
-      "id": 50,
-      "meta": {}
-    },
-    "./node_modules/aurelia-bootstrapper/dist/native-modules/aurelia-bootstrapper.js": {
-      "id": 51,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "bootstrap",
-        "starting"
-      ]
-    },
-    "./node_modules/aurelia-polyfills/dist/native-modules/aurelia-polyfills.js": {
-      "id": 53,
-      "meta": {
-        "harmonyModule": true
-      }
-    },
-    "./node_modules/aurelia-route-recognizer/dist/native-modules/aurelia-route-recognizer.js": {
-      "id": 54,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "State",
-        "StaticSegment",
-        "DynamicSegment",
-        "StarSegment",
-        "EpsilonSegment",
-        "RouteRecognizer"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/css-resource.js": {
-      "id": 55,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "_createCSSResource"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/dynamic-element.js": {
-      "id": 56,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "_createDynamicElement"
-      ]
-    },
-    "./node_modules/aurelia-templating-resources/dist/native-modules/html-resource-plugin.js": {
-      "id": 57,
-      "meta": {
-        "harmonyModule": true
-      },
-      "exports": [
-        "getElementName",
-        "configure"
-      ]
-    },
     "./node_modules/aurelia-templating-router/dist/native-modules/route-loader.js": {
-      "id": 58,
+      "id": 57,
       "meta": {
         "harmonyModule": true
       },
@@ -1020,11 +1031,11 @@
       ]
     },
     "./node_modules/setimmediate/setImmediate.js": {
-      "id": 59,
+      "id": 58,
       "meta": {}
     },
     "./node_modules/timers-browserify/main.js": {
-      "id": 60,
+      "id": 59,
       "meta": {}
     }
   }

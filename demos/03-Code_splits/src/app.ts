@@ -1,4 +1,5 @@
 import '../style.less';
+import { PLATFORM } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
 
 export class AppViewModel {

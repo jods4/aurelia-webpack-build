@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "dist";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -71,37 +71,262 @@
 /***/ 0:
 /***/ (function(module, exports) {
 
-module.exports = vendor_db8dfcac856dbb637df2;
+module.exports = vendor_438d7aebff22691b4ad7;
 
 /***/ }),
 
 /***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(0);
+module.exports = (__webpack_require__(0))(45);
 
 /***/ }),
 
 /***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(4);
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(7);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(9)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!./node_modules/css-loader/index.js!./node_modules/less-loader/index.js!./style.less", function() {
+			var newContent = require("!!./node_modules/css-loader/index.js!./node_modules/less-loader/index.js!./style.less");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
 
 /***/ }),
 
 /***/ 11:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(50);
+"use strict";
+/* unused harmony export __extends */
+/* unused harmony export __assign */
+/* unused harmony export __rest */
+/* harmony export (immutable) */ __webpack_exports__["a"] = __decorate;
+/* unused harmony export __param */
+/* unused harmony export __metadata */
+/* unused harmony export __awaiter */
+/* unused harmony export __generator */
+/* unused harmony export __exportStar */
+/* unused harmony export __values */
+/* unused harmony export __read */
+/* unused harmony export __spread */
+/* unused harmony export __asyncGenerator */
+/* unused harmony export __asyncDelegator */
+/* unused harmony export __asyncValues */
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = Object.setPrototypeOf ||
+    ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+    function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = Object.assign || function __assign(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+    }
+    return t;
+};
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
+            t[p[i]] = s[p[i]];
+    return t;
+}
+
+function __decorate(decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
+
+function __param(paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+}
+
+function __metadata(metadataKey, metadataValue) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+}
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
+function __exportStar(m, exports) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+
+function __values(o) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
+    if (m) return m.call(o);
+    return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+};
+
+function __read(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
+
+function __spread() {
+    for (var ar = [], i = 0; i < arguments.length; i++)
+        ar = ar.concat(__read(arguments[i]));
+    return ar;
+};
+
+function __asyncGenerator(thisArg, _arguments, generator) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var g = generator.apply(thisArg, _arguments || []), q = [], c, i;
+    return i = { next: verb("next"), "throw": verb("throw"), "return": verb("return") }, i[Symbol.asyncIterator] = function () { return this; }, i;
+    function verb(n) { return function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]), next(); }); }; }
+    function next() { if (!c && q.length) resume((c = q.shift())[0], c[1]); }
+    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(c[3], e); } }
+    function step(r) { r.done ? settle(c[2], r) : r.value[0] === "yield" ? settle(c[2], { value: r.value[1], done: false }) : Promise.resolve(r.value[1]).then(r.value[0] === "delegate" ? delegate : fulfill, reject); }
+    function delegate(r) { step(r.done ? r : { value: ["yield", r.value], done: false }); }
+    function fulfill(value) { resume("next", value); }
+    function reject(value) { resume("throw", value); }
+    function settle(f, v) { c = void 0, f(v), next(); }
+};
+
+function __asyncDelegator(o) {
+    var i = { next: verb("next"), "throw": verb("throw", function (e) { throw e; }), "return": verb("return", function (v) { return { value: v, done: true }; }) };
+    return o = __asyncValues(o), i[Symbol.iterator] = function () { return this; }, i;
+    function verb(n, f) { return function (v) { return { value: ["delegate", (o[n] || f).call(o, v)], done: false }; }; }
+};
+
+function __asyncValues(o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator];
+    return m ? m.call(o) : typeof __values === "function" ? __values(o) : o[Symbol.iterator]();
+};
 
 /***/ }),
 
 /***/ 12:
+/***/ (function(module, exports) {
+
+module.exports = function(originalModule) {
+	if(!originalModule.webpackPolyfill) {
+		var module = Object.create(originalModule);
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		Object.defineProperty(module, "exports", {
+			enumerable: true,
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+
+/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(3);
 __webpack_require__(2);
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(1);
 
 
 /***/ }),
@@ -111,9 +336,9 @@ module.exports = __webpack_require__(4);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(module) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_loader__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_loader__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__ = __webpack_require__(4);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextTemplateLoader", function() { return TextTemplateLoader; });
 /* harmony export (immutable) */ __webpack_exports__["ensureOriginOnExports"] = ensureOriginOnExports;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebpackLoader", function() { return WebpackLoader; });
@@ -432,7 +657,7 @@ var WebpackLoader = (function (_super) {
 
 __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["PLATFORM"].Loader = WebpackLoader;
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(11)(module)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(12)(module)))
 
 /***/ }),
 
@@ -456,14 +681,28 @@ __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["PLATFORM"].Loader = WebpackLoader;
 /***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(51);
+module.exports = (__webpack_require__(0))(0);
 
 /***/ }),
 
 /***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)();
+module.exports = (__webpack_require__(0))(10);
+
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(0))(5);
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)();
 // imports
 
 
@@ -475,7 +714,7 @@ exports.push([module.i, "body {\n  font-family: \"Segoe UI\", Arial, Sans;\n}\nh
 
 /***/ }),
 
-/***/ 6:
+/***/ 8:
 /***/ (function(module, exports) {
 
 /*
@@ -532,7 +771,7 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 7:
+/***/ 9:
 /***/ (function(module, exports) {
 
 /*
@@ -548,7 +787,7 @@ var stylesInDom = {},
 		};
 	},
 	isOldIE = memoize(function() {
-		return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
 	}),
 	getHeadElement = memoize(function () {
 		return document.head || document.getElementsByTagName("head")[0];
@@ -785,46 +1024,12 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 8:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(5);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// add the styles to the DOM
-var update = __webpack_require__(7)(content, {});
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!./node_modules/css-loader/index.js!./node_modules/less-loader/index.js!./style.less", function() {
-			var newContent = require("!!./node_modules/css-loader/index.js!./node_modules/less-loader/index.js!./style.less");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 9:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(0))(10);
-
-/***/ }),
-
 /***/ "app":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_less__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_less__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__style_less__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppViewModel", function() { return AppViewModel; });
 
@@ -849,175 +1054,182 @@ module.exports = "<template>\r\n  <require from=\"customElements/hello-tag\"></r
 /***/ "aurelia-event-aggregator":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(12);
+module.exports = (__webpack_require__(0))(13);
 
 /***/ }),
 
 /***/ "aurelia-framework":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(13);
+module.exports = (__webpack_require__(0))(46);
 
 /***/ }),
 
 /***/ "aurelia-history-browser":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(15);
+module.exports = (__webpack_require__(0))(47);
 
 /***/ }),
 
 /***/ "aurelia-logging-console":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(17);
+module.exports = (__webpack_require__(0))(48);
 
 /***/ }),
 
 /***/ "aurelia-pal-browser":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(7);
+module.exports = (__webpack_require__(0))(15);
 
 /***/ }),
 
 /***/ "aurelia-templating-binding":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(18);
+module.exports = (__webpack_require__(0))(51);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(23);
+module.exports = (__webpack_require__(0))(52);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/attr-binding-behavior":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(22);
+module.exports = (__webpack_require__(0))(19);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/binding-mode-behaviors":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(24);
+module.exports = (__webpack_require__(0))(20);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/compose":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(26);
+module.exports = (__webpack_require__(0))(22);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/debounce-binding-behavior":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(27);
+module.exports = (__webpack_require__(0))(23);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/focus":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(28);
+module.exports = (__webpack_require__(0))(24);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/hide":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(29);
+module.exports = (__webpack_require__(0))(25);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/if":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(31);
+module.exports = (__webpack_require__(0))(27);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/repeat":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(36);
+module.exports = (__webpack_require__(0))(32);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/replaceable":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(37);
+module.exports = (__webpack_require__(0))(33);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/sanitize-html":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(38);
+module.exports = (__webpack_require__(0))(34);
+
+/***/ }),
+
+/***/ "aurelia-templating-resources/self-binding-behavior":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(0))(35);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/show":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(40);
+module.exports = (__webpack_require__(0))(37);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/signal-binding-behavior":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(41);
+module.exports = (__webpack_require__(0))(38);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/throttle-binding-behavior":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(42);
+module.exports = (__webpack_require__(0))(39);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/update-trigger-binding-behavior":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(43);
+module.exports = (__webpack_require__(0))(40);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/with":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(44);
+module.exports = (__webpack_require__(0))(41);
 
 /***/ }),
 
 /***/ "aurelia-templating-router":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(45);
+module.exports = (__webpack_require__(0))(56);
 
 /***/ }),
 
 /***/ "aurelia-templating-router/route-href":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(46);
+module.exports = (__webpack_require__(0))(42);
 
 /***/ }),
 
 /***/ "aurelia-templating-router/router-view":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(47);
+module.exports = (__webpack_require__(0))(12);
 
 /***/ }),
 
@@ -1045,7 +1257,7 @@ var UpperValueConverter = (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__("tslib");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelloTagCustomElement", function() { return HelloTagCustomElement; });
 
@@ -1074,7 +1286,7 @@ module.exports = "<template>\r\n  <div class=\"tag-header\">\r\n    HELLO<br>\r\
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony export (immutable) */ __webpack_exports__["configure"] = configure;
 
 function configure(aurelia) {
@@ -1085,123 +1297,6 @@ function configure(aurelia) {
     aurelia.start().then(function () { return aurelia.setRoot('app'); });
 }
 
-
-/***/ }),
-
-/***/ "tslib":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export __extends */
-/* unused harmony export __assign */
-/* unused harmony export __rest */
-/* harmony export (immutable) */ __webpack_exports__["a"] = __decorate;
-/* unused harmony export __param */
-/* unused harmony export __metadata */
-/* unused harmony export __awaiter */
-/* unused harmony export __generator */
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at http://www.apache.org/licenses/LICENSE-2.0
-
-THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
-
-See the Apache Version 2.0 License for specific language governing permissions
-and limitations under the License.
-***************************************************************************** */
-/* global Reflect, Promise */
-
-var extendStatics = Object.setPrototypeOf ||
-    ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-    function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-
-function __extends(d, b) {
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-
-var __assign = Object.assign || function __assign(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-    }
-    return t;
-};
-
-function __rest(s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
-            t[p[i]] = s[p[i]];
-    return t;
-};
-
-function __decorate(decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-function __param(paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-
-function __metadata(metadataKey, metadataValue) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
-};
-
-function __awaiter(thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-function __generator(thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t;
-    return { next: verb(0), "throw": verb(1), "return": verb(2) };
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-/***/ }),
-
-/***/ "tslib/tslib.es6.html":
-/***/ (function(module, exports) {
-
-module.exports = "<script src=\"tslib.es6.js\"></script>";
 
 /***/ })
 
