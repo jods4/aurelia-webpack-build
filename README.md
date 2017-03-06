@@ -23,3 +23,5 @@ See the wiki page for more infos.
 
 5. `DllReferencePlugin` is an advanced scenario that enables partial compilation and long term caching.
 See the wiki page for more infos.
+
+6. `ASPNET` is a setup that incorporate an Aurelia + Webpack front-end into an ASP.NET Core + SPA Services back-end.
