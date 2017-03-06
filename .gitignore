@@ -6,5 +6,10 @@ npm-debug.log*
 # Dependency directories
 node_modules
 
+# Build
+bin
+obj
+**/wwwroot/dist
+
 # IDE
 .vscode
