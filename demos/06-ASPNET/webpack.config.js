@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "wwwroot", "dist"),
     filename: "app.js",
-    publicPath: "/dist",
+    publicPath: "/dist/",
   },
 
   resolve: {
