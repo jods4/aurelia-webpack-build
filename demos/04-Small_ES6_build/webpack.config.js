@@ -27,7 +27,7 @@ module.exports = {
   plugins: [
     new AureliaPlugin({
       dist: 'es2015',
-      features: { svg: false, unparser: false, polyfills: "esnext" },
+      features: { ie: false, svg: false, unparser: false, polyfills: "esnext" },
     }),
     new BabiliPlugin(),
   ],
