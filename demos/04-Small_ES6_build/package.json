@@ -3,20 +3,20 @@
   "devDependencies": {
     "aurelia-webpack-plugin": "^2.0.0-rc.1",
     "babili-webpack-plugin": "^0.0.11",
-    "css-loader": "^0.26.2",
+    "css-loader": "^0.27.3",
     "html-loader": "^0.4.5",
     "less": "^2.7.2",
-    "less-loader": "^2.2.3",
-    "style-loader": "^0.13.2",
-    "ts-loader": "^2.0.1",
+    "less-loader": "^4.0.2",
+    "style-loader": "^0.16.1",
+    "ts-loader": "^2.0.3",
     "tslib": "^1.6.0",
-    "typescript": "^2.2.1",
-    "webpack": "^2.2.1",
-    "webpack-bundle-analyzer": "^2.3.0",
-    "webpack-dev-server": "^2.4.1"
+    "typescript": "^2.2.2",
+    "webpack": "^2.3.2",
+    "webpack-bundle-analyzer": "^2.3.1",
+    "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
-    "aurelia-bootstrapper": "^2.1.0"
+    "aurelia-bootstrapper": "^2.1.1"
   },
   "scripts": {
     "web": "webpack-dev-server --hot --inline"
