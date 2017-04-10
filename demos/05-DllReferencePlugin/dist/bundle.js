@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 19);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -71,7 +71,7 @@
 /***/ 0:
 /***/ (function(module, exports) {
 
-module.exports = vendor_438d7aebff22691b4ad7;
+module.exports = vendor_0a7648a62c56914a4e92;
 
 /***/ }),
 
@@ -80,9 +80,9 @@ module.exports = vendor_438d7aebff22691b4ad7;
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(module) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_loader__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_loader__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__ = __webpack_require__(16);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextTemplateLoader", function() { return TextTemplateLoader; });
 /* harmony export (immutable) */ __webpack_exports__["ensureOriginOnExports"] = ensureOriginOnExports;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebpackLoader", function() { return WebpackLoader; });
@@ -401,11 +401,23 @@ var WebpackLoader = (function (_super) {
 
 __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["PLATFORM"].Loader = WebpackLoader;
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(14)(module)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(15)(module)))
 
 /***/ }),
 
 /***/ 10:
+/***/ (function(module, exports) {
+
+var toString = {}.toString;
+
+module.exports = Array.isArray || function (arr) {
+  return toString.call(arr) == '[object Array]';
+};
+
+
+/***/ }),
+
+/***/ 11:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -442,7 +454,7 @@ var stylesInDom = {},
 	singletonElement = null,
 	singletonCounter = 0,
 	styleElementsInsertedAtTop = [],
-	fixUrls = __webpack_require__(11);
+	fixUrls = __webpack_require__(12);
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
@@ -702,7 +714,7 @@ function updateLink(linkElement, options, obj) {
 
 /***/ }),
 
-/***/ 11:
+/***/ 12:
 /***/ (function(module, exports) {
 
 
@@ -798,16 +810,16 @@ module.exports = function (css) {
 
 /***/ }),
 
-/***/ 12:
+/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(6);
+var content = __webpack_require__(7);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(10)(content, {});
+var update = __webpack_require__(11)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -825,7 +837,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 13:
+/***/ 14:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1006,7 +1018,7 @@ function __asyncValues(o) {
 
 /***/ }),
 
-/***/ 14:
+/***/ 15:
 /***/ (function(module, exports) {
 
 module.exports = function(originalModule) {
@@ -1037,41 +1049,31 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
-/***/ 15:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(0))(0);
 
 /***/ }),
 
-/***/ 16:
+/***/ 17:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(0))(10);
 
 /***/ }),
 
-/***/ 17:
+/***/ 18:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(0))(44);
 
 /***/ }),
 
-/***/ 18:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(0))(5);
-
-/***/ }),
-
 /***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2);
-__webpack_require__(1);
-module.exports = __webpack_require__(3);
-
+module.exports = (__webpack_require__(0))(5);
 
 /***/ }),
 
@@ -1092,6 +1094,17 @@ module.exports = __webpack_require__(3);
 
 /***/ }),
 
+/***/ 20:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(2);
+__webpack_require__(4);
+__webpack_require__(1);
+module.exports = __webpack_require__(3);
+
+
+/***/ }),
+
 /***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1100,6 +1113,13 @@ module.exports = (__webpack_require__(0))(45);
 /***/ }),
 
 /***/ 4:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(0))(49);
+
+/***/ }),
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1221,7 +1241,7 @@ function fromByteArray (uint8) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1235,9 +1255,9 @@ function fromByteArray (uint8) {
 
 
 
-var base64 = __webpack_require__(4)
-var ieee754 = __webpack_require__(8)
-var isArray = __webpack_require__(9)
+var base64 = __webpack_require__(5)
+var ieee754 = __webpack_require__(9)
+var isArray = __webpack_require__(10)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -3015,14 +3035,14 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18)))
 
 /***/ }),
 
-/***/ 6:
+/***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)(undefined);
+exports = module.exports = __webpack_require__(8)(undefined);
 // imports
 
 
@@ -3034,7 +3054,7 @@ exports.push([module.i, "body {\n  font-family: \"Segoe UI\", Arial, Sans;\n}\nh
 
 /***/ }),
 
-/***/ 7:
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {/*
@@ -3113,11 +3133,11 @@ function toComment(sourceMap) {
   return '/*# ' + data + ' */';
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6).Buffer))
 
 /***/ }),
 
-/***/ 8:
+/***/ 9:
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -3208,24 +3228,12 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 /***/ }),
 
-/***/ 9:
-/***/ (function(module, exports) {
-
-var toString = {}.toString;
-
-module.exports = Array.isArray || function (arr) {
-  return toString.call(arr) == '[object Array]';
-};
-
-
-/***/ }),
-
 /***/ "app":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_less__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_less__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__style_less__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppViewModel", function() { return AppViewModel; });
 
@@ -3453,7 +3461,7 @@ var UpperValueConverter = (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelloTagCustomElement", function() { return HelloTagCustomElement; });
 

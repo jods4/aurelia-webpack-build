@@ -5058,7 +5058,7 @@ var TemplatingEngine = (_dec11 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_route_recognizer__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_history__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_history__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator__ = __webpack_require__("aurelia-event-aggregator");
 /* unused harmony export _normalizeAbsolutePath */
 /* unused harmony export _createRootedPath */
@@ -6960,2346 +6960,7 @@ module.exports = g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return History; });
-
-
-function mi(name) {
-  throw new Error('History must implement ' + name + '().');
-}
-
-var History = function () {
-  function History() {
-    
-  }
-
-  History.prototype.activate = function activate(options) {
-    mi('activate');
-  };
-
-  History.prototype.deactivate = function deactivate() {
-    mi('deactivate');
-  };
-
-  History.prototype.getAbsoluteRoot = function getAbsoluteRoot() {
-    mi('getAbsoluteRoot');
-  };
-
-  History.prototype.navigate = function navigate(fragment, options) {
-    mi('navigate');
-  };
-
-  History.prototype.navigateBack = function navigateBack() {
-    mi('navigateBack');
-  };
-
-  History.prototype.setTitle = function setTitle(title) {
-    mi('setTitle');
-  };
-
-  return History;
-}();
-
-/***/ }),
-
-/***/ 14:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AbstractRepeater; });
-
-
-var AbstractRepeater = function () {
-  function AbstractRepeater(options) {
-    
-
-    Object.assign(this, {
-      local: 'items',
-      viewsRequireLifecycle: true
-    }, options);
-  }
-
-  AbstractRepeater.prototype.viewCount = function viewCount() {
-    throw new Error('subclass must implement `viewCount`');
-  };
-
-  AbstractRepeater.prototype.views = function views() {
-    throw new Error('subclass must implement `views`');
-  };
-
-  AbstractRepeater.prototype.view = function view(index) {
-    throw new Error('subclass must implement `view`');
-  };
-
-  AbstractRepeater.prototype.matcher = function matcher() {
-    throw new Error('subclass must implement `matcher`');
-  };
-
-  AbstractRepeater.prototype.addView = function addView(bindingContext, overrideContext) {
-    throw new Error('subclass must implement `addView`');
-  };
-
-  AbstractRepeater.prototype.insertView = function insertView(index, bindingContext, overrideContext) {
-    throw new Error('subclass must implement `insertView`');
-  };
-
-  AbstractRepeater.prototype.moveView = function moveView(sourceIndex, targetIndex) {
-    throw new Error('subclass must implement `moveView`');
-  };
-
-  AbstractRepeater.prototype.removeAllViews = function removeAllViews(returnToCache, skipAnimation) {
-    throw new Error('subclass must implement `removeAllViews`');
-  };
-
-  AbstractRepeater.prototype.removeViews = function removeViews(viewsToRemove, returnToCache, skipAnimation) {
-    throw new Error('subclass must implement `removeView`');
-  };
-
-  AbstractRepeater.prototype.removeView = function removeView(index, returnToCache, skipAnimation) {
-    throw new Error('subclass must implement `removeView`');
-  };
-
-  AbstractRepeater.prototype.updateBindings = function updateBindings(view) {
-    throw new Error('subclass must implement `updateBindings`');
-  };
-
-  return AbstractRepeater;
-}();
-
-/***/ }),
-
-/***/ 15:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export lifecycleOptionalBehaviors */
-/* harmony export (immutable) */ __webpack_exports__["a"] = viewsRequireLifecycle;
-
-var lifecycleOptionalBehaviors = ['focus', 'if', 'repeat', 'show', 'with'];
-
-function behaviorRequiresLifecycle(instruction) {
-  var t = instruction.type;
-  var name = t.elementName !== null ? t.elementName : t.attributeName;
-  return lifecycleOptionalBehaviors.indexOf(name) === -1 && (t.handlesAttached || t.handlesBind || t.handlesCreated || t.handlesDetached || t.handlesUnbind) || t.viewFactory && viewsRequireLifecycle(t.viewFactory) || instruction.viewFactory && viewsRequireLifecycle(instruction.viewFactory);
-}
-
-function targetRequiresLifecycle(instruction) {
-  var behaviors = instruction.behaviorInstructions;
-  if (behaviors) {
-    var i = behaviors.length;
-    while (i--) {
-      if (behaviorRequiresLifecycle(behaviors[i])) {
-        return true;
-      }
-    }
-  }
-
-  return instruction.viewFactory && viewsRequireLifecycle(instruction.viewFactory);
-}
-
-function viewsRequireLifecycle(viewFactory) {
-  if ('_viewsRequireLifecycle' in viewFactory) {
-    return viewFactory._viewsRequireLifecycle;
-  }
-
-  viewFactory._viewsRequireLifecycle = false;
-
-  if (viewFactory.viewFactory) {
-    viewFactory._viewsRequireLifecycle = viewsRequireLifecycle(viewFactory.viewFactory);
-    return viewFactory._viewsRequireLifecycle;
-  }
-
-  if (viewFactory.template.querySelector('.au-animate')) {
-    viewFactory._viewsRequireLifecycle = true;
-    return true;
-  }
-
-  for (var id in viewFactory.instructions) {
-    if (targetRequiresLifecycle(viewFactory.instructions[id])) {
-      viewFactory._viewsRequireLifecycle = true;
-      return true;
-    }
-  }
-
-  viewFactory._viewsRequireLifecycle = false;
-  return false;
-}
-
-/***/ }),
-
-/***/ 16:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(3);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArrayRepeatStrategy; });
-
-
-
-
-
-var ArrayRepeatStrategy = function () {
-  function ArrayRepeatStrategy() {
-    
-  }
-
-  ArrayRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {
-    return observerLocator.getArrayObserver(items);
-  };
-
-  ArrayRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
-    var _this = this;
-
-    var itemsLength = items.length;
-
-    if (!items || itemsLength === 0) {
-      repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-      return;
-    }
-
-    var children = repeat.views();
-    var viewsLength = children.length;
-
-    if (viewsLength === 0) {
-      this._standardProcessInstanceChanged(repeat, items);
-      return;
-    }
-
-    if (repeat.viewsRequireLifecycle) {
-      (function () {
-        var childrenSnapshot = children.slice(0);
-        var itemNameInBindingContext = repeat.local;
-        var matcher = repeat.matcher();
-
-        var itemsPreviouslyInViews = [];
-        var viewsToRemove = [];
-
-        for (var index = 0; index < viewsLength; index++) {
-          var view = childrenSnapshot[index];
-          var oldItem = view.bindingContext[itemNameInBindingContext];
-
-          if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["g" /* indexOf */])(items, oldItem, matcher) === -1) {
-            viewsToRemove.push(view);
-          } else {
-            itemsPreviouslyInViews.push(oldItem);
-          }
-        }
-
-        var updateViews = void 0;
-        var removePromise = void 0;
-
-        if (itemsPreviouslyInViews.length > 0) {
-          removePromise = repeat.removeViews(viewsToRemove, true, !repeat.viewsRequireLifecycle);
-          updateViews = function updateViews() {
-            for (var _index = 0; _index < itemsLength; _index++) {
-              var item = items[_index];
-              var indexOfView = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["g" /* indexOf */])(itemsPreviouslyInViews, item, matcher, _index);
-              var _view = void 0;
-
-              if (indexOfView === -1) {
-                var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, items[_index], _index, itemsLength);
-                repeat.insertView(_index, overrideContext.bindingContext, overrideContext);
-
-                itemsPreviouslyInViews.splice(_index, 0, undefined);
-              } else if (indexOfView === _index) {
-                _view = children[indexOfView];
-                itemsPreviouslyInViews[indexOfView] = undefined;
-              } else {
-                _view = children[indexOfView];
-                repeat.moveView(indexOfView, _index);
-                itemsPreviouslyInViews.splice(indexOfView, 1);
-                itemsPreviouslyInViews.splice(_index, 0, undefined);
-              }
-
-              if (_view) {
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["h" /* updateOverrideContext */])(_view.overrideContext, _index, itemsLength);
-              }
-            }
-
-            _this._inPlaceProcessItems(repeat, items);
-          };
-        } else {
-          removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-          updateViews = function updateViews() {
-            return _this._standardProcessInstanceChanged(repeat, items);
-          };
-        }
-
-        if (removePromise instanceof Promise) {
-          removePromise.then(updateViews);
-        } else {
-          updateViews();
-        }
-      })();
-    } else {
-      this._inPlaceProcessItems(repeat, items);
-    }
-  };
-
-  ArrayRepeatStrategy.prototype._standardProcessInstanceChanged = function _standardProcessInstanceChanged(repeat, items) {
-    for (var i = 0, ii = items.length; i < ii; i++) {
-      var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, items[i], i, ii);
-      repeat.addView(overrideContext.bindingContext, overrideContext);
-    }
-  };
-
-  ArrayRepeatStrategy.prototype._inPlaceProcessItems = function _inPlaceProcessItems(repeat, items) {
-    var itemsLength = items.length;
-    var viewsLength = repeat.viewCount();
-
-    while (viewsLength > itemsLength) {
-      viewsLength--;
-      repeat.removeView(viewsLength, true, !repeat.viewsRequireLifecycle);
-    }
-
-    var local = repeat.local;
-
-    for (var i = 0; i < viewsLength; i++) {
-      var view = repeat.view(i);
-      var last = i === itemsLength - 1;
-      var middle = i !== 0 && !last;
-
-      if (view.bindingContext[local] === items[i] && view.overrideContext.$middle === middle && view.overrideContext.$last === last) {
-        continue;
-      }
-
-      view.bindingContext[local] = items[i];
-      view.overrideContext.$middle = middle;
-      view.overrideContext.$last = last;
-      repeat.updateBindings(view);
-    }
-
-    for (var _i = viewsLength; _i < itemsLength; _i++) {
-      var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, items[_i], _i, itemsLength);
-      repeat.addView(overrideContext.bindingContext, overrideContext);
-    }
-  };
-
-  ArrayRepeatStrategy.prototype.instanceMutated = function instanceMutated(repeat, array, splices) {
-    var _this2 = this;
-
-    if (repeat.__queuedSplices) {
-      for (var i = 0, ii = splices.length; i < ii; ++i) {
-        var _splices$i = splices[i],
-            index = _splices$i.index,
-            removed = _splices$i.removed,
-            addedCount = _splices$i.addedCount;
-
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["l" /* mergeSplice */])(repeat.__queuedSplices, index, removed, addedCount);
-      }
-
-      repeat.__array = array.slice(0);
-      return;
-    }
-
-    var maybePromise = this._runSplices(repeat, array.slice(0), splices);
-    if (maybePromise instanceof Promise) {
-      (function () {
-        var queuedSplices = repeat.__queuedSplices = [];
-
-        var runQueuedSplices = function runQueuedSplices() {
-          if (!queuedSplices.length) {
-            repeat.__queuedSplices = undefined;
-            repeat.__array = undefined;
-            return;
-          }
-
-          var nextPromise = _this2._runSplices(repeat, repeat.__array, queuedSplices) || Promise.resolve();
-          queuedSplices = repeat.__queuedSplices = [];
-          nextPromise.then(runQueuedSplices);
-        };
-
-        maybePromise.then(runQueuedSplices);
-      })();
-    }
-  };
-
-  ArrayRepeatStrategy.prototype._runSplices = function _runSplices(repeat, array, splices) {
-    var _this3 = this;
-
-    var removeDelta = 0;
-    var rmPromises = [];
-
-    for (var i = 0, ii = splices.length; i < ii; ++i) {
-      var splice = splices[i];
-      var removed = splice.removed;
-
-      for (var j = 0, jj = removed.length; j < jj; ++j) {
-        var viewOrPromise = repeat.removeView(splice.index + removeDelta + rmPromises.length, true);
-        if (viewOrPromise instanceof Promise) {
-          rmPromises.push(viewOrPromise);
-        }
-      }
-      removeDelta -= splice.addedCount;
-    }
-
-    if (rmPromises.length > 0) {
-      return Promise.all(rmPromises).then(function () {
-        var spliceIndexLow = _this3._handleAddedSplices(repeat, array, splices);
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), spliceIndexLow);
-      });
-    }
-
-    var spliceIndexLow = this._handleAddedSplices(repeat, array, splices);
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), spliceIndexLow);
-
-    return undefined;
-  };
-
-  ArrayRepeatStrategy.prototype._handleAddedSplices = function _handleAddedSplices(repeat, array, splices) {
-    var spliceIndex = void 0;
-    var spliceIndexLow = void 0;
-    var arrayLength = array.length;
-    for (var i = 0, ii = splices.length; i < ii; ++i) {
-      var splice = splices[i];
-      var addIndex = spliceIndex = splice.index;
-      var end = splice.index + splice.addedCount;
-
-      if (typeof spliceIndexLow === 'undefined' || spliceIndexLow === null || spliceIndexLow > splice.index) {
-        spliceIndexLow = spliceIndex;
-      }
-
-      for (; addIndex < end; ++addIndex) {
-        var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, array[addIndex], addIndex, arrayLength);
-        repeat.insertView(addIndex, overrideContext.bindingContext, overrideContext);
-      }
-    }
-
-    return spliceIndexLow;
-  };
-
-  return ArrayRepeatStrategy;
-}();
-
-/***/ }),
-
-/***/ 17:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BindingSignaler; });
-
-
-
-
-var BindingSignaler = function () {
-  function BindingSignaler() {
-    
-
-    this.signals = {};
-  }
-
-  BindingSignaler.prototype.signal = function signal(name) {
-    var bindings = this.signals[name];
-    if (!bindings) {
-      return;
-    }
-    var i = bindings.length;
-    while (i--) {
-      bindings[i].call(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["k" /* sourceContext */]);
-    }
-  };
-
-  return BindingSignaler;
-}();
-
-/***/ }),
-
-/***/ 18:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HTMLSanitizer; });
-
-
-var SCRIPT_REGEX = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
-
-var HTMLSanitizer = function () {
-  function HTMLSanitizer() {
-    
-  }
-
-  HTMLSanitizer.prototype.sanitize = function sanitize(input) {
-    return input.replace(SCRIPT_REGEX, '');
-  };
-
-  return HTMLSanitizer;
-}();
-
-/***/ }),
-
-/***/ 19:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapRepeatStrategy; });
-
-
-
-
-var MapRepeatStrategy = function () {
-  function MapRepeatStrategy() {
-    
-  }
-
-  MapRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {
-    return observerLocator.getMapObserver(items);
-  };
-
-  MapRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
-    var _this = this;
-
-    var removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-    if (removePromise instanceof Promise) {
-      removePromise.then(function () {
-        return _this._standardProcessItems(repeat, items);
-      });
-      return;
-    }
-    this._standardProcessItems(repeat, items);
-  };
-
-  MapRepeatStrategy.prototype._standardProcessItems = function _standardProcessItems(repeat, items) {
-    var index = 0;
-    var overrideContext = void 0;
-
-    items.forEach(function (value, key) {
-      overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, value, index, items.size, key);
-      repeat.addView(overrideContext.bindingContext, overrideContext);
-      ++index;
-    });
-  };
-
-  MapRepeatStrategy.prototype.instanceMutated = function instanceMutated(repeat, map, records) {
-    var key = void 0;
-    var i = void 0;
-    var ii = void 0;
-    var overrideContext = void 0;
-    var removeIndex = void 0;
-    var record = void 0;
-    var rmPromises = [];
-    var viewOrPromise = void 0;
-
-    for (i = 0, ii = records.length; i < ii; ++i) {
-      record = records[i];
-      key = record.key;
-      switch (record.type) {
-        case 'update':
-          removeIndex = this._getViewIndexByKey(repeat, key);
-          viewOrPromise = repeat.removeView(removeIndex, true, !repeat.viewsRequireLifecycle);
-          if (viewOrPromise instanceof Promise) {
-            rmPromises.push(viewOrPromise);
-          }
-          overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, map.get(key), removeIndex, map.size, key);
-          repeat.insertView(removeIndex, overrideContext.bindingContext, overrideContext);
-          break;
-        case 'add':
-          overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, map.get(key), map.size - 1, map.size, key);
-          repeat.insertView(map.size - 1, overrideContext.bindingContext, overrideContext);
-          break;
-        case 'delete':
-          if (record.oldValue === undefined) {
-            return;
-          }
-          removeIndex = this._getViewIndexByKey(repeat, key);
-          viewOrPromise = repeat.removeView(removeIndex, true, !repeat.viewsRequireLifecycle);
-          if (viewOrPromise instanceof Promise) {
-            rmPromises.push(viewOrPromise);
-          }
-          break;
-        case 'clear':
-          repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-          break;
-        default:
-          continue;
-      }
-    }
-
-    if (rmPromises.length > 0) {
-      Promise.all(rmPromises).then(function () {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), 0);
-      });
-    } else {
-      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), 0);
-    }
-  };
-
-  MapRepeatStrategy.prototype._getViewIndexByKey = function _getViewIndexByKey(repeat, key) {
-    var i = void 0;
-    var ii = void 0;
-    var child = void 0;
-
-    for (i = 0, ii = repeat.viewCount(); i < ii; ++i) {
-      child = repeat.view(i);
-      if (child.bindingContext[repeat.key] === key) {
-        return i;
-      }
-    }
-
-    return undefined;
-  };
-
-  return MapRepeatStrategy;
-}();
-
-/***/ }),
-
-/***/ 2:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return resolver; });
-/* unused harmony export Lazy */
-/* unused harmony export All */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Optional; });
-/* unused harmony export Parent */
-/* unused harmony export StrategyResolver */
-/* unused harmony export Factory */
-/* unused harmony export NewInstance */
-/* unused harmony export getDecoratorDependencies */
-/* unused harmony export lazy */
-/* unused harmony export all */
-/* unused harmony export optional */
-/* unused harmony export parent */
-/* unused harmony export factory */
-/* unused harmony export newInstance */
-/* unused harmony export invoker */
-/* unused harmony export invokeAsFactory */
-/* unused harmony export FactoryInvoker */
-/* unused harmony export registration */
-/* unused harmony export transient */
-/* unused harmony export singleton */
-/* unused harmony export TransientRegistration */
-/* unused harmony export SingletonRegistration */
-/* unused harmony export _emptyParameters */
-/* unused harmony export InvocationHandler */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Container; });
-/* unused harmony export autoinject */
-/* harmony export (immutable) */ __webpack_exports__["b"] = inject;
-var _dec, _class, _dec2, _class3, _dec3, _class5, _dec4, _class7, _dec5, _class9, _dec6, _class11, _dec7, _class13, _classInvokers;
-
-
-
-
-
-
-var resolver = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["b" /* protocol */].create('aurelia:resolver', function (target) {
-  if (!(typeof target.get === 'function')) {
-    return 'Resolvers must implement: get(container: Container, key: any): any';
-  }
-
-  return true;
-});
-
-var Lazy = (_dec = resolver(), _dec(_class = function () {
-  function Lazy(key) {
-    
-
-    this._key = key;
-  }
-
-  Lazy.prototype.get = function get(container) {
-    var _this = this;
-
-    return function () {
-      return container.get(_this._key);
-    };
-  };
-
-  Lazy.of = function of(key) {
-    return new Lazy(key);
-  };
-
-  return Lazy;
-}()) || _class);
-
-var All = (_dec2 = resolver(), _dec2(_class3 = function () {
-  function All(key) {
-    
-
-    this._key = key;
-  }
-
-  All.prototype.get = function get(container) {
-    return container.getAll(this._key);
-  };
-
-  All.of = function of(key) {
-    return new All(key);
-  };
-
-  return All;
-}()) || _class3);
-
-var Optional = (_dec3 = resolver(), _dec3(_class5 = function () {
-  function Optional(key) {
-    var checkParent = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
-
-    
-
-    this._key = key;
-    this._checkParent = checkParent;
-  }
-
-  Optional.prototype.get = function get(container) {
-    if (container.hasResolver(this._key, this._checkParent)) {
-      return container.get(this._key);
-    }
-
-    return null;
-  };
-
-  Optional.of = function of(key) {
-    var checkParent = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
-
-    return new Optional(key, checkParent);
-  };
-
-  return Optional;
-}()) || _class5);
-
-var Parent = (_dec4 = resolver(), _dec4(_class7 = function () {
-  function Parent(key) {
-    
-
-    this._key = key;
-  }
-
-  Parent.prototype.get = function get(container) {
-    return container.parent ? container.parent.get(this._key) : null;
-  };
-
-  Parent.of = function of(key) {
-    return new Parent(key);
-  };
-
-  return Parent;
-}()) || _class7);
-
-var StrategyResolver = (_dec5 = resolver(), _dec5(_class9 = function () {
-  function StrategyResolver(strategy, state) {
-    
-
-    this.strategy = strategy;
-    this.state = state;
-  }
-
-  StrategyResolver.prototype.get = function get(container, key) {
-    switch (this.strategy) {
-      case 0:
-        return this.state;
-      case 1:
-        var singleton = container.invoke(this.state);
-        this.state = singleton;
-        this.strategy = 0;
-        return singleton;
-      case 2:
-        return container.invoke(this.state);
-      case 3:
-        return this.state(container, key, this);
-      case 4:
-        return this.state[0].get(container, key);
-      case 5:
-        return container.get(this.state);
-      default:
-        throw new Error('Invalid strategy: ' + this.strategy);
-    }
-  };
-
-  return StrategyResolver;
-}()) || _class9);
-
-var Factory = (_dec6 = resolver(), _dec6(_class11 = function () {
-  function Factory(key) {
-    
-
-    this._key = key;
-  }
-
-  Factory.prototype.get = function get(container) {
-    var _this2 = this;
-
-    return function () {
-      for (var _len = arguments.length, rest = Array(_len), _key = 0; _key < _len; _key++) {
-        rest[_key] = arguments[_key];
-      }
-
-      return container.invoke(_this2._key, rest);
-    };
-  };
-
-  Factory.of = function of(key) {
-    return new Factory(key);
-  };
-
-  return Factory;
-}()) || _class11);
-
-var NewInstance = (_dec7 = resolver(), _dec7(_class13 = function () {
-  function NewInstance(key) {
-    
-
-    this.key = key;
-    this.asKey = key;
-
-    for (var _len2 = arguments.length, dynamicDependencies = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-      dynamicDependencies[_key2 - 1] = arguments[_key2];
-    }
-
-    this.dynamicDependencies = dynamicDependencies;
-  }
-
-  NewInstance.prototype.get = function get(container) {
-    var dynamicDependencies = this.dynamicDependencies.length > 0 ? this.dynamicDependencies.map(function (dependency) {
-      return dependency['protocol:aurelia:resolver'] ? dependency.get(container) : container.get(dependency);
-    }) : undefined;
-    var instance = container.invoke(this.key, dynamicDependencies);
-    container.registerInstance(this.asKey, instance);
-    return instance;
-  };
-
-  NewInstance.prototype.as = function as(key) {
-    this.asKey = key;
-    return this;
-  };
-
-  NewInstance.of = function of(key) {
-    for (var _len3 = arguments.length, dynamicDependencies = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
-      dynamicDependencies[_key3 - 1] = arguments[_key3];
-    }
-
-    return new (Function.prototype.bind.apply(NewInstance, [null].concat([key], dynamicDependencies)))();
-  };
-
-  return NewInstance;
-}()) || _class13);
-
-function getDecoratorDependencies(target, name) {
-  var dependencies = target.inject;
-  if (typeof dependencies === 'function') {
-    throw new Error('Decorator ' + name + ' cannot be used with "inject()".  Please use an array instead.');
-  }
-  if (!dependencies) {
-    dependencies = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].getOwn(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].paramTypes, target).slice();
-    target.inject = dependencies;
-  }
-
-  return dependencies;
-}
-
-function lazy(keyValue) {
-  return function (target, key, index) {
-    var params = getDecoratorDependencies(target, 'lazy');
-    params[index] = Lazy.of(keyValue);
-  };
-}
-
-function all(keyValue) {
-  return function (target, key, index) {
-    var params = getDecoratorDependencies(target, 'all');
-    params[index] = All.of(keyValue);
-  };
-}
-
-function optional() {
-  var checkParentOrTarget = arguments.length <= 0 || arguments[0] === undefined ? true : arguments[0];
-
-  var deco = function deco(checkParent) {
-    return function (target, key, index) {
-      var params = getDecoratorDependencies(target, 'optional');
-      params[index] = Optional.of(params[index], checkParent);
-    };
-  };
-  if (typeof checkParentOrTarget === 'boolean') {
-    return deco(checkParentOrTarget);
-  }
-  return deco(true);
-}
-
-function parent(target, key, index) {
-  var params = getDecoratorDependencies(target, 'parent');
-  params[index] = Parent.of(params[index]);
-}
-
-function factory(keyValue, asValue) {
-  return function (target, key, index) {
-    var params = getDecoratorDependencies(target, 'factory');
-    var factory = Factory.of(keyValue);
-    params[index] = asValue ? factory.as(asValue) : factory;
-  };
-}
-
-function newInstance(asKeyOrTarget) {
-  for (var _len4 = arguments.length, dynamicDependencies = Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
-    dynamicDependencies[_key4 - 1] = arguments[_key4];
-  }
-
-  var deco = function deco(asKey) {
-    return function (target, key, index) {
-      var params = getDecoratorDependencies(target, 'newInstance');
-      params[index] = NewInstance.of.apply(NewInstance, [params[index]].concat(dynamicDependencies));
-      if (!!asKey) {
-        params[index].as(asKey);
-      }
-    };
-  };
-  if (arguments.length >= 1) {
-    return deco(asKeyOrTarget);
-  }
-  return deco();
-}
-
-function invoker(value) {
-  return function (target) {
-    __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].define(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].invoker, value, target);
-  };
-}
-
-function invokeAsFactory(potentialTarget) {
-  var deco = function deco(target) {
-    __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].define(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].invoker, FactoryInvoker.instance, target);
-  };
-
-  return potentialTarget ? deco(potentialTarget) : deco;
-}
-
-var FactoryInvoker = function () {
-  function FactoryInvoker() {
-    
-  }
-
-  FactoryInvoker.prototype.invoke = function invoke(container, fn, dependencies) {
-    var i = dependencies.length;
-    var args = new Array(i);
-
-    while (i--) {
-      args[i] = container.get(dependencies[i]);
-    }
-
-    return fn.apply(undefined, args);
-  };
-
-  FactoryInvoker.prototype.invokeWithDynamicDependencies = function invokeWithDynamicDependencies(container, fn, staticDependencies, dynamicDependencies) {
-    var i = staticDependencies.length;
-    var args = new Array(i);
-
-    while (i--) {
-      args[i] = container.get(staticDependencies[i]);
-    }
-
-    if (dynamicDependencies !== undefined) {
-      args = args.concat(dynamicDependencies);
-    }
-
-    return fn.apply(undefined, args);
-  };
-
-  return FactoryInvoker;
-}();
-
-FactoryInvoker.instance = new FactoryInvoker();
-
-function registration(value) {
-  return function (target) {
-    __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].define(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].registration, value, target);
-  };
-}
-
-function transient(key) {
-  return registration(new TransientRegistration(key));
-}
-
-function singleton(keyOrRegisterInChild) {
-  var registerInChild = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
-
-  return registration(new SingletonRegistration(keyOrRegisterInChild, registerInChild));
-}
-
-var TransientRegistration = function () {
-  function TransientRegistration(key) {
-    
-
-    this._key = key;
-  }
-
-  TransientRegistration.prototype.registerResolver = function registerResolver(container, key, fn) {
-    var existingResolver = container.getResolver(this._key || key);
-    return existingResolver === undefined ? container.registerTransient(this._key || key, fn) : existingResolver;
-  };
-
-  return TransientRegistration;
-}();
-
-var SingletonRegistration = function () {
-  function SingletonRegistration(keyOrRegisterInChild) {
-    var registerInChild = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
-
-    
-
-    if (typeof keyOrRegisterInChild === 'boolean') {
-      this._registerInChild = keyOrRegisterInChild;
-    } else {
-      this._key = keyOrRegisterInChild;
-      this._registerInChild = registerInChild;
-    }
-  }
-
-  SingletonRegistration.prototype.registerResolver = function registerResolver(container, key, fn) {
-    var targetContainer = this._registerInChild ? container : container.root;
-    var existingResolver = targetContainer.getResolver(this._key || key);
-    return existingResolver === undefined ? targetContainer.registerSingleton(this._key || key, fn) : existingResolver;
-  };
-
-  return SingletonRegistration;
-}();
-
-function validateKey(key) {
-  if (key === null || key === undefined) {
-    throw new Error('key/value cannot be null or undefined. Are you trying to inject/register something that doesn\'t exist with DI?');
-  }
-}
-var _emptyParameters = Object.freeze([]);
-
-__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].registration = 'aurelia:registration';
-__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].invoker = 'aurelia:invoker';
-
-var resolverDecorates = resolver.decorates;
-
-var InvocationHandler = function () {
-  function InvocationHandler(fn, invoker, dependencies) {
-    
-
-    this.fn = fn;
-    this.invoker = invoker;
-    this.dependencies = dependencies;
-  }
-
-  InvocationHandler.prototype.invoke = function invoke(container, dynamicDependencies) {
-    return dynamicDependencies !== undefined ? this.invoker.invokeWithDynamicDependencies(container, this.fn, this.dependencies, dynamicDependencies) : this.invoker.invoke(container, this.fn, this.dependencies);
-  };
-
-  return InvocationHandler;
-}();
-
-function invokeWithDynamicDependencies(container, fn, staticDependencies, dynamicDependencies) {
-  var i = staticDependencies.length;
-  var args = new Array(i);
-
-  while (i--) {
-    args[i] = container.get(staticDependencies[i]);
-  }
-
-  if (dynamicDependencies !== undefined) {
-    args = args.concat(dynamicDependencies);
-  }
-
-  return Reflect.construct(fn, args);
-}
-
-var classInvokers = (_classInvokers = {}, _classInvokers[0] = {
-  invoke: function invoke(container, Type) {
-    return new Type();
-  },
-
-  invokeWithDynamicDependencies: invokeWithDynamicDependencies
-}, _classInvokers[1] = {
-  invoke: function invoke(container, Type, deps) {
-    return new Type(container.get(deps[0]));
-  },
-
-  invokeWithDynamicDependencies: invokeWithDynamicDependencies
-}, _classInvokers[2] = {
-  invoke: function invoke(container, Type, deps) {
-    return new Type(container.get(deps[0]), container.get(deps[1]));
-  },
-
-  invokeWithDynamicDependencies: invokeWithDynamicDependencies
-}, _classInvokers[3] = {
-  invoke: function invoke(container, Type, deps) {
-    return new Type(container.get(deps[0]), container.get(deps[1]), container.get(deps[2]));
-  },
-
-  invokeWithDynamicDependencies: invokeWithDynamicDependencies
-}, _classInvokers[4] = {
-  invoke: function invoke(container, Type, deps) {
-    return new Type(container.get(deps[0]), container.get(deps[1]), container.get(deps[2]), container.get(deps[3]));
-  },
-
-  invokeWithDynamicDependencies: invokeWithDynamicDependencies
-}, _classInvokers[5] = {
-  invoke: function invoke(container, Type, deps) {
-    return new Type(container.get(deps[0]), container.get(deps[1]), container.get(deps[2]), container.get(deps[3]), container.get(deps[4]));
-  },
-
-  invokeWithDynamicDependencies: invokeWithDynamicDependencies
-}, _classInvokers.fallback = {
-  invoke: invokeWithDynamicDependencies,
-  invokeWithDynamicDependencies: invokeWithDynamicDependencies
-}, _classInvokers);
-
-function getDependencies(f) {
-  if (!f.hasOwnProperty('inject')) {
-    return [];
-  }
-
-  if (typeof f.inject === 'function') {
-    return f.inject();
-  }
-
-  return f.inject;
-}
-
-var Container = function () {
-  function Container(configuration) {
-    
-
-    if (configuration === undefined) {
-      configuration = {};
-    }
-
-    this._configuration = configuration;
-    this._onHandlerCreated = configuration.onHandlerCreated;
-    this._handlers = configuration.handlers || (configuration.handlers = new Map());
-    this._resolvers = new Map();
-    this.root = this;
-    this.parent = null;
-  }
-
-  Container.prototype.makeGlobal = function makeGlobal() {
-    Container.instance = this;
-    return this;
-  };
-
-  Container.prototype.setHandlerCreatedCallback = function setHandlerCreatedCallback(onHandlerCreated) {
-    this._onHandlerCreated = onHandlerCreated;
-    this._configuration.onHandlerCreated = onHandlerCreated;
-  };
-
-  Container.prototype.registerInstance = function registerInstance(key, instance) {
-    return this.registerResolver(key, new StrategyResolver(0, instance === undefined ? key : instance));
-  };
-
-  Container.prototype.registerSingleton = function registerSingleton(key, fn) {
-    return this.registerResolver(key, new StrategyResolver(1, fn === undefined ? key : fn));
-  };
-
-  Container.prototype.registerTransient = function registerTransient(key, fn) {
-    return this.registerResolver(key, new StrategyResolver(2, fn === undefined ? key : fn));
-  };
-
-  Container.prototype.registerHandler = function registerHandler(key, handler) {
-    return this.registerResolver(key, new StrategyResolver(3, handler));
-  };
-
-  Container.prototype.registerAlias = function registerAlias(originalKey, aliasKey) {
-    return this.registerResolver(aliasKey, new StrategyResolver(5, originalKey));
-  };
-
-  Container.prototype.registerResolver = function registerResolver(key, resolver) {
-    validateKey(key);
-
-    var allResolvers = this._resolvers;
-    var result = allResolvers.get(key);
-
-    if (result === undefined) {
-      allResolvers.set(key, resolver);
-    } else if (result.strategy === 4) {
-      result.state.push(resolver);
-    } else {
-      allResolvers.set(key, new StrategyResolver(4, [result, resolver]));
-    }
-
-    return resolver;
-  };
-
-  Container.prototype.autoRegister = function autoRegister(key, fn) {
-    fn = fn === undefined ? key : fn;
-
-    if (typeof fn === 'function') {
-      var _registration = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].get(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].registration, fn);
-
-      if (_registration === undefined) {
-        return this.registerResolver(key, new StrategyResolver(1, fn));
-      }
-
-      return _registration.registerResolver(this, key, fn);
-    }
-
-    return this.registerResolver(key, new StrategyResolver(0, fn));
-  };
-
-  Container.prototype.autoRegisterAll = function autoRegisterAll(fns) {
-    var i = fns.length;
-    while (i--) {
-      this.autoRegister(fns[i]);
-    }
-  };
-
-  Container.prototype.unregister = function unregister(key) {
-    this._resolvers.delete(key);
-  };
-
-  Container.prototype.hasResolver = function hasResolver(key) {
-    var checkParent = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
-
-    validateKey(key);
-
-    return this._resolvers.has(key) || checkParent && this.parent !== null && this.parent.hasResolver(key, checkParent);
-  };
-
-  Container.prototype.getResolver = function getResolver(key) {
-    return this._resolvers.get(key);
-  };
-
-  Container.prototype.get = function get(key) {
-    validateKey(key);
-
-    if (key === Container) {
-      return this;
-    }
-
-    if (resolverDecorates(key)) {
-      return key.get(this, key);
-    }
-
-    var resolver = this._resolvers.get(key);
-
-    if (resolver === undefined) {
-      if (this.parent === null) {
-        return this.autoRegister(key).get(this, key);
-      }
-
-      var _registration2 = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].get(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].registration, key);
-
-      if (_registration2 === undefined) {
-        return this.parent._get(key);
-      }
-
-      return _registration2.registerResolver(this, key, key).get(this, key);
-    }
-
-    return resolver.get(this, key);
-  };
-
-  Container.prototype._get = function _get(key) {
-    var resolver = this._resolvers.get(key);
-
-    if (resolver === undefined) {
-      if (this.parent === null) {
-        return this.autoRegister(key).get(this, key);
-      }
-
-      return this.parent._get(key);
-    }
-
-    return resolver.get(this, key);
-  };
-
-  Container.prototype.getAll = function getAll(key) {
-    validateKey(key);
-
-    var resolver = this._resolvers.get(key);
-
-    if (resolver === undefined) {
-      if (this.parent === null) {
-        return _emptyParameters;
-      }
-
-      return this.parent.getAll(key);
-    }
-
-    if (resolver.strategy === 4) {
-      var state = resolver.state;
-      var i = state.length;
-      var results = new Array(i);
-
-      while (i--) {
-        results[i] = state[i].get(this, key);
-      }
-
-      return results;
-    }
-
-    return [resolver.get(this, key)];
-  };
-
-  Container.prototype.createChild = function createChild() {
-    var child = new Container(this._configuration);
-    child.root = this.root;
-    child.parent = this;
-    return child;
-  };
-
-  Container.prototype.invoke = function invoke(fn, dynamicDependencies) {
-    try {
-      var _handler = this._handlers.get(fn);
-
-      if (_handler === undefined) {
-        _handler = this._createInvocationHandler(fn);
-        this._handlers.set(fn, _handler);
-      }
-
-      return _handler.invoke(this, dynamicDependencies);
-    } catch (e) {
-      throw new __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__["e" /* AggregateError */]('Error invoking ' + fn.name + '. Check the inner error for details.', e, true);
-    }
-  };
-
-  Container.prototype._createInvocationHandler = function _createInvocationHandler(fn) {
-    var dependencies = void 0;
-
-    if (fn.inject === undefined) {
-      dependencies = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].getOwn(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].paramTypes, fn) || _emptyParameters;
-    } else {
-      dependencies = [];
-      var ctor = fn;
-      while (typeof ctor === 'function') {
-        var _dependencies;
-
-        (_dependencies = dependencies).push.apply(_dependencies, getDependencies(ctor));
-        ctor = Object.getPrototypeOf(ctor);
-      }
-    }
-
-    var invoker = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].getOwn(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].invoker, fn) || classInvokers[dependencies.length] || classInvokers.fallback;
-
-    var handler = new InvocationHandler(fn, invoker, dependencies);
-    return this._onHandlerCreated !== undefined ? this._onHandlerCreated(handler) : handler;
-  };
-
-  return Container;
-}();
-
-function autoinject(potentialTarget) {
-  var deco = function deco(target) {
-    var previousInject = target.inject ? target.inject.slice() : null;
-    var autoInject = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].getOwn(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].paramTypes, target) || _emptyParameters;
-    if (!previousInject) {
-      target.inject = autoInject;
-    } else {
-      for (var i = 0; i < autoInject.length; i++) {
-        if (previousInject[i] && previousInject[i] !== autoInject[i]) {
-          var prevIndex = previousInject.indexOf(autoInject[i]);
-          if (prevIndex > -1) {
-            previousInject.splice(prevIndex, 1);
-          }
-          previousInject.splice(prevIndex > -1 && prevIndex < i ? i - 1 : i, 0, autoInject[i]);
-        } else if (!previousInject[i]) {
-          previousInject[i] = autoInject[i];
-        }
-      }
-      target.inject = previousInject;
-    }
-  };
-
-  return potentialTarget ? deco(potentialTarget) : deco;
-}
-
-function inject() {
-  for (var _len5 = arguments.length, rest = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-    rest[_key5] = arguments[_key5];
-  }
-
-  return function (target, key, descriptor) {
-    if (typeof descriptor === 'number' && rest.length === 1) {
-      var params = target.inject;
-      if (typeof params === 'function') {
-        throw new Error('Decorator inject cannot be used with "inject()".  Please use an array instead.');
-      }
-      if (!params) {
-        params = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].getOwn(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].paramTypes, target).slice();
-        target.inject = params;
-      }
-      params[descriptor] = rest[0];
-      return;
-    }
-
-    if (descriptor) {
-      var _fn = descriptor.value;
-      _fn.inject = rest;
-    } else {
-      target.inject = rest;
-    }
-  };
-}
-
-/***/ }),
-
-/***/ 20:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NullRepeatStrategy; });
-
-
-var NullRepeatStrategy = function () {
-  function NullRepeatStrategy() {
-    
-  }
-
-  NullRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
-    repeat.removeAllViews(true);
-  };
-
-  NullRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {};
-
-  return NullRepeatStrategy;
-}();
-
-/***/ }),
-
-/***/ 21:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NumberRepeatStrategy; });
-
-
-
-
-var NumberRepeatStrategy = function () {
-  function NumberRepeatStrategy() {
-    
-  }
-
-  NumberRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver() {
-    return null;
-  };
-
-  NumberRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, value) {
-    var _this = this;
-
-    var removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-    if (removePromise instanceof Promise) {
-      removePromise.then(function () {
-        return _this._standardProcessItems(repeat, value);
-      });
-      return;
-    }
-    this._standardProcessItems(repeat, value);
-  };
-
-  NumberRepeatStrategy.prototype._standardProcessItems = function _standardProcessItems(repeat, value) {
-    var childrenLength = repeat.viewCount();
-    var i = void 0;
-    var ii = void 0;
-    var overrideContext = void 0;
-    var viewsToRemove = void 0;
-
-    value = Math.floor(value);
-    viewsToRemove = childrenLength - value;
-
-    if (viewsToRemove > 0) {
-      if (viewsToRemove > childrenLength) {
-        viewsToRemove = childrenLength;
-      }
-
-      for (i = 0, ii = viewsToRemove; i < ii; ++i) {
-        repeat.removeView(childrenLength - (i + 1), true, !repeat.viewsRequireLifecycle);
-      }
-
-      return;
-    }
-
-    for (i = childrenLength, ii = value; i < ii; ++i) {
-      overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, i, i, ii);
-      repeat.addView(overrideContext.bindingContext, overrideContext);
-    }
-
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), 0);
-  };
-
-  return NumberRepeatStrategy;
-}();
-
-/***/ }),
-
-/***/ 22:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__null_repeat_strategy__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__array_repeat_strategy__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_repeat_strategy__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__set_repeat_strategy__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__number_repeat_strategy__ = __webpack_require__(21);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RepeatStrategyLocator; });
-
-
-
-
-
-
-
-
-var RepeatStrategyLocator = function () {
-  function RepeatStrategyLocator() {
-    
-
-    this.matchers = [];
-    this.strategies = [];
-
-    this.addStrategy(function (items) {
-      return items === null || items === undefined;
-    }, new __WEBPACK_IMPORTED_MODULE_0__null_repeat_strategy__["a" /* NullRepeatStrategy */]());
-    this.addStrategy(function (items) {
-      return items instanceof Array;
-    }, new __WEBPACK_IMPORTED_MODULE_1__array_repeat_strategy__["a" /* ArrayRepeatStrategy */]());
-    this.addStrategy(function (items) {
-      return items instanceof Map;
-    }, new __WEBPACK_IMPORTED_MODULE_2__map_repeat_strategy__["a" /* MapRepeatStrategy */]());
-    this.addStrategy(function (items) {
-      return items instanceof Set;
-    }, new __WEBPACK_IMPORTED_MODULE_3__set_repeat_strategy__["a" /* SetRepeatStrategy */]());
-    this.addStrategy(function (items) {
-      return typeof items === 'number';
-    }, new __WEBPACK_IMPORTED_MODULE_4__number_repeat_strategy__["a" /* NumberRepeatStrategy */]());
-  }
-
-  RepeatStrategyLocator.prototype.addStrategy = function addStrategy(matcher, strategy) {
-    this.matchers.push(matcher);
-    this.strategies.push(strategy);
-  };
-
-  RepeatStrategyLocator.prototype.getStrategy = function getStrategy(items) {
-    var matchers = this.matchers;
-
-    for (var i = 0, ii = matchers.length; i < ii; ++i) {
-      if (matchers[i](items)) {
-        return this.strategies[i];
-      }
-    }
-
-    return null;
-  };
-
-  return RepeatStrategyLocator;
-}();
-
-/***/ }),
-
-/***/ 23:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SetRepeatStrategy; });
-
-
-
-
-var SetRepeatStrategy = function () {
-  function SetRepeatStrategy() {
-    
-  }
-
-  SetRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {
-    return observerLocator.getSetObserver(items);
-  };
-
-  SetRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
-    var _this = this;
-
-    var removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-    if (removePromise instanceof Promise) {
-      removePromise.then(function () {
-        return _this._standardProcessItems(repeat, items);
-      });
-      return;
-    }
-    this._standardProcessItems(repeat, items);
-  };
-
-  SetRepeatStrategy.prototype._standardProcessItems = function _standardProcessItems(repeat, items) {
-    var index = 0;
-    var overrideContext = void 0;
-
-    items.forEach(function (value) {
-      overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, value, index, items.size);
-      repeat.addView(overrideContext.bindingContext, overrideContext);
-      ++index;
-    });
-  };
-
-  SetRepeatStrategy.prototype.instanceMutated = function instanceMutated(repeat, set, records) {
-    var value = void 0;
-    var i = void 0;
-    var ii = void 0;
-    var overrideContext = void 0;
-    var removeIndex = void 0;
-    var record = void 0;
-    var rmPromises = [];
-    var viewOrPromise = void 0;
-
-    for (i = 0, ii = records.length; i < ii; ++i) {
-      record = records[i];
-      value = record.value;
-      switch (record.type) {
-        case 'add':
-          overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, value, set.size - 1, set.size);
-          repeat.insertView(set.size - 1, overrideContext.bindingContext, overrideContext);
-          break;
-        case 'delete':
-          removeIndex = this._getViewIndexByValue(repeat, value);
-          viewOrPromise = repeat.removeView(removeIndex, true, !repeat.viewsRequireLifecycle);
-          if (viewOrPromise instanceof Promise) {
-            rmPromises.push(viewOrPromise);
-          }
-          break;
-        case 'clear':
-          repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-          break;
-        default:
-          continue;
-      }
-    }
-
-    if (rmPromises.length > 0) {
-      Promise.all(rmPromises).then(function () {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), 0);
-      });
-    } else {
-      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), 0);
-    }
-  };
-
-  SetRepeatStrategy.prototype._getViewIndexByValue = function _getViewIndexByValue(repeat, value) {
-    var i = void 0;
-    var ii = void 0;
-    var child = void 0;
-
-    for (i = 0, ii = repeat.viewCount(); i < ii; ++i) {
-      child = repeat.view(i);
-      if (child.bindingContext[repeat.local] === value) {
-        return i;
-      }
-    }
-
-    return undefined;
-  };
-
-  return SetRepeatStrategy;
-}();
-
-/***/ }),
-
-/***/ 24:
-/***/ (function(module, exports) {
-
-// shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
-
-
-/***/ }),
-
-/***/ 25:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_polyfills__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__ = __webpack_require__(0);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (immutable) */ __webpack_exports__["bootstrap"] = bootstrap;
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "starting", function() { return starting; });
-
-
-
-var bootstrapPromises = [];
-var startResolve = void 0;
-
-var startPromise = new Promise(function (resolve) {
-  return startResolve = resolve;
-});
-var host = __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__["a" /* PLATFORM */].global;
-var isNodeLike = typeof process !== 'undefined' && !process.browser;
-
-function ready() {
-  if (!host.document || host.document.readyState === 'complete') {
-    return Promise.resolve();
-  }
-
-  return new Promise(function (resolve) {
-    host.document.addEventListener('DOMContentLoaded', completed);
-    host.addEventListener('load', completed);
-
-    function completed() {
-      host.document.removeEventListener('DOMContentLoaded', completed);
-      host.removeEventListener('load', completed);
-      resolve();
-    }
-  });
-}
-
-function createLoader() {
-  if (__WEBPACK_IMPORTED_MODULE_1_aurelia_pal__["a" /* PLATFORM */].Loader) {
-    return Promise.resolve(new __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__["a" /* PLATFORM */].Loader());
-  }
-
-  if (false) {
-    if (typeof __webpack_require__ !== 'undefined') {
-      var m = __webpack_require__(require.resolve('aurelia-loader-webpack'));
-      return Promise.resolve(new m.WebpackLoader());
-    }
-
-    if (host.System && typeof host.System.config === 'function') {
-      return host.System.normalize('aurelia-bootstrapper').then(function (bsn) {
-        return host.System.normalize('aurelia-loader-default', bsn);
-      }).then(function (loaderName) {
-        return host.System.import(loaderName).then(function (m) {
-          return new m.DefaultLoader();
-        });
-      });
-    }
-
-    if (typeof host.require === 'function' && typeof host.require.version === 'string') {
-      return new Promise(function (resolve, reject) {
-        return host.require(['aurelia-loader-default'], function (m) {
-          return resolve(new m.DefaultLoader());
-        }, reject);
-      });
-    }
-
-    if (isNodeLike && typeof module !== 'undefined' && typeof module.require !== 'undefined') {
-      var _m = module.require('aurelia-loader-nodejs');
-      return Promise.resolve(new _m.NodeJsLoader());
-    }
-  }
-
-  return Promise.reject('No PLATFORM.Loader is defined and there is neither a System API (ES6) or a Require API (AMD) globally available to load your app.');
-}
-
-function initializePal(loader) {
-  var type = void 0;
-
-  var isRenderer = isNodeLike && (process.type === 'renderer' || process.versions['node-webkit']);
-
-  if (isNodeLike && !isRenderer) {
-    type = 'nodejs';
-  } else if (typeof window !== 'undefined') {
-    type = 'browser';
-  } else if (typeof self !== 'undefined') {
-    type = 'worker';
-  } else {
-    throw new Error('Could not determine platform implementation to load.');
-  }
-
-  return loader.loadModule('aurelia-pal-' + type).then(function (palModule) {
-    return type === 'nodejs' && !__WEBPACK_IMPORTED_MODULE_1_aurelia_pal__["b" /* isInitialized */] && palModule.globalize() || palModule.initialize();
-  });
-}
-
-function preparePlatform(loader) {
-  var map = function map(moduleId, relativeTo) {
-    return loader.normalize(moduleId, relativeTo).then(function (normalized) {
-      loader.map(moduleId, normalized);
-      return normalized;
-    });
-  };
-
-  return initializePal(loader).then(function () {
-    return loader.normalize('aurelia-bootstrapper');
-  }).then(function (bootstrapperName) {
-    var frameworkPromise = map('aurelia-framework', bootstrapperName);
-
-    return Promise.all([frameworkPromise, frameworkPromise.then(function (frameworkName) {
-      return map('aurelia-dependency-injection', frameworkName);
-    }), map('aurelia-router', bootstrapperName), map('aurelia-logging-console', bootstrapperName)]);
-  }).then(function (_ref) {
-    var frameworkName = _ref[0];
-    return loader.loadModule(frameworkName);
-  }).then(function (fx) {
-    return startResolve(function () {
-      return new fx.Aurelia(loader);
-    });
-  });
-}
-
-function config(appHost, configModuleId, aurelia) {
-  aurelia.host = appHost;
-  aurelia.configModuleId = configModuleId || null;
-
-  if (configModuleId) {
-    return aurelia.loader.loadModule(configModuleId).then(function (customConfig) {
-      if (!customConfig.configure) {
-        throw new Error('Cannot initialize module \'' + configModuleId + '\' without a configure function.');
-      }
-
-      return customConfig.configure(aurelia);
-    });
-  }
-
-  aurelia.use.standardConfiguration().developmentLogging();
-
-  return aurelia.start().then(function () {
-    return aurelia.setRoot();
-  });
-}
-
-function run() {
-  return ready().then(createLoader).then(preparePlatform).then(function () {
-    var appHosts = host.document.querySelectorAll('[aurelia-app],[data-aurelia-app]');
-    for (var i = 0, ii = appHosts.length; i < ii; ++i) {
-      var appHost = appHosts[i];
-      var moduleId = appHost.getAttribute('aurelia-app') || appHost.getAttribute('data-aurelia-app');
-      bootstrap(config.bind(null, appHost, moduleId));
-    }
-
-    var toConsole = console.error.bind(console);
-    var bootstraps = bootstrapPromises.map(function (p) {
-      return p.catch(toConsole);
-    });
-    bootstrapPromises = null;
-    return Promise.all(bootstraps);
-  });
-}
-
-function bootstrap(configure) {
-  var p = startPromise.then(function (factory) {
-    return configure(factory());
-  });
-  if (bootstrapPromises) bootstrapPromises.push(p);
-  return p;
-}
-
-var starting = run();
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(24)))
-
-/***/ }),
-
-/***/ 26:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_loader__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextTemplateLoader", function() { return TextTemplateLoader; });
-/* harmony export (immutable) */ __webpack_exports__["ensureOriginOnExports"] = ensureOriginOnExports;
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebpackLoader", function() { return WebpackLoader; });
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t;
-    return { next: verb(0), "throw": verb(1), "return": verb(2) };
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-/**
-* An implementation of the TemplateLoader interface implemented with text-based loading.
-*/
-var TextTemplateLoader = (function () {
-    function TextTemplateLoader() {
-    }
-    /**
-    * Loads a template.
-    * @param loader The loader that is requesting the template load.
-    * @param entry The TemplateRegistryEntry to load and populate with a template.
-    * @return A promise which resolves when the TemplateRegistryEntry is loaded with a template.
-    */
-    TextTemplateLoader.prototype.loadTemplate = function (loader, entry) {
-        return __awaiter(this, void 0, void 0, function () {
-            var text;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, loader.loadText(entry.address)];
-                    case 1:
-                        text = _a.sent();
-                        entry.template = __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["c" /* DOM */].createTemplateFromMarkup(text);
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    return TextTemplateLoader;
-}());
-
-function ensureOriginOnExports(moduleExports, moduleId) {
-    var target = moduleExports;
-    var key;
-    var exportedValue;
-    if (target.__useDefault) {
-        target = target.default;
-    }
-    __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["c" /* Origin */].set(target, new __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["c" /* Origin */](moduleId, 'default'));
-    if (typeof target === 'object') {
-        for (key in target) {
-            exportedValue = target[key];
-            if (typeof exportedValue === 'function') {
-                __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["c" /* Origin */].set(exportedValue, new __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["c" /* Origin */](moduleId, key));
-            }
-        }
-    }
-    return moduleExports;
-}
-/**
-* A default implementation of the Loader abstraction which works with webpack (extended common-js style).
-*/
-var WebpackLoader = (function (_super) {
-    __extends(WebpackLoader, _super);
-    function WebpackLoader() {
-        var _this = _super.call(this) || this;
-        _this.moduleRegistry = Object.create(null);
-        _this.loaderPlugins = Object.create(null);
-        _this.modulesBeingLoaded = new Map();
-        _this.useTemplateLoader(new TextTemplateLoader());
-        _this.addPlugin('template-registry-entry', {
-            fetch: function (moduleId) { return __awaiter(_this, void 0, void 0, function () {
-                var _this = this;
-                var HmrContext, entry;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            // HMR:
-                            if (false) {
-                                if (!this.hmrContext) {
-                                    HmrContext = require('aurelia-hot-module-reload').HmrContext;
-                                    this.hmrContext = new HmrContext(this);
-                                }
-                                module.hot.accept(moduleId, function () { return __awaiter(_this, void 0, void 0, function () {
-                                    return __generator(this, function (_a) {
-                                        switch (_a.label) {
-                                            case 0: return [4 /*yield*/, this.hmrContext.handleViewChange(moduleId)];
-                                            case 1:
-                                                _a.sent();
-                                                return [2 /*return*/];
-                                        }
-                                    });
-                                }); });
-                            }
-                            entry = this.getOrCreateTemplateRegistryEntry(moduleId);
-                            if (!!entry.templateIsLoaded) return [3 /*break*/, 2];
-                            return [4 /*yield*/, this.templateLoader.loadTemplate(this, entry)];
-                        case 1:
-                            _a.sent();
-                            _a.label = 2;
-                        case 2: return [2 /*return*/, entry];
-                    }
-                });
-            }); }
-        });
-        __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["a" /* PLATFORM */].eachModule = function (callback) {
-            var registry = __webpack_require__.c;
-            var cachedModuleIds = Object.getOwnPropertyNames(registry);
-            cachedModuleIds
-                .forEach(function (moduleId) {
-                var moduleExports = registry[moduleId].exports;
-                if (typeof moduleExports === 'object') {
-                    callback(moduleId, moduleExports);
-                }
-            });
-        };
-        return _this;
-    }
-    WebpackLoader.prototype._import = function (address, defaultHMR) {
-        if (defaultHMR === void 0) { defaultHMR = true; }
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var addressParts, moduleId, loaderPlugin, plugin_1, asyncModuleId, callback;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        addressParts = address.split('!');
-                        moduleId = addressParts.splice(addressParts.length - 1, 1)[0];
-                        loaderPlugin = addressParts.length === 1 ? addressParts[0] : null;
-                        if (!loaderPlugin) return [3 /*break*/, 2];
-                        plugin_1 = this.loaderPlugins[loaderPlugin];
-                        if (!plugin_1) {
-                            throw new Error("Plugin " + loaderPlugin + " is not registered in the loader.");
-                        }
-                        if (false) {
-                            module.hot.accept(moduleId, function () { return plugin_1.hot(moduleId); });
-                        }
-                        return [4 /*yield*/, plugin_1.fetch(moduleId)];
-                    case 1: return [2 /*return*/, _a.sent()];
-                    case 2:
-                        if (__webpack_require__.m[moduleId]) {
-                            if (defaultHMR && module.hot && this.hmrContext) {
-                                module.hot.accept(moduleId, function () { return _this.hmrContext.handleModuleChange(moduleId, module.hot); });
-                            }
-                            return [2 /*return*/, __webpack_require__(moduleId)];
-                        }
-                        asyncModuleId = "async!" + moduleId;
-                        if (!__webpack_require__.m[asyncModuleId]) return [3 /*break*/, 4];
-                        if (defaultHMR && module.hot && this.hmrContext) {
-                            module.hot.accept(moduleId, function () { return _this.hmrContext.handleModuleChange(moduleId, module.hot); });
-                            module.hot.accept(asyncModuleId, function () { });
-                        }
-                        callback = __webpack_require__(asyncModuleId);
-                        return [4 /*yield*/, new Promise(callback)];
-                    case 3: return [2 /*return*/, _a.sent()];
-                    case 4: throw new Error("Unable to find module with ID: " + moduleId);
-                }
-            });
-        });
-    };
-    /**
-    * Maps a module id to a source.
-    * @param id The module id.
-    * @param source The source to map the module to.
-    */
-    WebpackLoader.prototype.map = function (id, source) { };
-    /**
-    * Normalizes a module id.
-    * @param moduleId The module id to normalize.
-    * @param relativeTo What the module id should be normalized relative to.
-    * @return The normalized module id.
-    */
-    WebpackLoader.prototype.normalizeSync = function (moduleId, relativeTo) {
-        return moduleId;
-    };
-    /**
-    * Normalizes a module id.
-    * @param moduleId The module id to normalize.
-    * @param relativeTo What the module id should be normalized relative to.
-    * @return The normalized module id.
-    */
-    WebpackLoader.prototype.normalize = function (moduleId, relativeTo) {
-        return Promise.resolve(moduleId);
-    };
-    /**
-    * Instructs the loader to use a specific TemplateLoader instance for loading templates
-    * @param templateLoader The instance of TemplateLoader to use for loading templates.
-    */
-    WebpackLoader.prototype.useTemplateLoader = function (templateLoader) {
-        this.templateLoader = templateLoader;
-    };
-    /**
-    * Loads a collection of modules.
-    * @param ids The set of module ids to load.
-    * @return A Promise for an array of loaded modules.
-    */
-    WebpackLoader.prototype.loadAllModules = function (ids) {
-        var _this = this;
-        return Promise.all(ids.map(function (id) { return _this.loadModule(id); }));
-    };
-    /**
-    * Loads a module.
-    * @param moduleId The module ID to load.
-    * @return A Promise for the loaded module.
-    */
-    WebpackLoader.prototype.loadModule = function (moduleId, defaultHMR) {
-        if (defaultHMR === void 0) { defaultHMR = true; }
-        return __awaiter(this, void 0, void 0, function () {
-            var existing, beingLoaded, moduleExports;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        existing = this.moduleRegistry[moduleId];
-                        if (existing) {
-                            return [2 /*return*/, existing];
-                        }
-                        beingLoaded = this.modulesBeingLoaded.get(moduleId);
-                        if (beingLoaded) {
-                            return [2 /*return*/, beingLoaded];
-                        }
-                        beingLoaded = this._import(moduleId, defaultHMR);
-                        this.modulesBeingLoaded.set(moduleId, beingLoaded);
-                        return [4 /*yield*/, beingLoaded];
-                    case 1:
-                        moduleExports = _a.sent();
-                        this.moduleRegistry[moduleId] = ensureOriginOnExports(moduleExports, moduleId);
-                        this.modulesBeingLoaded.delete(moduleId);
-                        return [2 /*return*/, moduleExports];
-                }
-            });
-        });
-    };
-    /**
-    * Loads a template.
-    * @param url The url of the template to load.
-    * @return A Promise for a TemplateRegistryEntry containing the template.
-    */
-    WebpackLoader.prototype.loadTemplate = function (url) {
-        return this.loadModule(this.applyPluginToUrl(url, 'template-registry-entry'), false);
-    };
-    /**
-    * Loads a text-based resource.
-    * @param url The url of the text file to load.
-    * @return A Promise for text content.
-    */
-    WebpackLoader.prototype.loadText = function (url) {
-        return __awaiter(this, void 0, void 0, function () {
-            var result;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.loadModule(url, false)];
-                    case 1:
-                        result = _a.sent();
-                        if (result instanceof Array && result[0] instanceof Array && result.hasOwnProperty('toString')) {
-                            // we're dealing with a file loaded using the css-loader:
-                            return [2 /*return*/, result.toString()];
-                        }
-                        return [2 /*return*/, result];
-                }
-            });
-        });
-    };
-    /**
-    * Alters a module id so that it includes a plugin loader.
-    * @param url The url of the module to load.
-    * @param pluginName The plugin to apply to the module id.
-    * @return The plugin-based module id.
-    */
-    WebpackLoader.prototype.applyPluginToUrl = function (url, pluginName) {
-        return pluginName + "!" + url;
-    };
-    /**
-    * Registers a plugin with the loader.
-    * @param pluginName The name of the plugin.
-    * @param implementation The plugin implementation.
-    */
-    WebpackLoader.prototype.addPlugin = function (pluginName, implementation) {
-        this.loaderPlugins[pluginName] = implementation;
-    };
-    return WebpackLoader;
-}(__WEBPACK_IMPORTED_MODULE_1_aurelia_loader__["a" /* Loader */]));
-
-__WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["a" /* PLATFORM */].Loader = WebpackLoader;
-
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(46)(module)))
-
-/***/ }),
-
-/***/ 27:
-/***/ (function(module, exports, __webpack_require__) {
-
-// This file contains an empty module that does nothing.
-// It's meant to be added as an entry point to the main bundle
-// and helps reliably adding some Aurelia dependencies that are attached 
-// to no module in particular, such as `includeAll` results or `aureliaApp`.
-//
-// Trying to attach those dependencies to, for example, 'aurelia-bootstrapper' 
-// is unreliable if 'aurelia-bootstrapper' is in a DLL outside the bundle.
-//
-// Trying to attach to 'aurelia-loader-webpack' works well, unless a user
-// configures a customized loader instead (unlikely, but in theory supported).
-
-
-/***/ }),
-
-/***/ 28:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
@@ -10131,6 +7792,2346 @@ if (typeof FEATURE_NO_ESNEXT === 'undefined') {
     }
   })();
 }
+
+/***/ }),
+
+/***/ 14:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return History; });
+
+
+function mi(name) {
+  throw new Error('History must implement ' + name + '().');
+}
+
+var History = function () {
+  function History() {
+    
+  }
+
+  History.prototype.activate = function activate(options) {
+    mi('activate');
+  };
+
+  History.prototype.deactivate = function deactivate() {
+    mi('deactivate');
+  };
+
+  History.prototype.getAbsoluteRoot = function getAbsoluteRoot() {
+    mi('getAbsoluteRoot');
+  };
+
+  History.prototype.navigate = function navigate(fragment, options) {
+    mi('navigate');
+  };
+
+  History.prototype.navigateBack = function navigateBack() {
+    mi('navigateBack');
+  };
+
+  History.prototype.setTitle = function setTitle(title) {
+    mi('setTitle');
+  };
+
+  return History;
+}();
+
+/***/ }),
+
+/***/ 15:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AbstractRepeater; });
+
+
+var AbstractRepeater = function () {
+  function AbstractRepeater(options) {
+    
+
+    Object.assign(this, {
+      local: 'items',
+      viewsRequireLifecycle: true
+    }, options);
+  }
+
+  AbstractRepeater.prototype.viewCount = function viewCount() {
+    throw new Error('subclass must implement `viewCount`');
+  };
+
+  AbstractRepeater.prototype.views = function views() {
+    throw new Error('subclass must implement `views`');
+  };
+
+  AbstractRepeater.prototype.view = function view(index) {
+    throw new Error('subclass must implement `view`');
+  };
+
+  AbstractRepeater.prototype.matcher = function matcher() {
+    throw new Error('subclass must implement `matcher`');
+  };
+
+  AbstractRepeater.prototype.addView = function addView(bindingContext, overrideContext) {
+    throw new Error('subclass must implement `addView`');
+  };
+
+  AbstractRepeater.prototype.insertView = function insertView(index, bindingContext, overrideContext) {
+    throw new Error('subclass must implement `insertView`');
+  };
+
+  AbstractRepeater.prototype.moveView = function moveView(sourceIndex, targetIndex) {
+    throw new Error('subclass must implement `moveView`');
+  };
+
+  AbstractRepeater.prototype.removeAllViews = function removeAllViews(returnToCache, skipAnimation) {
+    throw new Error('subclass must implement `removeAllViews`');
+  };
+
+  AbstractRepeater.prototype.removeViews = function removeViews(viewsToRemove, returnToCache, skipAnimation) {
+    throw new Error('subclass must implement `removeView`');
+  };
+
+  AbstractRepeater.prototype.removeView = function removeView(index, returnToCache, skipAnimation) {
+    throw new Error('subclass must implement `removeView`');
+  };
+
+  AbstractRepeater.prototype.updateBindings = function updateBindings(view) {
+    throw new Error('subclass must implement `updateBindings`');
+  };
+
+  return AbstractRepeater;
+}();
+
+/***/ }),
+
+/***/ 16:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export lifecycleOptionalBehaviors */
+/* harmony export (immutable) */ __webpack_exports__["a"] = viewsRequireLifecycle;
+
+var lifecycleOptionalBehaviors = ['focus', 'if', 'repeat', 'show', 'with'];
+
+function behaviorRequiresLifecycle(instruction) {
+  var t = instruction.type;
+  var name = t.elementName !== null ? t.elementName : t.attributeName;
+  return lifecycleOptionalBehaviors.indexOf(name) === -1 && (t.handlesAttached || t.handlesBind || t.handlesCreated || t.handlesDetached || t.handlesUnbind) || t.viewFactory && viewsRequireLifecycle(t.viewFactory) || instruction.viewFactory && viewsRequireLifecycle(instruction.viewFactory);
+}
+
+function targetRequiresLifecycle(instruction) {
+  var behaviors = instruction.behaviorInstructions;
+  if (behaviors) {
+    var i = behaviors.length;
+    while (i--) {
+      if (behaviorRequiresLifecycle(behaviors[i])) {
+        return true;
+      }
+    }
+  }
+
+  return instruction.viewFactory && viewsRequireLifecycle(instruction.viewFactory);
+}
+
+function viewsRequireLifecycle(viewFactory) {
+  if ('_viewsRequireLifecycle' in viewFactory) {
+    return viewFactory._viewsRequireLifecycle;
+  }
+
+  viewFactory._viewsRequireLifecycle = false;
+
+  if (viewFactory.viewFactory) {
+    viewFactory._viewsRequireLifecycle = viewsRequireLifecycle(viewFactory.viewFactory);
+    return viewFactory._viewsRequireLifecycle;
+  }
+
+  if (viewFactory.template.querySelector('.au-animate')) {
+    viewFactory._viewsRequireLifecycle = true;
+    return true;
+  }
+
+  for (var id in viewFactory.instructions) {
+    if (targetRequiresLifecycle(viewFactory.instructions[id])) {
+      viewFactory._viewsRequireLifecycle = true;
+      return true;
+    }
+  }
+
+  viewFactory._viewsRequireLifecycle = false;
+  return false;
+}
+
+/***/ }),
+
+/***/ 17:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArrayRepeatStrategy; });
+
+
+
+
+
+var ArrayRepeatStrategy = function () {
+  function ArrayRepeatStrategy() {
+    
+  }
+
+  ArrayRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {
+    return observerLocator.getArrayObserver(items);
+  };
+
+  ArrayRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
+    var _this = this;
+
+    var itemsLength = items.length;
+
+    if (!items || itemsLength === 0) {
+      repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+      return;
+    }
+
+    var children = repeat.views();
+    var viewsLength = children.length;
+
+    if (viewsLength === 0) {
+      this._standardProcessInstanceChanged(repeat, items);
+      return;
+    }
+
+    if (repeat.viewsRequireLifecycle) {
+      (function () {
+        var childrenSnapshot = children.slice(0);
+        var itemNameInBindingContext = repeat.local;
+        var matcher = repeat.matcher();
+
+        var itemsPreviouslyInViews = [];
+        var viewsToRemove = [];
+
+        for (var index = 0; index < viewsLength; index++) {
+          var view = childrenSnapshot[index];
+          var oldItem = view.bindingContext[itemNameInBindingContext];
+
+          if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["g" /* indexOf */])(items, oldItem, matcher) === -1) {
+            viewsToRemove.push(view);
+          } else {
+            itemsPreviouslyInViews.push(oldItem);
+          }
+        }
+
+        var updateViews = void 0;
+        var removePromise = void 0;
+
+        if (itemsPreviouslyInViews.length > 0) {
+          removePromise = repeat.removeViews(viewsToRemove, true, !repeat.viewsRequireLifecycle);
+          updateViews = function updateViews() {
+            for (var _index = 0; _index < itemsLength; _index++) {
+              var item = items[_index];
+              var indexOfView = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["g" /* indexOf */])(itemsPreviouslyInViews, item, matcher, _index);
+              var _view = void 0;
+
+              if (indexOfView === -1) {
+                var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, items[_index], _index, itemsLength);
+                repeat.insertView(_index, overrideContext.bindingContext, overrideContext);
+
+                itemsPreviouslyInViews.splice(_index, 0, undefined);
+              } else if (indexOfView === _index) {
+                _view = children[indexOfView];
+                itemsPreviouslyInViews[indexOfView] = undefined;
+              } else {
+                _view = children[indexOfView];
+                repeat.moveView(indexOfView, _index);
+                itemsPreviouslyInViews.splice(indexOfView, 1);
+                itemsPreviouslyInViews.splice(_index, 0, undefined);
+              }
+
+              if (_view) {
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["h" /* updateOverrideContext */])(_view.overrideContext, _index, itemsLength);
+              }
+            }
+
+            _this._inPlaceProcessItems(repeat, items);
+          };
+        } else {
+          removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+          updateViews = function updateViews() {
+            return _this._standardProcessInstanceChanged(repeat, items);
+          };
+        }
+
+        if (removePromise instanceof Promise) {
+          removePromise.then(updateViews);
+        } else {
+          updateViews();
+        }
+      })();
+    } else {
+      this._inPlaceProcessItems(repeat, items);
+    }
+  };
+
+  ArrayRepeatStrategy.prototype._standardProcessInstanceChanged = function _standardProcessInstanceChanged(repeat, items) {
+    for (var i = 0, ii = items.length; i < ii; i++) {
+      var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, items[i], i, ii);
+      repeat.addView(overrideContext.bindingContext, overrideContext);
+    }
+  };
+
+  ArrayRepeatStrategy.prototype._inPlaceProcessItems = function _inPlaceProcessItems(repeat, items) {
+    var itemsLength = items.length;
+    var viewsLength = repeat.viewCount();
+
+    while (viewsLength > itemsLength) {
+      viewsLength--;
+      repeat.removeView(viewsLength, true, !repeat.viewsRequireLifecycle);
+    }
+
+    var local = repeat.local;
+
+    for (var i = 0; i < viewsLength; i++) {
+      var view = repeat.view(i);
+      var last = i === itemsLength - 1;
+      var middle = i !== 0 && !last;
+
+      if (view.bindingContext[local] === items[i] && view.overrideContext.$middle === middle && view.overrideContext.$last === last) {
+        continue;
+      }
+
+      view.bindingContext[local] = items[i];
+      view.overrideContext.$middle = middle;
+      view.overrideContext.$last = last;
+      repeat.updateBindings(view);
+    }
+
+    for (var _i = viewsLength; _i < itemsLength; _i++) {
+      var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, items[_i], _i, itemsLength);
+      repeat.addView(overrideContext.bindingContext, overrideContext);
+    }
+  };
+
+  ArrayRepeatStrategy.prototype.instanceMutated = function instanceMutated(repeat, array, splices) {
+    var _this2 = this;
+
+    if (repeat.__queuedSplices) {
+      for (var i = 0, ii = splices.length; i < ii; ++i) {
+        var _splices$i = splices[i],
+            index = _splices$i.index,
+            removed = _splices$i.removed,
+            addedCount = _splices$i.addedCount;
+
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["l" /* mergeSplice */])(repeat.__queuedSplices, index, removed, addedCount);
+      }
+
+      repeat.__array = array.slice(0);
+      return;
+    }
+
+    var maybePromise = this._runSplices(repeat, array.slice(0), splices);
+    if (maybePromise instanceof Promise) {
+      (function () {
+        var queuedSplices = repeat.__queuedSplices = [];
+
+        var runQueuedSplices = function runQueuedSplices() {
+          if (!queuedSplices.length) {
+            repeat.__queuedSplices = undefined;
+            repeat.__array = undefined;
+            return;
+          }
+
+          var nextPromise = _this2._runSplices(repeat, repeat.__array, queuedSplices) || Promise.resolve();
+          queuedSplices = repeat.__queuedSplices = [];
+          nextPromise.then(runQueuedSplices);
+        };
+
+        maybePromise.then(runQueuedSplices);
+      })();
+    }
+  };
+
+  ArrayRepeatStrategy.prototype._runSplices = function _runSplices(repeat, array, splices) {
+    var _this3 = this;
+
+    var removeDelta = 0;
+    var rmPromises = [];
+
+    for (var i = 0, ii = splices.length; i < ii; ++i) {
+      var splice = splices[i];
+      var removed = splice.removed;
+
+      for (var j = 0, jj = removed.length; j < jj; ++j) {
+        var viewOrPromise = repeat.removeView(splice.index + removeDelta + rmPromises.length, true);
+        if (viewOrPromise instanceof Promise) {
+          rmPromises.push(viewOrPromise);
+        }
+      }
+      removeDelta -= splice.addedCount;
+    }
+
+    if (rmPromises.length > 0) {
+      return Promise.all(rmPromises).then(function () {
+        var spliceIndexLow = _this3._handleAddedSplices(repeat, array, splices);
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), spliceIndexLow);
+      });
+    }
+
+    var spliceIndexLow = this._handleAddedSplices(repeat, array, splices);
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), spliceIndexLow);
+
+    return undefined;
+  };
+
+  ArrayRepeatStrategy.prototype._handleAddedSplices = function _handleAddedSplices(repeat, array, splices) {
+    var spliceIndex = void 0;
+    var spliceIndexLow = void 0;
+    var arrayLength = array.length;
+    for (var i = 0, ii = splices.length; i < ii; ++i) {
+      var splice = splices[i];
+      var addIndex = spliceIndex = splice.index;
+      var end = splice.index + splice.addedCount;
+
+      if (typeof spliceIndexLow === 'undefined' || spliceIndexLow === null || spliceIndexLow > splice.index) {
+        spliceIndexLow = spliceIndex;
+      }
+
+      for (; addIndex < end; ++addIndex) {
+        var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, array[addIndex], addIndex, arrayLength);
+        repeat.insertView(addIndex, overrideContext.bindingContext, overrideContext);
+      }
+    }
+
+    return spliceIndexLow;
+  };
+
+  return ArrayRepeatStrategy;
+}();
+
+/***/ }),
+
+/***/ 18:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BindingSignaler; });
+
+
+
+
+var BindingSignaler = function () {
+  function BindingSignaler() {
+    
+
+    this.signals = {};
+  }
+
+  BindingSignaler.prototype.signal = function signal(name) {
+    var bindings = this.signals[name];
+    if (!bindings) {
+      return;
+    }
+    var i = bindings.length;
+    while (i--) {
+      bindings[i].call(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["k" /* sourceContext */]);
+    }
+  };
+
+  return BindingSignaler;
+}();
+
+/***/ }),
+
+/***/ 19:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HTMLSanitizer; });
+
+
+var SCRIPT_REGEX = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+
+var HTMLSanitizer = function () {
+  function HTMLSanitizer() {
+    
+  }
+
+  HTMLSanitizer.prototype.sanitize = function sanitize(input) {
+    return input.replace(SCRIPT_REGEX, '');
+  };
+
+  return HTMLSanitizer;
+}();
+
+/***/ }),
+
+/***/ 2:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return resolver; });
+/* unused harmony export Lazy */
+/* unused harmony export All */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Optional; });
+/* unused harmony export Parent */
+/* unused harmony export StrategyResolver */
+/* unused harmony export Factory */
+/* unused harmony export NewInstance */
+/* unused harmony export getDecoratorDependencies */
+/* unused harmony export lazy */
+/* unused harmony export all */
+/* unused harmony export optional */
+/* unused harmony export parent */
+/* unused harmony export factory */
+/* unused harmony export newInstance */
+/* unused harmony export invoker */
+/* unused harmony export invokeAsFactory */
+/* unused harmony export FactoryInvoker */
+/* unused harmony export registration */
+/* unused harmony export transient */
+/* unused harmony export singleton */
+/* unused harmony export TransientRegistration */
+/* unused harmony export SingletonRegistration */
+/* unused harmony export _emptyParameters */
+/* unused harmony export InvocationHandler */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Container; });
+/* unused harmony export autoinject */
+/* harmony export (immutable) */ __webpack_exports__["b"] = inject;
+var _dec, _class, _dec2, _class3, _dec3, _class5, _dec4, _class7, _dec5, _class9, _dec6, _class11, _dec7, _class13, _classInvokers;
+
+
+
+
+
+
+var resolver = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["b" /* protocol */].create('aurelia:resolver', function (target) {
+  if (!(typeof target.get === 'function')) {
+    return 'Resolvers must implement: get(container: Container, key: any): any';
+  }
+
+  return true;
+});
+
+var Lazy = (_dec = resolver(), _dec(_class = function () {
+  function Lazy(key) {
+    
+
+    this._key = key;
+  }
+
+  Lazy.prototype.get = function get(container) {
+    var _this = this;
+
+    return function () {
+      return container.get(_this._key);
+    };
+  };
+
+  Lazy.of = function of(key) {
+    return new Lazy(key);
+  };
+
+  return Lazy;
+}()) || _class);
+
+var All = (_dec2 = resolver(), _dec2(_class3 = function () {
+  function All(key) {
+    
+
+    this._key = key;
+  }
+
+  All.prototype.get = function get(container) {
+    return container.getAll(this._key);
+  };
+
+  All.of = function of(key) {
+    return new All(key);
+  };
+
+  return All;
+}()) || _class3);
+
+var Optional = (_dec3 = resolver(), _dec3(_class5 = function () {
+  function Optional(key) {
+    var checkParent = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
+
+    
+
+    this._key = key;
+    this._checkParent = checkParent;
+  }
+
+  Optional.prototype.get = function get(container) {
+    if (container.hasResolver(this._key, this._checkParent)) {
+      return container.get(this._key);
+    }
+
+    return null;
+  };
+
+  Optional.of = function of(key) {
+    var checkParent = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
+
+    return new Optional(key, checkParent);
+  };
+
+  return Optional;
+}()) || _class5);
+
+var Parent = (_dec4 = resolver(), _dec4(_class7 = function () {
+  function Parent(key) {
+    
+
+    this._key = key;
+  }
+
+  Parent.prototype.get = function get(container) {
+    return container.parent ? container.parent.get(this._key) : null;
+  };
+
+  Parent.of = function of(key) {
+    return new Parent(key);
+  };
+
+  return Parent;
+}()) || _class7);
+
+var StrategyResolver = (_dec5 = resolver(), _dec5(_class9 = function () {
+  function StrategyResolver(strategy, state) {
+    
+
+    this.strategy = strategy;
+    this.state = state;
+  }
+
+  StrategyResolver.prototype.get = function get(container, key) {
+    switch (this.strategy) {
+      case 0:
+        return this.state;
+      case 1:
+        var singleton = container.invoke(this.state);
+        this.state = singleton;
+        this.strategy = 0;
+        return singleton;
+      case 2:
+        return container.invoke(this.state);
+      case 3:
+        return this.state(container, key, this);
+      case 4:
+        return this.state[0].get(container, key);
+      case 5:
+        return container.get(this.state);
+      default:
+        throw new Error('Invalid strategy: ' + this.strategy);
+    }
+  };
+
+  return StrategyResolver;
+}()) || _class9);
+
+var Factory = (_dec6 = resolver(), _dec6(_class11 = function () {
+  function Factory(key) {
+    
+
+    this._key = key;
+  }
+
+  Factory.prototype.get = function get(container) {
+    var _this2 = this;
+
+    return function () {
+      for (var _len = arguments.length, rest = Array(_len), _key = 0; _key < _len; _key++) {
+        rest[_key] = arguments[_key];
+      }
+
+      return container.invoke(_this2._key, rest);
+    };
+  };
+
+  Factory.of = function of(key) {
+    return new Factory(key);
+  };
+
+  return Factory;
+}()) || _class11);
+
+var NewInstance = (_dec7 = resolver(), _dec7(_class13 = function () {
+  function NewInstance(key) {
+    
+
+    this.key = key;
+    this.asKey = key;
+
+    for (var _len2 = arguments.length, dynamicDependencies = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+      dynamicDependencies[_key2 - 1] = arguments[_key2];
+    }
+
+    this.dynamicDependencies = dynamicDependencies;
+  }
+
+  NewInstance.prototype.get = function get(container) {
+    var dynamicDependencies = this.dynamicDependencies.length > 0 ? this.dynamicDependencies.map(function (dependency) {
+      return dependency['protocol:aurelia:resolver'] ? dependency.get(container) : container.get(dependency);
+    }) : undefined;
+    var instance = container.invoke(this.key, dynamicDependencies);
+    container.registerInstance(this.asKey, instance);
+    return instance;
+  };
+
+  NewInstance.prototype.as = function as(key) {
+    this.asKey = key;
+    return this;
+  };
+
+  NewInstance.of = function of(key) {
+    for (var _len3 = arguments.length, dynamicDependencies = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+      dynamicDependencies[_key3 - 1] = arguments[_key3];
+    }
+
+    return new (Function.prototype.bind.apply(NewInstance, [null].concat([key], dynamicDependencies)))();
+  };
+
+  return NewInstance;
+}()) || _class13);
+
+function getDecoratorDependencies(target, name) {
+  var dependencies = target.inject;
+  if (typeof dependencies === 'function') {
+    throw new Error('Decorator ' + name + ' cannot be used with "inject()".  Please use an array instead.');
+  }
+  if (!dependencies) {
+    dependencies = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].getOwn(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].paramTypes, target).slice();
+    target.inject = dependencies;
+  }
+
+  return dependencies;
+}
+
+function lazy(keyValue) {
+  return function (target, key, index) {
+    var params = getDecoratorDependencies(target, 'lazy');
+    params[index] = Lazy.of(keyValue);
+  };
+}
+
+function all(keyValue) {
+  return function (target, key, index) {
+    var params = getDecoratorDependencies(target, 'all');
+    params[index] = All.of(keyValue);
+  };
+}
+
+function optional() {
+  var checkParentOrTarget = arguments.length <= 0 || arguments[0] === undefined ? true : arguments[0];
+
+  var deco = function deco(checkParent) {
+    return function (target, key, index) {
+      var params = getDecoratorDependencies(target, 'optional');
+      params[index] = Optional.of(params[index], checkParent);
+    };
+  };
+  if (typeof checkParentOrTarget === 'boolean') {
+    return deco(checkParentOrTarget);
+  }
+  return deco(true);
+}
+
+function parent(target, key, index) {
+  var params = getDecoratorDependencies(target, 'parent');
+  params[index] = Parent.of(params[index]);
+}
+
+function factory(keyValue, asValue) {
+  return function (target, key, index) {
+    var params = getDecoratorDependencies(target, 'factory');
+    var factory = Factory.of(keyValue);
+    params[index] = asValue ? factory.as(asValue) : factory;
+  };
+}
+
+function newInstance(asKeyOrTarget) {
+  for (var _len4 = arguments.length, dynamicDependencies = Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+    dynamicDependencies[_key4 - 1] = arguments[_key4];
+  }
+
+  var deco = function deco(asKey) {
+    return function (target, key, index) {
+      var params = getDecoratorDependencies(target, 'newInstance');
+      params[index] = NewInstance.of.apply(NewInstance, [params[index]].concat(dynamicDependencies));
+      if (!!asKey) {
+        params[index].as(asKey);
+      }
+    };
+  };
+  if (arguments.length >= 1) {
+    return deco(asKeyOrTarget);
+  }
+  return deco();
+}
+
+function invoker(value) {
+  return function (target) {
+    __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].define(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].invoker, value, target);
+  };
+}
+
+function invokeAsFactory(potentialTarget) {
+  var deco = function deco(target) {
+    __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].define(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].invoker, FactoryInvoker.instance, target);
+  };
+
+  return potentialTarget ? deco(potentialTarget) : deco;
+}
+
+var FactoryInvoker = function () {
+  function FactoryInvoker() {
+    
+  }
+
+  FactoryInvoker.prototype.invoke = function invoke(container, fn, dependencies) {
+    var i = dependencies.length;
+    var args = new Array(i);
+
+    while (i--) {
+      args[i] = container.get(dependencies[i]);
+    }
+
+    return fn.apply(undefined, args);
+  };
+
+  FactoryInvoker.prototype.invokeWithDynamicDependencies = function invokeWithDynamicDependencies(container, fn, staticDependencies, dynamicDependencies) {
+    var i = staticDependencies.length;
+    var args = new Array(i);
+
+    while (i--) {
+      args[i] = container.get(staticDependencies[i]);
+    }
+
+    if (dynamicDependencies !== undefined) {
+      args = args.concat(dynamicDependencies);
+    }
+
+    return fn.apply(undefined, args);
+  };
+
+  return FactoryInvoker;
+}();
+
+FactoryInvoker.instance = new FactoryInvoker();
+
+function registration(value) {
+  return function (target) {
+    __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].define(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].registration, value, target);
+  };
+}
+
+function transient(key) {
+  return registration(new TransientRegistration(key));
+}
+
+function singleton(keyOrRegisterInChild) {
+  var registerInChild = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
+
+  return registration(new SingletonRegistration(keyOrRegisterInChild, registerInChild));
+}
+
+var TransientRegistration = function () {
+  function TransientRegistration(key) {
+    
+
+    this._key = key;
+  }
+
+  TransientRegistration.prototype.registerResolver = function registerResolver(container, key, fn) {
+    var existingResolver = container.getResolver(this._key || key);
+    return existingResolver === undefined ? container.registerTransient(this._key || key, fn) : existingResolver;
+  };
+
+  return TransientRegistration;
+}();
+
+var SingletonRegistration = function () {
+  function SingletonRegistration(keyOrRegisterInChild) {
+    var registerInChild = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
+
+    
+
+    if (typeof keyOrRegisterInChild === 'boolean') {
+      this._registerInChild = keyOrRegisterInChild;
+    } else {
+      this._key = keyOrRegisterInChild;
+      this._registerInChild = registerInChild;
+    }
+  }
+
+  SingletonRegistration.prototype.registerResolver = function registerResolver(container, key, fn) {
+    var targetContainer = this._registerInChild ? container : container.root;
+    var existingResolver = targetContainer.getResolver(this._key || key);
+    return existingResolver === undefined ? targetContainer.registerSingleton(this._key || key, fn) : existingResolver;
+  };
+
+  return SingletonRegistration;
+}();
+
+function validateKey(key) {
+  if (key === null || key === undefined) {
+    throw new Error('key/value cannot be null or undefined. Are you trying to inject/register something that doesn\'t exist with DI?');
+  }
+}
+var _emptyParameters = Object.freeze([]);
+
+__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].registration = 'aurelia:registration';
+__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].invoker = 'aurelia:invoker';
+
+var resolverDecorates = resolver.decorates;
+
+var InvocationHandler = function () {
+  function InvocationHandler(fn, invoker, dependencies) {
+    
+
+    this.fn = fn;
+    this.invoker = invoker;
+    this.dependencies = dependencies;
+  }
+
+  InvocationHandler.prototype.invoke = function invoke(container, dynamicDependencies) {
+    return dynamicDependencies !== undefined ? this.invoker.invokeWithDynamicDependencies(container, this.fn, this.dependencies, dynamicDependencies) : this.invoker.invoke(container, this.fn, this.dependencies);
+  };
+
+  return InvocationHandler;
+}();
+
+function invokeWithDynamicDependencies(container, fn, staticDependencies, dynamicDependencies) {
+  var i = staticDependencies.length;
+  var args = new Array(i);
+
+  while (i--) {
+    args[i] = container.get(staticDependencies[i]);
+  }
+
+  if (dynamicDependencies !== undefined) {
+    args = args.concat(dynamicDependencies);
+  }
+
+  return Reflect.construct(fn, args);
+}
+
+var classInvokers = (_classInvokers = {}, _classInvokers[0] = {
+  invoke: function invoke(container, Type) {
+    return new Type();
+  },
+
+  invokeWithDynamicDependencies: invokeWithDynamicDependencies
+}, _classInvokers[1] = {
+  invoke: function invoke(container, Type, deps) {
+    return new Type(container.get(deps[0]));
+  },
+
+  invokeWithDynamicDependencies: invokeWithDynamicDependencies
+}, _classInvokers[2] = {
+  invoke: function invoke(container, Type, deps) {
+    return new Type(container.get(deps[0]), container.get(deps[1]));
+  },
+
+  invokeWithDynamicDependencies: invokeWithDynamicDependencies
+}, _classInvokers[3] = {
+  invoke: function invoke(container, Type, deps) {
+    return new Type(container.get(deps[0]), container.get(deps[1]), container.get(deps[2]));
+  },
+
+  invokeWithDynamicDependencies: invokeWithDynamicDependencies
+}, _classInvokers[4] = {
+  invoke: function invoke(container, Type, deps) {
+    return new Type(container.get(deps[0]), container.get(deps[1]), container.get(deps[2]), container.get(deps[3]));
+  },
+
+  invokeWithDynamicDependencies: invokeWithDynamicDependencies
+}, _classInvokers[5] = {
+  invoke: function invoke(container, Type, deps) {
+    return new Type(container.get(deps[0]), container.get(deps[1]), container.get(deps[2]), container.get(deps[3]), container.get(deps[4]));
+  },
+
+  invokeWithDynamicDependencies: invokeWithDynamicDependencies
+}, _classInvokers.fallback = {
+  invoke: invokeWithDynamicDependencies,
+  invokeWithDynamicDependencies: invokeWithDynamicDependencies
+}, _classInvokers);
+
+function getDependencies(f) {
+  if (!f.hasOwnProperty('inject')) {
+    return [];
+  }
+
+  if (typeof f.inject === 'function') {
+    return f.inject();
+  }
+
+  return f.inject;
+}
+
+var Container = function () {
+  function Container(configuration) {
+    
+
+    if (configuration === undefined) {
+      configuration = {};
+    }
+
+    this._configuration = configuration;
+    this._onHandlerCreated = configuration.onHandlerCreated;
+    this._handlers = configuration.handlers || (configuration.handlers = new Map());
+    this._resolvers = new Map();
+    this.root = this;
+    this.parent = null;
+  }
+
+  Container.prototype.makeGlobal = function makeGlobal() {
+    Container.instance = this;
+    return this;
+  };
+
+  Container.prototype.setHandlerCreatedCallback = function setHandlerCreatedCallback(onHandlerCreated) {
+    this._onHandlerCreated = onHandlerCreated;
+    this._configuration.onHandlerCreated = onHandlerCreated;
+  };
+
+  Container.prototype.registerInstance = function registerInstance(key, instance) {
+    return this.registerResolver(key, new StrategyResolver(0, instance === undefined ? key : instance));
+  };
+
+  Container.prototype.registerSingleton = function registerSingleton(key, fn) {
+    return this.registerResolver(key, new StrategyResolver(1, fn === undefined ? key : fn));
+  };
+
+  Container.prototype.registerTransient = function registerTransient(key, fn) {
+    return this.registerResolver(key, new StrategyResolver(2, fn === undefined ? key : fn));
+  };
+
+  Container.prototype.registerHandler = function registerHandler(key, handler) {
+    return this.registerResolver(key, new StrategyResolver(3, handler));
+  };
+
+  Container.prototype.registerAlias = function registerAlias(originalKey, aliasKey) {
+    return this.registerResolver(aliasKey, new StrategyResolver(5, originalKey));
+  };
+
+  Container.prototype.registerResolver = function registerResolver(key, resolver) {
+    validateKey(key);
+
+    var allResolvers = this._resolvers;
+    var result = allResolvers.get(key);
+
+    if (result === undefined) {
+      allResolvers.set(key, resolver);
+    } else if (result.strategy === 4) {
+      result.state.push(resolver);
+    } else {
+      allResolvers.set(key, new StrategyResolver(4, [result, resolver]));
+    }
+
+    return resolver;
+  };
+
+  Container.prototype.autoRegister = function autoRegister(key, fn) {
+    fn = fn === undefined ? key : fn;
+
+    if (typeof fn === 'function') {
+      var _registration = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].get(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].registration, fn);
+
+      if (_registration === undefined) {
+        return this.registerResolver(key, new StrategyResolver(1, fn));
+      }
+
+      return _registration.registerResolver(this, key, fn);
+    }
+
+    return this.registerResolver(key, new StrategyResolver(0, fn));
+  };
+
+  Container.prototype.autoRegisterAll = function autoRegisterAll(fns) {
+    var i = fns.length;
+    while (i--) {
+      this.autoRegister(fns[i]);
+    }
+  };
+
+  Container.prototype.unregister = function unregister(key) {
+    this._resolvers.delete(key);
+  };
+
+  Container.prototype.hasResolver = function hasResolver(key) {
+    var checkParent = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
+
+    validateKey(key);
+
+    return this._resolvers.has(key) || checkParent && this.parent !== null && this.parent.hasResolver(key, checkParent);
+  };
+
+  Container.prototype.getResolver = function getResolver(key) {
+    return this._resolvers.get(key);
+  };
+
+  Container.prototype.get = function get(key) {
+    validateKey(key);
+
+    if (key === Container) {
+      return this;
+    }
+
+    if (resolverDecorates(key)) {
+      return key.get(this, key);
+    }
+
+    var resolver = this._resolvers.get(key);
+
+    if (resolver === undefined) {
+      if (this.parent === null) {
+        return this.autoRegister(key).get(this, key);
+      }
+
+      var _registration2 = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].get(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].registration, key);
+
+      if (_registration2 === undefined) {
+        return this.parent._get(key);
+      }
+
+      return _registration2.registerResolver(this, key, key).get(this, key);
+    }
+
+    return resolver.get(this, key);
+  };
+
+  Container.prototype._get = function _get(key) {
+    var resolver = this._resolvers.get(key);
+
+    if (resolver === undefined) {
+      if (this.parent === null) {
+        return this.autoRegister(key).get(this, key);
+      }
+
+      return this.parent._get(key);
+    }
+
+    return resolver.get(this, key);
+  };
+
+  Container.prototype.getAll = function getAll(key) {
+    validateKey(key);
+
+    var resolver = this._resolvers.get(key);
+
+    if (resolver === undefined) {
+      if (this.parent === null) {
+        return _emptyParameters;
+      }
+
+      return this.parent.getAll(key);
+    }
+
+    if (resolver.strategy === 4) {
+      var state = resolver.state;
+      var i = state.length;
+      var results = new Array(i);
+
+      while (i--) {
+        results[i] = state[i].get(this, key);
+      }
+
+      return results;
+    }
+
+    return [resolver.get(this, key)];
+  };
+
+  Container.prototype.createChild = function createChild() {
+    var child = new Container(this._configuration);
+    child.root = this.root;
+    child.parent = this;
+    return child;
+  };
+
+  Container.prototype.invoke = function invoke(fn, dynamicDependencies) {
+    try {
+      var _handler = this._handlers.get(fn);
+
+      if (_handler === undefined) {
+        _handler = this._createInvocationHandler(fn);
+        this._handlers.set(fn, _handler);
+      }
+
+      return _handler.invoke(this, dynamicDependencies);
+    } catch (e) {
+      throw new __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__["e" /* AggregateError */]('Error invoking ' + fn.name + '. Check the inner error for details.', e, true);
+    }
+  };
+
+  Container.prototype._createInvocationHandler = function _createInvocationHandler(fn) {
+    var dependencies = void 0;
+
+    if (fn.inject === undefined) {
+      dependencies = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].getOwn(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].paramTypes, fn) || _emptyParameters;
+    } else {
+      dependencies = [];
+      var ctor = fn;
+      while (typeof ctor === 'function') {
+        var _dependencies;
+
+        (_dependencies = dependencies).push.apply(_dependencies, getDependencies(ctor));
+        ctor = Object.getPrototypeOf(ctor);
+      }
+    }
+
+    var invoker = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].getOwn(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].invoker, fn) || classInvokers[dependencies.length] || classInvokers.fallback;
+
+    var handler = new InvocationHandler(fn, invoker, dependencies);
+    return this._onHandlerCreated !== undefined ? this._onHandlerCreated(handler) : handler;
+  };
+
+  return Container;
+}();
+
+function autoinject(potentialTarget) {
+  var deco = function deco(target) {
+    var previousInject = target.inject ? target.inject.slice() : null;
+    var autoInject = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].getOwn(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].paramTypes, target) || _emptyParameters;
+    if (!previousInject) {
+      target.inject = autoInject;
+    } else {
+      for (var i = 0; i < autoInject.length; i++) {
+        if (previousInject[i] && previousInject[i] !== autoInject[i]) {
+          var prevIndex = previousInject.indexOf(autoInject[i]);
+          if (prevIndex > -1) {
+            previousInject.splice(prevIndex, 1);
+          }
+          previousInject.splice(prevIndex > -1 && prevIndex < i ? i - 1 : i, 0, autoInject[i]);
+        } else if (!previousInject[i]) {
+          previousInject[i] = autoInject[i];
+        }
+      }
+      target.inject = previousInject;
+    }
+  };
+
+  return potentialTarget ? deco(potentialTarget) : deco;
+}
+
+function inject() {
+  for (var _len5 = arguments.length, rest = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+    rest[_key5] = arguments[_key5];
+  }
+
+  return function (target, key, descriptor) {
+    if (typeof descriptor === 'number' && rest.length === 1) {
+      var params = target.inject;
+      if (typeof params === 'function') {
+        throw new Error('Decorator inject cannot be used with "inject()".  Please use an array instead.');
+      }
+      if (!params) {
+        params = __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].getOwn(__WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["a" /* metadata */].paramTypes, target).slice();
+        target.inject = params;
+      }
+      params[descriptor] = rest[0];
+      return;
+    }
+
+    if (descriptor) {
+      var _fn = descriptor.value;
+      _fn.inject = rest;
+    } else {
+      target.inject = rest;
+    }
+  };
+}
+
+/***/ }),
+
+/***/ 20:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapRepeatStrategy; });
+
+
+
+
+var MapRepeatStrategy = function () {
+  function MapRepeatStrategy() {
+    
+  }
+
+  MapRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {
+    return observerLocator.getMapObserver(items);
+  };
+
+  MapRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
+    var _this = this;
+
+    var removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+    if (removePromise instanceof Promise) {
+      removePromise.then(function () {
+        return _this._standardProcessItems(repeat, items);
+      });
+      return;
+    }
+    this._standardProcessItems(repeat, items);
+  };
+
+  MapRepeatStrategy.prototype._standardProcessItems = function _standardProcessItems(repeat, items) {
+    var index = 0;
+    var overrideContext = void 0;
+
+    items.forEach(function (value, key) {
+      overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, value, index, items.size, key);
+      repeat.addView(overrideContext.bindingContext, overrideContext);
+      ++index;
+    });
+  };
+
+  MapRepeatStrategy.prototype.instanceMutated = function instanceMutated(repeat, map, records) {
+    var key = void 0;
+    var i = void 0;
+    var ii = void 0;
+    var overrideContext = void 0;
+    var removeIndex = void 0;
+    var record = void 0;
+    var rmPromises = [];
+    var viewOrPromise = void 0;
+
+    for (i = 0, ii = records.length; i < ii; ++i) {
+      record = records[i];
+      key = record.key;
+      switch (record.type) {
+        case 'update':
+          removeIndex = this._getViewIndexByKey(repeat, key);
+          viewOrPromise = repeat.removeView(removeIndex, true, !repeat.viewsRequireLifecycle);
+          if (viewOrPromise instanceof Promise) {
+            rmPromises.push(viewOrPromise);
+          }
+          overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, map.get(key), removeIndex, map.size, key);
+          repeat.insertView(removeIndex, overrideContext.bindingContext, overrideContext);
+          break;
+        case 'add':
+          overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, map.get(key), map.size - 1, map.size, key);
+          repeat.insertView(map.size - 1, overrideContext.bindingContext, overrideContext);
+          break;
+        case 'delete':
+          if (record.oldValue === undefined) {
+            return;
+          }
+          removeIndex = this._getViewIndexByKey(repeat, key);
+          viewOrPromise = repeat.removeView(removeIndex, true, !repeat.viewsRequireLifecycle);
+          if (viewOrPromise instanceof Promise) {
+            rmPromises.push(viewOrPromise);
+          }
+          break;
+        case 'clear':
+          repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+          break;
+        default:
+          continue;
+      }
+    }
+
+    if (rmPromises.length > 0) {
+      Promise.all(rmPromises).then(function () {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), 0);
+      });
+    } else {
+      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), 0);
+    }
+  };
+
+  MapRepeatStrategy.prototype._getViewIndexByKey = function _getViewIndexByKey(repeat, key) {
+    var i = void 0;
+    var ii = void 0;
+    var child = void 0;
+
+    for (i = 0, ii = repeat.viewCount(); i < ii; ++i) {
+      child = repeat.view(i);
+      if (child.bindingContext[repeat.key] === key) {
+        return i;
+      }
+    }
+
+    return undefined;
+  };
+
+  return MapRepeatStrategy;
+}();
+
+/***/ }),
+
+/***/ 21:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NullRepeatStrategy; });
+
+
+var NullRepeatStrategy = function () {
+  function NullRepeatStrategy() {
+    
+  }
+
+  NullRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
+    repeat.removeAllViews(true);
+  };
+
+  NullRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {};
+
+  return NullRepeatStrategy;
+}();
+
+/***/ }),
+
+/***/ 22:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NumberRepeatStrategy; });
+
+
+
+
+var NumberRepeatStrategy = function () {
+  function NumberRepeatStrategy() {
+    
+  }
+
+  NumberRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver() {
+    return null;
+  };
+
+  NumberRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, value) {
+    var _this = this;
+
+    var removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+    if (removePromise instanceof Promise) {
+      removePromise.then(function () {
+        return _this._standardProcessItems(repeat, value);
+      });
+      return;
+    }
+    this._standardProcessItems(repeat, value);
+  };
+
+  NumberRepeatStrategy.prototype._standardProcessItems = function _standardProcessItems(repeat, value) {
+    var childrenLength = repeat.viewCount();
+    var i = void 0;
+    var ii = void 0;
+    var overrideContext = void 0;
+    var viewsToRemove = void 0;
+
+    value = Math.floor(value);
+    viewsToRemove = childrenLength - value;
+
+    if (viewsToRemove > 0) {
+      if (viewsToRemove > childrenLength) {
+        viewsToRemove = childrenLength;
+      }
+
+      for (i = 0, ii = viewsToRemove; i < ii; ++i) {
+        repeat.removeView(childrenLength - (i + 1), true, !repeat.viewsRequireLifecycle);
+      }
+
+      return;
+    }
+
+    for (i = childrenLength, ii = value; i < ii; ++i) {
+      overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, i, i, ii);
+      repeat.addView(overrideContext.bindingContext, overrideContext);
+    }
+
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), 0);
+  };
+
+  return NumberRepeatStrategy;
+}();
+
+/***/ }),
+
+/***/ 23:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__null_repeat_strategy__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__array_repeat_strategy__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_repeat_strategy__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__set_repeat_strategy__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__number_repeat_strategy__ = __webpack_require__(22);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RepeatStrategyLocator; });
+
+
+
+
+
+
+
+
+var RepeatStrategyLocator = function () {
+  function RepeatStrategyLocator() {
+    
+
+    this.matchers = [];
+    this.strategies = [];
+
+    this.addStrategy(function (items) {
+      return items === null || items === undefined;
+    }, new __WEBPACK_IMPORTED_MODULE_0__null_repeat_strategy__["a" /* NullRepeatStrategy */]());
+    this.addStrategy(function (items) {
+      return items instanceof Array;
+    }, new __WEBPACK_IMPORTED_MODULE_1__array_repeat_strategy__["a" /* ArrayRepeatStrategy */]());
+    this.addStrategy(function (items) {
+      return items instanceof Map;
+    }, new __WEBPACK_IMPORTED_MODULE_2__map_repeat_strategy__["a" /* MapRepeatStrategy */]());
+    this.addStrategy(function (items) {
+      return items instanceof Set;
+    }, new __WEBPACK_IMPORTED_MODULE_3__set_repeat_strategy__["a" /* SetRepeatStrategy */]());
+    this.addStrategy(function (items) {
+      return typeof items === 'number';
+    }, new __WEBPACK_IMPORTED_MODULE_4__number_repeat_strategy__["a" /* NumberRepeatStrategy */]());
+  }
+
+  RepeatStrategyLocator.prototype.addStrategy = function addStrategy(matcher, strategy) {
+    this.matchers.push(matcher);
+    this.strategies.push(strategy);
+  };
+
+  RepeatStrategyLocator.prototype.getStrategy = function getStrategy(items) {
+    var matchers = this.matchers;
+
+    for (var i = 0, ii = matchers.length; i < ii; ++i) {
+      if (matchers[i](items)) {
+        return this.strategies[i];
+      }
+    }
+
+    return null;
+  };
+
+  return RepeatStrategyLocator;
+}();
+
+/***/ }),
+
+/***/ 24:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SetRepeatStrategy; });
+
+
+
+
+var SetRepeatStrategy = function () {
+  function SetRepeatStrategy() {
+    
+  }
+
+  SetRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {
+    return observerLocator.getSetObserver(items);
+  };
+
+  SetRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
+    var _this = this;
+
+    var removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+    if (removePromise instanceof Promise) {
+      removePromise.then(function () {
+        return _this._standardProcessItems(repeat, items);
+      });
+      return;
+    }
+    this._standardProcessItems(repeat, items);
+  };
+
+  SetRepeatStrategy.prototype._standardProcessItems = function _standardProcessItems(repeat, items) {
+    var index = 0;
+    var overrideContext = void 0;
+
+    items.forEach(function (value) {
+      overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, value, index, items.size);
+      repeat.addView(overrideContext.bindingContext, overrideContext);
+      ++index;
+    });
+  };
+
+  SetRepeatStrategy.prototype.instanceMutated = function instanceMutated(repeat, set, records) {
+    var value = void 0;
+    var i = void 0;
+    var ii = void 0;
+    var overrideContext = void 0;
+    var removeIndex = void 0;
+    var record = void 0;
+    var rmPromises = [];
+    var viewOrPromise = void 0;
+
+    for (i = 0, ii = records.length; i < ii; ++i) {
+      record = records[i];
+      value = record.value;
+      switch (record.type) {
+        case 'add':
+          overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["e" /* createFullOverrideContext */])(repeat, value, set.size - 1, set.size);
+          repeat.insertView(set.size - 1, overrideContext.bindingContext, overrideContext);
+          break;
+        case 'delete':
+          removeIndex = this._getViewIndexByValue(repeat, value);
+          viewOrPromise = repeat.removeView(removeIndex, true, !repeat.viewsRequireLifecycle);
+          if (viewOrPromise instanceof Promise) {
+            rmPromises.push(viewOrPromise);
+          }
+          break;
+        case 'clear':
+          repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+          break;
+        default:
+          continue;
+      }
+    }
+
+    if (rmPromises.length > 0) {
+      Promise.all(rmPromises).then(function () {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), 0);
+      });
+    } else {
+      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["f" /* updateOverrideContexts */])(repeat.views(), 0);
+    }
+  };
+
+  SetRepeatStrategy.prototype._getViewIndexByValue = function _getViewIndexByValue(repeat, value) {
+    var i = void 0;
+    var ii = void 0;
+    var child = void 0;
+
+    for (i = 0, ii = repeat.viewCount(); i < ii; ++i) {
+      child = repeat.view(i);
+      if (child.bindingContext[repeat.local] === value) {
+        return i;
+      }
+    }
+
+    return undefined;
+  };
+
+  return SetRepeatStrategy;
+}();
+
+/***/ }),
+
+/***/ 25:
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
+
+/***/ 26:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_polyfills__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__ = __webpack_require__(0);
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (immutable) */ __webpack_exports__["bootstrap"] = bootstrap;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "starting", function() { return starting; });
+
+
+
+var bootstrapPromises = [];
+var startResolve = void 0;
+
+var startPromise = new Promise(function (resolve) {
+  return startResolve = resolve;
+});
+var host = __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__["a" /* PLATFORM */].global;
+var isNodeLike = typeof process !== 'undefined' && !process.browser;
+
+function ready() {
+  if (!host.document || host.document.readyState === 'complete') {
+    return Promise.resolve();
+  }
+
+  return new Promise(function (resolve) {
+    host.document.addEventListener('DOMContentLoaded', completed);
+    host.addEventListener('load', completed);
+
+    function completed() {
+      host.document.removeEventListener('DOMContentLoaded', completed);
+      host.removeEventListener('load', completed);
+      resolve();
+    }
+  });
+}
+
+function createLoader() {
+  if (__WEBPACK_IMPORTED_MODULE_1_aurelia_pal__["a" /* PLATFORM */].Loader) {
+    return Promise.resolve(new __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__["a" /* PLATFORM */].Loader());
+  }
+
+  if (false) {
+    if (typeof __webpack_require__ !== 'undefined') {
+      var m = __webpack_require__(require.resolve('aurelia-loader-webpack'));
+      return Promise.resolve(new m.WebpackLoader());
+    }
+
+    if (host.System && typeof host.System.config === 'function') {
+      return host.System.normalize('aurelia-bootstrapper').then(function (bsn) {
+        return host.System.normalize('aurelia-loader-default', bsn);
+      }).then(function (loaderName) {
+        return host.System.import(loaderName).then(function (m) {
+          return new m.DefaultLoader();
+        });
+      });
+    }
+
+    if (typeof host.require === 'function' && typeof host.require.version === 'string') {
+      return new Promise(function (resolve, reject) {
+        return host.require(['aurelia-loader-default'], function (m) {
+          return resolve(new m.DefaultLoader());
+        }, reject);
+      });
+    }
+
+    if (isNodeLike && typeof module !== 'undefined' && typeof module.require !== 'undefined') {
+      var _m = module.require('aurelia-loader-nodejs');
+      return Promise.resolve(new _m.NodeJsLoader());
+    }
+  }
+
+  return Promise.reject('No PLATFORM.Loader is defined and there is neither a System API (ES6) or a Require API (AMD) globally available to load your app.');
+}
+
+function initializePal(loader) {
+  var type = void 0;
+
+  var isRenderer = isNodeLike && (process.type === 'renderer' || process.versions['node-webkit']);
+
+  if (isNodeLike && !isRenderer) {
+    type = 'nodejs';
+  } else if (typeof window !== 'undefined') {
+    type = 'browser';
+  } else if (typeof self !== 'undefined') {
+    type = 'worker';
+  } else {
+    throw new Error('Could not determine platform implementation to load.');
+  }
+
+  return loader.loadModule('aurelia-pal-' + type).then(function (palModule) {
+    return type === 'nodejs' && !__WEBPACK_IMPORTED_MODULE_1_aurelia_pal__["b" /* isInitialized */] && palModule.globalize() || palModule.initialize();
+  });
+}
+
+function preparePlatform(loader) {
+  var map = function map(moduleId, relativeTo) {
+    return loader.normalize(moduleId, relativeTo).then(function (normalized) {
+      loader.map(moduleId, normalized);
+      return normalized;
+    });
+  };
+
+  return initializePal(loader).then(function () {
+    return loader.normalize('aurelia-bootstrapper');
+  }).then(function (bootstrapperName) {
+    var frameworkPromise = map('aurelia-framework', bootstrapperName);
+
+    return Promise.all([frameworkPromise, frameworkPromise.then(function (frameworkName) {
+      return map('aurelia-dependency-injection', frameworkName);
+    }), map('aurelia-router', bootstrapperName), map('aurelia-logging-console', bootstrapperName)]);
+  }).then(function (_ref) {
+    var frameworkName = _ref[0];
+    return loader.loadModule(frameworkName);
+  }).then(function (fx) {
+    return startResolve(function () {
+      return new fx.Aurelia(loader);
+    });
+  });
+}
+
+function config(appHost, configModuleId, aurelia) {
+  aurelia.host = appHost;
+  aurelia.configModuleId = configModuleId || null;
+
+  if (configModuleId) {
+    return aurelia.loader.loadModule(configModuleId).then(function (customConfig) {
+      if (!customConfig.configure) {
+        throw new Error('Cannot initialize module \'' + configModuleId + '\' without a configure function.');
+      }
+
+      return customConfig.configure(aurelia);
+    });
+  }
+
+  aurelia.use.standardConfiguration().developmentLogging();
+
+  return aurelia.start().then(function () {
+    return aurelia.setRoot();
+  });
+}
+
+function run() {
+  return ready().then(createLoader).then(preparePlatform).then(function () {
+    var appHosts = host.document.querySelectorAll('[aurelia-app],[data-aurelia-app]');
+    for (var i = 0, ii = appHosts.length; i < ii; ++i) {
+      var appHost = appHosts[i];
+      var moduleId = appHost.getAttribute('aurelia-app') || appHost.getAttribute('data-aurelia-app');
+      bootstrap(config.bind(null, appHost, moduleId));
+    }
+
+    var toConsole = console.error.bind(console);
+    var bootstraps = bootstrapPromises.map(function (p) {
+      return p.catch(toConsole);
+    });
+    bootstrapPromises = null;
+    return Promise.all(bootstraps);
+  });
+}
+
+function bootstrap(configure) {
+  var p = startPromise.then(function (factory) {
+    return configure(factory());
+  });
+  if (bootstrapPromises) bootstrapPromises.push(p);
+  return p;
+}
+
+var starting = run();
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(25)))
+
+/***/ }),
+
+/***/ 27:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_loader__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextTemplateLoader", function() { return TextTemplateLoader; });
+/* harmony export (immutable) */ __webpack_exports__["ensureOriginOnExports"] = ensureOriginOnExports;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebpackLoader", function() { return WebpackLoader; });
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t;
+    return { next: verb(0), "throw": verb(1), "return": verb(2) };
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+/**
+* An implementation of the TemplateLoader interface implemented with text-based loading.
+*/
+var TextTemplateLoader = (function () {
+    function TextTemplateLoader() {
+    }
+    /**
+    * Loads a template.
+    * @param loader The loader that is requesting the template load.
+    * @param entry The TemplateRegistryEntry to load and populate with a template.
+    * @return A promise which resolves when the TemplateRegistryEntry is loaded with a template.
+    */
+    TextTemplateLoader.prototype.loadTemplate = function (loader, entry) {
+        return __awaiter(this, void 0, void 0, function () {
+            var text;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, loader.loadText(entry.address)];
+                    case 1:
+                        text = _a.sent();
+                        entry.template = __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["c" /* DOM */].createTemplateFromMarkup(text);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return TextTemplateLoader;
+}());
+
+function ensureOriginOnExports(moduleExports, moduleId) {
+    var target = moduleExports;
+    var key;
+    var exportedValue;
+    if (target.__useDefault) {
+        target = target.default;
+    }
+    __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["c" /* Origin */].set(target, new __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["c" /* Origin */](moduleId, 'default'));
+    if (typeof target === 'object') {
+        for (key in target) {
+            exportedValue = target[key];
+            if (typeof exportedValue === 'function') {
+                __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["c" /* Origin */].set(exportedValue, new __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__["c" /* Origin */](moduleId, key));
+            }
+        }
+    }
+    return moduleExports;
+}
+/**
+* A default implementation of the Loader abstraction which works with webpack (extended common-js style).
+*/
+var WebpackLoader = (function (_super) {
+    __extends(WebpackLoader, _super);
+    function WebpackLoader() {
+        var _this = _super.call(this) || this;
+        _this.moduleRegistry = Object.create(null);
+        _this.loaderPlugins = Object.create(null);
+        _this.modulesBeingLoaded = new Map();
+        _this.useTemplateLoader(new TextTemplateLoader());
+        _this.addPlugin('template-registry-entry', {
+            fetch: function (moduleId) { return __awaiter(_this, void 0, void 0, function () {
+                var _this = this;
+                var HmrContext, entry;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            // HMR:
+                            if (false) {
+                                if (!this.hmrContext) {
+                                    HmrContext = require('aurelia-hot-module-reload').HmrContext;
+                                    this.hmrContext = new HmrContext(this);
+                                }
+                                module.hot.accept(moduleId, function () { return __awaiter(_this, void 0, void 0, function () {
+                                    return __generator(this, function (_a) {
+                                        switch (_a.label) {
+                                            case 0: return [4 /*yield*/, this.hmrContext.handleViewChange(moduleId)];
+                                            case 1:
+                                                _a.sent();
+                                                return [2 /*return*/];
+                                        }
+                                    });
+                                }); });
+                            }
+                            entry = this.getOrCreateTemplateRegistryEntry(moduleId);
+                            if (!!entry.templateIsLoaded) return [3 /*break*/, 2];
+                            return [4 /*yield*/, this.templateLoader.loadTemplate(this, entry)];
+                        case 1:
+                            _a.sent();
+                            _a.label = 2;
+                        case 2: return [2 /*return*/, entry];
+                    }
+                });
+            }); }
+        });
+        __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["a" /* PLATFORM */].eachModule = function (callback) {
+            var registry = __webpack_require__.c;
+            var cachedModuleIds = Object.getOwnPropertyNames(registry);
+            cachedModuleIds
+                .forEach(function (moduleId) {
+                var moduleExports = registry[moduleId].exports;
+                if (typeof moduleExports === 'object') {
+                    callback(moduleId, moduleExports);
+                }
+            });
+        };
+        return _this;
+    }
+    WebpackLoader.prototype._import = function (address, defaultHMR) {
+        if (defaultHMR === void 0) { defaultHMR = true; }
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var addressParts, moduleId, loaderPlugin, plugin_1, asyncModuleId, callback;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        addressParts = address.split('!');
+                        moduleId = addressParts.splice(addressParts.length - 1, 1)[0];
+                        loaderPlugin = addressParts.length === 1 ? addressParts[0] : null;
+                        if (!loaderPlugin) return [3 /*break*/, 2];
+                        plugin_1 = this.loaderPlugins[loaderPlugin];
+                        if (!plugin_1) {
+                            throw new Error("Plugin " + loaderPlugin + " is not registered in the loader.");
+                        }
+                        if (false) {
+                            module.hot.accept(moduleId, function () { return plugin_1.hot(moduleId); });
+                        }
+                        return [4 /*yield*/, plugin_1.fetch(moduleId)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                    case 2:
+                        if (__webpack_require__.m[moduleId]) {
+                            if (defaultHMR && module.hot && this.hmrContext) {
+                                module.hot.accept(moduleId, function () { return _this.hmrContext.handleModuleChange(moduleId, module.hot); });
+                            }
+                            return [2 /*return*/, __webpack_require__(moduleId)];
+                        }
+                        asyncModuleId = "async!" + moduleId;
+                        if (!__webpack_require__.m[asyncModuleId]) return [3 /*break*/, 4];
+                        if (defaultHMR && module.hot && this.hmrContext) {
+                            module.hot.accept(moduleId, function () { return _this.hmrContext.handleModuleChange(moduleId, module.hot); });
+                            module.hot.accept(asyncModuleId, function () { });
+                        }
+                        callback = __webpack_require__(asyncModuleId);
+                        return [4 /*yield*/, new Promise(callback)];
+                    case 3: return [2 /*return*/, _a.sent()];
+                    case 4: throw new Error("Unable to find module with ID: " + moduleId);
+                }
+            });
+        });
+    };
+    /**
+    * Maps a module id to a source.
+    * @param id The module id.
+    * @param source The source to map the module to.
+    */
+    WebpackLoader.prototype.map = function (id, source) { };
+    /**
+    * Normalizes a module id.
+    * @param moduleId The module id to normalize.
+    * @param relativeTo What the module id should be normalized relative to.
+    * @return The normalized module id.
+    */
+    WebpackLoader.prototype.normalizeSync = function (moduleId, relativeTo) {
+        return moduleId;
+    };
+    /**
+    * Normalizes a module id.
+    * @param moduleId The module id to normalize.
+    * @param relativeTo What the module id should be normalized relative to.
+    * @return The normalized module id.
+    */
+    WebpackLoader.prototype.normalize = function (moduleId, relativeTo) {
+        return Promise.resolve(moduleId);
+    };
+    /**
+    * Instructs the loader to use a specific TemplateLoader instance for loading templates
+    * @param templateLoader The instance of TemplateLoader to use for loading templates.
+    */
+    WebpackLoader.prototype.useTemplateLoader = function (templateLoader) {
+        this.templateLoader = templateLoader;
+    };
+    /**
+    * Loads a collection of modules.
+    * @param ids The set of module ids to load.
+    * @return A Promise for an array of loaded modules.
+    */
+    WebpackLoader.prototype.loadAllModules = function (ids) {
+        var _this = this;
+        return Promise.all(ids.map(function (id) { return _this.loadModule(id); }));
+    };
+    /**
+    * Loads a module.
+    * @param moduleId The module ID to load.
+    * @return A Promise for the loaded module.
+    */
+    WebpackLoader.prototype.loadModule = function (moduleId, defaultHMR) {
+        if (defaultHMR === void 0) { defaultHMR = true; }
+        return __awaiter(this, void 0, void 0, function () {
+            var existing, beingLoaded, moduleExports;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        existing = this.moduleRegistry[moduleId];
+                        if (existing) {
+                            return [2 /*return*/, existing];
+                        }
+                        beingLoaded = this.modulesBeingLoaded.get(moduleId);
+                        if (beingLoaded) {
+                            return [2 /*return*/, beingLoaded];
+                        }
+                        beingLoaded = this._import(moduleId, defaultHMR);
+                        this.modulesBeingLoaded.set(moduleId, beingLoaded);
+                        return [4 /*yield*/, beingLoaded];
+                    case 1:
+                        moduleExports = _a.sent();
+                        this.moduleRegistry[moduleId] = ensureOriginOnExports(moduleExports, moduleId);
+                        this.modulesBeingLoaded.delete(moduleId);
+                        return [2 /*return*/, moduleExports];
+                }
+            });
+        });
+    };
+    /**
+    * Loads a template.
+    * @param url The url of the template to load.
+    * @return A Promise for a TemplateRegistryEntry containing the template.
+    */
+    WebpackLoader.prototype.loadTemplate = function (url) {
+        return this.loadModule(this.applyPluginToUrl(url, 'template-registry-entry'), false);
+    };
+    /**
+    * Loads a text-based resource.
+    * @param url The url of the text file to load.
+    * @return A Promise for text content.
+    */
+    WebpackLoader.prototype.loadText = function (url) {
+        return __awaiter(this, void 0, void 0, function () {
+            var result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.loadModule(url, false)];
+                    case 1:
+                        result = _a.sent();
+                        if (result instanceof Array && result[0] instanceof Array && result.hasOwnProperty('toString')) {
+                            // we're dealing with a file loaded using the css-loader:
+                            return [2 /*return*/, result.toString()];
+                        }
+                        return [2 /*return*/, result];
+                }
+            });
+        });
+    };
+    /**
+    * Alters a module id so that it includes a plugin loader.
+    * @param url The url of the module to load.
+    * @param pluginName The plugin to apply to the module id.
+    * @return The plugin-based module id.
+    */
+    WebpackLoader.prototype.applyPluginToUrl = function (url, pluginName) {
+        return pluginName + "!" + url;
+    };
+    /**
+    * Registers a plugin with the loader.
+    * @param pluginName The name of the plugin.
+    * @param implementation The plugin implementation.
+    */
+    WebpackLoader.prototype.addPlugin = function (pluginName, implementation) {
+        this.loaderPlugins[pluginName] = implementation;
+    };
+    return WebpackLoader;
+}(__WEBPACK_IMPORTED_MODULE_1_aurelia_loader__["a" /* Loader */]));
+
+__WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["a" /* PLATFORM */].Loader = WebpackLoader;
+
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(46)(module)))
+
+/***/ }),
+
+/***/ 28:
+/***/ (function(module, exports, __webpack_require__) {
+
+// This file contains an empty module that does nothing.
+// It's meant to be added as an entry point to the main bundle
+// and helps reliably adding some Aurelia dependencies that are attached 
+// to no module in particular, such as `includeAll` results or `aureliaApp`.
+//
+// Trying to attach those dependencies to, for example, 'aurelia-bootstrapper' 
+// is unreliable if 'aurelia-bootstrapper' is in a DLL outside the bundle.
+//
+// Trying to attach to 'aurelia-loader-webpack' works well, unless a user
+// configures a customized loader instead (unlikely, but in theory supported).
+
 
 /***/ }),
 
@@ -19045,7 +19046,7 @@ protocol.create = function (name, options) {
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(24)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(25)))
 
 /***/ }),
 
@@ -19744,9 +19745,10 @@ module.exports = function(originalModule) {
 /***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(28);
+__webpack_require__(13);
 __webpack_require__(27);
-__webpack_require__(26);
-module.exports = __webpack_require__(25);
+module.exports = __webpack_require__(26);
 
 
 /***/ }),
@@ -21207,7 +21209,7 @@ var LogManager = __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_history__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_history__ = __webpack_require__(14);
 /* unused harmony export LinkHandler */
 /* unused harmony export DefaultLinkHandler */
 /* harmony export (immutable) */ __webpack_exports__["configure"] = configure;
@@ -22765,25 +22767,25 @@ function configure(config) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__focus__ = __webpack_require__("aurelia-templating-resources/focus");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_aurelia_templating__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__css_resource__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__html_sanitizer__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__html_sanitizer__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__attr_binding_behavior__ = __webpack_require__("aurelia-templating-resources/attr-binding-behavior");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__binding_mode_behaviors__ = __webpack_require__("aurelia-templating-resources/binding-mode-behaviors");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__throttle_binding_behavior__ = __webpack_require__("aurelia-templating-resources/throttle-binding-behavior");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__debounce_binding_behavior__ = __webpack_require__("aurelia-templating-resources/debounce-binding-behavior");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__self_binding_behavior__ = __webpack_require__("aurelia-templating-resources/self-binding-behavior");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__signal_binding_behavior__ = __webpack_require__("aurelia-templating-resources/signal-binding-behavior");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__binding_signaler__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__binding_signaler__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__update_trigger_binding_behavior__ = __webpack_require__("aurelia-templating-resources/update-trigger-binding-behavior");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__abstract_repeater__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__repeat_strategy_locator__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__abstract_repeater__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__repeat_strategy_locator__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__html_resource_plugin__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__null_repeat_strategy__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__array_repeat_strategy__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__map_repeat_strategy__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__set_repeat_strategy__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__number_repeat_strategy__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__null_repeat_strategy__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__array_repeat_strategy__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__map_repeat_strategy__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__set_repeat_strategy__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__number_repeat_strategy__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__analyze_view_factory__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__analyze_view_factory__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__aurelia_hide_style__ = __webpack_require__(11);
 /* unused harmony reexport Compose */
 /* unused harmony reexport If */
@@ -23484,10 +23486,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__repeat_strategy_locator__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__repeat_strategy_locator__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__repeat_utilities__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__analyze_view_factory__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__abstract_repeater__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__analyze_view_factory__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__abstract_repeater__ = __webpack_require__(15);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Repeat", function() { return Repeat; });
 var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
 
@@ -23835,7 +23837,7 @@ var Replaceable = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aure
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__html_sanitizer__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__html_sanitizer__ = __webpack_require__(19);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SanitizeHTMLValueConverter", function() { return SanitizeHTMLValueConverter; });
 var _dec, _dec2, _class;
 
@@ -23958,7 +23960,7 @@ var Show = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_tem
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__binding_signaler__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__binding_signaler__ = __webpack_require__(18);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignalBindingBehavior", function() { return SignalBindingBehavior; });
 
 

@@ -1,5 +1,5 @@
 {
-  "name": "vendor_438d7aebff22691b4ad7",
+  "name": "vendor_0a7648a62c56914a4e92",
   "content": {
     "./node_modules/aurelia-pal/dist/native-modules/aurelia-pal.js": {
       "id": 0,
@@ -376,13 +376,7 @@
       },
       "exports": [
         "_PLATFORM",
-        "_ensureFunctionName",
-        "_ensureClassList",
-        "_ensurePerformance",
-        "_ensureCustomEvent",
-        "_ensureElementMatches",
         "_FEATURE",
-        "_ensureHTMLTemplateElement",
         "_DOM",
         "initialize"
       ]

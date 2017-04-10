@@ -1,16 +1,16 @@
 {
   "license": "MIT",
   "devDependencies": {
-    "aurelia-webpack-plugin": "^2.0.0-rc.1",
-    "css-loader": "^0.27.3",
+    "aurelia-webpack-plugin": "^2.0.0-rc.2",
+    "css-loader": "^0.28.0",
     "html-loader": "^0.4.5",
     "less": "^2.7.2",    
-    "less-loader": "^4.0.2",
+    "less-loader": "^4.0.3",
     "style-loader": "^0.16.1",
     "ts-loader": "^2.0.3",
     "tslib": "^1.6.0",
     "typescript": "^2.2.2",
-    "webpack": "^2.3.2",
+    "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
