@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 47:
+/***/ 44:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16,6 +16,7 @@ webpackJsonp([0],{
 /* unused harmony export __values */
 /* unused harmony export __read */
 /* unused harmony export __spread */
+/* unused harmony export __await */
 /* unused harmony export __asyncGenerator */
 /* unused harmony export __asyncDelegator */
 /* unused harmony export __asyncValues */
@@ -51,7 +52,7 @@ var __assign = Object.assign || function __assign(t) {
         for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
     }
     return t;
-};
+}
 
 function __rest(s, e) {
     var t = {};
@@ -128,7 +129,7 @@ function __values(o) {
             return { value: o && o[i++], done: !o };
         }
     };
-};
+}
 
 function __read(o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
@@ -145,39 +146,41 @@ function __read(o, n) {
         finally { if (e) throw e.error; }
     }
     return ar;
-};
+}
 
 function __spread() {
     for (var ar = [], i = 0; i < arguments.length; i++)
         ar = ar.concat(__read(arguments[i]));
     return ar;
-};
+}
+
+function __await(v) {
+    return this instanceof __await ? (this.v = v, this) : new __await(v);
+}
 
 function __asyncGenerator(thisArg, _arguments, generator) {
     if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-    var g = generator.apply(thisArg, _arguments || []), q = [], c, i;
-    return i = { next: verb("next"), "throw": verb("throw"), "return": verb("return") }, i[Symbol.asyncIterator] = function () { return this; }, i;
-    function verb(n) { return function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]), next(); }); }; }
-    function next() { if (!c && q.length) resume((c = q.shift())[0], c[1]); }
-    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(c[3], e); } }
-    function step(r) { r.done ? settle(c[2], r) : r.value[0] === "yield" ? settle(c[2], { value: r.value[1], done: false }) : Promise.resolve(r.value[1]).then(r.value[0] === "delegate" ? delegate : fulfill, reject); }
-    function delegate(r) { step(r.done ? r : { value: ["yield", r.value], done: false }); }
+    var g = generator.apply(thisArg, _arguments || []), i, q = [];
+    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r);  }
     function fulfill(value) { resume("next", value); }
     function reject(value) { resume("throw", value); }
-    function settle(f, v) { c = void 0, f(v), next(); }
-};
+    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+}
 
 function __asyncDelegator(o) {
-    var i = { next: verb("next"), "throw": verb("throw", function (e) { throw e; }), "return": verb("return", function (v) { return { value: v, done: true }; }) };
-    return o = __asyncValues(o), i[Symbol.iterator] = function () { return this; }, i;
-    function verb(n, f) { return function (v) { return { value: ["delegate", (o[n] || f).call(o, v)], done: false }; }; }
-};
+    var i, p;
+    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+    function verb(n, f) { if (o[n]) i[n] = function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; }; }
+}
 
 function __asyncValues(o) {
     if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
     var m = o[Symbol.asyncIterator];
     return m ? m.call(o) : typeof __values === "function" ? __values(o) : o[Symbol.iterator]();
-};
+}
 
 /***/ }),
 
@@ -186,20 +189,20 @@ function __asyncValues(o) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelloTagCustomElement", function() { return HelloTagCustomElement; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__ = __webpack_require__("aurelia-framework");
 
 
 var HelloTagCustomElement = (function () {
     function HelloTagCustomElement() {
     }
+    __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["b" /* bindable */]
+    ], HelloTagCustomElement.prototype, "name", void 0);
     return HelloTagCustomElement;
 }());
 
-__WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
-    __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["b" /* bindable */]
-], HelloTagCustomElement.prototype, "name", void 0);
 
 
 /***/ }),

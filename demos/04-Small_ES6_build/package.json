@@ -1,19 +1,19 @@
 {
   "license": "MIT",
   "devDependencies": {
-    "aurelia-webpack-plugin": "^2.0.0-rc.2",
-    "babili-webpack-plugin": "^0.0.11",
-    "css-loader": "^0.28.0",
-    "html-loader": "^0.4.5",
+    "aurelia-webpack-plugin": "^2.0.0-rc.5",
+    "babili-webpack-plugin": "^0.1.2",
+    "css-loader": "^0.28.5",
+    "html-loader": "^0.5.1",
     "less": "^2.7.2",
-    "less-loader": "^4.0.3",
-    "style-loader": "^0.16.1",
-    "ts-loader": "^2.0.3",
-    "tslib": "^1.6.0",
-    "typescript": "^2.2.2",
-    "webpack": "^2.3.3",
-    "webpack-bundle-analyzer": "^2.3.1",
-    "webpack-dev-server": "^2.4.2"
+    "less-loader": "^4.0.5",
+    "style-loader": "^0.18.2",
+    "ts-loader": "^2.3.4",
+    "tslib": "^1.7.1",
+    "typescript": "^2.4.2",
+    "webpack": "^3.5.5",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
     "aurelia-bootstrapper": "^2.1.1"

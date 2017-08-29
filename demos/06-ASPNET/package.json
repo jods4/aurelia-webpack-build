@@ -1,12 +1,12 @@
 {
   "license": "MIT",
   "devDependencies": {
-    "aspnet-webpack": "^1.0.28",
-    "aurelia-webpack-plugin": "^2.0.0-rc.2",
-    "ts-loader": "^2.0.3",
-    "typescript": "^2.2.2",
-    "webpack": "^2.3.3",
-    "webpack-hot-middleware": "^2.18.0"
+    "aspnet-webpack": "^2.0.1",
+    "aurelia-webpack-plugin": "^2.0.0-rc.5",
+    "ts-loader": "^2.3.4",
+    "typescript": "^2.4.2",
+    "webpack": "^3.5.5",
+    "webpack-hot-middleware": "^2.18.2"
   },
   "dependencies": {
     "aurelia-bootstrapper": "^2.1.1"

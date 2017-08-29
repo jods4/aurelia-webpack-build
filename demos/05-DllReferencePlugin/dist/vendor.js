@@ -1,4 +1,4 @@
-var vendor_0a7648a62c56914a4e92 =
+var vendor_b4a669d57810ac226b5b =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -7,9 +7,9 @@ var vendor_0a7648a62c56914a4e92 =
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -33,9 +33,6 @@ var vendor_0a7648a62c56914a4e92 =
 /******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
 /******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
@@ -64,7 +61,7 @@ var vendor_0a7648a62c56914a4e92 =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 60);
+/******/ 	return __webpack_require__(__webpack_require__.s = 45);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -72,8 +69,8 @@ var vendor_0a7648a62c56914a4e92 =
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (immutable) */ __webpack_exports__["AggregateError"] = AggregateError;
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (immutable) */ __webpack_exports__["AggregateError"] = AggregateError;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FEATURE", function() { return FEATURE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PLATFORM", function() { return PLATFORM; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DOM", function() { return DOM; });
@@ -174,7 +171,7 @@ function initializePAL(callback) {
 function reset() {
   isInitialized = false;
 }
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(44)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(14)))
 
 /***/ }),
 /* 1 */
@@ -182,14 +179,6 @@ function reset() {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_path__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_loader__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_aurelia_task_queue__ = __webpack_require__(9);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "animationEvent", function() { return animationEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Animator", function() { return Animator; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CompositionTransactionNotifier", function() { return CompositionTransactionNotifier; });
@@ -253,6 +242,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (immutable) */ __webpack_exports__["elementConfig"] = elementConfig;
 /* harmony export (immutable) */ __webpack_exports__["viewResources"] = viewResources;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemplatingEngine", function() { return TemplatingEngine; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_path__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_loader__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_aurelia_task_queue__ = __webpack_require__(8);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _class, _temp, _dec, _class2, _dec2, _class3, _dec3, _class4, _dec4, _class5, _dec5, _class6, _class7, _temp2, _dec6, _class8, _class9, _temp3, _class11, _dec7, _class13, _dec8, _class14, _class15, _temp4, _dec9, _class16, _dec10, _class17, _dec11, _class18;
@@ -756,7 +753,7 @@ var RelativeViewStrategy = (_dec = viewStrategy(), _dec(_class2 = function () {
 
   RelativeViewStrategy.prototype.loadViewFactory = function loadViewFactory(viewEngine, compileInstruction, loadContext, target) {
     if (this.absolutePath === null && this.moduleId) {
-      this.absolutePath = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_aurelia_path__["relativeToFile"])(this.path, this.moduleId);
+      this.absolutePath = Object(__WEBPACK_IMPORTED_MODULE_3_aurelia_path__["relativeToFile"])(this.path, this.moduleId);
     }
 
     compileInstruction.associatedModuleId = this.moduleId;
@@ -765,7 +762,7 @@ var RelativeViewStrategy = (_dec = viewStrategy(), _dec(_class2 = function () {
 
   RelativeViewStrategy.prototype.makeRelativeTo = function makeRelativeTo(file) {
     if (this.absolutePath === null) {
-      this.absolutePath = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_aurelia_path__["relativeToFile"])(this.path, file);
+      this.absolutePath = Object(__WEBPACK_IMPORTED_MODULE_3_aurelia_path__["relativeToFile"])(this.path, file);
     }
   };
 
@@ -985,7 +982,7 @@ var BindingLanguage = function () {
 
 var noNodes = Object.freeze([]);
 
-var SlotCustomAttribute = (_dec6 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["DOM"].Element), _dec6(_class8 = function () {
+var SlotCustomAttribute = (_dec6 = Object(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["DOM"].Element), _dec6(_class8 = function () {
   function SlotCustomAttribute(element) {
     
 
@@ -1524,7 +1521,7 @@ var ViewResources = function () {
   };
 
   ViewResources.prototype.relativeToView = function relativeToView(path) {
-    return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_aurelia_path__["relativeToFile"])(path, this.viewUrl);
+    return Object(__WEBPACK_IMPORTED_MODULE_3_aurelia_path__["relativeToFile"])(path, this.viewUrl);
   };
 
   ViewResources.prototype.registerElement = function registerElement(tagName, behavior) {
@@ -1642,7 +1639,7 @@ var View = function () {
 
     this.isBound = true;
     this.bindingContext = bindingContext;
-    this.overrideContext = overrideContext || __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["createOverrideContext"])(bindingContext);
+    this.overrideContext = overrideContext || Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["createOverrideContext"])(bindingContext);
 
     this.resources._invokeHook('beforeBind', this);
 
@@ -2235,7 +2232,7 @@ var ViewSlot = function () {
   return ViewSlot;
 }();
 
-var ProviderResolver = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["resolver"])(_class11 = function () {
+var ProviderResolver = Object(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["resolver"])(_class11 = function () {
   function ProviderResolver() {
     
   }
@@ -2683,7 +2680,7 @@ function makeShadowSlot(compiler, resources, node, instructions, parentInjectorI
   return auShadowSlot;
 }
 
-var ViewCompiler = (_dec7 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["inject"])(BindingLanguage, ViewResources), _dec7(_class13 = function () {
+var ViewCompiler = (_dec7 = Object(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["inject"])(BindingLanguage, ViewResources), _dec7(_class13 = function () {
   function ViewCompiler(bindingLanguage, resources) {
     
 
@@ -3362,7 +3359,7 @@ var ProxyViewFactory = function () {
   return ProxyViewFactory;
 }();
 
-var ViewEngine = (_dec8 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_4_aurelia_loader__["Loader"], __WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["Container"], ViewCompiler, ModuleAnalyzer, ViewResources), _dec8(_class14 = (_temp4 = _class15 = function () {
+var ViewEngine = (_dec8 = Object(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_4_aurelia_loader__["Loader"], __WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["Container"], ViewCompiler, ModuleAnalyzer, ViewResources), _dec8(_class14 = (_temp4 = _class15 = function () {
   function ViewEngine(loader, container, viewCompiler, moduleAnalyzer, appResources) {
     
 
@@ -3447,7 +3444,7 @@ var ViewEngine = (_dec8 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_aure
         var templateImportCount = importIds.length;
         for (var i = 0, ii = viewModelRequires.length; i < ii; ++i) {
           var req = viewModelRequires[i];
-          var importId = typeof req === 'function' ? __WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["Origin"].get(req).moduleId : __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_aurelia_path__["relativeToFile"])(req.src || req, registryEntry.address);
+          var importId = typeof req === 'function' ? __WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["Origin"].get(req).moduleId : Object(__WEBPACK_IMPORTED_MODULE_3_aurelia_path__["relativeToFile"])(req.src || req, registryEntry.address);
 
           if (importIds.indexOf(importId) === -1) {
             importIds.push(importId);
@@ -3584,7 +3581,7 @@ var Controller = function () {
 
   Controller.prototype.automate = function automate(overrideContext, owningView) {
     this.view.bindingContext = this.viewModel;
-    this.view.overrideContext = overrideContext || __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["createOverrideContext"])(this.viewModel);
+    this.view.overrideContext = overrideContext || Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["createOverrideContext"])(this.viewModel);
     this.view._isUserControlled = true;
 
     if (this.behavior.handlesCreated) {
@@ -3640,9 +3637,9 @@ var Controller = function () {
       if (this.viewModel === scope.overrideContext.bindingContext) {
         overrideContext = scope.overrideContext;
       } else if (this.instruction.inheritBindingContext) {
-        overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["createOverrideContext"])(this.viewModel, scope.overrideContext);
+        overrideContext = Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["createOverrideContext"])(this.viewModel, scope.overrideContext);
       } else {
-        overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["createOverrideContext"])(this.viewModel);
+        overrideContext = Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["createOverrideContext"])(this.viewModel);
         overrideContext.__parentOverrideContext = scope.overrideContext;
       }
 
@@ -3718,7 +3715,7 @@ var Controller = function () {
   return Controller;
 }();
 
-var BehaviorPropertyObserver = (_dec9 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["subscriberCollection"])(), _dec9(_class16 = function () {
+var BehaviorPropertyObserver = (_dec9 = Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["subscriberCollection"])(), _dec9(_class16 = function () {
   function BehaviorPropertyObserver(taskQueue, obj, propertyName, selfSubscriber, initialValue) {
     
 
@@ -4656,7 +4653,7 @@ function tryActivateViewModel(context) {
   return context.viewModel.activate(context.model) || Promise.resolve();
 }
 
-var CompositionEngine = (_dec10 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["inject"])(ViewEngine, ViewLocator), _dec10(_class17 = function () {
+var CompositionEngine = (_dec10 = Object(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["inject"])(ViewEngine, ViewLocator), _dec10(_class17 = function () {
   function CompositionEngine(viewEngine, viewLocator) {
     
 
@@ -5017,7 +5014,7 @@ function viewResources() {
   };
 }
 
-var TemplatingEngine = (_dec11 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["Container"], ModuleAnalyzer, ViewCompiler, CompositionEngine), _dec11(_class18 = function () {
+var TemplatingEngine = (_dec11 = Object(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_5_aurelia_dependency_injection__["Container"], ModuleAnalyzer, ViewCompiler, CompositionEngine), _dec11(_class18 = function () {
   function TemplatingEngine(container, moduleAnalyzer, viewCompiler, compositionEngine) {
     
 
@@ -5069,8 +5066,6 @@ var TemplatingEngine = (_dec11 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resolver", function() { return resolver; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Lazy", function() { return Lazy; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "All", function() { return All; });
@@ -5099,6 +5094,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Container", function() { return Container; });
 /* harmony export (immutable) */ __webpack_exports__["autoinject"] = autoinject;
 /* harmony export (immutable) */ __webpack_exports__["inject"] = inject;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_metadata__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__ = __webpack_require__(0);
 var _dec, _class, _dec2, _class3, _dec3, _class5, _dec4, _class7, _dec5, _class9, _dec6, _class11, _dec7, _class13, _classInvokers;
 
 
@@ -5852,10 +5849,6 @@ function inject() {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_task_queue__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_metadata__ = __webpack_require__(5);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getArrayObserver", function() { return _getArrayObserver; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getMapObserver", function() { return _getMapObserver; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSetObserver", function() { return _getSetObserver; });
@@ -5941,6 +5934,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NameExpression", function() { return NameExpression; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BindingEngine", function() { return BindingEngine; });
 /* harmony export (immutable) */ __webpack_exports__["observable"] = observable;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_task_queue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_metadata__ = __webpack_require__(5);
 
 
 
@@ -11482,13 +11479,13 @@ var Logger = function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Origin", function() { return Origin; });
 /* harmony export (immutable) */ __webpack_exports__["decorators"] = decorators;
 /* harmony export (immutable) */ __webpack_exports__["deprecated"] = deprecated;
 /* harmony export (immutable) */ __webpack_exports__["mixin"] = mixin;
 /* harmony export (immutable) */ __webpack_exports__["protocol"] = protocol;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
@@ -11963,7 +11960,6 @@ function parseQueryString(queryString) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
 /* harmony export (immutable) */ __webpack_exports__["updateOverrideContexts"] = updateOverrideContexts;
 /* harmony export (immutable) */ __webpack_exports__["createFullOverrideContext"] = createFullOverrideContext;
 /* harmony export (immutable) */ __webpack_exports__["updateOverrideContext"] = updateOverrideContext;
@@ -11972,6 +11968,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (immutable) */ __webpack_exports__["isOneTime"] = isOneTime;
 /* harmony export (immutable) */ __webpack_exports__["updateOneTimeBinding"] = updateOneTimeBinding;
 /* harmony export (immutable) */ __webpack_exports__["indexOf"] = indexOf;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
 
 
 var oneTime = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["bindingMode"].oneTime;
@@ -11990,7 +11987,7 @@ function updateOverrideContexts(views, startIndex) {
 
 function createFullOverrideContext(repeat, data, index, length, key) {
   var bindingContext = {};
-  var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["createOverrideContext"])(bindingContext, repeat.scope.overrideContext);
+  var overrideContext = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["createOverrideContext"])(bindingContext, repeat.scope.overrideContext);
 
   if (typeof key !== 'undefined') {
     bindingContext[repeat.key] = key;
@@ -12070,11 +12067,216 @@ function indexOf(array, item, matcher, startIndex) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_route_recognizer__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_history__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator__ = __webpack_require__(13);
+/* WEBPACK VAR INJECTION */(function(setImmediate) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskQueue", function() { return TaskQueue; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+
+
+
+
+var hasSetImmediate = typeof setImmediate === 'function';
+var stackSeparator = '\nEnqueued in TaskQueue by:\n';
+var microStackSeparator = '\nEnqueued in MicroTaskQueue by:\n';
+
+function makeRequestFlushFromMutationObserver(flush) {
+  var toggle = 1;
+  var observer = __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["DOM"].createMutationObserver(flush);
+  var node = __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["DOM"].createTextNode('');
+  observer.observe(node, { characterData: true });
+  return function requestFlush() {
+    toggle = -toggle;
+    node.data = toggle;
+  };
+}
+
+function makeRequestFlushFromTimer(flush) {
+  return function requestFlush() {
+    var timeoutHandle = setTimeout(handleFlushTimer, 0);
+
+    var intervalHandle = setInterval(handleFlushTimer, 50);
+    function handleFlushTimer() {
+      clearTimeout(timeoutHandle);
+      clearInterval(intervalHandle);
+      flush();
+    }
+  };
+}
+
+function onError(error, task, longStacks) {
+  if (longStacks && task.stack && (typeof error === 'undefined' ? 'undefined' : _typeof(error)) === 'object' && error !== null) {
+    error.stack = filterFlushStack(error.stack) + task.stack;
+  }
+
+  if ('onError' in task) {
+    task.onError(error);
+  } else if (hasSetImmediate) {
+    setImmediate(function () {
+      throw error;
+    });
+  } else {
+    setTimeout(function () {
+      throw error;
+    }, 0);
+  }
+}
+
+var TaskQueue = function () {
+  function TaskQueue() {
+    var _this = this;
+
+    
+
+    this.flushing = false;
+    this.longStacks = false;
+
+    this.microTaskQueue = [];
+    this.microTaskQueueCapacity = 1024;
+    this.taskQueue = [];
+
+    if (__WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["FEATURE"].mutationObserver) {
+      this.requestFlushMicroTaskQueue = makeRequestFlushFromMutationObserver(function () {
+        return _this.flushMicroTaskQueue();
+      });
+    } else {
+      this.requestFlushMicroTaskQueue = makeRequestFlushFromTimer(function () {
+        return _this.flushMicroTaskQueue();
+      });
+    }
+
+    this.requestFlushTaskQueue = makeRequestFlushFromTimer(function () {
+      return _this.flushTaskQueue();
+    });
+  }
+
+  TaskQueue.prototype.queueMicroTask = function queueMicroTask(task) {
+    if (this.microTaskQueue.length < 1) {
+      this.requestFlushMicroTaskQueue();
+    }
+
+    if (this.longStacks) {
+      task.stack = this.prepareQueueStack(microStackSeparator);
+    }
+    this.microTaskQueue.push(task);
+  };
+
+  TaskQueue.prototype.queueTask = function queueTask(task) {
+    if (this.taskQueue.length < 1) {
+      this.requestFlushTaskQueue();
+    }
+
+    if (this.longStacks) {
+      task.stack = this.prepareQueueStack(stackSeparator);
+    }
+    this.taskQueue.push(task);
+  };
+
+  TaskQueue.prototype.flushTaskQueue = function flushTaskQueue() {
+    var queue = this.taskQueue;
+    var index = 0;
+    var task = void 0;
+
+    this.taskQueue = [];
+
+    try {
+      this.flushing = true;
+      while (index < queue.length) {
+        task = queue[index];
+        if (this.longStacks) {
+          this.stack = typeof task.stack === 'string' ? task.stack : undefined;
+        }
+        task.call();
+        index++;
+      }
+    } catch (error) {
+      onError(error, task, this.longStacks);
+    } finally {
+      this.flushing = false;
+    }
+  };
+
+  TaskQueue.prototype.flushMicroTaskQueue = function flushMicroTaskQueue() {
+    var queue = this.microTaskQueue;
+    var capacity = this.microTaskQueueCapacity;
+    var index = 0;
+    var task = void 0;
+
+    try {
+      this.flushing = true;
+      while (index < queue.length) {
+        task = queue[index];
+        if (this.longStacks) {
+          this.stack = typeof task.stack === 'string' ? task.stack : undefined;
+        }
+        task.call();
+        index++;
+
+        if (index > capacity) {
+          for (var scan = 0, newLength = queue.length - index; scan < newLength; scan++) {
+            queue[scan] = queue[scan + index];
+          }
+
+          queue.length -= index;
+          index = 0;
+        }
+      }
+    } catch (error) {
+      onError(error, task, this.longStacks);
+    } finally {
+      this.flushing = false;
+    }
+
+    queue.length = 0;
+  };
+
+  TaskQueue.prototype.prepareQueueStack = function prepareQueueStack(separator) {
+    var stack = separator + filterQueueStack(captureStack());
+    if (typeof this.stack === 'string') {
+      stack = filterFlushStack(stack) + this.stack;
+    }
+    return stack;
+  };
+
+  return TaskQueue;
+}();
+
+function captureStack() {
+  var error = new Error();
+
+  if (error.stack) {
+    return error.stack;
+  }
+
+  try {
+    throw error;
+  } catch (e) {
+    return e.stack;
+  }
+}
+
+function filterQueueStack(stack) {
+  return stack.replace(/^[\s\S]*?\bqueue(Micro)?Task\b[^\n]*\n/, '');
+}
+
+function filterFlushStack(stack) {
+  var index = stack.lastIndexOf('flushMicroTaskQueue');
+  if (index < 0) {
+    index = stack.lastIndexOf('flushTaskQueue');
+    if (index < 0) {
+      return stack;
+    }
+  }
+  index = stack.lastIndexOf('\n', index);
+  return index < 0 ? stack : stack.substr(0, index);
+}
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(49).setImmediate))
+
+/***/ }),
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (immutable) */ __webpack_exports__["_normalizeAbsolutePath"] = _normalizeAbsolutePath;
 /* harmony export (immutable) */ __webpack_exports__["_createRootedPath"] = _createRootedPath;
 /* harmony export (immutable) */ __webpack_exports__["_resolveUrl"] = _resolveUrl;
@@ -12099,6 +12301,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadRouteStep", function() { return LoadRouteStep; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PipelineProvider", function() { return PipelineProvider; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRouter", function() { return AppRouter; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_route_recognizer__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_dependency_injection__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_history__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_event_aggregator__ = __webpack_require__(17);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -13916,226 +14123,16 @@ function restorePreviousLocation(router) {
 }
 
 /***/ }),
-/* 9 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(setImmediate) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskQueue", function() { return TaskQueue; });
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-
-
-
-
-var hasSetImmediate = typeof setImmediate === 'function';
-var stackSeparator = '\nEnqueued in TaskQueue by:\n';
-var microStackSeparator = '\nEnqueued in MicroTaskQueue by:\n';
-
-function makeRequestFlushFromMutationObserver(flush) {
-  var toggle = 1;
-  var observer = __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["DOM"].createMutationObserver(flush);
-  var node = __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["DOM"].createTextNode('');
-  observer.observe(node, { characterData: true });
-  return function requestFlush() {
-    toggle = -toggle;
-    node.data = toggle;
-  };
-}
-
-function makeRequestFlushFromTimer(flush) {
-  return function requestFlush() {
-    var timeoutHandle = setTimeout(handleFlushTimer, 0);
-
-    var intervalHandle = setInterval(handleFlushTimer, 50);
-    function handleFlushTimer() {
-      clearTimeout(timeoutHandle);
-      clearInterval(intervalHandle);
-      flush();
-    }
-  };
-}
-
-function onError(error, task, longStacks) {
-  if (longStacks && task.stack && (typeof error === 'undefined' ? 'undefined' : _typeof(error)) === 'object' && error !== null) {
-    error.stack = filterFlushStack(error.stack) + task.stack;
-  }
-
-  if ('onError' in task) {
-    task.onError(error);
-  } else if (hasSetImmediate) {
-    setImmediate(function () {
-      throw error;
-    });
-  } else {
-    setTimeout(function () {
-      throw error;
-    }, 0);
-  }
-}
-
-var TaskQueue = function () {
-  function TaskQueue() {
-    var _this = this;
-
-    
-
-    this.flushing = false;
-    this.longStacks = false;
-
-    this.microTaskQueue = [];
-    this.microTaskQueueCapacity = 1024;
-    this.taskQueue = [];
-
-    if (__WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["FEATURE"].mutationObserver) {
-      this.requestFlushMicroTaskQueue = makeRequestFlushFromMutationObserver(function () {
-        return _this.flushMicroTaskQueue();
-      });
-    } else {
-      this.requestFlushMicroTaskQueue = makeRequestFlushFromTimer(function () {
-        return _this.flushMicroTaskQueue();
-      });
-    }
-
-    this.requestFlushTaskQueue = makeRequestFlushFromTimer(function () {
-      return _this.flushTaskQueue();
-    });
-  }
-
-  TaskQueue.prototype.queueMicroTask = function queueMicroTask(task) {
-    if (this.microTaskQueue.length < 1) {
-      this.requestFlushMicroTaskQueue();
-    }
-
-    if (this.longStacks) {
-      task.stack = this.prepareQueueStack(microStackSeparator);
-    }
-    this.microTaskQueue.push(task);
-  };
-
-  TaskQueue.prototype.queueTask = function queueTask(task) {
-    if (this.taskQueue.length < 1) {
-      this.requestFlushTaskQueue();
-    }
-
-    if (this.longStacks) {
-      task.stack = this.prepareQueueStack(stackSeparator);
-    }
-    this.taskQueue.push(task);
-  };
-
-  TaskQueue.prototype.flushTaskQueue = function flushTaskQueue() {
-    var queue = this.taskQueue;
-    var index = 0;
-    var task = void 0;
-
-    this.taskQueue = [];
-
-    try {
-      this.flushing = true;
-      while (index < queue.length) {
-        task = queue[index];
-        if (this.longStacks) {
-          this.stack = typeof task.stack === 'string' ? task.stack : undefined;
-        }
-        task.call();
-        index++;
-      }
-    } catch (error) {
-      onError(error, task, this.longStacks);
-    } finally {
-      this.flushing = false;
-    }
-  };
-
-  TaskQueue.prototype.flushMicroTaskQueue = function flushMicroTaskQueue() {
-    var queue = this.microTaskQueue;
-    var capacity = this.microTaskQueueCapacity;
-    var index = 0;
-    var task = void 0;
-
-    try {
-      this.flushing = true;
-      while (index < queue.length) {
-        task = queue[index];
-        if (this.longStacks) {
-          this.stack = typeof task.stack === 'string' ? task.stack : undefined;
-        }
-        task.call();
-        index++;
-
-        if (index > capacity) {
-          for (var scan = 0, newLength = queue.length - index; scan < newLength; scan++) {
-            queue[scan] = queue[scan + index];
-          }
-
-          queue.length -= index;
-          index = 0;
-        }
-      }
-    } catch (error) {
-      onError(error, task, this.longStacks);
-    } finally {
-      this.flushing = false;
-    }
-
-    queue.length = 0;
-  };
-
-  TaskQueue.prototype.prepareQueueStack = function prepareQueueStack(separator) {
-    var stack = separator + filterQueueStack(captureStack());
-    if (typeof this.stack === 'string') {
-      stack = filterFlushStack(stack) + this.stack;
-    }
-    return stack;
-  };
-
-  return TaskQueue;
-}();
-
-function captureStack() {
-  var error = new Error();
-
-  if (error.stack) {
-    return error.stack;
-  }
-
-  try {
-    throw error;
-  } catch (e) {
-    return e.stack;
-  }
-}
-
-function filterQueueStack(stack) {
-  return stack.replace(/^[\s\S]*?\bqueue(Micro)?Task\b[^\n]*\n/, '');
-}
-
-function filterFlushStack(stack) {
-  var index = stack.lastIndexOf('flushMicroTaskQueue');
-  if (index < 0) {
-    index = stack.lastIndexOf('flushTaskQueue');
-    if (index < 0) {
-      return stack;
-    }
-  }
-  index = stack.lastIndexOf('\n', index);
-  return index < 0 ? stack : stack.substr(0, index);
-}
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(59).setImmediate))
-
-/***/ }),
 /* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_path__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__ = __webpack_require__(5);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemplateDependency", function() { return TemplateDependency; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemplateRegistryEntry", function() { return TemplateRegistryEntry; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Loader", function() { return Loader; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_path__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__ = __webpack_require__(5);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 
@@ -14166,7 +14163,7 @@ var TemplateRegistryEntry = function () {
   }
 
   TemplateRegistryEntry.prototype.addDependency = function addDependency(src, name) {
-    var finalSrc = typeof src === 'string' ? __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_path__["relativeToFile"])(src, this.address) : __WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["Origin"].get(src).moduleId;
+    var finalSrc = typeof src === 'string' ? Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_path__["relativeToFile"])(src, this.address) : __WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["Origin"].get(src).moduleId;
 
     this.dependencies.push(new TemplateDependency(finalSrc, name));
   };
@@ -14197,7 +14194,7 @@ var TemplateRegistryEntry = function () {
           throw new Error('<require> element in ' + address + ' has no "from" attribute.');
         }
 
-        dependencies[i] = new TemplateDependency(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_path__["relativeToFile"])(src, address), current.getAttribute('as'));
+        dependencies[i] = new TemplateDependency(Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_path__["relativeToFile"])(src, address), current.getAttribute('as'));
 
         if (current.parentNode) {
           current.parentNode.removeChild(current);
@@ -14274,41 +14271,14 @@ var Loader = function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aureliaHideClassName", function() { return aureliaHideClassName; });
-/* harmony export (immutable) */ __webpack_exports__["injectAureliaHideStyleAtHead"] = injectAureliaHideStyleAtHead;
-/* harmony export (immutable) */ __webpack_exports__["injectAureliaHideStyleAtBoundary"] = injectAureliaHideStyleAtBoundary;
-
-
-var aureliaHideClassName = 'aurelia-hide';
-
-var aureliaHideClass = '.' + aureliaHideClassName + ' { display:none !important; }';
-
-function injectAureliaHideStyleAtHead() {
-  __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["DOM"].injectStyles(aureliaHideClass);
-}
-
-function injectAureliaHideStyleAtBoundary(domBoundary) {
-  if (__WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["FEATURE"].shadowDOM && domBoundary && !domBoundary.hasAureliaHideStyle) {
-    domBoundary.hasAureliaHideStyle = true;
-    __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["DOM"].injectStyles(aureliaHideClass, domBoundary);
-  }
-}
-
-/***/ }),
-/* 12 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterView", function() { return RouterView; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterViewLocator", function() { return RouterViewLocator; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_router__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_router__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_metadata__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_aurelia_pal__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterView", function() { return RouterView; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterViewLocator", function() { return RouterViewLocator; });
 var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
 
 function _initDefineProp(target, property, descriptor, context) {
@@ -14363,7 +14333,7 @@ function _initializerWarningHelper(descriptor, context) {
 
 
 
-var RouterView = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["customElement"])('router-view'), _dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_5_aurelia_pal__["DOM"].Element, __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["Container"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["ViewSlot"], __WEBPACK_IMPORTED_MODULE_3_aurelia_router__["Router"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["ViewLocator"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["CompositionTransaction"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["CompositionEngine"]), _dec(_class = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["noView"])(_class = _dec2(_class = (_class2 = function () {
+var RouterView = (_dec = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["customElement"])('router-view'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_5_aurelia_pal__["DOM"].Element, __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["Container"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["ViewSlot"], __WEBPACK_IMPORTED_MODULE_3_aurelia_router__["Router"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["ViewLocator"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["CompositionTransaction"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["CompositionEngine"]), _dec(_class = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["noView"])(_class = _dec2(_class = (_class2 = function () {
   function RouterView(element, container, viewSlot, router, viewLocator, compositionTransaction, compositionEngine) {
     
 
@@ -14481,7 +14451,7 @@ var RouterView = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_aurel
 
       return this.compositionEngine.createController(layoutInstruction).then(function (controller) {
         __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["ShadowDOM"].distributeView(viewPortInstruction.controller.view, controller.slots || controller.view.slots);
-        controller.automate(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["createOverrideContext"])(layoutInstruction.viewModel), _this2.owningView);
+        controller.automate(Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["createOverrideContext"])(layoutInstruction.viewModel), _this2.owningView);
         controller.view.children.push(viewPortInstruction.controller.view);
         return controller.view || controller;
       }).then(function (newView) {
@@ -14540,208 +14510,43 @@ var RouterViewLocator = function () {
 }();
 
 /***/ }),
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aureliaHideClassName", function() { return aureliaHideClassName; });
+/* harmony export (immutable) */ __webpack_exports__["injectAureliaHideStyleAtHead"] = injectAureliaHideStyleAtHead;
+/* harmony export (immutable) */ __webpack_exports__["injectAureliaHideStyleAtBoundary"] = injectAureliaHideStyleAtBoundary;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
+
+
+var aureliaHideClassName = 'aurelia-hide';
+
+var aureliaHideClass = '.' + aureliaHideClassName + ' { display:none !important; }';
+
+function injectAureliaHideStyleAtHead() {
+  __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["DOM"].injectStyles(aureliaHideClass);
+}
+
+function injectAureliaHideStyleAtBoundary(domBoundary) {
+  if (__WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["FEATURE"].shadowDOM && domBoundary && !domBoundary.hasAureliaHideStyle) {
+    domBoundary.hasAureliaHideStyle = true;
+    __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["DOM"].injectStyles(aureliaHideClass, domBoundary);
+  }
+}
+
+/***/ }),
 /* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(4);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventAggregator", function() { return EventAggregator; });
-/* harmony export (immutable) */ __webpack_exports__["includeEventsIn"] = includeEventsIn;
-/* harmony export (immutable) */ __webpack_exports__["configure"] = configure;
-
-
-
-
-var logger = __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__["getLogger"]('event-aggregator');
-
-var Handler = function () {
-  function Handler(messageType, callback) {
-    
-
-    this.messageType = messageType;
-    this.callback = callback;
-  }
-
-  Handler.prototype.handle = function handle(message) {
-    if (message instanceof this.messageType) {
-      this.callback.call(null, message);
-    }
-  };
-
-  return Handler;
-}();
-
-function invokeCallback(callback, data, event) {
-  try {
-    callback(data, event);
-  } catch (e) {
-    logger.error(e);
-  }
-}
-
-function invokeHandler(handler, data) {
-  try {
-    handler.handle(data);
-  } catch (e) {
-    logger.error(e);
-  }
-}
-
-var EventAggregator = function () {
-  function EventAggregator() {
-    
-
-    this.eventLookup = {};
-    this.messageHandlers = [];
-  }
-
-  EventAggregator.prototype.publish = function publish(event, data) {
-    var subscribers = void 0;
-    var i = void 0;
-
-    if (!event) {
-      throw new Error('Event was invalid.');
-    }
-
-    if (typeof event === 'string') {
-      subscribers = this.eventLookup[event];
-      if (subscribers) {
-        subscribers = subscribers.slice();
-        i = subscribers.length;
-
-        while (i--) {
-          invokeCallback(subscribers[i], data, event);
-        }
-      }
-    } else {
-      subscribers = this.messageHandlers.slice();
-      i = subscribers.length;
-
-      while (i--) {
-        invokeHandler(subscribers[i], event);
-      }
-    }
-  };
-
-  EventAggregator.prototype.subscribe = function subscribe(event, callback) {
-    var handler = void 0;
-    var subscribers = void 0;
-
-    if (!event) {
-      throw new Error('Event channel/type was invalid.');
-    }
-
-    if (typeof event === 'string') {
-      handler = callback;
-      subscribers = this.eventLookup[event] || (this.eventLookup[event] = []);
-    } else {
-      handler = new Handler(event, callback);
-      subscribers = this.messageHandlers;
-    }
-
-    subscribers.push(handler);
-
-    return {
-      dispose: function dispose() {
-        var idx = subscribers.indexOf(handler);
-        if (idx !== -1) {
-          subscribers.splice(idx, 1);
-        }
-      }
-    };
-  };
-
-  EventAggregator.prototype.subscribeOnce = function subscribeOnce(event, callback) {
-    var sub = this.subscribe(event, function (a, b) {
-      sub.dispose();
-      return callback(a, b);
-    });
-
-    return sub;
-  };
-
-  return EventAggregator;
-}();
-
-function includeEventsIn(obj) {
-  var ea = new EventAggregator();
-
-  obj.subscribeOnce = function (event, callback) {
-    return ea.subscribeOnce(event, callback);
-  };
-
-  obj.subscribe = function (event, callback) {
-    return ea.subscribe(event, callback);
-  };
-
-  obj.publish = function (event, data) {
-    ea.publish(event, data);
-  };
-
-  return ea;
-}
-
-function configure(config) {
-  config.instance(EventAggregator, includeEventsIn(config.aurelia));
-}
-
-/***/ }),
-/* 14 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "History", function() { return History; });
-
-
-function mi(name) {
-  throw new Error('History must implement ' + name + '().');
-}
-
-var History = function () {
-  function History() {
-    
-  }
-
-  History.prototype.activate = function activate(options) {
-    mi('activate');
-  };
-
-  History.prototype.deactivate = function deactivate() {
-    mi('deactivate');
-  };
-
-  History.prototype.getAbsoluteRoot = function getAbsoluteRoot() {
-    mi('getAbsoluteRoot');
-  };
-
-  History.prototype.navigate = function navigate(fragment, options) {
-    mi('navigate');
-  };
-
-  History.prototype.navigateBack = function navigateBack() {
-    mi('navigateBack');
-  };
-
-  History.prototype.setTitle = function setTitle(title) {
-    mi('setTitle');
-  };
-
-  return History;
-}();
-
-/***/ }),
-/* 15 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_PLATFORM", function() { return _PLATFORM; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_FEATURE", function() { return _FEATURE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_DOM", function() { return _DOM; });
 /* harmony export (immutable) */ __webpack_exports__["initialize"] = initialize;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 
@@ -15185,7 +14990,7 @@ function initialize() {
     return;
   }
 
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["initializePAL"])(function (platform, feature, dom) {
+  Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["initializePAL"])(function (platform, feature, dom) {
     Object.assign(platform, _PLATFORM);
     Object.assign(feature, _FEATURE);
     Object.assign(dom, _DOM);
@@ -15214,2201 +15019,34 @@ function initialize() {
 }
 
 /***/ }),
-/* 16 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* 14 */
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AbstractRepeater", function() { return AbstractRepeater; });
+var g;
 
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
 
-var AbstractRepeater = function () {
-  function AbstractRepeater(options) {
-    
-
-    Object.assign(this, {
-      local: 'items',
-      viewsRequireLifecycle: true
-    }, options);
-  }
-
-  AbstractRepeater.prototype.viewCount = function viewCount() {
-    throw new Error('subclass must implement `viewCount`');
-  };
-
-  AbstractRepeater.prototype.views = function views() {
-    throw new Error('subclass must implement `views`');
-  };
-
-  AbstractRepeater.prototype.view = function view(index) {
-    throw new Error('subclass must implement `view`');
-  };
-
-  AbstractRepeater.prototype.matcher = function matcher() {
-    throw new Error('subclass must implement `matcher`');
-  };
-
-  AbstractRepeater.prototype.addView = function addView(bindingContext, overrideContext) {
-    throw new Error('subclass must implement `addView`');
-  };
-
-  AbstractRepeater.prototype.insertView = function insertView(index, bindingContext, overrideContext) {
-    throw new Error('subclass must implement `insertView`');
-  };
-
-  AbstractRepeater.prototype.moveView = function moveView(sourceIndex, targetIndex) {
-    throw new Error('subclass must implement `moveView`');
-  };
-
-  AbstractRepeater.prototype.removeAllViews = function removeAllViews(returnToCache, skipAnimation) {
-    throw new Error('subclass must implement `removeAllViews`');
-  };
-
-  AbstractRepeater.prototype.removeViews = function removeViews(viewsToRemove, returnToCache, skipAnimation) {
-    throw new Error('subclass must implement `removeView`');
-  };
-
-  AbstractRepeater.prototype.removeView = function removeView(index, returnToCache, skipAnimation) {
-    throw new Error('subclass must implement `removeView`');
-  };
-
-  AbstractRepeater.prototype.updateBindings = function updateBindings(view) {
-    throw new Error('subclass must implement `updateBindings`');
-  };
-
-  return AbstractRepeater;
-}();
-
-/***/ }),
-/* 17 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lifecycleOptionalBehaviors", function() { return lifecycleOptionalBehaviors; });
-/* harmony export (immutable) */ __webpack_exports__["viewsRequireLifecycle"] = viewsRequireLifecycle;
-
-var lifecycleOptionalBehaviors = ['focus', 'if', 'repeat', 'show', 'with'];
-
-function behaviorRequiresLifecycle(instruction) {
-  var t = instruction.type;
-  var name = t.elementName !== null ? t.elementName : t.attributeName;
-  return lifecycleOptionalBehaviors.indexOf(name) === -1 && (t.handlesAttached || t.handlesBind || t.handlesCreated || t.handlesDetached || t.handlesUnbind) || t.viewFactory && viewsRequireLifecycle(t.viewFactory) || instruction.viewFactory && viewsRequireLifecycle(instruction.viewFactory);
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
 }
 
-function targetRequiresLifecycle(instruction) {
-  var behaviors = instruction.behaviorInstructions;
-  if (behaviors) {
-    var i = behaviors.length;
-    while (i--) {
-      if (behaviorRequiresLifecycle(behaviors[i])) {
-        return true;
-      }
-    }
-  }
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
 
-  return instruction.viewFactory && viewsRequireLifecycle(instruction.viewFactory);
-}
+module.exports = g;
 
-function viewsRequireLifecycle(viewFactory) {
-  if ('_viewsRequireLifecycle' in viewFactory) {
-    return viewFactory._viewsRequireLifecycle;
-  }
-
-  viewFactory._viewsRequireLifecycle = false;
-
-  if (viewFactory.viewFactory) {
-    viewFactory._viewsRequireLifecycle = viewsRequireLifecycle(viewFactory.viewFactory);
-    return viewFactory._viewsRequireLifecycle;
-  }
-
-  if (viewFactory.template.querySelector('.au-animate')) {
-    viewFactory._viewsRequireLifecycle = true;
-    return true;
-  }
-
-  for (var id in viewFactory.instructions) {
-    if (targetRequiresLifecycle(viewFactory.instructions[id])) {
-      viewFactory._viewsRequireLifecycle = true;
-      return true;
-    }
-  }
-
-  viewFactory._viewsRequireLifecycle = false;
-  return false;
-}
 
 /***/ }),
-/* 18 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(3);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArrayRepeatStrategy", function() { return ArrayRepeatStrategy; });
-
-
-
-
-
-var ArrayRepeatStrategy = function () {
-  function ArrayRepeatStrategy() {
-    
-  }
-
-  ArrayRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {
-    return observerLocator.getArrayObserver(items);
-  };
-
-  ArrayRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
-    var _this = this;
-
-    var itemsLength = items.length;
-
-    if (!items || itemsLength === 0) {
-      repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-      return;
-    }
-
-    var children = repeat.views();
-    var viewsLength = children.length;
-
-    if (viewsLength === 0) {
-      this._standardProcessInstanceChanged(repeat, items);
-      return;
-    }
-
-    if (repeat.viewsRequireLifecycle) {
-      (function () {
-        var childrenSnapshot = children.slice(0);
-        var itemNameInBindingContext = repeat.local;
-        var matcher = repeat.matcher();
-
-        var itemsPreviouslyInViews = [];
-        var viewsToRemove = [];
-
-        for (var index = 0; index < viewsLength; index++) {
-          var view = childrenSnapshot[index];
-          var oldItem = view.bindingContext[itemNameInBindingContext];
-
-          if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["indexOf"])(items, oldItem, matcher) === -1) {
-            viewsToRemove.push(view);
-          } else {
-            itemsPreviouslyInViews.push(oldItem);
-          }
-        }
-
-        var updateViews = void 0;
-        var removePromise = void 0;
-
-        if (itemsPreviouslyInViews.length > 0) {
-          removePromise = repeat.removeViews(viewsToRemove, true, !repeat.viewsRequireLifecycle);
-          updateViews = function updateViews() {
-            for (var _index = 0; _index < itemsLength; _index++) {
-              var item = items[_index];
-              var indexOfView = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["indexOf"])(itemsPreviouslyInViews, item, matcher, _index);
-              var _view = void 0;
-
-              if (indexOfView === -1) {
-                var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, items[_index], _index, itemsLength);
-                repeat.insertView(_index, overrideContext.bindingContext, overrideContext);
-
-                itemsPreviouslyInViews.splice(_index, 0, undefined);
-              } else if (indexOfView === _index) {
-                _view = children[indexOfView];
-                itemsPreviouslyInViews[indexOfView] = undefined;
-              } else {
-                _view = children[indexOfView];
-                repeat.moveView(indexOfView, _index);
-                itemsPreviouslyInViews.splice(indexOfView, 1);
-                itemsPreviouslyInViews.splice(_index, 0, undefined);
-              }
-
-              if (_view) {
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContext"])(_view.overrideContext, _index, itemsLength);
-              }
-            }
-
-            _this._inPlaceProcessItems(repeat, items);
-          };
-        } else {
-          removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-          updateViews = function updateViews() {
-            return _this._standardProcessInstanceChanged(repeat, items);
-          };
-        }
-
-        if (removePromise instanceof Promise) {
-          removePromise.then(updateViews);
-        } else {
-          updateViews();
-        }
-      })();
-    } else {
-      this._inPlaceProcessItems(repeat, items);
-    }
-  };
-
-  ArrayRepeatStrategy.prototype._standardProcessInstanceChanged = function _standardProcessInstanceChanged(repeat, items) {
-    for (var i = 0, ii = items.length; i < ii; i++) {
-      var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, items[i], i, ii);
-      repeat.addView(overrideContext.bindingContext, overrideContext);
-    }
-  };
-
-  ArrayRepeatStrategy.prototype._inPlaceProcessItems = function _inPlaceProcessItems(repeat, items) {
-    var itemsLength = items.length;
-    var viewsLength = repeat.viewCount();
-
-    while (viewsLength > itemsLength) {
-      viewsLength--;
-      repeat.removeView(viewsLength, true, !repeat.viewsRequireLifecycle);
-    }
-
-    var local = repeat.local;
-
-    for (var i = 0; i < viewsLength; i++) {
-      var view = repeat.view(i);
-      var last = i === itemsLength - 1;
-      var middle = i !== 0 && !last;
-
-      if (view.bindingContext[local] === items[i] && view.overrideContext.$middle === middle && view.overrideContext.$last === last) {
-        continue;
-      }
-
-      view.bindingContext[local] = items[i];
-      view.overrideContext.$middle = middle;
-      view.overrideContext.$last = last;
-      repeat.updateBindings(view);
-    }
-
-    for (var _i = viewsLength; _i < itemsLength; _i++) {
-      var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, items[_i], _i, itemsLength);
-      repeat.addView(overrideContext.bindingContext, overrideContext);
-    }
-  };
-
-  ArrayRepeatStrategy.prototype.instanceMutated = function instanceMutated(repeat, array, splices) {
-    var _this2 = this;
-
-    if (repeat.__queuedSplices) {
-      for (var i = 0, ii = splices.length; i < ii; ++i) {
-        var _splices$i = splices[i],
-            index = _splices$i.index,
-            removed = _splices$i.removed,
-            addedCount = _splices$i.addedCount;
-
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["mergeSplice"])(repeat.__queuedSplices, index, removed, addedCount);
-      }
-
-      repeat.__array = array.slice(0);
-      return;
-    }
-
-    var maybePromise = this._runSplices(repeat, array.slice(0), splices);
-    if (maybePromise instanceof Promise) {
-      (function () {
-        var queuedSplices = repeat.__queuedSplices = [];
-
-        var runQueuedSplices = function runQueuedSplices() {
-          if (!queuedSplices.length) {
-            repeat.__queuedSplices = undefined;
-            repeat.__array = undefined;
-            return;
-          }
-
-          var nextPromise = _this2._runSplices(repeat, repeat.__array, queuedSplices) || Promise.resolve();
-          queuedSplices = repeat.__queuedSplices = [];
-          nextPromise.then(runQueuedSplices);
-        };
-
-        maybePromise.then(runQueuedSplices);
-      })();
-    }
-  };
-
-  ArrayRepeatStrategy.prototype._runSplices = function _runSplices(repeat, array, splices) {
-    var _this3 = this;
-
-    var removeDelta = 0;
-    var rmPromises = [];
-
-    for (var i = 0, ii = splices.length; i < ii; ++i) {
-      var splice = splices[i];
-      var removed = splice.removed;
-
-      for (var j = 0, jj = removed.length; j < jj; ++j) {
-        var viewOrPromise = repeat.removeView(splice.index + removeDelta + rmPromises.length, true);
-        if (viewOrPromise instanceof Promise) {
-          rmPromises.push(viewOrPromise);
-        }
-      }
-      removeDelta -= splice.addedCount;
-    }
-
-    if (rmPromises.length > 0) {
-      return Promise.all(rmPromises).then(function () {
-        var spliceIndexLow = _this3._handleAddedSplices(repeat, array, splices);
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), spliceIndexLow);
-      });
-    }
-
-    var spliceIndexLow = this._handleAddedSplices(repeat, array, splices);
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), spliceIndexLow);
-
-    return undefined;
-  };
-
-  ArrayRepeatStrategy.prototype._handleAddedSplices = function _handleAddedSplices(repeat, array, splices) {
-    var spliceIndex = void 0;
-    var spliceIndexLow = void 0;
-    var arrayLength = array.length;
-    for (var i = 0, ii = splices.length; i < ii; ++i) {
-      var splice = splices[i];
-      var addIndex = spliceIndex = splice.index;
-      var end = splice.index + splice.addedCount;
-
-      if (typeof spliceIndexLow === 'undefined' || spliceIndexLow === null || spliceIndexLow > splice.index) {
-        spliceIndexLow = spliceIndex;
-      }
-
-      for (; addIndex < end; ++addIndex) {
-        var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, array[addIndex], addIndex, arrayLength);
-        repeat.insertView(addIndex, overrideContext.bindingContext, overrideContext);
-      }
-    }
-
-    return spliceIndexLow;
-  };
-
-  return ArrayRepeatStrategy;
-}();
-
-/***/ }),
-/* 19 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttrBindingBehavior", function() { return AttrBindingBehavior; });
-
-
-
-
-var AttrBindingBehavior = function () {
-  function AttrBindingBehavior() {
-    
-  }
-
-  AttrBindingBehavior.prototype.bind = function bind(binding, source) {
-    binding.targetObserver = new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["DataAttributeObserver"](binding.target, binding.targetProperty);
-  };
-
-  AttrBindingBehavior.prototype.unbind = function unbind(binding, source) {};
-
-  return AttrBindingBehavior;
-}();
-
-/***/ }),
-/* 20 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__ = __webpack_require__(5);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OneTimeBindingBehavior", function() { return OneTimeBindingBehavior; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OneWayBindingBehavior", function() { return OneWayBindingBehavior; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TwoWayBindingBehavior", function() { return TwoWayBindingBehavior; });
-var _dec, _class, _dec2, _class2, _dec3, _class3;
-
-
-
-
-
-
-var modeBindingBehavior = {
-  bind: function bind(binding, source, lookupFunctions) {
-    binding.originalMode = binding.mode;
-    binding.mode = this.mode;
-  },
-  unbind: function unbind(binding, source) {
-    binding.mode = binding.originalMode;
-    binding.originalMode = null;
-  }
-};
-
-var OneTimeBindingBehavior = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["mixin"])(modeBindingBehavior), _dec(_class = function OneTimeBindingBehavior() {
-  
-
-  this.mode = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["bindingMode"].oneTime;
-}) || _class);
-
-var OneWayBindingBehavior = (_dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["mixin"])(modeBindingBehavior), _dec2(_class2 = function OneWayBindingBehavior() {
-  
-
-  this.mode = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["bindingMode"].oneWay;
-}) || _class2);
-
-var TwoWayBindingBehavior = (_dec3 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["mixin"])(modeBindingBehavior), _dec3(_class3 = function TwoWayBindingBehavior() {
-  
-
-  this.mode = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["bindingMode"].twoWay;
-}) || _class3);
-
-/***/ }),
-/* 21 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BindingSignaler", function() { return BindingSignaler; });
-
-
-
-
-var BindingSignaler = function () {
-  function BindingSignaler() {
-    
-
-    this.signals = {};
-  }
-
-  BindingSignaler.prototype.signal = function signal(name) {
-    var bindings = this.signals[name];
-    if (!bindings) {
-      return;
-    }
-    var i = bindings.length;
-    while (i--) {
-      bindings[i].call(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["sourceContext"]);
-    }
-  };
-
-  return BindingSignaler;
-}();
-
-/***/ }),
-/* 22 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_task_queue__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_pal__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Compose", function() { return Compose; });
-var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
-
-function _initDefineProp(target, property, descriptor, context) {
-  if (!descriptor) return;
-  Object.defineProperty(target, property, {
-    enumerable: descriptor.enumerable,
-    configurable: descriptor.configurable,
-    writable: descriptor.writable,
-    value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
-  });
-}
-
-
-
-function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-  var desc = {};
-  Object['ke' + 'ys'](descriptor).forEach(function (key) {
-    desc[key] = descriptor[key];
-  });
-  desc.enumerable = !!desc.enumerable;
-  desc.configurable = !!desc.configurable;
-
-  if ('value' in desc || desc.initializer) {
-    desc.writable = true;
-  }
-
-  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-    return decorator(target, property, desc) || desc;
-  }, desc);
-
-  if (context && desc.initializer !== void 0) {
-    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-    desc.initializer = undefined;
-  }
-
-  if (desc.initializer === void 0) {
-    Object['define' + 'Property'](target, property, desc);
-    desc = null;
-  }
-
-  return desc;
-}
-
-function _initializerWarningHelper(descriptor, context) {
-  throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
-}
-
-
-
-
-
-
-var Compose = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["customElement"])('compose'), _dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_3_aurelia_pal__["DOM"].Element, __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["Container"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["CompositionEngine"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["ViewSlot"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["ViewResources"], __WEBPACK_IMPORTED_MODULE_1_aurelia_task_queue__["TaskQueue"]), _dec(_class = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["noView"])(_class = _dec2(_class = (_class2 = function () {
-  function Compose(element, container, compositionEngine, viewSlot, viewResources, taskQueue) {
-    
-
-    _initDefineProp(this, 'model', _descriptor, this);
-
-    _initDefineProp(this, 'view', _descriptor2, this);
-
-    _initDefineProp(this, 'viewModel', _descriptor3, this);
-
-    _initDefineProp(this, 'swapOrder', _descriptor4, this);
-
-    this.element = element;
-    this.container = container;
-    this.compositionEngine = compositionEngine;
-    this.viewSlot = viewSlot;
-    this.viewResources = viewResources;
-    this.taskQueue = taskQueue;
-    this.currentController = null;
-    this.currentViewModel = null;
-  }
-
-  Compose.prototype.created = function created(owningView) {
-    this.owningView = owningView;
-  };
-
-  Compose.prototype.bind = function bind(bindingContext, overrideContext) {
-    this.bindingContext = bindingContext;
-    this.overrideContext = overrideContext;
-    processInstruction(this, createInstruction(this, {
-      view: this.view,
-      viewModel: this.viewModel,
-      model: this.model
-    }));
-  };
-
-  Compose.prototype.unbind = function unbind(bindingContext, overrideContext) {
-    this.bindingContext = null;
-    this.overrideContext = null;
-    var returnToCache = true;
-    var skipAnimation = true;
-    this.viewSlot.removeAll(returnToCache, skipAnimation);
-  };
-
-  Compose.prototype.modelChanged = function modelChanged(newValue, oldValue) {
-    var _this = this;
-
-    if (this.currentInstruction) {
-      this.currentInstruction.model = newValue;
-      return;
-    }
-
-    this.taskQueue.queueMicroTask(function () {
-      if (_this.currentInstruction) {
-        _this.currentInstruction.model = newValue;
-        return;
-      }
-
-      var vm = _this.currentViewModel;
-
-      if (vm && typeof vm.activate === 'function') {
-        vm.activate(newValue);
-      }
-    });
-  };
-
-  Compose.prototype.viewChanged = function viewChanged(newValue, oldValue) {
-    var _this2 = this;
-
-    var instruction = createInstruction(this, {
-      view: newValue,
-      viewModel: this.currentViewModel || this.viewModel,
-      model: this.model
-    });
-
-    if (this.currentInstruction) {
-      this.currentInstruction = instruction;
-      return;
-    }
-
-    this.currentInstruction = instruction;
-    this.taskQueue.queueMicroTask(function () {
-      return processInstruction(_this2, _this2.currentInstruction);
-    });
-  };
-
-  Compose.prototype.viewModelChanged = function viewModelChanged(newValue, oldValue) {
-    var _this3 = this;
-
-    var instruction = createInstruction(this, {
-      viewModel: newValue,
-      view: this.view,
-      model: this.model
-    });
-
-    if (this.currentInstruction) {
-      this.currentInstruction = instruction;
-      return;
-    }
-
-    this.currentInstruction = instruction;
-    this.taskQueue.queueMicroTask(function () {
-      return processInstruction(_this3, _this3.currentInstruction);
-    });
-  };
-
-  return Compose;
-}(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'model', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
-  enumerable: true,
-  initializer: null
-}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'view', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
-  enumerable: true,
-  initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'viewModel', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
-  enumerable: true,
-  initializer: null
-}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'swapOrder', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
-  enumerable: true,
-  initializer: null
-})), _class2)) || _class) || _class) || _class);
-
-function createInstruction(composer, instruction) {
-  return Object.assign(instruction, {
-    bindingContext: composer.bindingContext,
-    overrideContext: composer.overrideContext,
-    owningView: composer.owningView,
-    container: composer.container,
-    viewSlot: composer.viewSlot,
-    viewResources: composer.viewResources,
-    currentController: composer.currentController,
-    host: composer.element,
-    swapOrder: composer.swapOrder
-  });
-}
-
-function processInstruction(composer, instruction) {
-  composer.currentInstruction = null;
-  composer.compositionEngine.compose(instruction).then(function (controller) {
-    composer.currentController = controller;
-    composer.currentViewModel = controller ? controller.viewModel : null;
-  });
-}
-
-/***/ }),
-/* 23 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DebounceBindingBehavior", function() { return DebounceBindingBehavior; });
-
-
-
-
-function debounce(newValue) {
-  var _this = this;
-
-  var state = this.debounceState;
-  if (state.immediate) {
-    state.immediate = false;
-    this.debouncedMethod(newValue);
-    return;
-  }
-  clearTimeout(state.timeoutId);
-  state.timeoutId = setTimeout(function () {
-    return _this.debouncedMethod(newValue);
-  }, state.delay);
-}
-
-var DebounceBindingBehavior = function () {
-  function DebounceBindingBehavior() {
-    
-  }
-
-  DebounceBindingBehavior.prototype.bind = function bind(binding, source) {
-    var delay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 200;
-
-    var methodToDebounce = 'updateTarget';
-    if (binding.callSource) {
-      methodToDebounce = 'callSource';
-    } else if (binding.updateSource && binding.mode === __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["bindingMode"].twoWay) {
-      methodToDebounce = 'updateSource';
-    }
-
-    binding.debouncedMethod = binding[methodToDebounce];
-    binding.debouncedMethod.originalName = methodToDebounce;
-
-    binding[methodToDebounce] = debounce;
-
-    binding.debounceState = {
-      delay: delay,
-      timeoutId: null,
-      immediate: methodToDebounce === 'updateTarget' };
-  };
-
-  DebounceBindingBehavior.prototype.unbind = function unbind(binding, source) {
-    var methodToRestore = binding.debouncedMethod.originalName;
-    binding[methodToRestore] = binding.debouncedMethod;
-    binding.debouncedMethod = null;
-    clearTimeout(binding.debounceState.timeoutId);
-    binding.debounceState = null;
-  };
-
-  return DebounceBindingBehavior;
-}();
-
-/***/ }),
-/* 24 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_task_queue__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Focus", function() { return Focus; });
-var _dec, _dec2, _class;
-
-
-
-
-
-
-
-
-
-var Focus = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["customAttribute"])('focus', __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].twoWay), _dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["DOM"].Element, __WEBPACK_IMPORTED_MODULE_3_aurelia_task_queue__["TaskQueue"]), _dec(_class = _dec2(_class = function () {
-  function Focus(element, taskQueue) {
-    var _this = this;
-
-    
-
-    this.element = element;
-    this.taskQueue = taskQueue;
-    this.isAttached = false;
-    this.needsApply = false;
-
-    this.focusListener = function (e) {
-      _this.value = true;
-    };
-    this.blurListener = function (e) {
-      if (__WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["DOM"].activeElement !== _this.element) {
-        _this.value = false;
-      }
-    };
-  }
-
-  Focus.prototype.valueChanged = function valueChanged(newValue) {
-    if (this.isAttached) {
-      this._apply();
-    } else {
-      this.needsApply = true;
-    }
-  };
-
-  Focus.prototype._apply = function _apply() {
-    var _this2 = this;
-
-    if (this.value) {
-      this.taskQueue.queueMicroTask(function () {
-        if (_this2.value) {
-          _this2.element.focus();
-        }
-      });
-    } else {
-      this.element.blur();
-    }
-  };
-
-  Focus.prototype.attached = function attached() {
-    this.isAttached = true;
-    if (this.needsApply) {
-      this.needsApply = false;
-      this._apply();
-    }
-    this.element.addEventListener('focus', this.focusListener);
-    this.element.addEventListener('blur', this.blurListener);
-  };
-
-  Focus.prototype.detached = function detached() {
-    this.isAttached = false;
-    this.element.removeEventListener('focus', this.focusListener);
-    this.element.removeEventListener('blur', this.blurListener);
-  };
-
-  return Focus;
-}()) || _class) || _class);
-
-/***/ }),
-/* 25 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__ = __webpack_require__(11);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hide", function() { return Hide; });
-var _dec, _dec2, _class;
-
-
-
-
-
-
-
-
-var Hide = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["customAttribute"])('hide'), _dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["DOM"].Element, __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["Animator"], __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["Optional"].of(__WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["DOM"].boundary, true)), _dec(_class = _dec2(_class = function () {
-  function Hide(element, animator, domBoundary) {
-    
-
-    this.element = element;
-    this.animator = animator;
-    this.domBoundary = domBoundary;
-  }
-
-  Hide.prototype.created = function created() {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__["injectAureliaHideStyleAtBoundary"])(this.domBoundary);
-  };
-
-  Hide.prototype.valueChanged = function valueChanged(newValue) {
-    if (newValue) {
-      this.animator.addClass(this.element, __WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__["aureliaHideClassName"]);
-    } else {
-      this.animator.removeClass(this.element, __WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__["aureliaHideClassName"]);
-    }
-  };
-
-  Hide.prototype.bind = function bind(bindingContext) {
-    this.valueChanged(this.value);
-  };
-
-  return Hide;
-}()) || _class) || _class);
-
-/***/ }),
-/* 26 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HTMLSanitizer", function() { return HTMLSanitizer; });
-
-
-var SCRIPT_REGEX = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
-
-var HTMLSanitizer = function () {
-  function HTMLSanitizer() {
-    
-  }
-
-  HTMLSanitizer.prototype.sanitize = function sanitize(input) {
-    return input.replace(SCRIPT_REGEX, '');
-  };
-
-  return HTMLSanitizer;
-}();
-
-/***/ }),
-/* 27 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "If", function() { return If; });
-var _dec, _dec2, _class;
-
-
-
-
-
-
-var If = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["customAttribute"])('if'), _dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["BoundViewFactory"], __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["ViewSlot"]), _dec(_class = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["templateController"])(_class = _dec2(_class = function () {
-  function If(viewFactory, viewSlot) {
-    
-
-    this.viewFactory = viewFactory;
-    this.viewSlot = viewSlot;
-    this.showing = false;
-    this.view = null;
-    this.bindingContext = null;
-    this.overrideContext = null;
-  }
-
-  If.prototype.bind = function bind(bindingContext, overrideContext) {
-    this.bindingContext = bindingContext;
-    this.overrideContext = overrideContext;
-    this.valueChanged(this.value);
-  };
-
-  If.prototype.valueChanged = function valueChanged(newValue) {
-    var _this = this;
-
-    if (this.__queuedChanges) {
-      this.__queuedChanges.push(newValue);
-      return;
-    }
-
-    var maybePromise = this._runValueChanged(newValue);
-    if (maybePromise instanceof Promise) {
-      (function () {
-        var queuedChanges = _this.__queuedChanges = [];
-
-        var runQueuedChanges = function runQueuedChanges() {
-          if (!queuedChanges.length) {
-            _this.__queuedChanges = undefined;
-            return;
-          }
-
-          var nextPromise = _this._runValueChanged(queuedChanges.shift()) || Promise.resolve();
-          nextPromise.then(runQueuedChanges);
-        };
-
-        maybePromise.then(runQueuedChanges);
-      })();
-    }
-  };
-
-  If.prototype._runValueChanged = function _runValueChanged(newValue) {
-    var _this2 = this;
-
-    if (!newValue) {
-      var viewOrPromise = void 0;
-      if (this.view !== null && this.showing) {
-        viewOrPromise = this.viewSlot.remove(this.view);
-        if (viewOrPromise instanceof Promise) {
-          viewOrPromise.then(function () {
-            return _this2.view.unbind();
-          });
-        } else {
-          this.view.unbind();
-        }
-      }
-
-      this.showing = false;
-      return viewOrPromise;
-    }
-
-    if (this.view === null) {
-      this.view = this.viewFactory.create();
-    }
-
-    if (!this.view.isBound) {
-      this.view.bind(this.bindingContext, this.overrideContext);
-    }
-
-    if (!this.showing) {
-      this.showing = true;
-      return this.viewSlot.add(this.view);
-    }
-
-    return undefined;
-  };
-
-  If.prototype.unbind = function unbind() {
-    if (this.view === null) {
-      return;
-    }
-
-    this.view.unbind();
-
-    if (!this.viewFactory.isCaching) {
-      return;
-    }
-
-    if (this.showing) {
-      this.showing = false;
-      this.viewSlot.remove(this.view, true, true);
-    }
-    this.view.returnToCache();
-    this.view = null;
-  };
-
-  return If;
-}()) || _class) || _class) || _class);
-
-/***/ }),
-/* 28 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapRepeatStrategy", function() { return MapRepeatStrategy; });
-
-
-
-
-var MapRepeatStrategy = function () {
-  function MapRepeatStrategy() {
-    
-  }
-
-  MapRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {
-    return observerLocator.getMapObserver(items);
-  };
-
-  MapRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
-    var _this = this;
-
-    var removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-    if (removePromise instanceof Promise) {
-      removePromise.then(function () {
-        return _this._standardProcessItems(repeat, items);
-      });
-      return;
-    }
-    this._standardProcessItems(repeat, items);
-  };
-
-  MapRepeatStrategy.prototype._standardProcessItems = function _standardProcessItems(repeat, items) {
-    var index = 0;
-    var overrideContext = void 0;
-
-    items.forEach(function (value, key) {
-      overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, value, index, items.size, key);
-      repeat.addView(overrideContext.bindingContext, overrideContext);
-      ++index;
-    });
-  };
-
-  MapRepeatStrategy.prototype.instanceMutated = function instanceMutated(repeat, map, records) {
-    var key = void 0;
-    var i = void 0;
-    var ii = void 0;
-    var overrideContext = void 0;
-    var removeIndex = void 0;
-    var record = void 0;
-    var rmPromises = [];
-    var viewOrPromise = void 0;
-
-    for (i = 0, ii = records.length; i < ii; ++i) {
-      record = records[i];
-      key = record.key;
-      switch (record.type) {
-        case 'update':
-          removeIndex = this._getViewIndexByKey(repeat, key);
-          viewOrPromise = repeat.removeView(removeIndex, true, !repeat.viewsRequireLifecycle);
-          if (viewOrPromise instanceof Promise) {
-            rmPromises.push(viewOrPromise);
-          }
-          overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, map.get(key), removeIndex, map.size, key);
-          repeat.insertView(removeIndex, overrideContext.bindingContext, overrideContext);
-          break;
-        case 'add':
-          overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, map.get(key), map.size - 1, map.size, key);
-          repeat.insertView(map.size - 1, overrideContext.bindingContext, overrideContext);
-          break;
-        case 'delete':
-          if (record.oldValue === undefined) {
-            return;
-          }
-          removeIndex = this._getViewIndexByKey(repeat, key);
-          viewOrPromise = repeat.removeView(removeIndex, true, !repeat.viewsRequireLifecycle);
-          if (viewOrPromise instanceof Promise) {
-            rmPromises.push(viewOrPromise);
-          }
-          break;
-        case 'clear':
-          repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-          break;
-        default:
-          continue;
-      }
-    }
-
-    if (rmPromises.length > 0) {
-      Promise.all(rmPromises).then(function () {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), 0);
-      });
-    } else {
-      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), 0);
-    }
-  };
-
-  MapRepeatStrategy.prototype._getViewIndexByKey = function _getViewIndexByKey(repeat, key) {
-    var i = void 0;
-    var ii = void 0;
-    var child = void 0;
-
-    for (i = 0, ii = repeat.viewCount(); i < ii; ++i) {
-      child = repeat.view(i);
-      if (child.bindingContext[repeat.key] === key) {
-        return i;
-      }
-    }
-
-    return undefined;
-  };
-
-  return MapRepeatStrategy;
-}();
-
-/***/ }),
-/* 29 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NullRepeatStrategy", function() { return NullRepeatStrategy; });
-
-
-var NullRepeatStrategy = function () {
-  function NullRepeatStrategy() {
-    
-  }
-
-  NullRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
-    repeat.removeAllViews(true);
-  };
-
-  NullRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {};
-
-  return NullRepeatStrategy;
-}();
-
-/***/ }),
-/* 30 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NumberRepeatStrategy", function() { return NumberRepeatStrategy; });
-
-
-
-
-var NumberRepeatStrategy = function () {
-  function NumberRepeatStrategy() {
-    
-  }
-
-  NumberRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver() {
-    return null;
-  };
-
-  NumberRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, value) {
-    var _this = this;
-
-    var removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-    if (removePromise instanceof Promise) {
-      removePromise.then(function () {
-        return _this._standardProcessItems(repeat, value);
-      });
-      return;
-    }
-    this._standardProcessItems(repeat, value);
-  };
-
-  NumberRepeatStrategy.prototype._standardProcessItems = function _standardProcessItems(repeat, value) {
-    var childrenLength = repeat.viewCount();
-    var i = void 0;
-    var ii = void 0;
-    var overrideContext = void 0;
-    var viewsToRemove = void 0;
-
-    value = Math.floor(value);
-    viewsToRemove = childrenLength - value;
-
-    if (viewsToRemove > 0) {
-      if (viewsToRemove > childrenLength) {
-        viewsToRemove = childrenLength;
-      }
-
-      for (i = 0, ii = viewsToRemove; i < ii; ++i) {
-        repeat.removeView(childrenLength - (i + 1), true, !repeat.viewsRequireLifecycle);
-      }
-
-      return;
-    }
-
-    for (i = childrenLength, ii = value; i < ii; ++i) {
-      overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, i, i, ii);
-      repeat.addView(overrideContext.bindingContext, overrideContext);
-    }
-
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), 0);
-  };
-
-  return NumberRepeatStrategy;
-}();
-
-/***/ }),
-/* 31 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__null_repeat_strategy__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__array_repeat_strategy__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_repeat_strategy__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__set_repeat_strategy__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__number_repeat_strategy__ = __webpack_require__(30);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RepeatStrategyLocator", function() { return RepeatStrategyLocator; });
-
-
-
-
-
-
-
-
-var RepeatStrategyLocator = function () {
-  function RepeatStrategyLocator() {
-    
-
-    this.matchers = [];
-    this.strategies = [];
-
-    this.addStrategy(function (items) {
-      return items === null || items === undefined;
-    }, new __WEBPACK_IMPORTED_MODULE_0__null_repeat_strategy__["NullRepeatStrategy"]());
-    this.addStrategy(function (items) {
-      return items instanceof Array;
-    }, new __WEBPACK_IMPORTED_MODULE_1__array_repeat_strategy__["ArrayRepeatStrategy"]());
-    this.addStrategy(function (items) {
-      return items instanceof Map;
-    }, new __WEBPACK_IMPORTED_MODULE_2__map_repeat_strategy__["MapRepeatStrategy"]());
-    this.addStrategy(function (items) {
-      return items instanceof Set;
-    }, new __WEBPACK_IMPORTED_MODULE_3__set_repeat_strategy__["SetRepeatStrategy"]());
-    this.addStrategy(function (items) {
-      return typeof items === 'number';
-    }, new __WEBPACK_IMPORTED_MODULE_4__number_repeat_strategy__["NumberRepeatStrategy"]());
-  }
-
-  RepeatStrategyLocator.prototype.addStrategy = function addStrategy(matcher, strategy) {
-    this.matchers.push(matcher);
-    this.strategies.push(strategy);
-  };
-
-  RepeatStrategyLocator.prototype.getStrategy = function getStrategy(items) {
-    var matchers = this.matchers;
-
-    for (var i = 0, ii = matchers.length; i < ii; ++i) {
-      if (matchers[i](items)) {
-        return this.strategies[i];
-      }
-    }
-
-    return null;
-  };
-
-  return RepeatStrategyLocator;
-}();
-
-/***/ }),
-/* 32 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__repeat_strategy_locator__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__repeat_utilities__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__analyze_view_factory__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__abstract_repeater__ = __webpack_require__(16);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Repeat", function() { return Repeat; });
-var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
-
-function _initDefineProp(target, property, descriptor, context) {
-  if (!descriptor) return;
-  Object.defineProperty(target, property, {
-    enumerable: descriptor.enumerable,
-    configurable: descriptor.configurable,
-    writable: descriptor.writable,
-    value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
-  });
-}
-
-
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-  var desc = {};
-  Object['ke' + 'ys'](descriptor).forEach(function (key) {
-    desc[key] = descriptor[key];
-  });
-  desc.enumerable = !!desc.enumerable;
-  desc.configurable = !!desc.configurable;
-
-  if ('value' in desc || desc.initializer) {
-    desc.writable = true;
-  }
-
-  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-    return decorator(target, property, desc) || desc;
-  }, desc);
-
-  if (context && desc.initializer !== void 0) {
-    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-    desc.initializer = undefined;
-  }
-
-  if (desc.initializer === void 0) {
-    Object['define' + 'Property'](target, property, desc);
-    desc = null;
-  }
-
-  return desc;
-}
-
-function _initializerWarningHelper(descriptor, context) {
-  throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
-}
-
-
-
-
-
-
-
-
-
-var Repeat = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["customAttribute"])('repeat'), _dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BoundViewFactory"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["TargetInstruction"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["ViewSlot"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["ViewResources"], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["ObserverLocator"], __WEBPACK_IMPORTED_MODULE_3__repeat_strategy_locator__["RepeatStrategyLocator"]), _dec(_class = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["templateController"])(_class = _dec2(_class = (_class2 = function (_AbstractRepeater) {
-  _inherits(Repeat, _AbstractRepeater);
-
-  function Repeat(viewFactory, instruction, viewSlot, viewResources, observerLocator, strategyLocator) {
-    
-
-    var _this = _possibleConstructorReturn(this, _AbstractRepeater.call(this, {
-      local: 'item',
-      viewsRequireLifecycle: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__analyze_view_factory__["viewsRequireLifecycle"])(viewFactory)
-    }));
-
-    _initDefineProp(_this, 'items', _descriptor, _this);
-
-    _initDefineProp(_this, 'local', _descriptor2, _this);
-
-    _initDefineProp(_this, 'key', _descriptor3, _this);
-
-    _initDefineProp(_this, 'value', _descriptor4, _this);
-
-    _this.viewFactory = viewFactory;
-    _this.instruction = instruction;
-    _this.viewSlot = viewSlot;
-    _this.lookupFunctions = viewResources.lookupFunctions;
-    _this.observerLocator = observerLocator;
-    _this.key = 'key';
-    _this.value = 'value';
-    _this.strategyLocator = strategyLocator;
-    _this.ignoreMutation = false;
-    _this.sourceExpression = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__repeat_utilities__["getItemsSourceExpression"])(_this.instruction, 'repeat.for');
-    _this.isOneTime = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__repeat_utilities__["isOneTime"])(_this.sourceExpression);
-    _this.viewsRequireLifecycle = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__analyze_view_factory__["viewsRequireLifecycle"])(viewFactory);
-    return _this;
-  }
-
-  Repeat.prototype.call = function call(context, changes) {
-    this[context](this.items, changes);
-  };
-
-  Repeat.prototype.bind = function bind(bindingContext, overrideContext) {
-    this.scope = { bindingContext: bindingContext, overrideContext: overrideContext };
-    this.matcherBinding = this._captureAndRemoveMatcherBinding();
-    this.itemsChanged();
-  };
-
-  Repeat.prototype.unbind = function unbind() {
-    this.scope = null;
-    this.items = null;
-    this.matcherBinding = null;
-    this.viewSlot.removeAll(true);
-    this._unsubscribeCollection();
-  };
-
-  Repeat.prototype._unsubscribeCollection = function _unsubscribeCollection() {
-    if (this.collectionObserver) {
-      this.collectionObserver.unsubscribe(this.callContext, this);
-      this.collectionObserver = null;
-      this.callContext = null;
-    }
-  };
-
-  Repeat.prototype.itemsChanged = function itemsChanged() {
-    this._unsubscribeCollection();
-
-    if (!this.scope) {
-      return;
-    }
-
-    var items = this.items;
-    this.strategy = this.strategyLocator.getStrategy(items);
-    if (!this.strategy) {
-      throw new Error('Value for \'' + this.sourceExpression + '\' is non-repeatable');
-    }
-
-    if (!this.isOneTime && !this._observeInnerCollection()) {
-      this._observeCollection();
-    }
-    this.strategy.instanceChanged(this, items);
-  };
-
-  Repeat.prototype._getInnerCollection = function _getInnerCollection() {
-    var expression = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__repeat_utilities__["unwrapExpression"])(this.sourceExpression);
-    if (!expression) {
-      return null;
-    }
-    return expression.evaluate(this.scope, null);
-  };
-
-  Repeat.prototype.handleCollectionMutated = function handleCollectionMutated(collection, changes) {
-    if (!this.collectionObserver) {
-      return;
-    }
-    this.strategy.instanceMutated(this, collection, changes);
-  };
-
-  Repeat.prototype.handleInnerCollectionMutated = function handleInnerCollectionMutated(collection, changes) {
-    var _this2 = this;
-
-    if (!this.collectionObserver) {
-      return;
-    }
-
-    if (this.ignoreMutation) {
-      return;
-    }
-    this.ignoreMutation = true;
-    var newItems = this.sourceExpression.evaluate(this.scope, this.lookupFunctions);
-    this.observerLocator.taskQueue.queueMicroTask(function () {
-      return _this2.ignoreMutation = false;
-    });
-
-    if (newItems === this.items) {
-      this.itemsChanged();
-    } else {
-      this.items = newItems;
-    }
-  };
-
-  Repeat.prototype._observeInnerCollection = function _observeInnerCollection() {
-    var items = this._getInnerCollection();
-    var strategy = this.strategyLocator.getStrategy(items);
-    if (!strategy) {
-      return false;
-    }
-    this.collectionObserver = strategy.getCollectionObserver(this.observerLocator, items);
-    if (!this.collectionObserver) {
-      return false;
-    }
-    this.callContext = 'handleInnerCollectionMutated';
-    this.collectionObserver.subscribe(this.callContext, this);
-    return true;
-  };
-
-  Repeat.prototype._observeCollection = function _observeCollection() {
-    var items = this.items;
-    this.collectionObserver = this.strategy.getCollectionObserver(this.observerLocator, items);
-    if (this.collectionObserver) {
-      this.callContext = 'handleCollectionMutated';
-      this.collectionObserver.subscribe(this.callContext, this);
-    }
-  };
-
-  Repeat.prototype._captureAndRemoveMatcherBinding = function _captureAndRemoveMatcherBinding() {
-    if (this.viewFactory.viewFactory) {
-      var instructions = this.viewFactory.viewFactory.instructions;
-      var instructionIds = Object.keys(instructions);
-      for (var i = 0; i < instructionIds.length; i++) {
-        var expressions = instructions[instructionIds[i]].expressions;
-        if (expressions) {
-          for (var ii = 0; i < expressions.length; i++) {
-            if (expressions[ii].targetProperty === 'matcher') {
-              var matcherBinding = expressions[ii];
-              expressions.splice(ii, 1);
-              return matcherBinding;
-            }
-          }
-        }
-      }
-    }
-
-    return undefined;
-  };
-
-  Repeat.prototype.viewCount = function viewCount() {
-    return this.viewSlot.children.length;
-  };
-
-  Repeat.prototype.views = function views() {
-    return this.viewSlot.children;
-  };
-
-  Repeat.prototype.view = function view(index) {
-    return this.viewSlot.children[index];
-  };
-
-  Repeat.prototype.matcher = function matcher() {
-    return this.matcherBinding ? this.matcherBinding.sourceExpression.evaluate(this.scope, this.matcherBinding.lookupFunctions) : null;
-  };
-
-  Repeat.prototype.addView = function addView(bindingContext, overrideContext) {
-    var view = this.viewFactory.create();
-    view.bind(bindingContext, overrideContext);
-    this.viewSlot.add(view);
-  };
-
-  Repeat.prototype.insertView = function insertView(index, bindingContext, overrideContext) {
-    var view = this.viewFactory.create();
-    view.bind(bindingContext, overrideContext);
-    this.viewSlot.insert(index, view);
-  };
-
-  Repeat.prototype.moveView = function moveView(sourceIndex, targetIndex) {
-    this.viewSlot.move(sourceIndex, targetIndex);
-  };
-
-  Repeat.prototype.removeAllViews = function removeAllViews(returnToCache, skipAnimation) {
-    return this.viewSlot.removeAll(returnToCache, skipAnimation);
-  };
-
-  Repeat.prototype.removeViews = function removeViews(viewsToRemove, returnToCache, skipAnimation) {
-    return this.viewSlot.removeMany(viewsToRemove, returnToCache, skipAnimation);
-  };
-
-  Repeat.prototype.removeView = function removeView(index, returnToCache, skipAnimation) {
-    return this.viewSlot.removeAt(index, returnToCache, skipAnimation);
-  };
-
-  Repeat.prototype.updateBindings = function updateBindings(view) {
-    var j = view.bindings.length;
-    while (j--) {
-      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__repeat_utilities__["updateOneTimeBinding"])(view.bindings[j]);
-    }
-    j = view.controllers.length;
-    while (j--) {
-      var k = view.controllers[j].boundProperties.length;
-      while (k--) {
-        var binding = view.controllers[j].boundProperties[k].binding;
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__repeat_utilities__["updateOneTimeBinding"])(binding);
-      }
-    }
-  };
-
-  return Repeat;
-}(__WEBPACK_IMPORTED_MODULE_6__abstract_repeater__["AbstractRepeater"]), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'items', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
-  enumerable: true,
-  initializer: null
-}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'local', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
-  enumerable: true,
-  initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'key', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
-  enumerable: true,
-  initializer: null
-}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'value', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
-  enumerable: true,
-  initializer: null
-})), _class2)) || _class) || _class) || _class);
-
-/***/ }),
-/* 33 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__ = __webpack_require__(1);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Replaceable", function() { return Replaceable; });
-var _dec, _dec2, _class;
-
-
-
-
-
-
-var Replaceable = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["customAttribute"])('replaceable'), _dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["BoundViewFactory"], __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["ViewSlot"]), _dec(_class = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["templateController"])(_class = _dec2(_class = function () {
-  function Replaceable(viewFactory, viewSlot) {
-    
-
-    this.viewFactory = viewFactory;
-    this.viewSlot = viewSlot;
-    this.view = null;
-  }
-
-  Replaceable.prototype.bind = function bind(bindingContext, overrideContext) {
-    if (this.view === null) {
-      this.view = this.viewFactory.create();
-      this.viewSlot.add(this.view);
-    }
-
-    this.view.bind(bindingContext, overrideContext);
-  };
-
-  Replaceable.prototype.unbind = function unbind() {
-    this.view.unbind();
-  };
-
-  return Replaceable;
-}()) || _class) || _class) || _class);
-
-/***/ }),
-/* 34 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__html_sanitizer__ = __webpack_require__(26);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SanitizeHTMLValueConverter", function() { return SanitizeHTMLValueConverter; });
-var _dec, _dec2, _class;
-
-
-
-
-
-
-
-var SanitizeHTMLValueConverter = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["valueConverter"])('sanitizeHTML'), _dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_2__html_sanitizer__["HTMLSanitizer"]), _dec(_class = _dec2(_class = function () {
-  function SanitizeHTMLValueConverter(sanitizer) {
-    
-
-    this.sanitizer = sanitizer;
-  }
-
-  SanitizeHTMLValueConverter.prototype.toView = function toView(untrustedMarkup) {
-    if (untrustedMarkup === null || untrustedMarkup === undefined) {
-      return null;
-    }
-
-    return this.sanitizer.sanitize(untrustedMarkup);
-  };
-
-  return SanitizeHTMLValueConverter;
-}()) || _class) || _class);
-
-/***/ }),
-/* 35 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelfBindingBehavior", function() { return SelfBindingBehavior; });
-
-
-function findOriginalEventTarget(event) {
-  return event.path && event.path[0] || event.deepPath && event.deepPath[0] || event.target;
-}
-
-function handleSelfEvent(event) {
-  var target = findOriginalEventTarget(event);
-  if (this.target !== target) return;
-  this.selfEventCallSource(event);
-}
-
-var SelfBindingBehavior = function () {
-  function SelfBindingBehavior() {
-    
-  }
-
-  SelfBindingBehavior.prototype.bind = function bind(binding, source) {
-    if (!binding.callSource || !binding.targetEvent) throw new Error('Self binding behavior only supports event.');
-    binding.selfEventCallSource = binding.callSource;
-    binding.callSource = handleSelfEvent;
-  };
-
-  SelfBindingBehavior.prototype.unbind = function unbind(binding, source) {
-    binding.callSource = binding.selfEventCallSource;
-    binding.selfEventCallSource = null;
-  };
-
-  return SelfBindingBehavior;
-}();
-
-/***/ }),
-/* 36 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SetRepeatStrategy", function() { return SetRepeatStrategy; });
-
-
-
-
-var SetRepeatStrategy = function () {
-  function SetRepeatStrategy() {
-    
-  }
-
-  SetRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {
-    return observerLocator.getSetObserver(items);
-  };
-
-  SetRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
-    var _this = this;
-
-    var removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-    if (removePromise instanceof Promise) {
-      removePromise.then(function () {
-        return _this._standardProcessItems(repeat, items);
-      });
-      return;
-    }
-    this._standardProcessItems(repeat, items);
-  };
-
-  SetRepeatStrategy.prototype._standardProcessItems = function _standardProcessItems(repeat, items) {
-    var index = 0;
-    var overrideContext = void 0;
-
-    items.forEach(function (value) {
-      overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, value, index, items.size);
-      repeat.addView(overrideContext.bindingContext, overrideContext);
-      ++index;
-    });
-  };
-
-  SetRepeatStrategy.prototype.instanceMutated = function instanceMutated(repeat, set, records) {
-    var value = void 0;
-    var i = void 0;
-    var ii = void 0;
-    var overrideContext = void 0;
-    var removeIndex = void 0;
-    var record = void 0;
-    var rmPromises = [];
-    var viewOrPromise = void 0;
-
-    for (i = 0, ii = records.length; i < ii; ++i) {
-      record = records[i];
-      value = record.value;
-      switch (record.type) {
-        case 'add':
-          overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, value, set.size - 1, set.size);
-          repeat.insertView(set.size - 1, overrideContext.bindingContext, overrideContext);
-          break;
-        case 'delete':
-          removeIndex = this._getViewIndexByValue(repeat, value);
-          viewOrPromise = repeat.removeView(removeIndex, true, !repeat.viewsRequireLifecycle);
-          if (viewOrPromise instanceof Promise) {
-            rmPromises.push(viewOrPromise);
-          }
-          break;
-        case 'clear':
-          repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
-          break;
-        default:
-          continue;
-      }
-    }
-
-    if (rmPromises.length > 0) {
-      Promise.all(rmPromises).then(function () {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), 0);
-      });
-    } else {
-      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), 0);
-    }
-  };
-
-  SetRepeatStrategy.prototype._getViewIndexByValue = function _getViewIndexByValue(repeat, value) {
-    var i = void 0;
-    var ii = void 0;
-    var child = void 0;
-
-    for (i = 0, ii = repeat.viewCount(); i < ii; ++i) {
-      child = repeat.view(i);
-      if (child.bindingContext[repeat.local] === value) {
-        return i;
-      }
-    }
-
-    return undefined;
-  };
-
-  return SetRepeatStrategy;
-}();
-
-/***/ }),
-/* 37 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__ = __webpack_require__(11);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Show", function() { return Show; });
-var _dec, _dec2, _class;
-
-
-
-
-
-
-
-
-var Show = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["customAttribute"])('show'), _dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["DOM"].Element, __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["Animator"], __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["Optional"].of(__WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["DOM"].boundary, true)), _dec(_class = _dec2(_class = function () {
-  function Show(element, animator, domBoundary) {
-    
-
-    this.element = element;
-    this.animator = animator;
-    this.domBoundary = domBoundary;
-  }
-
-  Show.prototype.created = function created() {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__["injectAureliaHideStyleAtBoundary"])(this.domBoundary);
-  };
-
-  Show.prototype.valueChanged = function valueChanged(newValue) {
-    if (newValue) {
-      this.animator.removeClass(this.element, __WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__["aureliaHideClassName"]);
-    } else {
-      this.animator.addClass(this.element, __WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__["aureliaHideClassName"]);
-    }
-  };
-
-  Show.prototype.bind = function bind(bindingContext) {
-    this.valueChanged(this.value);
-  };
-
-  return Show;
-}()) || _class) || _class);
-
-/***/ }),
-/* 38 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__binding_signaler__ = __webpack_require__(21);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignalBindingBehavior", function() { return SignalBindingBehavior; });
-
-
-
-
-var SignalBindingBehavior = function () {
-  SignalBindingBehavior.inject = function inject() {
-    return [__WEBPACK_IMPORTED_MODULE_0__binding_signaler__["BindingSignaler"]];
-  };
-
-  function SignalBindingBehavior(bindingSignaler) {
-    
-
-    this.signals = bindingSignaler.signals;
-  }
-
-  SignalBindingBehavior.prototype.bind = function bind(binding, source) {
-    if (!binding.updateTarget) {
-      throw new Error('Only property bindings and string interpolation bindings can be signaled.  Trigger, delegate and call bindings cannot be signaled.');
-    }
-    if (arguments.length === 3) {
-      var name = arguments[2];
-      var bindings = this.signals[name] || (this.signals[name] = []);
-      bindings.push(binding);
-      binding.signalName = name;
-    } else if (arguments.length > 3) {
-      var names = Array.prototype.slice.call(arguments, 2);
-      var i = names.length;
-      while (i--) {
-        var _name = names[i];
-        var _bindings = this.signals[_name] || (this.signals[_name] = []);
-        _bindings.push(binding);
-      }
-      binding.signalName = names;
-    } else {
-      throw new Error('Signal name is required.');
-    }
-  };
-
-  SignalBindingBehavior.prototype.unbind = function unbind(binding, source) {
-    var name = binding.signalName;
-    binding.signalName = null;
-    if (Array.isArray(name)) {
-      var names = name;
-      var i = names.length;
-      while (i--) {
-        var n = names[i];
-        var bindings = this.signals[n];
-        bindings.splice(bindings.indexOf(binding), 1);
-      }
-    } else {
-      var _bindings2 = this.signals[name];
-      _bindings2.splice(_bindings2.indexOf(binding), 1);
-    }
-  };
-
-  return SignalBindingBehavior;
-}();
-
-/***/ }),
-/* 39 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ThrottleBindingBehavior", function() { return ThrottleBindingBehavior; });
-
-
-
-
-function throttle(newValue) {
-  var _this = this;
-
-  var state = this.throttleState;
-  var elapsed = +new Date() - state.last;
-  if (elapsed >= state.delay) {
-    clearTimeout(state.timeoutId);
-    state.timeoutId = null;
-    state.last = +new Date();
-    this.throttledMethod(newValue);
-    return;
-  }
-  state.newValue = newValue;
-  if (state.timeoutId === null) {
-    state.timeoutId = setTimeout(function () {
-      state.timeoutId = null;
-      state.last = +new Date();
-      _this.throttledMethod(state.newValue);
-    }, state.delay - elapsed);
-  }
-}
-
-var ThrottleBindingBehavior = function () {
-  function ThrottleBindingBehavior() {
-    
-  }
-
-  ThrottleBindingBehavior.prototype.bind = function bind(binding, source) {
-    var delay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 200;
-
-    var methodToThrottle = 'updateTarget';
-    if (binding.callSource) {
-      methodToThrottle = 'callSource';
-    } else if (binding.updateSource && binding.mode === __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["bindingMode"].twoWay) {
-      methodToThrottle = 'updateSource';
-    }
-
-    binding.throttledMethod = binding[methodToThrottle];
-    binding.throttledMethod.originalName = methodToThrottle;
-
-    binding[methodToThrottle] = throttle;
-
-    binding.throttleState = {
-      delay: delay,
-      last: 0,
-      timeoutId: null
-    };
-  };
-
-  ThrottleBindingBehavior.prototype.unbind = function unbind(binding, source) {
-    var methodToRestore = binding.throttledMethod.originalName;
-    binding[methodToRestore] = binding.throttledMethod;
-    binding.throttledMethod = null;
-    clearTimeout(binding.throttleState.timeoutId);
-    binding.throttleState = null;
-  };
-
-  return ThrottleBindingBehavior;
-}();
-
-/***/ }),
-/* 40 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateTriggerBindingBehavior", function() { return UpdateTriggerBindingBehavior; });
-var _class, _temp;
-
-
-
-
-
-var eventNamesRequired = 'The updateTrigger binding behavior requires at least one event name argument: eg <input value.bind="firstName & updateTrigger:\'blur\'">';
-var notApplicableMessage = 'The updateTrigger binding behavior can only be applied to two-way bindings on input/select elements.';
-
-var UpdateTriggerBindingBehavior = (_temp = _class = function () {
-  function UpdateTriggerBindingBehavior(eventManager) {
-    
-
-    this.eventManager = eventManager;
-  }
-
-  UpdateTriggerBindingBehavior.prototype.bind = function bind(binding, source) {
-    for (var _len = arguments.length, events = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-      events[_key - 2] = arguments[_key];
-    }
-
-    if (events.length === 0) {
-      throw new Error(eventNamesRequired);
-    }
-    if (binding.mode !== __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["bindingMode"].twoWay) {
-      throw new Error(notApplicableMessage);
-    }
-
-    var targetObserver = binding.observerLocator.getObserver(binding.target, binding.targetProperty);
-    if (!targetObserver.handler) {
-      throw new Error(notApplicableMessage);
-    }
-    binding.targetObserver = targetObserver;
-
-    targetObserver.originalHandler = binding.targetObserver.handler;
-
-    var handler = this.eventManager.createElementHandler(events);
-    targetObserver.handler = handler;
-  };
-
-  UpdateTriggerBindingBehavior.prototype.unbind = function unbind(binding, source) {
-    binding.targetObserver.handler = binding.targetObserver.originalHandler;
-    binding.targetObserver.originalHandler = null;
-  };
-
-  return UpdateTriggerBindingBehavior;
-}(), _class.inject = [__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["EventManager"]], _temp);
-
-/***/ }),
-/* 41 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_binding__ = __webpack_require__(3);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "With", function() { return With; });
-var _dec, _dec2, _class;
-
-
-
-
-
-
-
-var With = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["customAttribute"])('with'), _dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["BoundViewFactory"], __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["ViewSlot"]), _dec(_class = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["templateController"])(_class = _dec2(_class = function () {
-  function With(viewFactory, viewSlot) {
-    
-
-    this.viewFactory = viewFactory;
-    this.viewSlot = viewSlot;
-    this.parentOverrideContext = null;
-    this.view = null;
-  }
-
-  With.prototype.bind = function bind(bindingContext, overrideContext) {
-    this.parentOverrideContext = overrideContext;
-    this.valueChanged(this.value);
-  };
-
-  With.prototype.valueChanged = function valueChanged(newValue) {
-    var overrideContext = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_aurelia_binding__["createOverrideContext"])(newValue, this.parentOverrideContext);
-    if (!this.view) {
-      this.view = this.viewFactory.create();
-      this.view.bind(newValue, overrideContext);
-      this.viewSlot.add(this.view);
-    } else {
-      this.view.bind(newValue, overrideContext);
-    }
-  };
-
-  With.prototype.unbind = function unbind() {
-    this.parentOverrideContext = null;
-
-    if (this.view) {
-      this.view.unbind();
-    }
-  };
-
-  return With;
-}()) || _class) || _class) || _class);
-
-/***/ }),
-/* 42 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_router__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_pal__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_logging__ = __webpack_require__(4);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouteHref", function() { return RouteHref; });
-var _dec, _dec2, _dec3, _dec4, _dec5, _class;
-
-
-
-
-
-
-
-
-
-var logger = __WEBPACK_IMPORTED_MODULE_4_aurelia_logging__["getLogger"]('route-href');
-
-var RouteHref = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["customAttribute"])('route-href'), _dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["bindable"])({ name: 'route', changeHandler: 'processChange' }), _dec3 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["bindable"])({ name: 'params', changeHandler: 'processChange' }), _dec4 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["bindable"])({ name: 'attribute', defaultValue: 'href' }), _dec5 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_2_aurelia_router__["Router"], __WEBPACK_IMPORTED_MODULE_3_aurelia_pal__["DOM"].Element), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = function () {
-  function RouteHref(router, element) {
-    
-
-    this.router = router;
-    this.element = element;
-  }
-
-  RouteHref.prototype.bind = function bind() {
-    this.isActive = true;
-    this.processChange();
-  };
-
-  RouteHref.prototype.unbind = function unbind() {
-    this.isActive = false;
-  };
-
-  RouteHref.prototype.attributeChanged = function attributeChanged(value, previous) {
-    if (previous) {
-      this.element.removeAttribute(previous);
-    }
-
-    this.processChange();
-  };
-
-  RouteHref.prototype.processChange = function processChange() {
-    var _this = this;
-
-    return this.router.ensureConfigured().then(function () {
-      if (!_this.isActive) {
-        return null;
-      }
-
-      var href = _this.router.generate(_this.route, _this.params);
-
-      if (_this.element.au.controller) {
-        _this.element.au.controller.viewModel[_this.attribute] = href;
-      } else {
-        _this.element.setAttribute(_this.attribute, href);
-      }
-
-      return null;
-    }).catch(function (reason) {
-      logger.error(reason);
-    });
-  };
-
-  return RouteHref;
-}()) || _class) || _class) || _class) || _class) || _class);
-
-/***/ }),
-/* 43 */
+/* 15 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -17594,42 +15232,2407 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 44 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 45 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_polyfills__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__ = __webpack_require__(0);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (immutable) */ __webpack_exports__["bootstrap"] = bootstrap;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "History", function() { return History; });
+
+
+function mi(name) {
+  throw new Error('History must implement ' + name + '().');
+}
+
+var History = function () {
+  function History() {
+    
+  }
+
+  History.prototype.activate = function activate(options) {
+    mi('activate');
+  };
+
+  History.prototype.deactivate = function deactivate() {
+    mi('deactivate');
+  };
+
+  History.prototype.getAbsoluteRoot = function getAbsoluteRoot() {
+    mi('getAbsoluteRoot');
+  };
+
+  History.prototype.navigate = function navigate(fragment, options) {
+    mi('navigate');
+  };
+
+  History.prototype.navigateBack = function navigateBack() {
+    mi('navigateBack');
+  };
+
+  History.prototype.setTitle = function setTitle(title) {
+    mi('setTitle');
+  };
+
+  return History;
+}();
+
+/***/ }),
+/* 17 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventAggregator", function() { return EventAggregator; });
+/* harmony export (immutable) */ __webpack_exports__["includeEventsIn"] = includeEventsIn;
+/* harmony export (immutable) */ __webpack_exports__["configure"] = configure;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(4);
+
+
+
+
+var logger = __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__["getLogger"]('event-aggregator');
+
+var Handler = function () {
+  function Handler(messageType, callback) {
+    
+
+    this.messageType = messageType;
+    this.callback = callback;
+  }
+
+  Handler.prototype.handle = function handle(message) {
+    if (message instanceof this.messageType) {
+      this.callback.call(null, message);
+    }
+  };
+
+  return Handler;
+}();
+
+function invokeCallback(callback, data, event) {
+  try {
+    callback(data, event);
+  } catch (e) {
+    logger.error(e);
+  }
+}
+
+function invokeHandler(handler, data) {
+  try {
+    handler.handle(data);
+  } catch (e) {
+    logger.error(e);
+  }
+}
+
+var EventAggregator = function () {
+  function EventAggregator() {
+    
+
+    this.eventLookup = {};
+    this.messageHandlers = [];
+  }
+
+  EventAggregator.prototype.publish = function publish(event, data) {
+    var subscribers = void 0;
+    var i = void 0;
+
+    if (!event) {
+      throw new Error('Event was invalid.');
+    }
+
+    if (typeof event === 'string') {
+      subscribers = this.eventLookup[event];
+      if (subscribers) {
+        subscribers = subscribers.slice();
+        i = subscribers.length;
+
+        while (i--) {
+          invokeCallback(subscribers[i], data, event);
+        }
+      }
+    } else {
+      subscribers = this.messageHandlers.slice();
+      i = subscribers.length;
+
+      while (i--) {
+        invokeHandler(subscribers[i], event);
+      }
+    }
+  };
+
+  EventAggregator.prototype.subscribe = function subscribe(event, callback) {
+    var handler = void 0;
+    var subscribers = void 0;
+
+    if (!event) {
+      throw new Error('Event channel/type was invalid.');
+    }
+
+    if (typeof event === 'string') {
+      handler = callback;
+      subscribers = this.eventLookup[event] || (this.eventLookup[event] = []);
+    } else {
+      handler = new Handler(event, callback);
+      subscribers = this.messageHandlers;
+    }
+
+    subscribers.push(handler);
+
+    return {
+      dispose: function dispose() {
+        var idx = subscribers.indexOf(handler);
+        if (idx !== -1) {
+          subscribers.splice(idx, 1);
+        }
+      }
+    };
+  };
+
+  EventAggregator.prototype.subscribeOnce = function subscribeOnce(event, callback) {
+    var sub = this.subscribe(event, function (a, b) {
+      sub.dispose();
+      return callback(a, b);
+    });
+
+    return sub;
+  };
+
+  return EventAggregator;
+}();
+
+function includeEventsIn(obj) {
+  var ea = new EventAggregator();
+
+  obj.subscribeOnce = function (event, callback) {
+    return ea.subscribeOnce(event, callback);
+  };
+
+  obj.subscribe = function (event, callback) {
+    return ea.subscribe(event, callback);
+  };
+
+  obj.publish = function (event, data) {
+    ea.publish(event, data);
+  };
+
+  return ea;
+}
+
+function configure(config) {
+  config.instance(EventAggregator, includeEventsIn(config.aurelia));
+}
+
+/***/ }),
+/* 18 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouteHref", function() { return RouteHref; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_router__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_pal__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_logging__ = __webpack_require__(4);
+var _dec, _dec2, _dec3, _dec4, _dec5, _class;
+
+
+
+
+
+
+
+
+
+var logger = __WEBPACK_IMPORTED_MODULE_4_aurelia_logging__["getLogger"]('route-href');
+
+var RouteHref = (_dec = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["customAttribute"])('route-href'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["bindable"])({ name: 'route', changeHandler: 'processChange' }), _dec3 = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["bindable"])({ name: 'params', changeHandler: 'processChange' }), _dec4 = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["bindable"])({ name: 'attribute', defaultValue: 'href' }), _dec5 = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_2_aurelia_router__["Router"], __WEBPACK_IMPORTED_MODULE_3_aurelia_pal__["DOM"].Element), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = function () {
+  function RouteHref(router, element) {
+    
+
+    this.router = router;
+    this.element = element;
+  }
+
+  RouteHref.prototype.bind = function bind() {
+    this.isActive = true;
+    this.processChange();
+  };
+
+  RouteHref.prototype.unbind = function unbind() {
+    this.isActive = false;
+  };
+
+  RouteHref.prototype.attributeChanged = function attributeChanged(value, previous) {
+    if (previous) {
+      this.element.removeAttribute(previous);
+    }
+
+    this.processChange();
+  };
+
+  RouteHref.prototype.processChange = function processChange() {
+    var _this = this;
+
+    return this.router.ensureConfigured().then(function () {
+      if (!_this.isActive) {
+        return null;
+      }
+
+      var href = _this.router.generate(_this.route, _this.params);
+
+      if (_this.element.au.controller) {
+        _this.element.au.controller.viewModel[_this.attribute] = href;
+      } else {
+        _this.element.setAttribute(_this.attribute, href);
+      }
+
+      return null;
+    }).catch(function (reason) {
+      logger.error(reason);
+    });
+  };
+
+  return RouteHref;
+}()) || _class) || _class) || _class) || _class) || _class);
+
+/***/ }),
+/* 19 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Compose", function() { return Compose; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_task_queue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_pal__ = __webpack_require__(0);
+var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
+
+function _initDefineProp(target, property, descriptor, context) {
+  if (!descriptor) return;
+  Object.defineProperty(target, property, {
+    enumerable: descriptor.enumerable,
+    configurable: descriptor.configurable,
+    writable: descriptor.writable,
+    value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+  });
+}
+
+
+
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+function _initializerWarningHelper(descriptor, context) {
+  throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+}
+
+
+
+
+
+
+var Compose = (_dec = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["customElement"])('compose'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_3_aurelia_pal__["DOM"].Element, __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["Container"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["CompositionEngine"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["ViewSlot"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["ViewResources"], __WEBPACK_IMPORTED_MODULE_1_aurelia_task_queue__["TaskQueue"]), _dec(_class = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["noView"])(_class = _dec2(_class = (_class2 = function () {
+  function Compose(element, container, compositionEngine, viewSlot, viewResources, taskQueue) {
+    
+
+    _initDefineProp(this, 'model', _descriptor, this);
+
+    _initDefineProp(this, 'view', _descriptor2, this);
+
+    _initDefineProp(this, 'viewModel', _descriptor3, this);
+
+    _initDefineProp(this, 'swapOrder', _descriptor4, this);
+
+    this.element = element;
+    this.container = container;
+    this.compositionEngine = compositionEngine;
+    this.viewSlot = viewSlot;
+    this.viewResources = viewResources;
+    this.taskQueue = taskQueue;
+    this.currentController = null;
+    this.currentViewModel = null;
+  }
+
+  Compose.prototype.created = function created(owningView) {
+    this.owningView = owningView;
+  };
+
+  Compose.prototype.bind = function bind(bindingContext, overrideContext) {
+    this.bindingContext = bindingContext;
+    this.overrideContext = overrideContext;
+    processInstruction(this, createInstruction(this, {
+      view: this.view,
+      viewModel: this.viewModel,
+      model: this.model
+    }));
+  };
+
+  Compose.prototype.unbind = function unbind(bindingContext, overrideContext) {
+    this.bindingContext = null;
+    this.overrideContext = null;
+    var returnToCache = true;
+    var skipAnimation = true;
+    this.viewSlot.removeAll(returnToCache, skipAnimation);
+  };
+
+  Compose.prototype.modelChanged = function modelChanged(newValue, oldValue) {
+    var _this = this;
+
+    if (this.currentInstruction) {
+      this.currentInstruction.model = newValue;
+      return;
+    }
+
+    this.taskQueue.queueMicroTask(function () {
+      if (_this.currentInstruction) {
+        _this.currentInstruction.model = newValue;
+        return;
+      }
+
+      var vm = _this.currentViewModel;
+
+      if (vm && typeof vm.activate === 'function') {
+        vm.activate(newValue);
+      }
+    });
+  };
+
+  Compose.prototype.viewChanged = function viewChanged(newValue, oldValue) {
+    var _this2 = this;
+
+    var instruction = createInstruction(this, {
+      view: newValue,
+      viewModel: this.currentViewModel || this.viewModel,
+      model: this.model
+    });
+
+    if (this.currentInstruction) {
+      this.currentInstruction = instruction;
+      return;
+    }
+
+    this.currentInstruction = instruction;
+    this.taskQueue.queueMicroTask(function () {
+      return processInstruction(_this2, _this2.currentInstruction);
+    });
+  };
+
+  Compose.prototype.viewModelChanged = function viewModelChanged(newValue, oldValue) {
+    var _this3 = this;
+
+    var instruction = createInstruction(this, {
+      viewModel: newValue,
+      view: this.view,
+      model: this.model
+    });
+
+    if (this.currentInstruction) {
+      this.currentInstruction = instruction;
+      return;
+    }
+
+    this.currentInstruction = instruction;
+    this.taskQueue.queueMicroTask(function () {
+      return processInstruction(_this3, _this3.currentInstruction);
+    });
+  };
+
+  return Compose;
+}(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'model', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
+  enumerable: true,
+  initializer: null
+}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'view', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
+  enumerable: true,
+  initializer: null
+}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'viewModel', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
+  enumerable: true,
+  initializer: null
+}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'swapOrder', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
+  enumerable: true,
+  initializer: null
+})), _class2)) || _class) || _class) || _class);
+
+function createInstruction(composer, instruction) {
+  return Object.assign(instruction, {
+    bindingContext: composer.bindingContext,
+    overrideContext: composer.overrideContext,
+    owningView: composer.owningView,
+    container: composer.container,
+    viewSlot: composer.viewSlot,
+    viewResources: composer.viewResources,
+    currentController: composer.currentController,
+    host: composer.element,
+    swapOrder: composer.swapOrder
+  });
+}
+
+function processInstruction(composer, instruction) {
+  composer.currentInstruction = null;
+  composer.compositionEngine.compose(instruction).then(function (controller) {
+    composer.currentController = controller;
+    composer.currentViewModel = controller ? controller.viewModel : null;
+  });
+}
+
+/***/ }),
+/* 20 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "If", function() { return If; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__ = __webpack_require__(2);
+var _dec, _dec2, _class;
+
+
+
+
+
+
+var If = (_dec = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["customAttribute"])('if'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["BoundViewFactory"], __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["ViewSlot"]), _dec(_class = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["templateController"])(_class = _dec2(_class = function () {
+  function If(viewFactory, viewSlot) {
+    
+
+    this.viewFactory = viewFactory;
+    this.viewSlot = viewSlot;
+    this.showing = false;
+    this.view = null;
+    this.bindingContext = null;
+    this.overrideContext = null;
+  }
+
+  If.prototype.bind = function bind(bindingContext, overrideContext) {
+    this.bindingContext = bindingContext;
+    this.overrideContext = overrideContext;
+    this.valueChanged(this.value);
+  };
+
+  If.prototype.valueChanged = function valueChanged(newValue) {
+    var _this = this;
+
+    if (this.__queuedChanges) {
+      this.__queuedChanges.push(newValue);
+      return;
+    }
+
+    var maybePromise = this._runValueChanged(newValue);
+    if (maybePromise instanceof Promise) {
+      (function () {
+        var queuedChanges = _this.__queuedChanges = [];
+
+        var runQueuedChanges = function runQueuedChanges() {
+          if (!queuedChanges.length) {
+            _this.__queuedChanges = undefined;
+            return;
+          }
+
+          var nextPromise = _this._runValueChanged(queuedChanges.shift()) || Promise.resolve();
+          nextPromise.then(runQueuedChanges);
+        };
+
+        maybePromise.then(runQueuedChanges);
+      })();
+    }
+  };
+
+  If.prototype._runValueChanged = function _runValueChanged(newValue) {
+    var _this2 = this;
+
+    if (!newValue) {
+      var viewOrPromise = void 0;
+      if (this.view !== null && this.showing) {
+        viewOrPromise = this.viewSlot.remove(this.view);
+        if (viewOrPromise instanceof Promise) {
+          viewOrPromise.then(function () {
+            return _this2.view.unbind();
+          });
+        } else {
+          this.view.unbind();
+        }
+      }
+
+      this.showing = false;
+      return viewOrPromise;
+    }
+
+    if (this.view === null) {
+      this.view = this.viewFactory.create();
+    }
+
+    if (!this.view.isBound) {
+      this.view.bind(this.bindingContext, this.overrideContext);
+    }
+
+    if (!this.showing) {
+      this.showing = true;
+      return this.viewSlot.add(this.view);
+    }
+
+    return undefined;
+  };
+
+  If.prototype.unbind = function unbind() {
+    if (this.view === null) {
+      return;
+    }
+
+    this.view.unbind();
+
+    if (!this.viewFactory.isCaching) {
+      return;
+    }
+
+    if (this.showing) {
+      this.showing = false;
+      this.viewSlot.remove(this.view, true, true);
+    }
+    this.view.returnToCache();
+    this.view = null;
+  };
+
+  return If;
+}()) || _class) || _class) || _class);
+
+/***/ }),
+/* 21 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "With", function() { return With; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_binding__ = __webpack_require__(3);
+var _dec, _dec2, _class;
+
+
+
+
+
+
+
+var With = (_dec = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["customAttribute"])('with'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["BoundViewFactory"], __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["ViewSlot"]), _dec(_class = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["templateController"])(_class = _dec2(_class = function () {
+  function With(viewFactory, viewSlot) {
+    
+
+    this.viewFactory = viewFactory;
+    this.viewSlot = viewSlot;
+    this.parentOverrideContext = null;
+    this.view = null;
+  }
+
+  With.prototype.bind = function bind(bindingContext, overrideContext) {
+    this.parentOverrideContext = overrideContext;
+    this.valueChanged(this.value);
+  };
+
+  With.prototype.valueChanged = function valueChanged(newValue) {
+    var overrideContext = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_binding__["createOverrideContext"])(newValue, this.parentOverrideContext);
+    if (!this.view) {
+      this.view = this.viewFactory.create();
+      this.view.bind(newValue, overrideContext);
+      this.viewSlot.add(this.view);
+    } else {
+      this.view.bind(newValue, overrideContext);
+    }
+  };
+
+  With.prototype.unbind = function unbind() {
+    this.parentOverrideContext = null;
+
+    if (this.view) {
+      this.view.unbind();
+    }
+  };
+
+  return With;
+}()) || _class) || _class) || _class);
+
+/***/ }),
+/* 22 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Repeat", function() { return Repeat; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__repeat_strategy_locator__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__repeat_utilities__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__analyze_view_factory__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__abstract_repeater__ = __webpack_require__(30);
+var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
+
+function _initDefineProp(target, property, descriptor, context) {
+  if (!descriptor) return;
+  Object.defineProperty(target, property, {
+    enumerable: descriptor.enumerable,
+    configurable: descriptor.configurable,
+    writable: descriptor.writable,
+    value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+  });
+}
+
+
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+function _initializerWarningHelper(descriptor, context) {
+  throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+}
+
+
+
+
+
+
+
+
+
+var Repeat = (_dec = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["customAttribute"])('repeat'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BoundViewFactory"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["TargetInstruction"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["ViewSlot"], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["ViewResources"], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["ObserverLocator"], __WEBPACK_IMPORTED_MODULE_3__repeat_strategy_locator__["RepeatStrategyLocator"]), _dec(_class = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["templateController"])(_class = _dec2(_class = (_class2 = function (_AbstractRepeater) {
+  _inherits(Repeat, _AbstractRepeater);
+
+  function Repeat(viewFactory, instruction, viewSlot, viewResources, observerLocator, strategyLocator) {
+    
+
+    var _this = _possibleConstructorReturn(this, _AbstractRepeater.call(this, {
+      local: 'item',
+      viewsRequireLifecycle: Object(__WEBPACK_IMPORTED_MODULE_5__analyze_view_factory__["viewsRequireLifecycle"])(viewFactory)
+    }));
+
+    _initDefineProp(_this, 'items', _descriptor, _this);
+
+    _initDefineProp(_this, 'local', _descriptor2, _this);
+
+    _initDefineProp(_this, 'key', _descriptor3, _this);
+
+    _initDefineProp(_this, 'value', _descriptor4, _this);
+
+    _this.viewFactory = viewFactory;
+    _this.instruction = instruction;
+    _this.viewSlot = viewSlot;
+    _this.lookupFunctions = viewResources.lookupFunctions;
+    _this.observerLocator = observerLocator;
+    _this.key = 'key';
+    _this.value = 'value';
+    _this.strategyLocator = strategyLocator;
+    _this.ignoreMutation = false;
+    _this.sourceExpression = Object(__WEBPACK_IMPORTED_MODULE_4__repeat_utilities__["getItemsSourceExpression"])(_this.instruction, 'repeat.for');
+    _this.isOneTime = Object(__WEBPACK_IMPORTED_MODULE_4__repeat_utilities__["isOneTime"])(_this.sourceExpression);
+    _this.viewsRequireLifecycle = Object(__WEBPACK_IMPORTED_MODULE_5__analyze_view_factory__["viewsRequireLifecycle"])(viewFactory);
+    return _this;
+  }
+
+  Repeat.prototype.call = function call(context, changes) {
+    this[context](this.items, changes);
+  };
+
+  Repeat.prototype.bind = function bind(bindingContext, overrideContext) {
+    this.scope = { bindingContext: bindingContext, overrideContext: overrideContext };
+    this.matcherBinding = this._captureAndRemoveMatcherBinding();
+    this.itemsChanged();
+  };
+
+  Repeat.prototype.unbind = function unbind() {
+    this.scope = null;
+    this.items = null;
+    this.matcherBinding = null;
+    this.viewSlot.removeAll(true);
+    this._unsubscribeCollection();
+  };
+
+  Repeat.prototype._unsubscribeCollection = function _unsubscribeCollection() {
+    if (this.collectionObserver) {
+      this.collectionObserver.unsubscribe(this.callContext, this);
+      this.collectionObserver = null;
+      this.callContext = null;
+    }
+  };
+
+  Repeat.prototype.itemsChanged = function itemsChanged() {
+    this._unsubscribeCollection();
+
+    if (!this.scope) {
+      return;
+    }
+
+    var items = this.items;
+    this.strategy = this.strategyLocator.getStrategy(items);
+    if (!this.strategy) {
+      throw new Error('Value for \'' + this.sourceExpression + '\' is non-repeatable');
+    }
+
+    if (!this.isOneTime && !this._observeInnerCollection()) {
+      this._observeCollection();
+    }
+    this.strategy.instanceChanged(this, items);
+  };
+
+  Repeat.prototype._getInnerCollection = function _getInnerCollection() {
+    var expression = Object(__WEBPACK_IMPORTED_MODULE_4__repeat_utilities__["unwrapExpression"])(this.sourceExpression);
+    if (!expression) {
+      return null;
+    }
+    return expression.evaluate(this.scope, null);
+  };
+
+  Repeat.prototype.handleCollectionMutated = function handleCollectionMutated(collection, changes) {
+    if (!this.collectionObserver) {
+      return;
+    }
+    this.strategy.instanceMutated(this, collection, changes);
+  };
+
+  Repeat.prototype.handleInnerCollectionMutated = function handleInnerCollectionMutated(collection, changes) {
+    var _this2 = this;
+
+    if (!this.collectionObserver) {
+      return;
+    }
+
+    if (this.ignoreMutation) {
+      return;
+    }
+    this.ignoreMutation = true;
+    var newItems = this.sourceExpression.evaluate(this.scope, this.lookupFunctions);
+    this.observerLocator.taskQueue.queueMicroTask(function () {
+      return _this2.ignoreMutation = false;
+    });
+
+    if (newItems === this.items) {
+      this.itemsChanged();
+    } else {
+      this.items = newItems;
+    }
+  };
+
+  Repeat.prototype._observeInnerCollection = function _observeInnerCollection() {
+    var items = this._getInnerCollection();
+    var strategy = this.strategyLocator.getStrategy(items);
+    if (!strategy) {
+      return false;
+    }
+    this.collectionObserver = strategy.getCollectionObserver(this.observerLocator, items);
+    if (!this.collectionObserver) {
+      return false;
+    }
+    this.callContext = 'handleInnerCollectionMutated';
+    this.collectionObserver.subscribe(this.callContext, this);
+    return true;
+  };
+
+  Repeat.prototype._observeCollection = function _observeCollection() {
+    var items = this.items;
+    this.collectionObserver = this.strategy.getCollectionObserver(this.observerLocator, items);
+    if (this.collectionObserver) {
+      this.callContext = 'handleCollectionMutated';
+      this.collectionObserver.subscribe(this.callContext, this);
+    }
+  };
+
+  Repeat.prototype._captureAndRemoveMatcherBinding = function _captureAndRemoveMatcherBinding() {
+    if (this.viewFactory.viewFactory) {
+      var instructions = this.viewFactory.viewFactory.instructions;
+      var instructionIds = Object.keys(instructions);
+      for (var i = 0; i < instructionIds.length; i++) {
+        var expressions = instructions[instructionIds[i]].expressions;
+        if (expressions) {
+          for (var ii = 0; i < expressions.length; i++) {
+            if (expressions[ii].targetProperty === 'matcher') {
+              var matcherBinding = expressions[ii];
+              expressions.splice(ii, 1);
+              return matcherBinding;
+            }
+          }
+        }
+      }
+    }
+
+    return undefined;
+  };
+
+  Repeat.prototype.viewCount = function viewCount() {
+    return this.viewSlot.children.length;
+  };
+
+  Repeat.prototype.views = function views() {
+    return this.viewSlot.children;
+  };
+
+  Repeat.prototype.view = function view(index) {
+    return this.viewSlot.children[index];
+  };
+
+  Repeat.prototype.matcher = function matcher() {
+    return this.matcherBinding ? this.matcherBinding.sourceExpression.evaluate(this.scope, this.matcherBinding.lookupFunctions) : null;
+  };
+
+  Repeat.prototype.addView = function addView(bindingContext, overrideContext) {
+    var view = this.viewFactory.create();
+    view.bind(bindingContext, overrideContext);
+    this.viewSlot.add(view);
+  };
+
+  Repeat.prototype.insertView = function insertView(index, bindingContext, overrideContext) {
+    var view = this.viewFactory.create();
+    view.bind(bindingContext, overrideContext);
+    this.viewSlot.insert(index, view);
+  };
+
+  Repeat.prototype.moveView = function moveView(sourceIndex, targetIndex) {
+    this.viewSlot.move(sourceIndex, targetIndex);
+  };
+
+  Repeat.prototype.removeAllViews = function removeAllViews(returnToCache, skipAnimation) {
+    return this.viewSlot.removeAll(returnToCache, skipAnimation);
+  };
+
+  Repeat.prototype.removeViews = function removeViews(viewsToRemove, returnToCache, skipAnimation) {
+    return this.viewSlot.removeMany(viewsToRemove, returnToCache, skipAnimation);
+  };
+
+  Repeat.prototype.removeView = function removeView(index, returnToCache, skipAnimation) {
+    return this.viewSlot.removeAt(index, returnToCache, skipAnimation);
+  };
+
+  Repeat.prototype.updateBindings = function updateBindings(view) {
+    var j = view.bindings.length;
+    while (j--) {
+      Object(__WEBPACK_IMPORTED_MODULE_4__repeat_utilities__["updateOneTimeBinding"])(view.bindings[j]);
+    }
+    j = view.controllers.length;
+    while (j--) {
+      var k = view.controllers[j].boundProperties.length;
+      while (k--) {
+        var binding = view.controllers[j].boundProperties[k].binding;
+        Object(__WEBPACK_IMPORTED_MODULE_4__repeat_utilities__["updateOneTimeBinding"])(binding);
+      }
+    }
+  };
+
+  return Repeat;
+}(__WEBPACK_IMPORTED_MODULE_6__abstract_repeater__["AbstractRepeater"]), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'items', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
+  enumerable: true,
+  initializer: null
+}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'local', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
+  enumerable: true,
+  initializer: null
+}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'key', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
+  enumerable: true,
+  initializer: null
+}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'value', [__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["bindable"]], {
+  enumerable: true,
+  initializer: null
+})), _class2)) || _class) || _class) || _class);
+
+/***/ }),
+/* 23 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RepeatStrategyLocator", function() { return RepeatStrategyLocator; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__null_repeat_strategy__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__array_repeat_strategy__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_repeat_strategy__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__set_repeat_strategy__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__number_repeat_strategy__ = __webpack_require__(28);
+
+
+
+
+
+
+
+
+var RepeatStrategyLocator = function () {
+  function RepeatStrategyLocator() {
+    
+
+    this.matchers = [];
+    this.strategies = [];
+
+    this.addStrategy(function (items) {
+      return items === null || items === undefined;
+    }, new __WEBPACK_IMPORTED_MODULE_0__null_repeat_strategy__["NullRepeatStrategy"]());
+    this.addStrategy(function (items) {
+      return items instanceof Array;
+    }, new __WEBPACK_IMPORTED_MODULE_1__array_repeat_strategy__["ArrayRepeatStrategy"]());
+    this.addStrategy(function (items) {
+      return items instanceof Map;
+    }, new __WEBPACK_IMPORTED_MODULE_2__map_repeat_strategy__["MapRepeatStrategy"]());
+    this.addStrategy(function (items) {
+      return items instanceof Set;
+    }, new __WEBPACK_IMPORTED_MODULE_3__set_repeat_strategy__["SetRepeatStrategy"]());
+    this.addStrategy(function (items) {
+      return typeof items === 'number';
+    }, new __WEBPACK_IMPORTED_MODULE_4__number_repeat_strategy__["NumberRepeatStrategy"]());
+  }
+
+  RepeatStrategyLocator.prototype.addStrategy = function addStrategy(matcher, strategy) {
+    this.matchers.push(matcher);
+    this.strategies.push(strategy);
+  };
+
+  RepeatStrategyLocator.prototype.getStrategy = function getStrategy(items) {
+    var matchers = this.matchers;
+
+    for (var i = 0, ii = matchers.length; i < ii; ++i) {
+      if (matchers[i](items)) {
+        return this.strategies[i];
+      }
+    }
+
+    return null;
+  };
+
+  return RepeatStrategyLocator;
+}();
+
+/***/ }),
+/* 24 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NullRepeatStrategy", function() { return NullRepeatStrategy; });
+
+
+var NullRepeatStrategy = function () {
+  function NullRepeatStrategy() {
+    
+  }
+
+  NullRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
+    repeat.removeAllViews(true);
+  };
+
+  NullRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {};
+
+  return NullRepeatStrategy;
+}();
+
+/***/ }),
+/* 25 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArrayRepeatStrategy", function() { return ArrayRepeatStrategy; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(3);
+
+
+
+
+
+var ArrayRepeatStrategy = function () {
+  function ArrayRepeatStrategy() {
+    
+  }
+
+  ArrayRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {
+    return observerLocator.getArrayObserver(items);
+  };
+
+  ArrayRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
+    var _this = this;
+
+    var itemsLength = items.length;
+
+    if (!items || itemsLength === 0) {
+      repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+      return;
+    }
+
+    var children = repeat.views();
+    var viewsLength = children.length;
+
+    if (viewsLength === 0) {
+      this._standardProcessInstanceChanged(repeat, items);
+      return;
+    }
+
+    if (repeat.viewsRequireLifecycle) {
+      (function () {
+        var childrenSnapshot = children.slice(0);
+        var itemNameInBindingContext = repeat.local;
+        var matcher = repeat.matcher();
+
+        var itemsPreviouslyInViews = [];
+        var viewsToRemove = [];
+
+        for (var index = 0; index < viewsLength; index++) {
+          var view = childrenSnapshot[index];
+          var oldItem = view.bindingContext[itemNameInBindingContext];
+
+          if (Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["indexOf"])(items, oldItem, matcher) === -1) {
+            viewsToRemove.push(view);
+          } else {
+            itemsPreviouslyInViews.push(oldItem);
+          }
+        }
+
+        var updateViews = void 0;
+        var removePromise = void 0;
+
+        if (itemsPreviouslyInViews.length > 0) {
+          removePromise = repeat.removeViews(viewsToRemove, true, !repeat.viewsRequireLifecycle);
+          updateViews = function updateViews() {
+            for (var _index = 0; _index < itemsLength; _index++) {
+              var item = items[_index];
+              var indexOfView = Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["indexOf"])(itemsPreviouslyInViews, item, matcher, _index);
+              var _view = void 0;
+
+              if (indexOfView === -1) {
+                var overrideContext = Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, items[_index], _index, itemsLength);
+                repeat.insertView(_index, overrideContext.bindingContext, overrideContext);
+
+                itemsPreviouslyInViews.splice(_index, 0, undefined);
+              } else if (indexOfView === _index) {
+                _view = children[indexOfView];
+                itemsPreviouslyInViews[indexOfView] = undefined;
+              } else {
+                _view = children[indexOfView];
+                repeat.moveView(indexOfView, _index);
+                itemsPreviouslyInViews.splice(indexOfView, 1);
+                itemsPreviouslyInViews.splice(_index, 0, undefined);
+              }
+
+              if (_view) {
+                Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContext"])(_view.overrideContext, _index, itemsLength);
+              }
+            }
+
+            _this._inPlaceProcessItems(repeat, items);
+          };
+        } else {
+          removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+          updateViews = function updateViews() {
+            return _this._standardProcessInstanceChanged(repeat, items);
+          };
+        }
+
+        if (removePromise instanceof Promise) {
+          removePromise.then(updateViews);
+        } else {
+          updateViews();
+        }
+      })();
+    } else {
+      this._inPlaceProcessItems(repeat, items);
+    }
+  };
+
+  ArrayRepeatStrategy.prototype._standardProcessInstanceChanged = function _standardProcessInstanceChanged(repeat, items) {
+    for (var i = 0, ii = items.length; i < ii; i++) {
+      var overrideContext = Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, items[i], i, ii);
+      repeat.addView(overrideContext.bindingContext, overrideContext);
+    }
+  };
+
+  ArrayRepeatStrategy.prototype._inPlaceProcessItems = function _inPlaceProcessItems(repeat, items) {
+    var itemsLength = items.length;
+    var viewsLength = repeat.viewCount();
+
+    while (viewsLength > itemsLength) {
+      viewsLength--;
+      repeat.removeView(viewsLength, true, !repeat.viewsRequireLifecycle);
+    }
+
+    var local = repeat.local;
+
+    for (var i = 0; i < viewsLength; i++) {
+      var view = repeat.view(i);
+      var last = i === itemsLength - 1;
+      var middle = i !== 0 && !last;
+
+      if (view.bindingContext[local] === items[i] && view.overrideContext.$middle === middle && view.overrideContext.$last === last) {
+        continue;
+      }
+
+      view.bindingContext[local] = items[i];
+      view.overrideContext.$middle = middle;
+      view.overrideContext.$last = last;
+      repeat.updateBindings(view);
+    }
+
+    for (var _i = viewsLength; _i < itemsLength; _i++) {
+      var overrideContext = Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, items[_i], _i, itemsLength);
+      repeat.addView(overrideContext.bindingContext, overrideContext);
+    }
+  };
+
+  ArrayRepeatStrategy.prototype.instanceMutated = function instanceMutated(repeat, array, splices) {
+    var _this2 = this;
+
+    if (repeat.__queuedSplices) {
+      for (var i = 0, ii = splices.length; i < ii; ++i) {
+        var _splices$i = splices[i],
+            index = _splices$i.index,
+            removed = _splices$i.removed,
+            addedCount = _splices$i.addedCount;
+
+        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["mergeSplice"])(repeat.__queuedSplices, index, removed, addedCount);
+      }
+
+      repeat.__array = array.slice(0);
+      return;
+    }
+
+    var maybePromise = this._runSplices(repeat, array.slice(0), splices);
+    if (maybePromise instanceof Promise) {
+      (function () {
+        var queuedSplices = repeat.__queuedSplices = [];
+
+        var runQueuedSplices = function runQueuedSplices() {
+          if (!queuedSplices.length) {
+            repeat.__queuedSplices = undefined;
+            repeat.__array = undefined;
+            return;
+          }
+
+          var nextPromise = _this2._runSplices(repeat, repeat.__array, queuedSplices) || Promise.resolve();
+          queuedSplices = repeat.__queuedSplices = [];
+          nextPromise.then(runQueuedSplices);
+        };
+
+        maybePromise.then(runQueuedSplices);
+      })();
+    }
+  };
+
+  ArrayRepeatStrategy.prototype._runSplices = function _runSplices(repeat, array, splices) {
+    var _this3 = this;
+
+    var removeDelta = 0;
+    var rmPromises = [];
+
+    for (var i = 0, ii = splices.length; i < ii; ++i) {
+      var splice = splices[i];
+      var removed = splice.removed;
+
+      for (var j = 0, jj = removed.length; j < jj; ++j) {
+        var viewOrPromise = repeat.removeView(splice.index + removeDelta + rmPromises.length, true);
+        if (viewOrPromise instanceof Promise) {
+          rmPromises.push(viewOrPromise);
+        }
+      }
+      removeDelta -= splice.addedCount;
+    }
+
+    if (rmPromises.length > 0) {
+      return Promise.all(rmPromises).then(function () {
+        var spliceIndexLow = _this3._handleAddedSplices(repeat, array, splices);
+        Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), spliceIndexLow);
+      });
+    }
+
+    var spliceIndexLow = this._handleAddedSplices(repeat, array, splices);
+    Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), spliceIndexLow);
+
+    return undefined;
+  };
+
+  ArrayRepeatStrategy.prototype._handleAddedSplices = function _handleAddedSplices(repeat, array, splices) {
+    var spliceIndex = void 0;
+    var spliceIndexLow = void 0;
+    var arrayLength = array.length;
+    for (var i = 0, ii = splices.length; i < ii; ++i) {
+      var splice = splices[i];
+      var addIndex = spliceIndex = splice.index;
+      var end = splice.index + splice.addedCount;
+
+      if (typeof spliceIndexLow === 'undefined' || spliceIndexLow === null || spliceIndexLow > splice.index) {
+        spliceIndexLow = spliceIndex;
+      }
+
+      for (; addIndex < end; ++addIndex) {
+        var overrideContext = Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, array[addIndex], addIndex, arrayLength);
+        repeat.insertView(addIndex, overrideContext.bindingContext, overrideContext);
+      }
+    }
+
+    return spliceIndexLow;
+  };
+
+  return ArrayRepeatStrategy;
+}();
+
+/***/ }),
+/* 26 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapRepeatStrategy", function() { return MapRepeatStrategy; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
+
+
+
+
+var MapRepeatStrategy = function () {
+  function MapRepeatStrategy() {
+    
+  }
+
+  MapRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {
+    return observerLocator.getMapObserver(items);
+  };
+
+  MapRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
+    var _this = this;
+
+    var removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+    if (removePromise instanceof Promise) {
+      removePromise.then(function () {
+        return _this._standardProcessItems(repeat, items);
+      });
+      return;
+    }
+    this._standardProcessItems(repeat, items);
+  };
+
+  MapRepeatStrategy.prototype._standardProcessItems = function _standardProcessItems(repeat, items) {
+    var index = 0;
+    var overrideContext = void 0;
+
+    items.forEach(function (value, key) {
+      overrideContext = Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, value, index, items.size, key);
+      repeat.addView(overrideContext.bindingContext, overrideContext);
+      ++index;
+    });
+  };
+
+  MapRepeatStrategy.prototype.instanceMutated = function instanceMutated(repeat, map, records) {
+    var key = void 0;
+    var i = void 0;
+    var ii = void 0;
+    var overrideContext = void 0;
+    var removeIndex = void 0;
+    var record = void 0;
+    var rmPromises = [];
+    var viewOrPromise = void 0;
+
+    for (i = 0, ii = records.length; i < ii; ++i) {
+      record = records[i];
+      key = record.key;
+      switch (record.type) {
+        case 'update':
+          removeIndex = this._getViewIndexByKey(repeat, key);
+          viewOrPromise = repeat.removeView(removeIndex, true, !repeat.viewsRequireLifecycle);
+          if (viewOrPromise instanceof Promise) {
+            rmPromises.push(viewOrPromise);
+          }
+          overrideContext = Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, map.get(key), removeIndex, map.size, key);
+          repeat.insertView(removeIndex, overrideContext.bindingContext, overrideContext);
+          break;
+        case 'add':
+          overrideContext = Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, map.get(key), map.size - 1, map.size, key);
+          repeat.insertView(map.size - 1, overrideContext.bindingContext, overrideContext);
+          break;
+        case 'delete':
+          if (record.oldValue === undefined) {
+            return;
+          }
+          removeIndex = this._getViewIndexByKey(repeat, key);
+          viewOrPromise = repeat.removeView(removeIndex, true, !repeat.viewsRequireLifecycle);
+          if (viewOrPromise instanceof Promise) {
+            rmPromises.push(viewOrPromise);
+          }
+          break;
+        case 'clear':
+          repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+          break;
+        default:
+          continue;
+      }
+    }
+
+    if (rmPromises.length > 0) {
+      Promise.all(rmPromises).then(function () {
+        Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), 0);
+      });
+    } else {
+      Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), 0);
+    }
+  };
+
+  MapRepeatStrategy.prototype._getViewIndexByKey = function _getViewIndexByKey(repeat, key) {
+    var i = void 0;
+    var ii = void 0;
+    var child = void 0;
+
+    for (i = 0, ii = repeat.viewCount(); i < ii; ++i) {
+      child = repeat.view(i);
+      if (child.bindingContext[repeat.key] === key) {
+        return i;
+      }
+    }
+
+    return undefined;
+  };
+
+  return MapRepeatStrategy;
+}();
+
+/***/ }),
+/* 27 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SetRepeatStrategy", function() { return SetRepeatStrategy; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
+
+
+
+
+var SetRepeatStrategy = function () {
+  function SetRepeatStrategy() {
+    
+  }
+
+  SetRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver(observerLocator, items) {
+    return observerLocator.getSetObserver(items);
+  };
+
+  SetRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, items) {
+    var _this = this;
+
+    var removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+    if (removePromise instanceof Promise) {
+      removePromise.then(function () {
+        return _this._standardProcessItems(repeat, items);
+      });
+      return;
+    }
+    this._standardProcessItems(repeat, items);
+  };
+
+  SetRepeatStrategy.prototype._standardProcessItems = function _standardProcessItems(repeat, items) {
+    var index = 0;
+    var overrideContext = void 0;
+
+    items.forEach(function (value) {
+      overrideContext = Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, value, index, items.size);
+      repeat.addView(overrideContext.bindingContext, overrideContext);
+      ++index;
+    });
+  };
+
+  SetRepeatStrategy.prototype.instanceMutated = function instanceMutated(repeat, set, records) {
+    var value = void 0;
+    var i = void 0;
+    var ii = void 0;
+    var overrideContext = void 0;
+    var removeIndex = void 0;
+    var record = void 0;
+    var rmPromises = [];
+    var viewOrPromise = void 0;
+
+    for (i = 0, ii = records.length; i < ii; ++i) {
+      record = records[i];
+      value = record.value;
+      switch (record.type) {
+        case 'add':
+          overrideContext = Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, value, set.size - 1, set.size);
+          repeat.insertView(set.size - 1, overrideContext.bindingContext, overrideContext);
+          break;
+        case 'delete':
+          removeIndex = this._getViewIndexByValue(repeat, value);
+          viewOrPromise = repeat.removeView(removeIndex, true, !repeat.viewsRequireLifecycle);
+          if (viewOrPromise instanceof Promise) {
+            rmPromises.push(viewOrPromise);
+          }
+          break;
+        case 'clear':
+          repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+          break;
+        default:
+          continue;
+      }
+    }
+
+    if (rmPromises.length > 0) {
+      Promise.all(rmPromises).then(function () {
+        Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), 0);
+      });
+    } else {
+      Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), 0);
+    }
+  };
+
+  SetRepeatStrategy.prototype._getViewIndexByValue = function _getViewIndexByValue(repeat, value) {
+    var i = void 0;
+    var ii = void 0;
+    var child = void 0;
+
+    for (i = 0, ii = repeat.viewCount(); i < ii; ++i) {
+      child = repeat.view(i);
+      if (child.bindingContext[repeat.local] === value) {
+        return i;
+      }
+    }
+
+    return undefined;
+  };
+
+  return SetRepeatStrategy;
+}();
+
+/***/ }),
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NumberRepeatStrategy", function() { return NumberRepeatStrategy; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__repeat_utilities__ = __webpack_require__(7);
+
+
+
+
+var NumberRepeatStrategy = function () {
+  function NumberRepeatStrategy() {
+    
+  }
+
+  NumberRepeatStrategy.prototype.getCollectionObserver = function getCollectionObserver() {
+    return null;
+  };
+
+  NumberRepeatStrategy.prototype.instanceChanged = function instanceChanged(repeat, value) {
+    var _this = this;
+
+    var removePromise = repeat.removeAllViews(true, !repeat.viewsRequireLifecycle);
+    if (removePromise instanceof Promise) {
+      removePromise.then(function () {
+        return _this._standardProcessItems(repeat, value);
+      });
+      return;
+    }
+    this._standardProcessItems(repeat, value);
+  };
+
+  NumberRepeatStrategy.prototype._standardProcessItems = function _standardProcessItems(repeat, value) {
+    var childrenLength = repeat.viewCount();
+    var i = void 0;
+    var ii = void 0;
+    var overrideContext = void 0;
+    var viewsToRemove = void 0;
+
+    value = Math.floor(value);
+    viewsToRemove = childrenLength - value;
+
+    if (viewsToRemove > 0) {
+      if (viewsToRemove > childrenLength) {
+        viewsToRemove = childrenLength;
+      }
+
+      for (i = 0, ii = viewsToRemove; i < ii; ++i) {
+        repeat.removeView(childrenLength - (i + 1), true, !repeat.viewsRequireLifecycle);
+      }
+
+      return;
+    }
+
+    for (i = childrenLength, ii = value; i < ii; ++i) {
+      overrideContext = Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["createFullOverrideContext"])(repeat, i, i, ii);
+      repeat.addView(overrideContext.bindingContext, overrideContext);
+    }
+
+    Object(__WEBPACK_IMPORTED_MODULE_0__repeat_utilities__["updateOverrideContexts"])(repeat.views(), 0);
+  };
+
+  return NumberRepeatStrategy;
+}();
+
+/***/ }),
+/* 29 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lifecycleOptionalBehaviors", function() { return lifecycleOptionalBehaviors; });
+/* harmony export (immutable) */ __webpack_exports__["viewsRequireLifecycle"] = viewsRequireLifecycle;
+
+var lifecycleOptionalBehaviors = ['focus', 'if', 'repeat', 'show', 'with'];
+
+function behaviorRequiresLifecycle(instruction) {
+  var t = instruction.type;
+  var name = t.elementName !== null ? t.elementName : t.attributeName;
+  return lifecycleOptionalBehaviors.indexOf(name) === -1 && (t.handlesAttached || t.handlesBind || t.handlesCreated || t.handlesDetached || t.handlesUnbind) || t.viewFactory && viewsRequireLifecycle(t.viewFactory) || instruction.viewFactory && viewsRequireLifecycle(instruction.viewFactory);
+}
+
+function targetRequiresLifecycle(instruction) {
+  var behaviors = instruction.behaviorInstructions;
+  if (behaviors) {
+    var i = behaviors.length;
+    while (i--) {
+      if (behaviorRequiresLifecycle(behaviors[i])) {
+        return true;
+      }
+    }
+  }
+
+  return instruction.viewFactory && viewsRequireLifecycle(instruction.viewFactory);
+}
+
+function viewsRequireLifecycle(viewFactory) {
+  if ('_viewsRequireLifecycle' in viewFactory) {
+    return viewFactory._viewsRequireLifecycle;
+  }
+
+  viewFactory._viewsRequireLifecycle = false;
+
+  if (viewFactory.viewFactory) {
+    viewFactory._viewsRequireLifecycle = viewsRequireLifecycle(viewFactory.viewFactory);
+    return viewFactory._viewsRequireLifecycle;
+  }
+
+  if (viewFactory.template.querySelector('.au-animate')) {
+    viewFactory._viewsRequireLifecycle = true;
+    return true;
+  }
+
+  for (var id in viewFactory.instructions) {
+    if (targetRequiresLifecycle(viewFactory.instructions[id])) {
+      viewFactory._viewsRequireLifecycle = true;
+      return true;
+    }
+  }
+
+  viewFactory._viewsRequireLifecycle = false;
+  return false;
+}
+
+/***/ }),
+/* 30 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AbstractRepeater", function() { return AbstractRepeater; });
+
+
+var AbstractRepeater = function () {
+  function AbstractRepeater(options) {
+    
+
+    Object.assign(this, {
+      local: 'items',
+      viewsRequireLifecycle: true
+    }, options);
+  }
+
+  AbstractRepeater.prototype.viewCount = function viewCount() {
+    throw new Error('subclass must implement `viewCount`');
+  };
+
+  AbstractRepeater.prototype.views = function views() {
+    throw new Error('subclass must implement `views`');
+  };
+
+  AbstractRepeater.prototype.view = function view(index) {
+    throw new Error('subclass must implement `view`');
+  };
+
+  AbstractRepeater.prototype.matcher = function matcher() {
+    throw new Error('subclass must implement `matcher`');
+  };
+
+  AbstractRepeater.prototype.addView = function addView(bindingContext, overrideContext) {
+    throw new Error('subclass must implement `addView`');
+  };
+
+  AbstractRepeater.prototype.insertView = function insertView(index, bindingContext, overrideContext) {
+    throw new Error('subclass must implement `insertView`');
+  };
+
+  AbstractRepeater.prototype.moveView = function moveView(sourceIndex, targetIndex) {
+    throw new Error('subclass must implement `moveView`');
+  };
+
+  AbstractRepeater.prototype.removeAllViews = function removeAllViews(returnToCache, skipAnimation) {
+    throw new Error('subclass must implement `removeAllViews`');
+  };
+
+  AbstractRepeater.prototype.removeViews = function removeViews(viewsToRemove, returnToCache, skipAnimation) {
+    throw new Error('subclass must implement `removeView`');
+  };
+
+  AbstractRepeater.prototype.removeView = function removeView(index, returnToCache, skipAnimation) {
+    throw new Error('subclass must implement `removeView`');
+  };
+
+  AbstractRepeater.prototype.updateBindings = function updateBindings(view) {
+    throw new Error('subclass must implement `updateBindings`');
+  };
+
+  return AbstractRepeater;
+}();
+
+/***/ }),
+/* 31 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Show", function() { return Show; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__ = __webpack_require__(12);
+var _dec, _dec2, _class;
+
+
+
+
+
+
+
+
+var Show = (_dec = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["customAttribute"])('show'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["DOM"].Element, __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["Animator"], __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["Optional"].of(__WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["DOM"].boundary, true)), _dec(_class = _dec2(_class = function () {
+  function Show(element, animator, domBoundary) {
+    
+
+    this.element = element;
+    this.animator = animator;
+    this.domBoundary = domBoundary;
+  }
+
+  Show.prototype.created = function created() {
+    Object(__WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__["injectAureliaHideStyleAtBoundary"])(this.domBoundary);
+  };
+
+  Show.prototype.valueChanged = function valueChanged(newValue) {
+    if (newValue) {
+      this.animator.removeClass(this.element, __WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__["aureliaHideClassName"]);
+    } else {
+      this.animator.addClass(this.element, __WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__["aureliaHideClassName"]);
+    }
+  };
+
+  Show.prototype.bind = function bind(bindingContext) {
+    this.valueChanged(this.value);
+  };
+
+  return Show;
+}()) || _class) || _class);
+
+/***/ }),
+/* 32 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hide", function() { return Hide; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_pal__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__ = __webpack_require__(12);
+var _dec, _dec2, _class;
+
+
+
+
+
+
+
+
+var Hide = (_dec = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["customAttribute"])('hide'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["DOM"].Element, __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["Animator"], __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["Optional"].of(__WEBPACK_IMPORTED_MODULE_2_aurelia_pal__["DOM"].boundary, true)), _dec(_class = _dec2(_class = function () {
+  function Hide(element, animator, domBoundary) {
+    
+
+    this.element = element;
+    this.animator = animator;
+    this.domBoundary = domBoundary;
+  }
+
+  Hide.prototype.created = function created() {
+    Object(__WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__["injectAureliaHideStyleAtBoundary"])(this.domBoundary);
+  };
+
+  Hide.prototype.valueChanged = function valueChanged(newValue) {
+    if (newValue) {
+      this.animator.addClass(this.element, __WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__["aureliaHideClassName"]);
+    } else {
+      this.animator.removeClass(this.element, __WEBPACK_IMPORTED_MODULE_3__aurelia_hide_style__["aureliaHideClassName"]);
+    }
+  };
+
+  Hide.prototype.bind = function bind(bindingContext) {
+    this.valueChanged(this.value);
+  };
+
+  return Hide;
+}()) || _class) || _class);
+
+/***/ }),
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SanitizeHTMLValueConverter", function() { return SanitizeHTMLValueConverter; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__html_sanitizer__ = __webpack_require__(34);
+var _dec, _dec2, _class;
+
+
+
+
+
+
+
+var SanitizeHTMLValueConverter = (_dec = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["valueConverter"])('sanitizeHTML'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_2__html_sanitizer__["HTMLSanitizer"]), _dec(_class = _dec2(_class = function () {
+  function SanitizeHTMLValueConverter(sanitizer) {
+    
+
+    this.sanitizer = sanitizer;
+  }
+
+  SanitizeHTMLValueConverter.prototype.toView = function toView(untrustedMarkup) {
+    if (untrustedMarkup === null || untrustedMarkup === undefined) {
+      return null;
+    }
+
+    return this.sanitizer.sanitize(untrustedMarkup);
+  };
+
+  return SanitizeHTMLValueConverter;
+}()) || _class) || _class);
+
+/***/ }),
+/* 34 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HTMLSanitizer", function() { return HTMLSanitizer; });
+
+
+var SCRIPT_REGEX = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+
+var HTMLSanitizer = function () {
+  function HTMLSanitizer() {
+    
+  }
+
+  HTMLSanitizer.prototype.sanitize = function sanitize(input) {
+    return input.replace(SCRIPT_REGEX, '');
+  };
+
+  return HTMLSanitizer;
+}();
+
+/***/ }),
+/* 35 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Replaceable", function() { return Replaceable; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__ = __webpack_require__(1);
+var _dec, _dec2, _class;
+
+
+
+
+
+
+var Replaceable = (_dec = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["customAttribute"])('replaceable'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["BoundViewFactory"], __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["ViewSlot"]), _dec(_class = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["templateController"])(_class = _dec2(_class = function () {
+  function Replaceable(viewFactory, viewSlot) {
+    
+
+    this.viewFactory = viewFactory;
+    this.viewSlot = viewSlot;
+    this.view = null;
+  }
+
+  Replaceable.prototype.bind = function bind(bindingContext, overrideContext) {
+    if (this.view === null) {
+      this.view = this.viewFactory.create();
+      this.viewSlot.add(this.view);
+    }
+
+    this.view.bind(bindingContext, overrideContext);
+  };
+
+  Replaceable.prototype.unbind = function unbind() {
+    this.view.unbind();
+  };
+
+  return Replaceable;
+}()) || _class) || _class) || _class);
+
+/***/ }),
+/* 36 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Focus", function() { return Focus; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_dependency_injection__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_task_queue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__ = __webpack_require__(0);
+var _dec, _dec2, _class;
+
+
+
+
+
+
+
+
+
+var Focus = (_dec = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["customAttribute"])('focus', __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].twoWay), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["DOM"].Element, __WEBPACK_IMPORTED_MODULE_3_aurelia_task_queue__["TaskQueue"]), _dec(_class = _dec2(_class = function () {
+  function Focus(element, taskQueue) {
+    var _this = this;
+
+    
+
+    this.element = element;
+    this.taskQueue = taskQueue;
+    this.isAttached = false;
+    this.needsApply = false;
+
+    this.focusListener = function (e) {
+      _this.value = true;
+    };
+    this.blurListener = function (e) {
+      if (__WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["DOM"].activeElement !== _this.element) {
+        _this.value = false;
+      }
+    };
+  }
+
+  Focus.prototype.valueChanged = function valueChanged(newValue) {
+    if (this.isAttached) {
+      this._apply();
+    } else {
+      this.needsApply = true;
+    }
+  };
+
+  Focus.prototype._apply = function _apply() {
+    var _this2 = this;
+
+    if (this.value) {
+      this.taskQueue.queueMicroTask(function () {
+        if (_this2.value) {
+          _this2.element.focus();
+        }
+      });
+    } else {
+      this.element.blur();
+    }
+  };
+
+  Focus.prototype.attached = function attached() {
+    this.isAttached = true;
+    if (this.needsApply) {
+      this.needsApply = false;
+      this._apply();
+    }
+    this.element.addEventListener('focus', this.focusListener);
+    this.element.addEventListener('blur', this.blurListener);
+  };
+
+  Focus.prototype.detached = function detached() {
+    this.isAttached = false;
+    this.element.removeEventListener('focus', this.focusListener);
+    this.element.removeEventListener('blur', this.blurListener);
+  };
+
+  return Focus;
+}()) || _class) || _class);
+
+/***/ }),
+/* 37 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttrBindingBehavior", function() { return AttrBindingBehavior; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
+
+
+
+
+var AttrBindingBehavior = function () {
+  function AttrBindingBehavior() {
+    
+  }
+
+  AttrBindingBehavior.prototype.bind = function bind(binding, source) {
+    binding.targetObserver = new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["DataAttributeObserver"](binding.target, binding.targetProperty);
+  };
+
+  AttrBindingBehavior.prototype.unbind = function unbind(binding, source) {};
+
+  return AttrBindingBehavior;
+}();
+
+/***/ }),
+/* 38 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OneTimeBindingBehavior", function() { return OneTimeBindingBehavior; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OneWayBindingBehavior", function() { return OneWayBindingBehavior; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TwoWayBindingBehavior", function() { return TwoWayBindingBehavior; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__ = __webpack_require__(5);
+var _dec, _class, _dec2, _class2, _dec3, _class3;
+
+
+
+
+
+
+var modeBindingBehavior = {
+  bind: function bind(binding, source, lookupFunctions) {
+    binding.originalMode = binding.mode;
+    binding.mode = this.mode;
+  },
+  unbind: function unbind(binding, source) {
+    binding.mode = binding.originalMode;
+    binding.originalMode = null;
+  }
+};
+
+var OneTimeBindingBehavior = (_dec = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["mixin"])(modeBindingBehavior), _dec(_class = function OneTimeBindingBehavior() {
+  
+
+  this.mode = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["bindingMode"].oneTime;
+}) || _class);
+
+var OneWayBindingBehavior = (_dec2 = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["mixin"])(modeBindingBehavior), _dec2(_class2 = function OneWayBindingBehavior() {
+  
+
+  this.mode = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["bindingMode"].oneWay;
+}) || _class2);
+
+var TwoWayBindingBehavior = (_dec3 = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["mixin"])(modeBindingBehavior), _dec3(_class3 = function TwoWayBindingBehavior() {
+  
+
+  this.mode = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["bindingMode"].twoWay;
+}) || _class3);
+
+/***/ }),
+/* 39 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ThrottleBindingBehavior", function() { return ThrottleBindingBehavior; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
+
+
+
+
+function throttle(newValue) {
+  var _this = this;
+
+  var state = this.throttleState;
+  var elapsed = +new Date() - state.last;
+  if (elapsed >= state.delay) {
+    clearTimeout(state.timeoutId);
+    state.timeoutId = null;
+    state.last = +new Date();
+    this.throttledMethod(newValue);
+    return;
+  }
+  state.newValue = newValue;
+  if (state.timeoutId === null) {
+    state.timeoutId = setTimeout(function () {
+      state.timeoutId = null;
+      state.last = +new Date();
+      _this.throttledMethod(state.newValue);
+    }, state.delay - elapsed);
+  }
+}
+
+var ThrottleBindingBehavior = function () {
+  function ThrottleBindingBehavior() {
+    
+  }
+
+  ThrottleBindingBehavior.prototype.bind = function bind(binding, source) {
+    var delay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 200;
+
+    var methodToThrottle = 'updateTarget';
+    if (binding.callSource) {
+      methodToThrottle = 'callSource';
+    } else if (binding.updateSource && binding.mode === __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["bindingMode"].twoWay) {
+      methodToThrottle = 'updateSource';
+    }
+
+    binding.throttledMethod = binding[methodToThrottle];
+    binding.throttledMethod.originalName = methodToThrottle;
+
+    binding[methodToThrottle] = throttle;
+
+    binding.throttleState = {
+      delay: delay,
+      last: 0,
+      timeoutId: null
+    };
+  };
+
+  ThrottleBindingBehavior.prototype.unbind = function unbind(binding, source) {
+    var methodToRestore = binding.throttledMethod.originalName;
+    binding[methodToRestore] = binding.throttledMethod;
+    binding.throttledMethod = null;
+    clearTimeout(binding.throttleState.timeoutId);
+    binding.throttleState = null;
+  };
+
+  return ThrottleBindingBehavior;
+}();
+
+/***/ }),
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DebounceBindingBehavior", function() { return DebounceBindingBehavior; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
+
+
+
+
+function debounce(newValue) {
+  var _this = this;
+
+  var state = this.debounceState;
+  if (state.immediate) {
+    state.immediate = false;
+    this.debouncedMethod(newValue);
+    return;
+  }
+  clearTimeout(state.timeoutId);
+  state.timeoutId = setTimeout(function () {
+    return _this.debouncedMethod(newValue);
+  }, state.delay);
+}
+
+var DebounceBindingBehavior = function () {
+  function DebounceBindingBehavior() {
+    
+  }
+
+  DebounceBindingBehavior.prototype.bind = function bind(binding, source) {
+    var delay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 200;
+
+    var methodToDebounce = 'updateTarget';
+    if (binding.callSource) {
+      methodToDebounce = 'callSource';
+    } else if (binding.updateSource && binding.mode === __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["bindingMode"].twoWay) {
+      methodToDebounce = 'updateSource';
+    }
+
+    binding.debouncedMethod = binding[methodToDebounce];
+    binding.debouncedMethod.originalName = methodToDebounce;
+
+    binding[methodToDebounce] = debounce;
+
+    binding.debounceState = {
+      delay: delay,
+      timeoutId: null,
+      immediate: methodToDebounce === 'updateTarget' };
+  };
+
+  DebounceBindingBehavior.prototype.unbind = function unbind(binding, source) {
+    var methodToRestore = binding.debouncedMethod.originalName;
+    binding[methodToRestore] = binding.debouncedMethod;
+    binding.debouncedMethod = null;
+    clearTimeout(binding.debounceState.timeoutId);
+    binding.debounceState = null;
+  };
+
+  return DebounceBindingBehavior;
+}();
+
+/***/ }),
+/* 41 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelfBindingBehavior", function() { return SelfBindingBehavior; });
+
+
+function findOriginalEventTarget(event) {
+  return event.path && event.path[0] || event.deepPath && event.deepPath[0] || event.target;
+}
+
+function handleSelfEvent(event) {
+  var target = findOriginalEventTarget(event);
+  if (this.target !== target) return;
+  this.selfEventCallSource(event);
+}
+
+var SelfBindingBehavior = function () {
+  function SelfBindingBehavior() {
+    
+  }
+
+  SelfBindingBehavior.prototype.bind = function bind(binding, source) {
+    if (!binding.callSource || !binding.targetEvent) throw new Error('Self binding behavior only supports event.');
+    binding.selfEventCallSource = binding.callSource;
+    binding.callSource = handleSelfEvent;
+  };
+
+  SelfBindingBehavior.prototype.unbind = function unbind(binding, source) {
+    binding.callSource = binding.selfEventCallSource;
+    binding.selfEventCallSource = null;
+  };
+
+  return SelfBindingBehavior;
+}();
+
+/***/ }),
+/* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignalBindingBehavior", function() { return SignalBindingBehavior; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__binding_signaler__ = __webpack_require__(43);
+
+
+
+
+var SignalBindingBehavior = function () {
+  SignalBindingBehavior.inject = function inject() {
+    return [__WEBPACK_IMPORTED_MODULE_0__binding_signaler__["BindingSignaler"]];
+  };
+
+  function SignalBindingBehavior(bindingSignaler) {
+    
+
+    this.signals = bindingSignaler.signals;
+  }
+
+  SignalBindingBehavior.prototype.bind = function bind(binding, source) {
+    if (!binding.updateTarget) {
+      throw new Error('Only property bindings and string interpolation bindings can be signaled.  Trigger, delegate and call bindings cannot be signaled.');
+    }
+    if (arguments.length === 3) {
+      var name = arguments[2];
+      var bindings = this.signals[name] || (this.signals[name] = []);
+      bindings.push(binding);
+      binding.signalName = name;
+    } else if (arguments.length > 3) {
+      var names = Array.prototype.slice.call(arguments, 2);
+      var i = names.length;
+      while (i--) {
+        var _name = names[i];
+        var _bindings = this.signals[_name] || (this.signals[_name] = []);
+        _bindings.push(binding);
+      }
+      binding.signalName = names;
+    } else {
+      throw new Error('Signal name is required.');
+    }
+  };
+
+  SignalBindingBehavior.prototype.unbind = function unbind(binding, source) {
+    var name = binding.signalName;
+    binding.signalName = null;
+    if (Array.isArray(name)) {
+      var names = name;
+      var i = names.length;
+      while (i--) {
+        var n = names[i];
+        var bindings = this.signals[n];
+        bindings.splice(bindings.indexOf(binding), 1);
+      }
+    } else {
+      var _bindings2 = this.signals[name];
+      _bindings2.splice(_bindings2.indexOf(binding), 1);
+    }
+  };
+
+  return SignalBindingBehavior;
+}();
+
+/***/ }),
+/* 43 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BindingSignaler", function() { return BindingSignaler; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
+
+
+
+
+var BindingSignaler = function () {
+  function BindingSignaler() {
+    
+
+    this.signals = {};
+  }
+
+  BindingSignaler.prototype.signal = function signal(name) {
+    var bindings = this.signals[name];
+    if (!bindings) {
+      return;
+    }
+    var i = bindings.length;
+    while (i--) {
+      bindings[i].call(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["sourceContext"]);
+    }
+  };
+
+  return BindingSignaler;
+}();
+
+/***/ }),
+/* 44 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateTriggerBindingBehavior", function() { return UpdateTriggerBindingBehavior; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(3);
+var _class, _temp;
+
+
+
+
+
+var eventNamesRequired = 'The updateTrigger binding behavior requires at least one event name argument: eg <input value.bind="firstName & updateTrigger:\'blur\'">';
+var notApplicableMessage = 'The updateTrigger binding behavior can only be applied to two-way bindings on input/select elements.';
+
+var UpdateTriggerBindingBehavior = (_temp = _class = function () {
+  function UpdateTriggerBindingBehavior(eventManager) {
+    
+
+    this.eventManager = eventManager;
+  }
+
+  UpdateTriggerBindingBehavior.prototype.bind = function bind(binding, source) {
+    for (var _len = arguments.length, events = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+      events[_key - 2] = arguments[_key];
+    }
+
+    if (events.length === 0) {
+      throw new Error(eventNamesRequired);
+    }
+    if (binding.mode !== __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["bindingMode"].twoWay) {
+      throw new Error(notApplicableMessage);
+    }
+
+    var targetObserver = binding.observerLocator.getObserver(binding.target, binding.targetProperty);
+    if (!targetObserver.handler) {
+      throw new Error(notApplicableMessage);
+    }
+    binding.targetObserver = targetObserver;
+
+    targetObserver.originalHandler = binding.targetObserver.handler;
+
+    var handler = this.eventManager.createElementHandler(events);
+    targetObserver.handler = handler;
+  };
+
+  UpdateTriggerBindingBehavior.prototype.unbind = function unbind(binding, source) {
+    binding.targetObserver.handler = binding.targetObserver.originalHandler;
+    binding.targetObserver.originalHandler = null;
+  };
+
+  return UpdateTriggerBindingBehavior;
+}(), _class.inject = [__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["EventManager"]], _temp);
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__;
+
+/***/ }),
+/* 46 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["bootstrap"] = bootstrap;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "starting", function() { return starting; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_polyfills__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__ = __webpack_require__(0);
 
 
 
@@ -17791,14 +17794,17 @@ function bootstrap(configure) {
 }
 
 var starting = run();
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(43)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(15)))
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Aurelia", function() { return Aurelia; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FrameworkConfiguration", function() { return FrameworkConfiguration; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogManager", function() { return LogManager; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_loader__ = __webpack_require__(10);
@@ -17992,7 +17998,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "TemplateDependency", function() { return __WEBPACK_IMPORTED_MODULE_2_aurelia_loader__["TemplateDependency"]; });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "TemplateRegistryEntry", function() { return __WEBPACK_IMPORTED_MODULE_2_aurelia_loader__["TemplateRegistryEntry"]; });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "Loader", function() { return __WEBPACK_IMPORTED_MODULE_2_aurelia_loader__["Loader"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_aurelia_task_queue__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_aurelia_task_queue__ = __webpack_require__(8);
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "TaskQueue", function() { return __WEBPACK_IMPORTED_MODULE_8_aurelia_task_queue__["TaskQueue"]; });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "relativeToFile", function() { return __WEBPACK_IMPORTED_MODULE_5_aurelia_path__["relativeToFile"]; });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "join", function() { return __WEBPACK_IMPORTED_MODULE_5_aurelia_path__["join"]; });
@@ -18005,9 +18011,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "isInitialized", function() { return __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["isInitialized"]; });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "initializePAL", function() { return __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["initializePAL"]; });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "reset", function() { return __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["reset"]; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Aurelia", function() { return Aurelia; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FrameworkConfiguration", function() { return FrameworkConfiguration; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogManager", function() { return LogManager; });
 
 
 
@@ -18107,7 +18110,7 @@ var Aurelia = function () {
 
     if (!root) {
       if (this.configModuleId) {
-        root = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_aurelia_path__["relativeToFile"])('./app', this.configModuleId);
+        root = Object(__WEBPACK_IMPORTED_MODULE_5_aurelia_path__["relativeToFile"])('./app', this.configModuleId);
       } else {
         root = 'app';
       }
@@ -18345,7 +18348,7 @@ var FrameworkConfiguration = function () {
       var name = resource;
 
       if ((resource.startsWith('./') || resource.startsWith('../')) && parent !== '') {
-        name = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_aurelia_path__["join"])(parent, resource);
+        name = Object(__WEBPACK_IMPORTED_MODULE_5_aurelia_path__["join"])(parent, resource);
       }
 
       this.resourcesToLoad[name] = { moduleId: name, relativeTo: grandParent };
@@ -18476,17 +18479,932 @@ var FrameworkConfiguration = function () {
 var LogManager = __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__;
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_history__ = __webpack_require__(14);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttributeMap", function() { return AttributeMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterpolationBindingExpression", function() { return InterpolationBindingExpression; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterpolationBinding", function() { return InterpolationBinding; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChildInterpolationBinding", function() { return ChildInterpolationBinding; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SyntaxInterpreter", function() { return SyntaxInterpreter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemplatingBindingLanguage", function() { return TemplatingBindingLanguage; });
+/* harmony export (immutable) */ __webpack_exports__["configure"] = configure;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__ = __webpack_require__(1);
+var _class, _temp, _dec, _class2, _class3, _temp2, _class4, _temp3;
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+var AttributeMap = (_temp = _class = function () {
+  function AttributeMap(svg) {
+    
+
+    this.elements = Object.create(null);
+    this.allElements = Object.create(null);
+
+    this.svg = svg;
+
+    this.registerUniversal('accesskey', 'accessKey');
+    this.registerUniversal('contenteditable', 'contentEditable');
+    this.registerUniversal('tabindex', 'tabIndex');
+    this.registerUniversal('textcontent', 'textContent');
+    this.registerUniversal('innerhtml', 'innerHTML');
+    this.registerUniversal('scrolltop', 'scrollTop');
+    this.registerUniversal('scrollleft', 'scrollLeft');
+    this.registerUniversal('readonly', 'readOnly');
+
+    this.register('label', 'for', 'htmlFor');
+
+    this.register('img', 'usemap', 'useMap');
+
+    this.register('input', 'maxlength', 'maxLength');
+    this.register('input', 'minlength', 'minLength');
+    this.register('input', 'formaction', 'formAction');
+    this.register('input', 'formenctype', 'formEncType');
+    this.register('input', 'formmethod', 'formMethod');
+    this.register('input', 'formnovalidate', 'formNoValidate');
+    this.register('input', 'formtarget', 'formTarget');
+
+    this.register('textarea', 'maxlength', 'maxLength');
+
+    this.register('td', 'rowspan', 'rowSpan');
+    this.register('td', 'colspan', 'colSpan');
+    this.register('th', 'rowspan', 'rowSpan');
+    this.register('th', 'colspan', 'colSpan');
+  }
+
+  AttributeMap.prototype.register = function register(elementName, attributeName, propertyName) {
+    elementName = elementName.toLowerCase();
+    attributeName = attributeName.toLowerCase();
+    var element = this.elements[elementName] = this.elements[elementName] || Object.create(null);
+    element[attributeName] = propertyName;
+  };
+
+  AttributeMap.prototype.registerUniversal = function registerUniversal(attributeName, propertyName) {
+    attributeName = attributeName.toLowerCase();
+    this.allElements[attributeName] = propertyName;
+  };
+
+  AttributeMap.prototype.map = function map(elementName, attributeName) {
+    if (this.svg.isStandardSvgAttribute(elementName, attributeName)) {
+      return attributeName;
+    }
+    elementName = elementName.toLowerCase();
+    attributeName = attributeName.toLowerCase();
+    var element = this.elements[elementName];
+    if (element !== undefined && attributeName in element) {
+      return element[attributeName];
+    }
+    if (attributeName in this.allElements) {
+      return this.allElements[attributeName];
+    }
+
+    if (/(?:^data-)|(?:^aria-)|:/.test(attributeName)) {
+      return attributeName;
+    }
+    return Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["camelCase"])(attributeName);
+  };
+
+  return AttributeMap;
+}(), _class.inject = [__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["SVGAnalyzer"]], _temp);
+
+var InterpolationBindingExpression = function () {
+  function InterpolationBindingExpression(observerLocator, targetProperty, parts, mode, lookupFunctions, attribute) {
+    
+
+    this.observerLocator = observerLocator;
+    this.targetProperty = targetProperty;
+    this.parts = parts;
+    this.mode = mode;
+    this.lookupFunctions = lookupFunctions;
+    this.attribute = this.attrToRemove = attribute;
+    this.discrete = false;
+  }
+
+  InterpolationBindingExpression.prototype.createBinding = function createBinding(target) {
+    if (this.parts.length === 3) {
+      return new ChildInterpolationBinding(target, this.observerLocator, this.parts[1], this.mode, this.lookupFunctions, this.targetProperty, this.parts[0], this.parts[2]);
+    }
+    return new InterpolationBinding(this.observerLocator, this.parts, target, this.targetProperty, this.mode, this.lookupFunctions);
+  };
+
+  return InterpolationBindingExpression;
+}();
+
+function validateTarget(target, propertyName) {
+  if (propertyName === 'style') {
+    __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__["getLogger"]('templating-binding').info('Internet Explorer does not support interpolation in "style" attributes.  Use the style attribute\'s alias, "css" instead.');
+  } else if (target.parentElement && target.parentElement.nodeName === 'TEXTAREA' && propertyName === 'textContent') {
+    throw new Error('Interpolation binding cannot be used in the content of a textarea element.  Use <textarea value.bind="expression"></textarea> instead.');
+  }
+}
+
+var InterpolationBinding = function () {
+  function InterpolationBinding(observerLocator, parts, target, targetProperty, mode, lookupFunctions) {
+    
+
+    validateTarget(target, targetProperty);
+    this.observerLocator = observerLocator;
+    this.parts = parts;
+    this.target = target;
+    this.targetProperty = targetProperty;
+    this.targetAccessor = observerLocator.getAccessor(target, targetProperty);
+    this.mode = mode;
+    this.lookupFunctions = lookupFunctions;
+  }
+
+  InterpolationBinding.prototype.interpolate = function interpolate() {
+    if (this.isBound) {
+      var value = '';
+      var parts = this.parts;
+      for (var i = 0, ii = parts.length; i < ii; i++) {
+        value += i % 2 === 0 ? parts[i] : this['childBinding' + i].value;
+      }
+      this.targetAccessor.setValue(value, this.target, this.targetProperty);
+    }
+  };
+
+  InterpolationBinding.prototype.updateOneTimeBindings = function updateOneTimeBindings() {
+    for (var i = 1, ii = this.parts.length; i < ii; i += 2) {
+      var child = this['childBinding' + i];
+      if (child.mode === __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneTime) {
+        child.call();
+      }
+    }
+  };
+
+  InterpolationBinding.prototype.bind = function bind(source) {
+    if (this.isBound) {
+      if (this.source === source) {
+        return;
+      }
+      this.unbind();
+    }
+    this.source = source;
+
+    var parts = this.parts;
+    for (var i = 1, ii = parts.length; i < ii; i += 2) {
+      var binding = new ChildInterpolationBinding(this, this.observerLocator, parts[i], this.mode, this.lookupFunctions);
+      binding.bind(source);
+      this['childBinding' + i] = binding;
+    }
+
+    this.isBound = true;
+    this.interpolate();
+  };
+
+  InterpolationBinding.prototype.unbind = function unbind() {
+    if (!this.isBound) {
+      return;
+    }
+    this.isBound = false;
+    this.source = null;
+    var parts = this.parts;
+    for (var i = 1, ii = parts.length; i < ii; i += 2) {
+      var name = 'childBinding' + i;
+      this[name].unbind();
+    }
+  };
+
+  return InterpolationBinding;
+}();
+
+var ChildInterpolationBinding = (_dec = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["connectable"])(), _dec(_class2 = function () {
+  function ChildInterpolationBinding(target, observerLocator, sourceExpression, mode, lookupFunctions, targetProperty, left, right) {
+    
+
+    if (target instanceof InterpolationBinding) {
+      this.parent = target;
+    } else {
+      validateTarget(target, targetProperty);
+      this.target = target;
+      this.targetProperty = targetProperty;
+      this.targetAccessor = observerLocator.getAccessor(target, targetProperty);
+    }
+    this.observerLocator = observerLocator;
+    this.sourceExpression = sourceExpression;
+    this.mode = mode;
+    this.lookupFunctions = lookupFunctions;
+    this.left = left;
+    this.right = right;
+  }
+
+  ChildInterpolationBinding.prototype.updateTarget = function updateTarget(value) {
+    value = value === null || value === undefined ? '' : value.toString();
+    if (value !== this.value) {
+      this.value = value;
+      if (this.parent) {
+        this.parent.interpolate();
+      } else {
+        this.targetAccessor.setValue(this.left + value + this.right, this.target, this.targetProperty);
+      }
+    }
+  };
+
+  ChildInterpolationBinding.prototype.call = function call() {
+    if (!this.isBound) {
+      return;
+    }
+
+    this.rawValue = this.sourceExpression.evaluate(this.source, this.lookupFunctions);
+    this.updateTarget(this.rawValue);
+
+    if (this.mode !== __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneTime) {
+      this._version++;
+      this.sourceExpression.connect(this, this.source);
+      if (this.rawValue instanceof Array) {
+        this.observeArray(this.rawValue);
+      }
+      this.unobserve(false);
+    }
+  };
+
+  ChildInterpolationBinding.prototype.bind = function bind(source) {
+    if (this.isBound) {
+      if (this.source === source) {
+        return;
+      }
+      this.unbind();
+    }
+    this.isBound = true;
+    this.source = source;
+
+    var sourceExpression = this.sourceExpression;
+    if (sourceExpression.bind) {
+      sourceExpression.bind(this, source, this.lookupFunctions);
+    }
+
+    this.rawValue = sourceExpression.evaluate(source, this.lookupFunctions);
+    this.updateTarget(this.rawValue);
+
+    if (this.mode === __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneWay) {
+      Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["enqueueBindingConnect"])(this);
+    }
+  };
+
+  ChildInterpolationBinding.prototype.unbind = function unbind() {
+    if (!this.isBound) {
+      return;
+    }
+    this.isBound = false;
+    var sourceExpression = this.sourceExpression;
+    if (sourceExpression.unbind) {
+      sourceExpression.unbind(this, this.source);
+    }
+    this.source = null;
+    this.value = null;
+    this.rawValue = null;
+    this.unobserve(true);
+  };
+
+  ChildInterpolationBinding.prototype.connect = function connect(evaluate) {
+    if (!this.isBound) {
+      return;
+    }
+    if (evaluate) {
+      this.rawValue = this.sourceExpression.evaluate(this.source, this.lookupFunctions);
+      this.updateTarget(this.rawValue);
+    }
+    this.sourceExpression.connect(this, this.source);
+    if (this.rawValue instanceof Array) {
+      this.observeArray(this.rawValue);
+    }
+  };
+
+  return ChildInterpolationBinding;
+}()) || _class2);
+
+var SyntaxInterpreter = (_temp2 = _class3 = function () {
+  function SyntaxInterpreter(parser, observerLocator, eventManager, attributeMap) {
+    
+
+    this.parser = parser;
+    this.observerLocator = observerLocator;
+    this.eventManager = eventManager;
+    this.attributeMap = attributeMap;
+  }
+
+  SyntaxInterpreter.prototype.interpret = function interpret(resources, element, info, existingInstruction, context) {
+    if (info.command in this) {
+      return this[info.command](resources, element, info, existingInstruction, context);
+    }
+
+    return this.handleUnknownCommand(resources, element, info, existingInstruction, context);
+  };
+
+  SyntaxInterpreter.prototype.handleUnknownCommand = function handleUnknownCommand(resources, element, info, existingInstruction, context) {
+    __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__["getLogger"]('templating-binding').warn('Unknown binding command.', info);
+    return existingInstruction;
+  };
+
+  SyntaxInterpreter.prototype.determineDefaultBindingMode = function determineDefaultBindingMode(element, attrName, context) {
+    var tagName = element.tagName.toLowerCase();
+
+    if (tagName === 'input' && (attrName === 'value' || attrName === 'files') && element.type !== 'checkbox' && element.type !== 'radio' || tagName === 'input' && attrName === 'checked' && (element.type === 'checkbox' || element.type === 'radio') || (tagName === 'textarea' || tagName === 'select') && attrName === 'value' || (attrName === 'textcontent' || attrName === 'innerhtml') && element.contentEditable === 'true' || attrName === 'scrolltop' || attrName === 'scrollleft') {
+      return __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].twoWay;
+    }
+
+    if (context && attrName in context.attributes && context.attributes[attrName] && context.attributes[attrName].defaultBindingMode >= __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneTime) {
+      return context.attributes[attrName].defaultBindingMode;
+    }
+
+    return __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneWay;
+  };
+
+  SyntaxInterpreter.prototype.bind = function bind(resources, element, info, existingInstruction, context) {
+    var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
+
+    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["BindingExpression"](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), info.defaultBindingMode || this.determineDefaultBindingMode(element, info.attrName, context), resources.lookupFunctions);
+
+    return instruction;
+  };
+
+  SyntaxInterpreter.prototype.trigger = function trigger(resources, element, info) {
+    return new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["ListenerExpression"](this.eventManager, info.attrName, this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["delegationStrategy"].none, true, resources.lookupFunctions);
+  };
+
+  SyntaxInterpreter.prototype.capture = function capture(resources, element, info) {
+    return new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["ListenerExpression"](this.eventManager, info.attrName, this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["delegationStrategy"].capturing, true, resources.lookupFunctions);
+  };
+
+  SyntaxInterpreter.prototype.delegate = function delegate(resources, element, info) {
+    return new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["ListenerExpression"](this.eventManager, info.attrName, this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["delegationStrategy"].bubbling, true, resources.lookupFunctions);
+  };
+
+  SyntaxInterpreter.prototype.call = function call(resources, element, info, existingInstruction) {
+    var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
+
+    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["CallExpression"](this.observerLocator, info.attrName, this.parser.parse(info.attrValue), resources.lookupFunctions);
+
+    return instruction;
+  };
+
+  SyntaxInterpreter.prototype.options = function options(resources, element, info, existingInstruction, context) {
+    var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
+    var attrValue = info.attrValue;
+    var language = this.language;
+    var name = null;
+    var target = '';
+    var current = void 0;
+    var i = void 0;
+    var ii = void 0;
+    var inString = false;
+    var inEscape = false;
+    var foundName = false;
+
+    for (i = 0, ii = attrValue.length; i < ii; ++i) {
+      current = attrValue[i];
+
+      if (current === ';' && !inString) {
+        if (!foundName) {
+          name = this._getPrimaryPropertyName(resources, context);
+        }
+        info = language.inspectAttribute(resources, '?', name, target.trim());
+        language.createAttributeInstruction(resources, element, info, instruction, context);
+
+        if (!instruction.attributes[info.attrName]) {
+          instruction.attributes[info.attrName] = info.attrValue;
+        }
+
+        target = '';
+        name = null;
+      } else if (current === ':' && name === null) {
+        foundName = true;
+        name = target.trim();
+        target = '';
+      } else if (current === '\\') {
+        target += current;
+        inEscape = true;
+        continue;
+      } else {
+        target += current;
+
+        if (name !== null && inEscape === false && current === '\'') {
+          inString = !inString;
+        }
+      }
+
+      inEscape = false;
+    }
+
+    if (!foundName) {
+      name = this._getPrimaryPropertyName(resources, context);
+    }
+
+    if (name !== null) {
+      info = language.inspectAttribute(resources, '?', name, target.trim());
+      language.createAttributeInstruction(resources, element, info, instruction, context);
+
+      if (!instruction.attributes[info.attrName]) {
+        instruction.attributes[info.attrName] = info.attrValue;
+      }
+    }
+
+    return instruction;
+  };
+
+  SyntaxInterpreter.prototype._getPrimaryPropertyName = function _getPrimaryPropertyName(resources, context) {
+    var type = resources.getAttribute(context.attributeName);
+    if (type && type.primaryProperty) {
+      return type.primaryProperty.name;
+    }
+    return null;
+  };
+
+  SyntaxInterpreter.prototype['for'] = function _for(resources, element, info, existingInstruction) {
+    var parts = void 0;
+    var keyValue = void 0;
+    var instruction = void 0;
+    var attrValue = void 0;
+    var isDestructuring = void 0;
+
+    attrValue = info.attrValue;
+    isDestructuring = attrValue.match(/^ *[[].+[\]]/);
+    parts = isDestructuring ? attrValue.split('of ') : attrValue.split(' of ');
+
+    if (parts.length !== 2) {
+      throw new Error('Incorrect syntax for "for". The form is: "$local of $items" or "[$key, $value] of $items".');
+    }
+
+    instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
+
+    if (isDestructuring) {
+      keyValue = parts[0].replace(/[[\]]/g, '').replace(/,/g, ' ').replace(/\s+/g, ' ').trim().split(' ');
+      instruction.attributes.key = keyValue[0];
+      instruction.attributes.value = keyValue[1];
+    } else {
+      instruction.attributes.local = parts[0];
+    }
+
+    instruction.attributes.items = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["BindingExpression"](this.observerLocator, 'items', this.parser.parse(parts[1]), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneWay, resources.lookupFunctions);
+
+    return instruction;
+  };
+
+  SyntaxInterpreter.prototype['two-way'] = function twoWay(resources, element, info, existingInstruction) {
+    var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
+
+    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["BindingExpression"](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].twoWay, resources.lookupFunctions);
+
+    return instruction;
+  };
+
+  SyntaxInterpreter.prototype['one-way'] = function oneWay(resources, element, info, existingInstruction) {
+    var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
+
+    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["BindingExpression"](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneWay, resources.lookupFunctions);
+
+    return instruction;
+  };
+
+  SyntaxInterpreter.prototype['one-time'] = function oneTime(resources, element, info, existingInstruction) {
+    var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
+
+    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["BindingExpression"](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneTime, resources.lookupFunctions);
+
+    return instruction;
+  };
+
+  return SyntaxInterpreter;
+}(), _class3.inject = [__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["Parser"], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["ObserverLocator"], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["EventManager"], AttributeMap], _temp2);
+
+var info = {};
+
+var TemplatingBindingLanguage = (_temp3 = _class4 = function (_BindingLanguage) {
+  _inherits(TemplatingBindingLanguage, _BindingLanguage);
+
+  function TemplatingBindingLanguage(parser, observerLocator, syntaxInterpreter, attributeMap) {
+    
+
+    var _this = _possibleConstructorReturn(this, _BindingLanguage.call(this));
+
+    _this.parser = parser;
+    _this.observerLocator = observerLocator;
+    _this.syntaxInterpreter = syntaxInterpreter;
+    _this.emptyStringExpression = _this.parser.parse('\'\'');
+    syntaxInterpreter.language = _this;
+    _this.attributeMap = attributeMap;
+    return _this;
+  }
+
+  TemplatingBindingLanguage.prototype.inspectAttribute = function inspectAttribute(resources, elementName, attrName, attrValue) {
+    var parts = attrName.split('.');
+
+    info.defaultBindingMode = null;
+
+    if (parts.length === 2) {
+      info.attrName = parts[0].trim();
+      info.attrValue = attrValue;
+      info.command = parts[1].trim();
+
+      if (info.command === 'ref') {
+        info.expression = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["NameExpression"](this.parser.parse(attrValue), info.attrName, resources.lookupFunctions);
+        info.command = null;
+        info.attrName = 'ref';
+      } else {
+        info.expression = null;
+      }
+    } else if (attrName === 'ref') {
+      info.attrName = attrName;
+      info.attrValue = attrValue;
+      info.command = null;
+      info.expression = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["NameExpression"](this.parser.parse(attrValue), 'element', resources.lookupFunctions);
+    } else {
+      info.attrName = attrName;
+      info.attrValue = attrValue;
+      info.command = null;
+      var interpolationParts = this.parseInterpolation(resources, attrValue);
+      if (interpolationParts === null) {
+        info.expression = null;
+      } else {
+        info.expression = new InterpolationBindingExpression(this.observerLocator, this.attributeMap.map(elementName, attrName), interpolationParts, __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneWay, resources.lookupFunctions, attrName);
+      }
+    }
+
+    return info;
+  };
+
+  TemplatingBindingLanguage.prototype.createAttributeInstruction = function createAttributeInstruction(resources, element, theInfo, existingInstruction, context) {
+    var instruction = void 0;
+
+    if (theInfo.expression) {
+      if (theInfo.attrName === 'ref') {
+        return theInfo.expression;
+      }
+
+      instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(theInfo.attrName);
+      instruction.attributes[theInfo.attrName] = theInfo.expression;
+    } else if (theInfo.command) {
+      instruction = this.syntaxInterpreter.interpret(resources, element, theInfo, existingInstruction, context);
+    }
+
+    return instruction;
+  };
+
+  TemplatingBindingLanguage.prototype.inspectTextContent = function inspectTextContent(resources, value) {
+    var parts = this.parseInterpolation(resources, value);
+    if (parts === null) {
+      return null;
+    }
+    return new InterpolationBindingExpression(this.observerLocator, 'textContent', parts, __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneWay, resources.lookupFunctions, 'textContent');
+  };
+
+  TemplatingBindingLanguage.prototype.parseInterpolation = function parseInterpolation(resources, value) {
+    var i = value.indexOf('${', 0);
+    var ii = value.length;
+    var char = void 0;
+    var pos = 0;
+    var open = 0;
+    var quote = null;
+    var interpolationStart = void 0;
+    var parts = void 0;
+    var partIndex = 0;
+
+    while (i >= 0 && i < ii - 2) {
+      open = 1;
+      interpolationStart = i;
+      i += 2;
+
+      do {
+        char = value[i];
+        i++;
+
+        if (char === "'" || char === '"') {
+          if (quote === null) {
+            quote = char;
+          } else if (quote === char) {
+            quote = null;
+          }
+          continue;
+        }
+
+        if (char === '\\') {
+          i++;
+          continue;
+        }
+
+        if (quote !== null) {
+          continue;
+        }
+
+        if (char === '{') {
+          open++;
+        } else if (char === '}') {
+          open--;
+        }
+      } while (open > 0 && i < ii);
+
+      if (open === 0) {
+        parts = parts || [];
+        if (value[interpolationStart - 1] === '\\' && value[interpolationStart - 2] !== '\\') {
+          parts[partIndex] = value.substring(pos, interpolationStart - 1) + value.substring(interpolationStart, i);
+          partIndex++;
+          parts[partIndex] = this.emptyStringExpression;
+          partIndex++;
+        } else {
+          parts[partIndex] = value.substring(pos, interpolationStart);
+          partIndex++;
+          parts[partIndex] = this.parser.parse(value.substring(interpolationStart + 2, i - 1));
+          partIndex++;
+        }
+        pos = i;
+        i = value.indexOf('${', i);
+      } else {
+        break;
+      }
+    }
+
+    if (partIndex === 0) {
+      return null;
+    }
+
+    parts[partIndex] = value.substr(pos);
+    return parts;
+  };
+
+  return TemplatingBindingLanguage;
+}(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BindingLanguage"]), _class4.inject = [__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["Parser"], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["ObserverLocator"], SyntaxInterpreter, AttributeMap], _temp3);
+
+function configure(config) {
+  config.container.registerSingleton(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BindingLanguage"], TemplatingBindingLanguage);
+  config.container.registerAlias(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BindingLanguage"], TemplatingBindingLanguage);
+}
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var apply = Function.prototype.apply;
+
+// DOM APIs, for completeness
+
+exports.setTimeout = function() {
+  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
+};
+exports.setInterval = function() {
+  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
+};
+exports.clearTimeout =
+exports.clearInterval = function(timeout) {
+  if (timeout) {
+    timeout.close();
+  }
+};
+
+function Timeout(id, clearFn) {
+  this._id = id;
+  this._clearFn = clearFn;
+}
+Timeout.prototype.unref = Timeout.prototype.ref = function() {};
+Timeout.prototype.close = function() {
+  this._clearFn.call(window, this._id);
+};
+
+// Does not start the time, just sets up the members needed.
+exports.enroll = function(item, msecs) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = msecs;
+};
+
+exports.unenroll = function(item) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = -1;
+};
+
+exports._unrefActive = exports.active = function(item) {
+  clearTimeout(item._idleTimeoutId);
+
+  var msecs = item._idleTimeout;
+  if (msecs >= 0) {
+    item._idleTimeoutId = setTimeout(function onTimeout() {
+      if (item._onTimeout)
+        item._onTimeout();
+    }, msecs);
+  }
+};
+
+// setimmediate attaches itself to the global object
+__webpack_require__(50);
+exports.setImmediate = setImmediate;
+exports.clearImmediate = clearImmediate;
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
+    "use strict";
+
+    if (global.setImmediate) {
+        return;
+    }
+
+    var nextHandle = 1; // Spec says greater than zero
+    var tasksByHandle = {};
+    var currentlyRunningATask = false;
+    var doc = global.document;
+    var registerImmediate;
+
+    function setImmediate(callback) {
+      // Callback can either be a function or a string
+      if (typeof callback !== "function") {
+        callback = new Function("" + callback);
+      }
+      // Copy function arguments
+      var args = new Array(arguments.length - 1);
+      for (var i = 0; i < args.length; i++) {
+          args[i] = arguments[i + 1];
+      }
+      // Store and register the task
+      var task = { callback: callback, args: args };
+      tasksByHandle[nextHandle] = task;
+      registerImmediate(nextHandle);
+      return nextHandle++;
+    }
+
+    function clearImmediate(handle) {
+        delete tasksByHandle[handle];
+    }
+
+    function run(task) {
+        var callback = task.callback;
+        var args = task.args;
+        switch (args.length) {
+        case 0:
+            callback();
+            break;
+        case 1:
+            callback(args[0]);
+            break;
+        case 2:
+            callback(args[0], args[1]);
+            break;
+        case 3:
+            callback(args[0], args[1], args[2]);
+            break;
+        default:
+            callback.apply(undefined, args);
+            break;
+        }
+    }
+
+    function runIfPresent(handle) {
+        // From the spec: "Wait until any invocations of this algorithm started before this one have completed."
+        // So if we're currently running a task, we'll need to delay this invocation.
+        if (currentlyRunningATask) {
+            // Delay by doing a setTimeout. setImmediate was tried instead, but in Firefox 7 it generated a
+            // "too much recursion" error.
+            setTimeout(runIfPresent, 0, handle);
+        } else {
+            var task = tasksByHandle[handle];
+            if (task) {
+                currentlyRunningATask = true;
+                try {
+                    run(task);
+                } finally {
+                    clearImmediate(handle);
+                    currentlyRunningATask = false;
+                }
+            }
+        }
+    }
+
+    function installNextTickImplementation() {
+        registerImmediate = function(handle) {
+            process.nextTick(function () { runIfPresent(handle); });
+        };
+    }
+
+    function canUsePostMessage() {
+        // The test against `importScripts` prevents this implementation from being installed inside a web worker,
+        // where `global.postMessage` means something completely different and can't be used for this purpose.
+        if (global.postMessage && !global.importScripts) {
+            var postMessageIsAsynchronous = true;
+            var oldOnMessage = global.onmessage;
+            global.onmessage = function() {
+                postMessageIsAsynchronous = false;
+            };
+            global.postMessage("", "*");
+            global.onmessage = oldOnMessage;
+            return postMessageIsAsynchronous;
+        }
+    }
+
+    function installPostMessageImplementation() {
+        // Installs an event handler on `global` for the `message` event: see
+        // * https://developer.mozilla.org/en/DOM/window.postMessage
+        // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
+
+        var messagePrefix = "setImmediate$" + Math.random() + "$";
+        var onGlobalMessage = function(event) {
+            if (event.source === global &&
+                typeof event.data === "string" &&
+                event.data.indexOf(messagePrefix) === 0) {
+                runIfPresent(+event.data.slice(messagePrefix.length));
+            }
+        };
+
+        if (global.addEventListener) {
+            global.addEventListener("message", onGlobalMessage, false);
+        } else {
+            global.attachEvent("onmessage", onGlobalMessage);
+        }
+
+        registerImmediate = function(handle) {
+            global.postMessage(messagePrefix + handle, "*");
+        };
+    }
+
+    function installMessageChannelImplementation() {
+        var channel = new MessageChannel();
+        channel.port1.onmessage = function(event) {
+            var handle = event.data;
+            runIfPresent(handle);
+        };
+
+        registerImmediate = function(handle) {
+            channel.port2.postMessage(handle);
+        };
+    }
+
+    function installReadyStateChangeImplementation() {
+        var html = doc.documentElement;
+        registerImmediate = function(handle) {
+            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
+            // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
+            var script = doc.createElement("script");
+            script.onreadystatechange = function () {
+                runIfPresent(handle);
+                script.onreadystatechange = null;
+                html.removeChild(script);
+                script = null;
+            };
+            html.appendChild(script);
+        };
+    }
+
+    function installSetTimeoutImplementation() {
+        registerImmediate = function(handle) {
+            setTimeout(runIfPresent, 0, handle);
+        };
+    }
+
+    // If supported, we should attach to the prototype of global, since that is where setTimeout et al. live.
+    var attachTo = Object.getPrototypeOf && Object.getPrototypeOf(global);
+    attachTo = attachTo && attachTo.setTimeout ? attachTo : global;
+
+    // Don't get fooled by e.g. browserify environments.
+    if ({}.toString.call(global.process) === "[object process]") {
+        // For Node.js before 0.9
+        installNextTickImplementation();
+
+    } else if (canUsePostMessage()) {
+        // For non-IE10 modern browsers
+        installPostMessageImplementation();
+
+    } else if (global.MessageChannel) {
+        // For web workers, where supported
+        installMessageChannelImplementation();
+
+    } else if (doc && "onreadystatechange" in doc.createElement("script")) {
+        // For IE 6–8
+        installReadyStateChangeImplementation();
+
+    } else {
+        // For older browsers
+        installSetTimeoutImplementation();
+    }
+
+    attachTo.setImmediate = setImmediate;
+    attachTo.clearImmediate = clearImmediate;
+}(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14), __webpack_require__(15)))
+
+/***/ }),
+/* 51 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkHandler", function() { return LinkHandler; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DefaultLinkHandler", function() { return DefaultLinkHandler; });
 /* harmony export (immutable) */ __webpack_exports__["configure"] = configure;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrowserHistory", function() { return BrowserHistory; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_history__ = __webpack_require__(16);
 var _class, _temp;
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -18788,13 +19706,656 @@ function createOrigin(protocol, hostname, port) {
 }
 
 /***/ }),
-/* 48 */
+/* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(4);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "configure", function() { return configure; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_router__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__route_loader__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__router_view__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__route_href__ = __webpack_require__(18);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "TemplatingRouteLoader", function() { return __WEBPACK_IMPORTED_MODULE_2__route_loader__["TemplatingRouteLoader"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "RouterView", function() { return __WEBPACK_IMPORTED_MODULE_3__router_view__["RouterView"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "RouteHref", function() { return __WEBPACK_IMPORTED_MODULE_4__route_href__["RouteHref"]; });
+
+
+
+
+
+
+function configure(config) {
+  config.singleton(__WEBPACK_IMPORTED_MODULE_1_aurelia_router__["RouteLoader"], __WEBPACK_IMPORTED_MODULE_2__route_loader__["TemplatingRouteLoader"]).singleton(__WEBPACK_IMPORTED_MODULE_1_aurelia_router__["Router"], __WEBPACK_IMPORTED_MODULE_1_aurelia_router__["AppRouter"]).globalResources('./router-view', './route-href');
+
+  config.container.registerAlias(__WEBPACK_IMPORTED_MODULE_1_aurelia_router__["Router"], __WEBPACK_IMPORTED_MODULE_1_aurelia_router__["AppRouter"]);
+}
+
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "State", function() { return State; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaticSegment", function() { return StaticSegment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DynamicSegment", function() { return DynamicSegment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarSegment", function() { return StarSegment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EpsilonSegment", function() { return EpsilonSegment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouteRecognizer", function() { return RouteRecognizer; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_path__ = __webpack_require__(6);
+
+
+
+
+var State = function () {
+  function State(charSpec) {
+    
+
+    this.charSpec = charSpec;
+    this.nextStates = [];
+  }
+
+  State.prototype.get = function get(charSpec) {
+    for (var _iterator = this.nextStates, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+      var _ref;
+
+      if (_isArray) {
+        if (_i >= _iterator.length) break;
+        _ref = _iterator[_i++];
+      } else {
+        _i = _iterator.next();
+        if (_i.done) break;
+        _ref = _i.value;
+      }
+
+      var child = _ref;
+
+      var isEqual = child.charSpec.validChars === charSpec.validChars && child.charSpec.invalidChars === charSpec.invalidChars;
+
+      if (isEqual) {
+        return child;
+      }
+    }
+
+    return undefined;
+  };
+
+  State.prototype.put = function put(charSpec) {
+    var state = this.get(charSpec);
+
+    if (state) {
+      return state;
+    }
+
+    state = new State(charSpec);
+
+    this.nextStates.push(state);
+
+    if (charSpec.repeat) {
+      state.nextStates.push(state);
+    }
+
+    return state;
+  };
+
+  State.prototype.match = function match(ch) {
+    var nextStates = this.nextStates;
+    var results = [];
+
+    for (var i = 0, l = nextStates.length; i < l; i++) {
+      var child = nextStates[i];
+      var charSpec = child.charSpec;
+
+      if (charSpec.validChars !== undefined) {
+        if (charSpec.validChars.indexOf(ch) !== -1) {
+          results.push(child);
+        }
+      } else if (charSpec.invalidChars !== undefined) {
+        if (charSpec.invalidChars.indexOf(ch) === -1) {
+          results.push(child);
+        }
+      }
+    }
+
+    return results;
+  };
+
+  return State;
+}();
+
+var specials = ['/', '.', '*', '+', '?', '|', '(', ')', '[', ']', '{', '}', '\\'];
+
+var escapeRegex = new RegExp('(\\' + specials.join('|\\') + ')', 'g');
+
+var StaticSegment = function () {
+  function StaticSegment(string, caseSensitive) {
+    
+
+    this.string = string;
+    this.caseSensitive = caseSensitive;
+  }
+
+  StaticSegment.prototype.eachChar = function eachChar(callback) {
+    var s = this.string;
+    for (var i = 0, ii = s.length; i < ii; ++i) {
+      var ch = s[i];
+      callback({ validChars: this.caseSensitive ? ch : ch.toUpperCase() + ch.toLowerCase() });
+    }
+  };
+
+  StaticSegment.prototype.regex = function regex() {
+    return this.string.replace(escapeRegex, '\\$1');
+  };
+
+  StaticSegment.prototype.generate = function generate() {
+    return this.string;
+  };
+
+  return StaticSegment;
+}();
+
+var DynamicSegment = function () {
+  function DynamicSegment(name, optional) {
+    
+
+    this.name = name;
+    this.optional = optional;
+  }
+
+  DynamicSegment.prototype.eachChar = function eachChar(callback) {
+    callback({ invalidChars: '/', repeat: true });
+  };
+
+  DynamicSegment.prototype.regex = function regex() {
+    return this.optional ? '([^/]+)?' : '([^/]+)';
+  };
+
+  DynamicSegment.prototype.generate = function generate(params, consumed) {
+    consumed[this.name] = true;
+    return params[this.name];
+  };
+
+  return DynamicSegment;
+}();
+
+var StarSegment = function () {
+  function StarSegment(name) {
+    
+
+    this.name = name;
+  }
+
+  StarSegment.prototype.eachChar = function eachChar(callback) {
+    callback({ invalidChars: '', repeat: true });
+  };
+
+  StarSegment.prototype.regex = function regex() {
+    return '(.+)';
+  };
+
+  StarSegment.prototype.generate = function generate(params, consumed) {
+    consumed[this.name] = true;
+    return params[this.name];
+  };
+
+  return StarSegment;
+}();
+
+var EpsilonSegment = function () {
+  function EpsilonSegment() {
+    
+  }
+
+  EpsilonSegment.prototype.eachChar = function eachChar() {};
+
+  EpsilonSegment.prototype.regex = function regex() {
+    return '';
+  };
+
+  EpsilonSegment.prototype.generate = function generate() {
+    return '';
+  };
+
+  return EpsilonSegment;
+}();
+
+var RouteRecognizer = function () {
+  function RouteRecognizer() {
+    
+
+    this.rootState = new State();
+    this.names = {};
+  }
+
+  RouteRecognizer.prototype.add = function add(route) {
+    var _this = this;
+
+    if (Array.isArray(route)) {
+      route.forEach(function (r) {
+        return _this.add(r);
+      });
+      return undefined;
+    }
+
+    var currentState = this.rootState;
+    var regex = '^';
+    var types = { statics: 0, dynamics: 0, stars: 0 };
+    var names = [];
+    var routeName = route.handler.name;
+    var isEmpty = true;
+    var isAllOptional = true;
+    var segments = parse(route.path, names, types, route.caseSensitive);
+
+    for (var i = 0, ii = segments.length; i < ii; i++) {
+      var segment = segments[i];
+      if (segment instanceof EpsilonSegment) {
+        continue;
+      }
+
+      isEmpty = false;
+      isAllOptional = isAllOptional && segment.optional;
+
+      currentState = addSegment(currentState, segment);
+      regex += segment.optional ? '/?' : '/';
+      regex += segment.regex();
+    }
+
+    if (isAllOptional) {
+      if (isEmpty) {
+        currentState = currentState.put({ validChars: '/' });
+        regex += '/';
+      } else {
+        var finalState = this.rootState.put({ validChars: '/' });
+        currentState.epsilon = [finalState];
+        currentState = finalState;
+      }
+    }
+
+    var handlers = [{ handler: route.handler, names: names }];
+
+    if (routeName) {
+      var routeNames = Array.isArray(routeName) ? routeName : [routeName];
+      for (var _i2 = 0; _i2 < routeNames.length; _i2++) {
+        this.names[routeNames[_i2]] = {
+          segments: segments,
+          handlers: handlers
+        };
+      }
+    }
+
+    currentState.handlers = handlers;
+    currentState.regex = new RegExp(regex + '$', route.caseSensitive ? '' : 'i');
+    currentState.types = types;
+
+    return currentState;
+  };
+
+  RouteRecognizer.prototype.handlersFor = function handlersFor(name) {
+    var route = this.names[name];
+    if (!route) {
+      throw new Error('There is no route named ' + name);
+    }
+
+    return [].concat(route.handlers);
+  };
+
+  RouteRecognizer.prototype.hasRoute = function hasRoute(name) {
+    return !!this.names[name];
+  };
+
+  RouteRecognizer.prototype.generate = function generate(name, params) {
+    var route = this.names[name];
+    if (!route) {
+      throw new Error('There is no route named ' + name);
+    }
+
+    var handler = route.handlers[0].handler;
+    if (handler.generationUsesHref) {
+      return handler.href;
+    }
+
+    var routeParams = Object.assign({}, params);
+    var segments = route.segments;
+    var consumed = {};
+    var output = '';
+
+    for (var i = 0, l = segments.length; i < l; i++) {
+      var segment = segments[i];
+
+      if (segment instanceof EpsilonSegment) {
+        continue;
+      }
+
+      var segmentValue = segment.generate(routeParams, consumed);
+      if (segmentValue === null || segmentValue === undefined) {
+        if (!segment.optional) {
+          throw new Error('A value is required for route parameter \'' + segment.name + '\' in route \'' + name + '\'.');
+        }
+      } else {
+        output += '/';
+        output += segmentValue;
+      }
+    }
+
+    if (output.charAt(0) !== '/') {
+      output = '/' + output;
+    }
+
+    for (var param in consumed) {
+      delete routeParams[param];
+    }
+
+    var queryString = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_path__["buildQueryString"])(routeParams);
+    output += queryString ? '?' + queryString : '';
+
+    return output;
+  };
+
+  RouteRecognizer.prototype.recognize = function recognize(path) {
+    var states = [this.rootState];
+    var queryParams = {};
+    var isSlashDropped = false;
+    var normalizedPath = path;
+
+    var queryStart = normalizedPath.indexOf('?');
+    if (queryStart !== -1) {
+      var queryString = normalizedPath.substr(queryStart + 1, normalizedPath.length);
+      normalizedPath = normalizedPath.substr(0, queryStart);
+      queryParams = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_path__["parseQueryString"])(queryString);
+    }
+
+    normalizedPath = decodeURI(normalizedPath);
+
+    if (normalizedPath.charAt(0) !== '/') {
+      normalizedPath = '/' + normalizedPath;
+    }
+
+    var pathLen = normalizedPath.length;
+    if (pathLen > 1 && normalizedPath.charAt(pathLen - 1) === '/') {
+      normalizedPath = normalizedPath.substr(0, pathLen - 1);
+      isSlashDropped = true;
+    }
+
+    for (var i = 0, l = normalizedPath.length; i < l; i++) {
+      states = recognizeChar(states, normalizedPath.charAt(i));
+      if (!states.length) {
+        break;
+      }
+    }
+
+    var solutions = [];
+    for (var _i3 = 0, _l = states.length; _i3 < _l; _i3++) {
+      if (states[_i3].handlers) {
+        solutions.push(states[_i3]);
+      }
+    }
+
+    states = sortSolutions(solutions);
+
+    var state = solutions[0];
+    if (state && state.handlers) {
+      if (isSlashDropped && state.regex.source.slice(-5) === '(.+)$') {
+        normalizedPath = normalizedPath + '/';
+      }
+
+      return findHandler(state, normalizedPath, queryParams);
+    }
+
+    return undefined;
+  };
+
+  return RouteRecognizer;
+}();
+
+var RecognizeResults = function RecognizeResults(queryParams) {
+  
+
+  this.splice = Array.prototype.splice;
+  this.slice = Array.prototype.slice;
+  this.push = Array.prototype.push;
+  this.length = 0;
+  this.queryParams = queryParams || {};
+};
+
+function parse(route, names, types, caseSensitive) {
+  var normalizedRoute = route;
+  if (route.charAt(0) === '/') {
+    normalizedRoute = route.substr(1);
+  }
+
+  var results = [];
+
+  var splitRoute = normalizedRoute.split('/');
+  for (var i = 0, ii = splitRoute.length; i < ii; ++i) {
+    var segment = splitRoute[i];
+
+    var match = segment.match(/^:([^?]+)(\?)?$/);
+    if (match) {
+      var _match = match;
+      var _name = _match[1];
+      var optional = _match[2];
+
+      if (_name.indexOf('=') !== -1) {
+        throw new Error('Parameter ' + _name + ' in route ' + route + ' has a default value, which is not supported.');
+      }
+      results.push(new DynamicSegment(_name, !!optional));
+      names.push(_name);
+      types.dynamics++;
+      continue;
+    }
+
+    match = segment.match(/^\*(.+)$/);
+    if (match) {
+      results.push(new StarSegment(match[1]));
+      names.push(match[1]);
+      types.stars++;
+    } else if (segment === '') {
+      results.push(new EpsilonSegment());
+    } else {
+      results.push(new StaticSegment(segment, caseSensitive));
+      types.statics++;
+    }
+  }
+
+  return results;
+}
+
+function sortSolutions(states) {
+  return states.sort(function (a, b) {
+    if (a.types.stars !== b.types.stars) {
+      return a.types.stars - b.types.stars;
+    }
+
+    if (a.types.stars) {
+      if (a.types.statics !== b.types.statics) {
+        return b.types.statics - a.types.statics;
+      }
+      if (a.types.dynamics !== b.types.dynamics) {
+        return b.types.dynamics - a.types.dynamics;
+      }
+    }
+
+    if (a.types.dynamics !== b.types.dynamics) {
+      return a.types.dynamics - b.types.dynamics;
+    }
+
+    if (a.types.statics !== b.types.statics) {
+      return b.types.statics - a.types.statics;
+    }
+
+    return 0;
+  });
+}
+
+function recognizeChar(states, ch) {
+  var nextStates = [];
+
+  for (var i = 0, l = states.length; i < l; i++) {
+    var state = states[i];
+    nextStates.push.apply(nextStates, state.match(ch));
+  }
+
+  var skippableStates = nextStates.filter(function (s) {
+    return s.epsilon;
+  });
+
+  var _loop = function _loop() {
+    var newStates = [];
+    skippableStates.forEach(function (s) {
+      nextStates.push.apply(nextStates, s.epsilon);
+      newStates.push.apply(newStates, s.epsilon);
+    });
+    skippableStates = newStates.filter(function (s) {
+      return s.epsilon;
+    });
+  };
+
+  while (skippableStates.length > 0) {
+    _loop();
+  }
+
+  return nextStates;
+}
+
+function findHandler(state, path, queryParams) {
+  var handlers = state.handlers;
+  var regex = state.regex;
+  var captures = path.match(regex);
+  var currentCapture = 1;
+  var result = new RecognizeResults(queryParams);
+
+  for (var i = 0, l = handlers.length; i < l; i++) {
+    var _handler = handlers[i];
+    var _names = _handler.names;
+    var _params = {};
+
+    for (var j = 0, m = _names.length; j < m; j++) {
+      _params[_names[j]] = captures[currentCapture++];
+    }
+
+    result.push({ handler: _handler.handler, params: _params, isDynamic: !!_names.length });
+  }
+
+  return result;
+}
+
+function addSegment(currentState, segment) {
+  var state = currentState.put({ validChars: '/' });
+  segment.eachChar(function (ch) {
+    state = state.put(ch);
+  });
+
+  if (segment.optional) {
+    currentState.epsilon = currentState.epsilon || [];
+    currentState.epsilon.push(state);
+  }
+
+  return state;
+}
+
+/***/ }),
+/* 54 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemplatingRouteLoader", function() { return TemplatingRouteLoader; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_router__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_path__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_metadata__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__router_view__ = __webpack_require__(11);
+var _dec, _class;
+
+
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+var TemplatingRouteLoader = (_dec = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["CompositionEngine"]), _dec(_class = function (_RouteLoader) {
+  _inherits(TemplatingRouteLoader, _RouteLoader);
+
+  function TemplatingRouteLoader(compositionEngine) {
+    
+
+    var _this = _possibleConstructorReturn(this, _RouteLoader.call(this));
+
+    _this.compositionEngine = compositionEngine;
+    return _this;
+  }
+
+  TemplatingRouteLoader.prototype.loadRoute = function loadRoute(router, config) {
+    var childContainer = router.container.createChild();
+
+    var viewModel = /\.html/.test(config.moduleId) ? createDynamicClass(config.moduleId) : Object(__WEBPACK_IMPORTED_MODULE_3_aurelia_path__["relativeToFile"])(config.moduleId, __WEBPACK_IMPORTED_MODULE_4_aurelia_metadata__["Origin"].get(router.container.viewModel.constructor).moduleId);
+
+    var instruction = {
+      viewModel: viewModel,
+      childContainer: childContainer,
+      view: config.view || config.viewStrategy,
+      router: router
+    };
+
+    childContainer.registerSingleton(__WEBPACK_IMPORTED_MODULE_5__router_view__["RouterViewLocator"]);
+
+    childContainer.getChildRouter = function () {
+      var childRouter = void 0;
+
+      childContainer.registerHandler(__WEBPACK_IMPORTED_MODULE_2_aurelia_router__["Router"], function (c) {
+        return childRouter || (childRouter = router.createChild(childContainer));
+      });
+
+      return childContainer.get(__WEBPACK_IMPORTED_MODULE_2_aurelia_router__["Router"]);
+    };
+
+    return this.compositionEngine.ensureViewModel(instruction);
+  };
+
+  return TemplatingRouteLoader;
+}(__WEBPACK_IMPORTED_MODULE_2_aurelia_router__["RouteLoader"])) || _class);
+
+function createDynamicClass(moduleId) {
+  var _dec2, _dec3, _class2;
+
+  var name = /([^\/^\?]+)\.html/i.exec(moduleId)[1];
+
+  var DynamicClass = (_dec2 = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["customElement"])(name), _dec3 = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["useView"])(moduleId), _dec2(_class2 = _dec3(_class2 = function () {
+    function DynamicClass() {
+      
+    }
+
+    DynamicClass.prototype.bind = function bind(bindingContext) {
+      this.$parent = bindingContext;
+    };
+
+    return DynamicClass;
+  }()) || _class2) || _class2);
+
+
+  return DynamicClass;
+}
+
+/***/ }),
+/* 55 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConsoleAppender", function() { return ConsoleAppender; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(4);
 
 
 
@@ -18848,7 +20409,332 @@ var ConsoleAppender = function () {
 }();
 
 /***/ }),
-/* 49 */
+/* 56 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "configure", function() { return configure; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__compose__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__if__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__with__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__repeat__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__show__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__hide__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__sanitize_html__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__replaceable__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__focus__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_aurelia_templating__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__css_resource__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__html_sanitizer__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__attr_binding_behavior__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__binding_mode_behaviors__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__throttle_binding_behavior__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__debounce_binding_behavior__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__self_binding_behavior__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__signal_binding_behavior__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__binding_signaler__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__update_trigger_binding_behavior__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__abstract_repeater__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__repeat_strategy_locator__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__html_resource_plugin__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__null_repeat_strategy__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__array_repeat_strategy__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__map_repeat_strategy__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__set_repeat_strategy__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__number_repeat_strategy__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__analyze_view_factory__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__aurelia_hide_style__ = __webpack_require__(12);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Compose", function() { return __WEBPACK_IMPORTED_MODULE_1__compose__["Compose"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "If", function() { return __WEBPACK_IMPORTED_MODULE_2__if__["If"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "With", function() { return __WEBPACK_IMPORTED_MODULE_3__with__["With"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Repeat", function() { return __WEBPACK_IMPORTED_MODULE_4__repeat__["Repeat"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Show", function() { return __WEBPACK_IMPORTED_MODULE_5__show__["Show"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Hide", function() { return __WEBPACK_IMPORTED_MODULE_6__hide__["Hide"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "HTMLSanitizer", function() { return __WEBPACK_IMPORTED_MODULE_12__html_sanitizer__["HTMLSanitizer"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SanitizeHTMLValueConverter", function() { return __WEBPACK_IMPORTED_MODULE_7__sanitize_html__["SanitizeHTMLValueConverter"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Replaceable", function() { return __WEBPACK_IMPORTED_MODULE_8__replaceable__["Replaceable"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Focus", function() { return __WEBPACK_IMPORTED_MODULE_9__focus__["Focus"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "AttrBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_13__attr_binding_behavior__["AttrBindingBehavior"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "OneTimeBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_14__binding_mode_behaviors__["OneTimeBindingBehavior"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "OneWayBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_14__binding_mode_behaviors__["OneWayBindingBehavior"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "TwoWayBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_14__binding_mode_behaviors__["TwoWayBindingBehavior"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ThrottleBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_15__throttle_binding_behavior__["ThrottleBindingBehavior"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "DebounceBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_16__debounce_binding_behavior__["DebounceBindingBehavior"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SelfBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_17__self_binding_behavior__["SelfBindingBehavior"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SignalBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_18__signal_binding_behavior__["SignalBindingBehavior"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "BindingSignaler", function() { return __WEBPACK_IMPORTED_MODULE_19__binding_signaler__["BindingSignaler"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateTriggerBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_20__update_trigger_binding_behavior__["UpdateTriggerBindingBehavior"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "AbstractRepeater", function() { return __WEBPACK_IMPORTED_MODULE_21__abstract_repeater__["AbstractRepeater"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "RepeatStrategyLocator", function() { return __WEBPACK_IMPORTED_MODULE_22__repeat_strategy_locator__["RepeatStrategyLocator"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "NullRepeatStrategy", function() { return __WEBPACK_IMPORTED_MODULE_24__null_repeat_strategy__["NullRepeatStrategy"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ArrayRepeatStrategy", function() { return __WEBPACK_IMPORTED_MODULE_25__array_repeat_strategy__["ArrayRepeatStrategy"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MapRepeatStrategy", function() { return __WEBPACK_IMPORTED_MODULE_26__map_repeat_strategy__["MapRepeatStrategy"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SetRepeatStrategy", function() { return __WEBPACK_IMPORTED_MODULE_27__set_repeat_strategy__["SetRepeatStrategy"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "NumberRepeatStrategy", function() { return __WEBPACK_IMPORTED_MODULE_28__number_repeat_strategy__["NumberRepeatStrategy"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createFullOverrideContext", function() { return __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__["createFullOverrideContext"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "updateOverrideContext", function() { return __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__["updateOverrideContext"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "getItemsSourceExpression", function() { return __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__["getItemsSourceExpression"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "isOneTime", function() { return __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__["isOneTime"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "updateOneTimeBinding", function() { return __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__["updateOneTimeBinding"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "unwrapExpression", function() { return __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__["unwrapExpression"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "viewsRequireLifecycle", function() { return __WEBPACK_IMPORTED_MODULE_30__analyze_view_factory__["viewsRequireLifecycle"]; });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function configure(config) {
+  Object(__WEBPACK_IMPORTED_MODULE_31__aurelia_hide_style__["injectAureliaHideStyleAtHead"])();
+
+  config.globalResources('./compose', './if', './with', './repeat', './show', './hide', './replaceable', './sanitize-html', './focus', './binding-mode-behaviors', './self-binding-behavior', './throttle-binding-behavior', './debounce-binding-behavior', './signal-binding-behavior', './update-trigger-binding-behavior', './attr-binding-behavior');
+
+  Object(__WEBPACK_IMPORTED_MODULE_23__html_resource_plugin__["configure"])(config);
+
+  var viewEngine = config.container.get(__WEBPACK_IMPORTED_MODULE_10_aurelia_templating__["ViewEngine"]);
+  var styleResourcePlugin = {
+    fetch: function fetch(address) {
+      var _ref;
+
+      return _ref = {}, _ref[address] = Object(__WEBPACK_IMPORTED_MODULE_11__css_resource__["_createCSSResource"])(address), _ref;
+    }
+  };
+  ['.css', '.less', '.sass', '.scss', '.styl'].forEach(function (ext) {
+    return viewEngine.addResourcePlugin(ext, styleResourcePlugin);
+  });
+}
+
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (immutable) */ __webpack_exports__["_createCSSResource"] = _createCSSResource;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_loader__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_dependency_injection__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_path__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__ = __webpack_require__(0);
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+var cssUrlMatcher = /url\((?!['"]data)([^)]+)\)/gi;
+
+function fixupCSSUrls(address, css) {
+  if (typeof css !== 'string') {
+    throw new Error('Failed loading required CSS file: ' + address);
+  }
+  return css.replace(cssUrlMatcher, function (match, p1) {
+    var quote = p1.charAt(0);
+    if (quote === '\'' || quote === '"') {
+      p1 = p1.substr(1, p1.length - 2);
+    }
+    return 'url(\'' + Object(__WEBPACK_IMPORTED_MODULE_3_aurelia_path__["relativeToFile"])(p1, address) + '\')';
+  });
+}
+
+var CSSResource = function () {
+  function CSSResource(address) {
+    
+
+    this.address = address;
+    this._scoped = null;
+    this._global = false;
+    this._alreadyGloballyInjected = false;
+  }
+
+  CSSResource.prototype.initialize = function initialize(container, target) {
+    this._scoped = new target(this);
+  };
+
+  CSSResource.prototype.register = function register(registry, name) {
+    if (name === 'scoped') {
+      registry.registerViewEngineHooks(this._scoped);
+    } else {
+      this._global = true;
+    }
+  };
+
+  CSSResource.prototype.load = function load(container) {
+    var _this = this;
+
+    return container.get(__WEBPACK_IMPORTED_MODULE_1_aurelia_loader__["Loader"]).loadText(this.address).catch(function (err) {
+      return null;
+    }).then(function (text) {
+      text = fixupCSSUrls(_this.address, text);
+      _this._scoped.css = text;
+      if (_this._global) {
+        _this._alreadyGloballyInjected = true;
+        __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["DOM"].injectStyles(text);
+      }
+    });
+  };
+
+  return CSSResource;
+}();
+
+var CSSViewEngineHooks = function () {
+  function CSSViewEngineHooks(owner) {
+    
+
+    this.owner = owner;
+    this.css = null;
+  }
+
+  CSSViewEngineHooks.prototype.beforeCompile = function beforeCompile(content, resources, instruction) {
+    if (instruction.targetShadowDOM) {
+      __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["DOM"].injectStyles(this.css, content, true);
+    } else if (__WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["FEATURE"].scopedCSS) {
+      var styleNode = __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["DOM"].injectStyles(this.css, content, true);
+      styleNode.setAttribute('scoped', 'scoped');
+    } else if (!this.owner._alreadyGloballyInjected) {
+      __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["DOM"].injectStyles(this.css);
+      this.owner._alreadyGloballyInjected = true;
+    }
+  };
+
+  return CSSViewEngineHooks;
+}();
+
+function _createCSSResource(address) {
+  var _dec, _class;
+
+  var ViewCSS = (_dec = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["resource"])(new CSSResource(address)), _dec(_class = function (_CSSViewEngineHooks) {
+    _inherits(ViewCSS, _CSSViewEngineHooks);
+
+    function ViewCSS() {
+      
+
+      return _possibleConstructorReturn(this, _CSSViewEngineHooks.apply(this, arguments));
+    }
+
+    return ViewCSS;
+  }(CSSViewEngineHooks)) || _class);
+
+  return ViewCSS;
+}
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (immutable) */ __webpack_exports__["getElementName"] = getElementName;
+/* harmony export (immutable) */ __webpack_exports__["configure"] = configure;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dynamic_element__ = __webpack_require__(59);
+
+
+
+function getElementName(address) {
+  return (/([^\/^\?]+)\.html/i.exec(address)[1].toLowerCase()
+  );
+}
+
+function configure(config) {
+  var viewEngine = config.container.get(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["ViewEngine"]);
+  var loader = config.aurelia.loader;
+
+  viewEngine.addResourcePlugin('.html', {
+    'fetch': function fetch(address) {
+      return loader.loadTemplate(address).then(function (registryEntry) {
+        var _ref;
+
+        var bindable = registryEntry.template.getAttribute('bindable');
+        var elementName = getElementName(address);
+
+        if (bindable) {
+          bindable = bindable.split(',').map(function (x) {
+            return x.trim();
+          });
+          registryEntry.template.removeAttribute('bindable');
+        } else {
+          bindable = [];
+        }
+
+        return _ref = {}, _ref[elementName] = Object(__WEBPACK_IMPORTED_MODULE_1__dynamic_element__["_createDynamicElement"])(elementName, address, bindable), _ref;
+      });
+    }
+  });
+}
+
+/***/ }),
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (immutable) */ __webpack_exports__["_createDynamicElement"] = _createDynamicElement;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__ = __webpack_require__(1);
+
+
+
+function _createDynamicElement(name, viewUrl, bindableNames) {
+  var _dec, _dec2, _class;
+
+  var DynamicElement = (_dec = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["customElement"])(name), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["useView"])(viewUrl), _dec(_class = _dec2(_class = function () {
+    function DynamicElement() {
+      
+    }
+
+    DynamicElement.prototype.bind = function bind(bindingContext) {
+      this.$parent = bindingContext;
+    };
+
+    return DynamicElement;
+  }()) || _class) || _class);
+
+  for (var i = 0, ii = bindableNames.length; i < ii; ++i) {
+    Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["bindable"])(bindableNames[i])(DynamicElement);
+  }
+  return DynamicElement;
+}
+
+/***/ }),
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19686,1895 +21572,6 @@ if (typeof FEATURE_NO_ESNEXT === 'undefined') {
     }
   })();
 }
-
-/***/ }),
-/* 50 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_path__ = __webpack_require__(6);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "State", function() { return State; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaticSegment", function() { return StaticSegment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DynamicSegment", function() { return DynamicSegment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarSegment", function() { return StarSegment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EpsilonSegment", function() { return EpsilonSegment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouteRecognizer", function() { return RouteRecognizer; });
-
-
-
-
-var State = function () {
-  function State(charSpec) {
-    
-
-    this.charSpec = charSpec;
-    this.nextStates = [];
-  }
-
-  State.prototype.get = function get(charSpec) {
-    for (var _iterator = this.nextStates, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-      var _ref;
-
-      if (_isArray) {
-        if (_i >= _iterator.length) break;
-        _ref = _iterator[_i++];
-      } else {
-        _i = _iterator.next();
-        if (_i.done) break;
-        _ref = _i.value;
-      }
-
-      var child = _ref;
-
-      var isEqual = child.charSpec.validChars === charSpec.validChars && child.charSpec.invalidChars === charSpec.invalidChars;
-
-      if (isEqual) {
-        return child;
-      }
-    }
-
-    return undefined;
-  };
-
-  State.prototype.put = function put(charSpec) {
-    var state = this.get(charSpec);
-
-    if (state) {
-      return state;
-    }
-
-    state = new State(charSpec);
-
-    this.nextStates.push(state);
-
-    if (charSpec.repeat) {
-      state.nextStates.push(state);
-    }
-
-    return state;
-  };
-
-  State.prototype.match = function match(ch) {
-    var nextStates = this.nextStates;
-    var results = [];
-
-    for (var i = 0, l = nextStates.length; i < l; i++) {
-      var child = nextStates[i];
-      var charSpec = child.charSpec;
-
-      if (charSpec.validChars !== undefined) {
-        if (charSpec.validChars.indexOf(ch) !== -1) {
-          results.push(child);
-        }
-      } else if (charSpec.invalidChars !== undefined) {
-        if (charSpec.invalidChars.indexOf(ch) === -1) {
-          results.push(child);
-        }
-      }
-    }
-
-    return results;
-  };
-
-  return State;
-}();
-
-var specials = ['/', '.', '*', '+', '?', '|', '(', ')', '[', ']', '{', '}', '\\'];
-
-var escapeRegex = new RegExp('(\\' + specials.join('|\\') + ')', 'g');
-
-var StaticSegment = function () {
-  function StaticSegment(string, caseSensitive) {
-    
-
-    this.string = string;
-    this.caseSensitive = caseSensitive;
-  }
-
-  StaticSegment.prototype.eachChar = function eachChar(callback) {
-    var s = this.string;
-    for (var i = 0, ii = s.length; i < ii; ++i) {
-      var ch = s[i];
-      callback({ validChars: this.caseSensitive ? ch : ch.toUpperCase() + ch.toLowerCase() });
-    }
-  };
-
-  StaticSegment.prototype.regex = function regex() {
-    return this.string.replace(escapeRegex, '\\$1');
-  };
-
-  StaticSegment.prototype.generate = function generate() {
-    return this.string;
-  };
-
-  return StaticSegment;
-}();
-
-var DynamicSegment = function () {
-  function DynamicSegment(name, optional) {
-    
-
-    this.name = name;
-    this.optional = optional;
-  }
-
-  DynamicSegment.prototype.eachChar = function eachChar(callback) {
-    callback({ invalidChars: '/', repeat: true });
-  };
-
-  DynamicSegment.prototype.regex = function regex() {
-    return this.optional ? '([^/]+)?' : '([^/]+)';
-  };
-
-  DynamicSegment.prototype.generate = function generate(params, consumed) {
-    consumed[this.name] = true;
-    return params[this.name];
-  };
-
-  return DynamicSegment;
-}();
-
-var StarSegment = function () {
-  function StarSegment(name) {
-    
-
-    this.name = name;
-  }
-
-  StarSegment.prototype.eachChar = function eachChar(callback) {
-    callback({ invalidChars: '', repeat: true });
-  };
-
-  StarSegment.prototype.regex = function regex() {
-    return '(.+)';
-  };
-
-  StarSegment.prototype.generate = function generate(params, consumed) {
-    consumed[this.name] = true;
-    return params[this.name];
-  };
-
-  return StarSegment;
-}();
-
-var EpsilonSegment = function () {
-  function EpsilonSegment() {
-    
-  }
-
-  EpsilonSegment.prototype.eachChar = function eachChar() {};
-
-  EpsilonSegment.prototype.regex = function regex() {
-    return '';
-  };
-
-  EpsilonSegment.prototype.generate = function generate() {
-    return '';
-  };
-
-  return EpsilonSegment;
-}();
-
-var RouteRecognizer = function () {
-  function RouteRecognizer() {
-    
-
-    this.rootState = new State();
-    this.names = {};
-  }
-
-  RouteRecognizer.prototype.add = function add(route) {
-    var _this = this;
-
-    if (Array.isArray(route)) {
-      route.forEach(function (r) {
-        return _this.add(r);
-      });
-      return undefined;
-    }
-
-    var currentState = this.rootState;
-    var regex = '^';
-    var types = { statics: 0, dynamics: 0, stars: 0 };
-    var names = [];
-    var routeName = route.handler.name;
-    var isEmpty = true;
-    var isAllOptional = true;
-    var segments = parse(route.path, names, types, route.caseSensitive);
-
-    for (var i = 0, ii = segments.length; i < ii; i++) {
-      var segment = segments[i];
-      if (segment instanceof EpsilonSegment) {
-        continue;
-      }
-
-      isEmpty = false;
-      isAllOptional = isAllOptional && segment.optional;
-
-      currentState = addSegment(currentState, segment);
-      regex += segment.optional ? '/?' : '/';
-      regex += segment.regex();
-    }
-
-    if (isAllOptional) {
-      if (isEmpty) {
-        currentState = currentState.put({ validChars: '/' });
-        regex += '/';
-      } else {
-        var finalState = this.rootState.put({ validChars: '/' });
-        currentState.epsilon = [finalState];
-        currentState = finalState;
-      }
-    }
-
-    var handlers = [{ handler: route.handler, names: names }];
-
-    if (routeName) {
-      var routeNames = Array.isArray(routeName) ? routeName : [routeName];
-      for (var _i2 = 0; _i2 < routeNames.length; _i2++) {
-        this.names[routeNames[_i2]] = {
-          segments: segments,
-          handlers: handlers
-        };
-      }
-    }
-
-    currentState.handlers = handlers;
-    currentState.regex = new RegExp(regex + '$', route.caseSensitive ? '' : 'i');
-    currentState.types = types;
-
-    return currentState;
-  };
-
-  RouteRecognizer.prototype.handlersFor = function handlersFor(name) {
-    var route = this.names[name];
-    if (!route) {
-      throw new Error('There is no route named ' + name);
-    }
-
-    return [].concat(route.handlers);
-  };
-
-  RouteRecognizer.prototype.hasRoute = function hasRoute(name) {
-    return !!this.names[name];
-  };
-
-  RouteRecognizer.prototype.generate = function generate(name, params) {
-    var route = this.names[name];
-    if (!route) {
-      throw new Error('There is no route named ' + name);
-    }
-
-    var handler = route.handlers[0].handler;
-    if (handler.generationUsesHref) {
-      return handler.href;
-    }
-
-    var routeParams = Object.assign({}, params);
-    var segments = route.segments;
-    var consumed = {};
-    var output = '';
-
-    for (var i = 0, l = segments.length; i < l; i++) {
-      var segment = segments[i];
-
-      if (segment instanceof EpsilonSegment) {
-        continue;
-      }
-
-      var segmentValue = segment.generate(routeParams, consumed);
-      if (segmentValue === null || segmentValue === undefined) {
-        if (!segment.optional) {
-          throw new Error('A value is required for route parameter \'' + segment.name + '\' in route \'' + name + '\'.');
-        }
-      } else {
-        output += '/';
-        output += segmentValue;
-      }
-    }
-
-    if (output.charAt(0) !== '/') {
-      output = '/' + output;
-    }
-
-    for (var param in consumed) {
-      delete routeParams[param];
-    }
-
-    var queryString = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_path__["buildQueryString"])(routeParams);
-    output += queryString ? '?' + queryString : '';
-
-    return output;
-  };
-
-  RouteRecognizer.prototype.recognize = function recognize(path) {
-    var states = [this.rootState];
-    var queryParams = {};
-    var isSlashDropped = false;
-    var normalizedPath = path;
-
-    var queryStart = normalizedPath.indexOf('?');
-    if (queryStart !== -1) {
-      var queryString = normalizedPath.substr(queryStart + 1, normalizedPath.length);
-      normalizedPath = normalizedPath.substr(0, queryStart);
-      queryParams = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_path__["parseQueryString"])(queryString);
-    }
-
-    normalizedPath = decodeURI(normalizedPath);
-
-    if (normalizedPath.charAt(0) !== '/') {
-      normalizedPath = '/' + normalizedPath;
-    }
-
-    var pathLen = normalizedPath.length;
-    if (pathLen > 1 && normalizedPath.charAt(pathLen - 1) === '/') {
-      normalizedPath = normalizedPath.substr(0, pathLen - 1);
-      isSlashDropped = true;
-    }
-
-    for (var i = 0, l = normalizedPath.length; i < l; i++) {
-      states = recognizeChar(states, normalizedPath.charAt(i));
-      if (!states.length) {
-        break;
-      }
-    }
-
-    var solutions = [];
-    for (var _i3 = 0, _l = states.length; _i3 < _l; _i3++) {
-      if (states[_i3].handlers) {
-        solutions.push(states[_i3]);
-      }
-    }
-
-    states = sortSolutions(solutions);
-
-    var state = solutions[0];
-    if (state && state.handlers) {
-      if (isSlashDropped && state.regex.source.slice(-5) === '(.+)$') {
-        normalizedPath = normalizedPath + '/';
-      }
-
-      return findHandler(state, normalizedPath, queryParams);
-    }
-
-    return undefined;
-  };
-
-  return RouteRecognizer;
-}();
-
-var RecognizeResults = function RecognizeResults(queryParams) {
-  
-
-  this.splice = Array.prototype.splice;
-  this.slice = Array.prototype.slice;
-  this.push = Array.prototype.push;
-  this.length = 0;
-  this.queryParams = queryParams || {};
-};
-
-function parse(route, names, types, caseSensitive) {
-  var normalizedRoute = route;
-  if (route.charAt(0) === '/') {
-    normalizedRoute = route.substr(1);
-  }
-
-  var results = [];
-
-  var splitRoute = normalizedRoute.split('/');
-  for (var i = 0, ii = splitRoute.length; i < ii; ++i) {
-    var segment = splitRoute[i];
-
-    var match = segment.match(/^:([^?]+)(\?)?$/);
-    if (match) {
-      var _match = match;
-      var _name = _match[1];
-      var optional = _match[2];
-
-      if (_name.indexOf('=') !== -1) {
-        throw new Error('Parameter ' + _name + ' in route ' + route + ' has a default value, which is not supported.');
-      }
-      results.push(new DynamicSegment(_name, !!optional));
-      names.push(_name);
-      types.dynamics++;
-      continue;
-    }
-
-    match = segment.match(/^\*(.+)$/);
-    if (match) {
-      results.push(new StarSegment(match[1]));
-      names.push(match[1]);
-      types.stars++;
-    } else if (segment === '') {
-      results.push(new EpsilonSegment());
-    } else {
-      results.push(new StaticSegment(segment, caseSensitive));
-      types.statics++;
-    }
-  }
-
-  return results;
-}
-
-function sortSolutions(states) {
-  return states.sort(function (a, b) {
-    if (a.types.stars !== b.types.stars) {
-      return a.types.stars - b.types.stars;
-    }
-
-    if (a.types.stars) {
-      if (a.types.statics !== b.types.statics) {
-        return b.types.statics - a.types.statics;
-      }
-      if (a.types.dynamics !== b.types.dynamics) {
-        return b.types.dynamics - a.types.dynamics;
-      }
-    }
-
-    if (a.types.dynamics !== b.types.dynamics) {
-      return a.types.dynamics - b.types.dynamics;
-    }
-
-    if (a.types.statics !== b.types.statics) {
-      return b.types.statics - a.types.statics;
-    }
-
-    return 0;
-  });
-}
-
-function recognizeChar(states, ch) {
-  var nextStates = [];
-
-  for (var i = 0, l = states.length; i < l; i++) {
-    var state = states[i];
-    nextStates.push.apply(nextStates, state.match(ch));
-  }
-
-  var skippableStates = nextStates.filter(function (s) {
-    return s.epsilon;
-  });
-
-  var _loop = function _loop() {
-    var newStates = [];
-    skippableStates.forEach(function (s) {
-      nextStates.push.apply(nextStates, s.epsilon);
-      newStates.push.apply(newStates, s.epsilon);
-    });
-    skippableStates = newStates.filter(function (s) {
-      return s.epsilon;
-    });
-  };
-
-  while (skippableStates.length > 0) {
-    _loop();
-  }
-
-  return nextStates;
-}
-
-function findHandler(state, path, queryParams) {
-  var handlers = state.handlers;
-  var regex = state.regex;
-  var captures = path.match(regex);
-  var currentCapture = 1;
-  var result = new RecognizeResults(queryParams);
-
-  for (var i = 0, l = handlers.length; i < l; i++) {
-    var _handler = handlers[i];
-    var _names = _handler.names;
-    var _params = {};
-
-    for (var j = 0, m = _names.length; j < m; j++) {
-      _params[_names[j]] = captures[currentCapture++];
-    }
-
-    result.push({ handler: _handler.handler, params: _params, isDynamic: !!_names.length });
-  }
-
-  return result;
-}
-
-function addSegment(currentState, segment) {
-  var state = currentState.put({ validChars: '/' });
-  segment.eachChar(function (ch) {
-    state = state.put(ch);
-  });
-
-  if (segment.optional) {
-    currentState.epsilon = currentState.epsilon || [];
-    currentState.epsilon.push(state);
-  }
-
-  return state;
-}
-
-/***/ }),
-/* 51 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__ = __webpack_require__(1);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttributeMap", function() { return AttributeMap; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterpolationBindingExpression", function() { return InterpolationBindingExpression; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterpolationBinding", function() { return InterpolationBinding; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChildInterpolationBinding", function() { return ChildInterpolationBinding; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SyntaxInterpreter", function() { return SyntaxInterpreter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemplatingBindingLanguage", function() { return TemplatingBindingLanguage; });
-/* harmony export (immutable) */ __webpack_exports__["configure"] = configure;
-var _class, _temp, _dec, _class2, _class3, _temp2, _class4, _temp3;
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-
-var AttributeMap = (_temp = _class = function () {
-  function AttributeMap(svg) {
-    
-
-    this.elements = Object.create(null);
-    this.allElements = Object.create(null);
-
-    this.svg = svg;
-
-    this.registerUniversal('accesskey', 'accessKey');
-    this.registerUniversal('contenteditable', 'contentEditable');
-    this.registerUniversal('tabindex', 'tabIndex');
-    this.registerUniversal('textcontent', 'textContent');
-    this.registerUniversal('innerhtml', 'innerHTML');
-    this.registerUniversal('scrolltop', 'scrollTop');
-    this.registerUniversal('scrollleft', 'scrollLeft');
-    this.registerUniversal('readonly', 'readOnly');
-
-    this.register('label', 'for', 'htmlFor');
-
-    this.register('img', 'usemap', 'useMap');
-
-    this.register('input', 'maxlength', 'maxLength');
-    this.register('input', 'minlength', 'minLength');
-    this.register('input', 'formaction', 'formAction');
-    this.register('input', 'formenctype', 'formEncType');
-    this.register('input', 'formmethod', 'formMethod');
-    this.register('input', 'formnovalidate', 'formNoValidate');
-    this.register('input', 'formtarget', 'formTarget');
-
-    this.register('textarea', 'maxlength', 'maxLength');
-
-    this.register('td', 'rowspan', 'rowSpan');
-    this.register('td', 'colspan', 'colSpan');
-    this.register('th', 'rowspan', 'rowSpan');
-    this.register('th', 'colspan', 'colSpan');
-  }
-
-  AttributeMap.prototype.register = function register(elementName, attributeName, propertyName) {
-    elementName = elementName.toLowerCase();
-    attributeName = attributeName.toLowerCase();
-    var element = this.elements[elementName] = this.elements[elementName] || Object.create(null);
-    element[attributeName] = propertyName;
-  };
-
-  AttributeMap.prototype.registerUniversal = function registerUniversal(attributeName, propertyName) {
-    attributeName = attributeName.toLowerCase();
-    this.allElements[attributeName] = propertyName;
-  };
-
-  AttributeMap.prototype.map = function map(elementName, attributeName) {
-    if (this.svg.isStandardSvgAttribute(elementName, attributeName)) {
-      return attributeName;
-    }
-    elementName = elementName.toLowerCase();
-    attributeName = attributeName.toLowerCase();
-    var element = this.elements[elementName];
-    if (element !== undefined && attributeName in element) {
-      return element[attributeName];
-    }
-    if (attributeName in this.allElements) {
-      return this.allElements[attributeName];
-    }
-
-    if (/(?:^data-)|(?:^aria-)|:/.test(attributeName)) {
-      return attributeName;
-    }
-    return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["camelCase"])(attributeName);
-  };
-
-  return AttributeMap;
-}(), _class.inject = [__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["SVGAnalyzer"]], _temp);
-
-var InterpolationBindingExpression = function () {
-  function InterpolationBindingExpression(observerLocator, targetProperty, parts, mode, lookupFunctions, attribute) {
-    
-
-    this.observerLocator = observerLocator;
-    this.targetProperty = targetProperty;
-    this.parts = parts;
-    this.mode = mode;
-    this.lookupFunctions = lookupFunctions;
-    this.attribute = this.attrToRemove = attribute;
-    this.discrete = false;
-  }
-
-  InterpolationBindingExpression.prototype.createBinding = function createBinding(target) {
-    if (this.parts.length === 3) {
-      return new ChildInterpolationBinding(target, this.observerLocator, this.parts[1], this.mode, this.lookupFunctions, this.targetProperty, this.parts[0], this.parts[2]);
-    }
-    return new InterpolationBinding(this.observerLocator, this.parts, target, this.targetProperty, this.mode, this.lookupFunctions);
-  };
-
-  return InterpolationBindingExpression;
-}();
-
-function validateTarget(target, propertyName) {
-  if (propertyName === 'style') {
-    __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__["getLogger"]('templating-binding').info('Internet Explorer does not support interpolation in "style" attributes.  Use the style attribute\'s alias, "css" instead.');
-  } else if (target.parentElement && target.parentElement.nodeName === 'TEXTAREA' && propertyName === 'textContent') {
-    throw new Error('Interpolation binding cannot be used in the content of a textarea element.  Use <textarea value.bind="expression"></textarea> instead.');
-  }
-}
-
-var InterpolationBinding = function () {
-  function InterpolationBinding(observerLocator, parts, target, targetProperty, mode, lookupFunctions) {
-    
-
-    validateTarget(target, targetProperty);
-    this.observerLocator = observerLocator;
-    this.parts = parts;
-    this.target = target;
-    this.targetProperty = targetProperty;
-    this.targetAccessor = observerLocator.getAccessor(target, targetProperty);
-    this.mode = mode;
-    this.lookupFunctions = lookupFunctions;
-  }
-
-  InterpolationBinding.prototype.interpolate = function interpolate() {
-    if (this.isBound) {
-      var value = '';
-      var parts = this.parts;
-      for (var i = 0, ii = parts.length; i < ii; i++) {
-        value += i % 2 === 0 ? parts[i] : this['childBinding' + i].value;
-      }
-      this.targetAccessor.setValue(value, this.target, this.targetProperty);
-    }
-  };
-
-  InterpolationBinding.prototype.updateOneTimeBindings = function updateOneTimeBindings() {
-    for (var i = 1, ii = this.parts.length; i < ii; i += 2) {
-      var child = this['childBinding' + i];
-      if (child.mode === __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneTime) {
-        child.call();
-      }
-    }
-  };
-
-  InterpolationBinding.prototype.bind = function bind(source) {
-    if (this.isBound) {
-      if (this.source === source) {
-        return;
-      }
-      this.unbind();
-    }
-    this.source = source;
-
-    var parts = this.parts;
-    for (var i = 1, ii = parts.length; i < ii; i += 2) {
-      var binding = new ChildInterpolationBinding(this, this.observerLocator, parts[i], this.mode, this.lookupFunctions);
-      binding.bind(source);
-      this['childBinding' + i] = binding;
-    }
-
-    this.isBound = true;
-    this.interpolate();
-  };
-
-  InterpolationBinding.prototype.unbind = function unbind() {
-    if (!this.isBound) {
-      return;
-    }
-    this.isBound = false;
-    this.source = null;
-    var parts = this.parts;
-    for (var i = 1, ii = parts.length; i < ii; i += 2) {
-      var name = 'childBinding' + i;
-      this[name].unbind();
-    }
-  };
-
-  return InterpolationBinding;
-}();
-
-var ChildInterpolationBinding = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["connectable"])(), _dec(_class2 = function () {
-  function ChildInterpolationBinding(target, observerLocator, sourceExpression, mode, lookupFunctions, targetProperty, left, right) {
-    
-
-    if (target instanceof InterpolationBinding) {
-      this.parent = target;
-    } else {
-      validateTarget(target, targetProperty);
-      this.target = target;
-      this.targetProperty = targetProperty;
-      this.targetAccessor = observerLocator.getAccessor(target, targetProperty);
-    }
-    this.observerLocator = observerLocator;
-    this.sourceExpression = sourceExpression;
-    this.mode = mode;
-    this.lookupFunctions = lookupFunctions;
-    this.left = left;
-    this.right = right;
-  }
-
-  ChildInterpolationBinding.prototype.updateTarget = function updateTarget(value) {
-    value = value === null || value === undefined ? '' : value.toString();
-    if (value !== this.value) {
-      this.value = value;
-      if (this.parent) {
-        this.parent.interpolate();
-      } else {
-        this.targetAccessor.setValue(this.left + value + this.right, this.target, this.targetProperty);
-      }
-    }
-  };
-
-  ChildInterpolationBinding.prototype.call = function call() {
-    if (!this.isBound) {
-      return;
-    }
-
-    this.rawValue = this.sourceExpression.evaluate(this.source, this.lookupFunctions);
-    this.updateTarget(this.rawValue);
-
-    if (this.mode !== __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneTime) {
-      this._version++;
-      this.sourceExpression.connect(this, this.source);
-      if (this.rawValue instanceof Array) {
-        this.observeArray(this.rawValue);
-      }
-      this.unobserve(false);
-    }
-  };
-
-  ChildInterpolationBinding.prototype.bind = function bind(source) {
-    if (this.isBound) {
-      if (this.source === source) {
-        return;
-      }
-      this.unbind();
-    }
-    this.isBound = true;
-    this.source = source;
-
-    var sourceExpression = this.sourceExpression;
-    if (sourceExpression.bind) {
-      sourceExpression.bind(this, source, this.lookupFunctions);
-    }
-
-    this.rawValue = sourceExpression.evaluate(source, this.lookupFunctions);
-    this.updateTarget(this.rawValue);
-
-    if (this.mode === __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneWay) {
-      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["enqueueBindingConnect"])(this);
-    }
-  };
-
-  ChildInterpolationBinding.prototype.unbind = function unbind() {
-    if (!this.isBound) {
-      return;
-    }
-    this.isBound = false;
-    var sourceExpression = this.sourceExpression;
-    if (sourceExpression.unbind) {
-      sourceExpression.unbind(this, this.source);
-    }
-    this.source = null;
-    this.value = null;
-    this.rawValue = null;
-    this.unobserve(true);
-  };
-
-  ChildInterpolationBinding.prototype.connect = function connect(evaluate) {
-    if (!this.isBound) {
-      return;
-    }
-    if (evaluate) {
-      this.rawValue = this.sourceExpression.evaluate(this.source, this.lookupFunctions);
-      this.updateTarget(this.rawValue);
-    }
-    this.sourceExpression.connect(this, this.source);
-    if (this.rawValue instanceof Array) {
-      this.observeArray(this.rawValue);
-    }
-  };
-
-  return ChildInterpolationBinding;
-}()) || _class2);
-
-var SyntaxInterpreter = (_temp2 = _class3 = function () {
-  function SyntaxInterpreter(parser, observerLocator, eventManager, attributeMap) {
-    
-
-    this.parser = parser;
-    this.observerLocator = observerLocator;
-    this.eventManager = eventManager;
-    this.attributeMap = attributeMap;
-  }
-
-  SyntaxInterpreter.prototype.interpret = function interpret(resources, element, info, existingInstruction, context) {
-    if (info.command in this) {
-      return this[info.command](resources, element, info, existingInstruction, context);
-    }
-
-    return this.handleUnknownCommand(resources, element, info, existingInstruction, context);
-  };
-
-  SyntaxInterpreter.prototype.handleUnknownCommand = function handleUnknownCommand(resources, element, info, existingInstruction, context) {
-    __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__["getLogger"]('templating-binding').warn('Unknown binding command.', info);
-    return existingInstruction;
-  };
-
-  SyntaxInterpreter.prototype.determineDefaultBindingMode = function determineDefaultBindingMode(element, attrName, context) {
-    var tagName = element.tagName.toLowerCase();
-
-    if (tagName === 'input' && (attrName === 'value' || attrName === 'files') && element.type !== 'checkbox' && element.type !== 'radio' || tagName === 'input' && attrName === 'checked' && (element.type === 'checkbox' || element.type === 'radio') || (tagName === 'textarea' || tagName === 'select') && attrName === 'value' || (attrName === 'textcontent' || attrName === 'innerhtml') && element.contentEditable === 'true' || attrName === 'scrolltop' || attrName === 'scrollleft') {
-      return __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].twoWay;
-    }
-
-    if (context && attrName in context.attributes && context.attributes[attrName] && context.attributes[attrName].defaultBindingMode >= __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneTime) {
-      return context.attributes[attrName].defaultBindingMode;
-    }
-
-    return __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneWay;
-  };
-
-  SyntaxInterpreter.prototype.bind = function bind(resources, element, info, existingInstruction, context) {
-    var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
-
-    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["BindingExpression"](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), info.defaultBindingMode || this.determineDefaultBindingMode(element, info.attrName, context), resources.lookupFunctions);
-
-    return instruction;
-  };
-
-  SyntaxInterpreter.prototype.trigger = function trigger(resources, element, info) {
-    return new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["ListenerExpression"](this.eventManager, info.attrName, this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["delegationStrategy"].none, true, resources.lookupFunctions);
-  };
-
-  SyntaxInterpreter.prototype.capture = function capture(resources, element, info) {
-    return new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["ListenerExpression"](this.eventManager, info.attrName, this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["delegationStrategy"].capturing, true, resources.lookupFunctions);
-  };
-
-  SyntaxInterpreter.prototype.delegate = function delegate(resources, element, info) {
-    return new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["ListenerExpression"](this.eventManager, info.attrName, this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["delegationStrategy"].bubbling, true, resources.lookupFunctions);
-  };
-
-  SyntaxInterpreter.prototype.call = function call(resources, element, info, existingInstruction) {
-    var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
-
-    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["CallExpression"](this.observerLocator, info.attrName, this.parser.parse(info.attrValue), resources.lookupFunctions);
-
-    return instruction;
-  };
-
-  SyntaxInterpreter.prototype.options = function options(resources, element, info, existingInstruction, context) {
-    var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
-    var attrValue = info.attrValue;
-    var language = this.language;
-    var name = null;
-    var target = '';
-    var current = void 0;
-    var i = void 0;
-    var ii = void 0;
-    var inString = false;
-    var inEscape = false;
-    var foundName = false;
-
-    for (i = 0, ii = attrValue.length; i < ii; ++i) {
-      current = attrValue[i];
-
-      if (current === ';' && !inString) {
-        if (!foundName) {
-          name = this._getPrimaryPropertyName(resources, context);
-        }
-        info = language.inspectAttribute(resources, '?', name, target.trim());
-        language.createAttributeInstruction(resources, element, info, instruction, context);
-
-        if (!instruction.attributes[info.attrName]) {
-          instruction.attributes[info.attrName] = info.attrValue;
-        }
-
-        target = '';
-        name = null;
-      } else if (current === ':' && name === null) {
-        foundName = true;
-        name = target.trim();
-        target = '';
-      } else if (current === '\\') {
-        target += current;
-        inEscape = true;
-        continue;
-      } else {
-        target += current;
-
-        if (name !== null && inEscape === false && current === '\'') {
-          inString = !inString;
-        }
-      }
-
-      inEscape = false;
-    }
-
-    if (!foundName) {
-      name = this._getPrimaryPropertyName(resources, context);
-    }
-
-    if (name !== null) {
-      info = language.inspectAttribute(resources, '?', name, target.trim());
-      language.createAttributeInstruction(resources, element, info, instruction, context);
-
-      if (!instruction.attributes[info.attrName]) {
-        instruction.attributes[info.attrName] = info.attrValue;
-      }
-    }
-
-    return instruction;
-  };
-
-  SyntaxInterpreter.prototype._getPrimaryPropertyName = function _getPrimaryPropertyName(resources, context) {
-    var type = resources.getAttribute(context.attributeName);
-    if (type && type.primaryProperty) {
-      return type.primaryProperty.name;
-    }
-    return null;
-  };
-
-  SyntaxInterpreter.prototype['for'] = function _for(resources, element, info, existingInstruction) {
-    var parts = void 0;
-    var keyValue = void 0;
-    var instruction = void 0;
-    var attrValue = void 0;
-    var isDestructuring = void 0;
-
-    attrValue = info.attrValue;
-    isDestructuring = attrValue.match(/^ *[[].+[\]]/);
-    parts = isDestructuring ? attrValue.split('of ') : attrValue.split(' of ');
-
-    if (parts.length !== 2) {
-      throw new Error('Incorrect syntax for "for". The form is: "$local of $items" or "[$key, $value] of $items".');
-    }
-
-    instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
-
-    if (isDestructuring) {
-      keyValue = parts[0].replace(/[[\]]/g, '').replace(/,/g, ' ').replace(/\s+/g, ' ').trim().split(' ');
-      instruction.attributes.key = keyValue[0];
-      instruction.attributes.value = keyValue[1];
-    } else {
-      instruction.attributes.local = parts[0];
-    }
-
-    instruction.attributes.items = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["BindingExpression"](this.observerLocator, 'items', this.parser.parse(parts[1]), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneWay, resources.lookupFunctions);
-
-    return instruction;
-  };
-
-  SyntaxInterpreter.prototype['two-way'] = function twoWay(resources, element, info, existingInstruction) {
-    var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
-
-    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["BindingExpression"](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].twoWay, resources.lookupFunctions);
-
-    return instruction;
-  };
-
-  SyntaxInterpreter.prototype['one-way'] = function oneWay(resources, element, info, existingInstruction) {
-    var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
-
-    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["BindingExpression"](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneWay, resources.lookupFunctions);
-
-    return instruction;
-  };
-
-  SyntaxInterpreter.prototype['one-time'] = function oneTime(resources, element, info, existingInstruction) {
-    var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(info.attrName);
-
-    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["BindingExpression"](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneTime, resources.lookupFunctions);
-
-    return instruction;
-  };
-
-  return SyntaxInterpreter;
-}(), _class3.inject = [__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["Parser"], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["ObserverLocator"], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["EventManager"], AttributeMap], _temp2);
-
-var info = {};
-
-var TemplatingBindingLanguage = (_temp3 = _class4 = function (_BindingLanguage) {
-  _inherits(TemplatingBindingLanguage, _BindingLanguage);
-
-  function TemplatingBindingLanguage(parser, observerLocator, syntaxInterpreter, attributeMap) {
-    
-
-    var _this = _possibleConstructorReturn(this, _BindingLanguage.call(this));
-
-    _this.parser = parser;
-    _this.observerLocator = observerLocator;
-    _this.syntaxInterpreter = syntaxInterpreter;
-    _this.emptyStringExpression = _this.parser.parse('\'\'');
-    syntaxInterpreter.language = _this;
-    _this.attributeMap = attributeMap;
-    return _this;
-  }
-
-  TemplatingBindingLanguage.prototype.inspectAttribute = function inspectAttribute(resources, elementName, attrName, attrValue) {
-    var parts = attrName.split('.');
-
-    info.defaultBindingMode = null;
-
-    if (parts.length === 2) {
-      info.attrName = parts[0].trim();
-      info.attrValue = attrValue;
-      info.command = parts[1].trim();
-
-      if (info.command === 'ref') {
-        info.expression = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["NameExpression"](this.parser.parse(attrValue), info.attrName, resources.lookupFunctions);
-        info.command = null;
-        info.attrName = 'ref';
-      } else {
-        info.expression = null;
-      }
-    } else if (attrName === 'ref') {
-      info.attrName = attrName;
-      info.attrValue = attrValue;
-      info.command = null;
-      info.expression = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["NameExpression"](this.parser.parse(attrValue), 'element', resources.lookupFunctions);
-    } else {
-      info.attrName = attrName;
-      info.attrValue = attrValue;
-      info.command = null;
-      var interpolationParts = this.parseInterpolation(resources, attrValue);
-      if (interpolationParts === null) {
-        info.expression = null;
-      } else {
-        info.expression = new InterpolationBindingExpression(this.observerLocator, this.attributeMap.map(elementName, attrName), interpolationParts, __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneWay, resources.lookupFunctions, attrName);
-      }
-    }
-
-    return info;
-  };
-
-  TemplatingBindingLanguage.prototype.createAttributeInstruction = function createAttributeInstruction(resources, element, theInfo, existingInstruction, context) {
-    var instruction = void 0;
-
-    if (theInfo.expression) {
-      if (theInfo.attrName === 'ref') {
-        return theInfo.expression;
-      }
-
-      instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BehaviorInstruction"].attribute(theInfo.attrName);
-      instruction.attributes[theInfo.attrName] = theInfo.expression;
-    } else if (theInfo.command) {
-      instruction = this.syntaxInterpreter.interpret(resources, element, theInfo, existingInstruction, context);
-    }
-
-    return instruction;
-  };
-
-  TemplatingBindingLanguage.prototype.inspectTextContent = function inspectTextContent(resources, value) {
-    var parts = this.parseInterpolation(resources, value);
-    if (parts === null) {
-      return null;
-    }
-    return new InterpolationBindingExpression(this.observerLocator, 'textContent', parts, __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["bindingMode"].oneWay, resources.lookupFunctions, 'textContent');
-  };
-
-  TemplatingBindingLanguage.prototype.parseInterpolation = function parseInterpolation(resources, value) {
-    var i = value.indexOf('${', 0);
-    var ii = value.length;
-    var char = void 0;
-    var pos = 0;
-    var open = 0;
-    var quote = null;
-    var interpolationStart = void 0;
-    var parts = void 0;
-    var partIndex = 0;
-
-    while (i >= 0 && i < ii - 2) {
-      open = 1;
-      interpolationStart = i;
-      i += 2;
-
-      do {
-        char = value[i];
-        i++;
-
-        if (char === "'" || char === '"') {
-          if (quote === null) {
-            quote = char;
-          } else if (quote === char) {
-            quote = null;
-          }
-          continue;
-        }
-
-        if (char === '\\') {
-          i++;
-          continue;
-        }
-
-        if (quote !== null) {
-          continue;
-        }
-
-        if (char === '{') {
-          open++;
-        } else if (char === '}') {
-          open--;
-        }
-      } while (open > 0 && i < ii);
-
-      if (open === 0) {
-        parts = parts || [];
-        if (value[interpolationStart - 1] === '\\' && value[interpolationStart - 2] !== '\\') {
-          parts[partIndex] = value.substring(pos, interpolationStart - 1) + value.substring(interpolationStart, i);
-          partIndex++;
-          parts[partIndex] = this.emptyStringExpression;
-          partIndex++;
-        } else {
-          parts[partIndex] = value.substring(pos, interpolationStart);
-          partIndex++;
-          parts[partIndex] = this.parser.parse(value.substring(interpolationStart + 2, i - 1));
-          partIndex++;
-        }
-        pos = i;
-        i = value.indexOf('${', i);
-      } else {
-        break;
-      }
-    }
-
-    if (partIndex === 0) {
-      return null;
-    }
-
-    parts[partIndex] = value.substr(pos);
-    return parts;
-  };
-
-  return TemplatingBindingLanguage;
-}(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BindingLanguage"]), _class4.inject = [__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["Parser"], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["ObserverLocator"], SyntaxInterpreter, AttributeMap], _temp3);
-
-function configure(config) {
-  config.container.registerSingleton(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BindingLanguage"], TemplatingBindingLanguage);
-  config.container.registerAlias(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["BindingLanguage"], TemplatingBindingLanguage);
-}
-
-/***/ }),
-/* 52 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__compose__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__if__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__with__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__repeat__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__show__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__hide__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__sanitize_html__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__replaceable__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__focus__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__css_resource__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__html_sanitizer__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__attr_binding_behavior__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__binding_mode_behaviors__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__throttle_binding_behavior__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__debounce_binding_behavior__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__self_binding_behavior__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__signal_binding_behavior__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__binding_signaler__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__update_trigger_binding_behavior__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__abstract_repeater__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__repeat_strategy_locator__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__html_resource_plugin__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__null_repeat_strategy__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__array_repeat_strategy__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__map_repeat_strategy__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__set_repeat_strategy__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__number_repeat_strategy__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__analyze_view_factory__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__aurelia_hide_style__ = __webpack_require__(11);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Compose", function() { return __WEBPACK_IMPORTED_MODULE_1__compose__["Compose"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "If", function() { return __WEBPACK_IMPORTED_MODULE_2__if__["If"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "With", function() { return __WEBPACK_IMPORTED_MODULE_3__with__["With"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Repeat", function() { return __WEBPACK_IMPORTED_MODULE_4__repeat__["Repeat"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Show", function() { return __WEBPACK_IMPORTED_MODULE_5__show__["Show"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Hide", function() { return __WEBPACK_IMPORTED_MODULE_6__hide__["Hide"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "HTMLSanitizer", function() { return __WEBPACK_IMPORTED_MODULE_12__html_sanitizer__["HTMLSanitizer"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SanitizeHTMLValueConverter", function() { return __WEBPACK_IMPORTED_MODULE_7__sanitize_html__["SanitizeHTMLValueConverter"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Replaceable", function() { return __WEBPACK_IMPORTED_MODULE_8__replaceable__["Replaceable"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Focus", function() { return __WEBPACK_IMPORTED_MODULE_9__focus__["Focus"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "AttrBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_13__attr_binding_behavior__["AttrBindingBehavior"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "OneTimeBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_14__binding_mode_behaviors__["OneTimeBindingBehavior"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "OneWayBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_14__binding_mode_behaviors__["OneWayBindingBehavior"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "TwoWayBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_14__binding_mode_behaviors__["TwoWayBindingBehavior"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ThrottleBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_15__throttle_binding_behavior__["ThrottleBindingBehavior"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "DebounceBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_16__debounce_binding_behavior__["DebounceBindingBehavior"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SelfBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_17__self_binding_behavior__["SelfBindingBehavior"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SignalBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_18__signal_binding_behavior__["SignalBindingBehavior"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "BindingSignaler", function() { return __WEBPACK_IMPORTED_MODULE_19__binding_signaler__["BindingSignaler"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateTriggerBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_20__update_trigger_binding_behavior__["UpdateTriggerBindingBehavior"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "AbstractRepeater", function() { return __WEBPACK_IMPORTED_MODULE_21__abstract_repeater__["AbstractRepeater"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "RepeatStrategyLocator", function() { return __WEBPACK_IMPORTED_MODULE_22__repeat_strategy_locator__["RepeatStrategyLocator"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "NullRepeatStrategy", function() { return __WEBPACK_IMPORTED_MODULE_24__null_repeat_strategy__["NullRepeatStrategy"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ArrayRepeatStrategy", function() { return __WEBPACK_IMPORTED_MODULE_25__array_repeat_strategy__["ArrayRepeatStrategy"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MapRepeatStrategy", function() { return __WEBPACK_IMPORTED_MODULE_26__map_repeat_strategy__["MapRepeatStrategy"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "SetRepeatStrategy", function() { return __WEBPACK_IMPORTED_MODULE_27__set_repeat_strategy__["SetRepeatStrategy"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "NumberRepeatStrategy", function() { return __WEBPACK_IMPORTED_MODULE_28__number_repeat_strategy__["NumberRepeatStrategy"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createFullOverrideContext", function() { return __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__["createFullOverrideContext"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "updateOverrideContext", function() { return __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__["updateOverrideContext"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "getItemsSourceExpression", function() { return __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__["getItemsSourceExpression"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "isOneTime", function() { return __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__["isOneTime"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "updateOneTimeBinding", function() { return __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__["updateOneTimeBinding"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "unwrapExpression", function() { return __WEBPACK_IMPORTED_MODULE_29__repeat_utilities__["unwrapExpression"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "viewsRequireLifecycle", function() { return __WEBPACK_IMPORTED_MODULE_30__analyze_view_factory__["viewsRequireLifecycle"]; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "configure", function() { return configure; });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function configure(config) {
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_31__aurelia_hide_style__["injectAureliaHideStyleAtHead"])();
-
-  config.globalResources('./compose', './if', './with', './repeat', './show', './hide', './replaceable', './sanitize-html', './focus', './binding-mode-behaviors', './self-binding-behavior', './throttle-binding-behavior', './debounce-binding-behavior', './signal-binding-behavior', './update-trigger-binding-behavior', './attr-binding-behavior');
-
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_23__html_resource_plugin__["configure"])(config);
-
-  var viewEngine = config.container.get(__WEBPACK_IMPORTED_MODULE_10_aurelia_templating__["ViewEngine"]);
-  var styleResourcePlugin = {
-    fetch: function fetch(address) {
-      var _ref;
-
-      return _ref = {}, _ref[address] = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_11__css_resource__["_createCSSResource"])(address), _ref;
-    }
-  };
-  ['.css', '.less', '.sass', '.scss', '.styl'].forEach(function (ext) {
-    return viewEngine.addResourcePlugin(ext, styleResourcePlugin);
-  });
-}
-
-
-
-/***/ }),
-/* 53 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_loader__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_path__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__ = __webpack_require__(0);
-/* harmony export (immutable) */ __webpack_exports__["_createCSSResource"] = _createCSSResource;
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-
-
-
-var cssUrlMatcher = /url\((?!['"]data)([^)]+)\)/gi;
-
-function fixupCSSUrls(address, css) {
-  if (typeof css !== 'string') {
-    throw new Error('Failed loading required CSS file: ' + address);
-  }
-  return css.replace(cssUrlMatcher, function (match, p1) {
-    var quote = p1.charAt(0);
-    if (quote === '\'' || quote === '"') {
-      p1 = p1.substr(1, p1.length - 2);
-    }
-    return 'url(\'' + __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_aurelia_path__["relativeToFile"])(p1, address) + '\')';
-  });
-}
-
-var CSSResource = function () {
-  function CSSResource(address) {
-    
-
-    this.address = address;
-    this._scoped = null;
-    this._global = false;
-    this._alreadyGloballyInjected = false;
-  }
-
-  CSSResource.prototype.initialize = function initialize(container, target) {
-    this._scoped = new target(this);
-  };
-
-  CSSResource.prototype.register = function register(registry, name) {
-    if (name === 'scoped') {
-      registry.registerViewEngineHooks(this._scoped);
-    } else {
-      this._global = true;
-    }
-  };
-
-  CSSResource.prototype.load = function load(container) {
-    var _this = this;
-
-    return container.get(__WEBPACK_IMPORTED_MODULE_1_aurelia_loader__["Loader"]).loadText(this.address).catch(function (err) {
-      return null;
-    }).then(function (text) {
-      text = fixupCSSUrls(_this.address, text);
-      _this._scoped.css = text;
-      if (_this._global) {
-        _this._alreadyGloballyInjected = true;
-        __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["DOM"].injectStyles(text);
-      }
-    });
-  };
-
-  return CSSResource;
-}();
-
-var CSSViewEngineHooks = function () {
-  function CSSViewEngineHooks(owner) {
-    
-
-    this.owner = owner;
-    this.css = null;
-  }
-
-  CSSViewEngineHooks.prototype.beforeCompile = function beforeCompile(content, resources, instruction) {
-    if (instruction.targetShadowDOM) {
-      __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["DOM"].injectStyles(this.css, content, true);
-    } else if (__WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["FEATURE"].scopedCSS) {
-      var styleNode = __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["DOM"].injectStyles(this.css, content, true);
-      styleNode.setAttribute('scoped', 'scoped');
-    } else if (!this.owner._alreadyGloballyInjected) {
-      __WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["DOM"].injectStyles(this.css);
-      this.owner._alreadyGloballyInjected = true;
-    }
-  };
-
-  return CSSViewEngineHooks;
-}();
-
-function _createCSSResource(address) {
-  var _dec, _class;
-
-  var ViewCSS = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["resource"])(new CSSResource(address)), _dec(_class = function (_CSSViewEngineHooks) {
-    _inherits(ViewCSS, _CSSViewEngineHooks);
-
-    function ViewCSS() {
-      
-
-      return _possibleConstructorReturn(this, _CSSViewEngineHooks.apply(this, arguments));
-    }
-
-    return ViewCSS;
-  }(CSSViewEngineHooks)) || _class);
-
-  return ViewCSS;
-}
-
-/***/ }),
-/* 54 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__ = __webpack_require__(1);
-/* harmony export (immutable) */ __webpack_exports__["_createDynamicElement"] = _createDynamicElement;
-
-
-
-function _createDynamicElement(name, viewUrl, bindableNames) {
-  var _dec, _dec2, _class;
-
-  var DynamicElement = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["customElement"])(name), _dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["useView"])(viewUrl), _dec(_class = _dec2(_class = function () {
-    function DynamicElement() {
-      
-    }
-
-    DynamicElement.prototype.bind = function bind(bindingContext) {
-      this.$parent = bindingContext;
-    };
-
-    return DynamicElement;
-  }()) || _class) || _class);
-
-  for (var i = 0, ii = bindableNames.length; i < ii; ++i) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["bindable"])(bindableNames[i])(DynamicElement);
-  }
-  return DynamicElement;
-}
-
-/***/ }),
-/* 55 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dynamic_element__ = __webpack_require__(54);
-/* harmony export (immutable) */ __webpack_exports__["getElementName"] = getElementName;
-/* harmony export (immutable) */ __webpack_exports__["configure"] = configure;
-
-
-
-function getElementName(address) {
-  return (/([^\/^\?]+)\.html/i.exec(address)[1].toLowerCase()
-  );
-}
-
-function configure(config) {
-  var viewEngine = config.container.get(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["ViewEngine"]);
-  var loader = config.aurelia.loader;
-
-  viewEngine.addResourcePlugin('.html', {
-    'fetch': function fetch(address) {
-      return loader.loadTemplate(address).then(function (registryEntry) {
-        var _ref;
-
-        var bindable = registryEntry.template.getAttribute('bindable');
-        var elementName = getElementName(address);
-
-        if (bindable) {
-          bindable = bindable.split(',').map(function (x) {
-            return x.trim();
-          });
-          registryEntry.template.removeAttribute('bindable');
-        } else {
-          bindable = [];
-        }
-
-        return _ref = {}, _ref[elementName] = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__dynamic_element__["_createDynamicElement"])(elementName, address, bindable), _ref;
-      });
-    }
-  });
-}
-
-/***/ }),
-/* 56 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_pal__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_router__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__route_loader__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__router_view__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__route_href__ = __webpack_require__(42);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "TemplatingRouteLoader", function() { return __WEBPACK_IMPORTED_MODULE_2__route_loader__["TemplatingRouteLoader"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "RouterView", function() { return __WEBPACK_IMPORTED_MODULE_3__router_view__["RouterView"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "RouteHref", function() { return __WEBPACK_IMPORTED_MODULE_4__route_href__["RouteHref"]; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "configure", function() { return configure; });
-
-
-
-
-
-
-function configure(config) {
-  config.singleton(__WEBPACK_IMPORTED_MODULE_1_aurelia_router__["RouteLoader"], __WEBPACK_IMPORTED_MODULE_2__route_loader__["TemplatingRouteLoader"]).singleton(__WEBPACK_IMPORTED_MODULE_1_aurelia_router__["Router"], __WEBPACK_IMPORTED_MODULE_1_aurelia_router__["AppRouter"]).globalResources('./router-view', './route-href');
-
-  config.container.registerAlias(__WEBPACK_IMPORTED_MODULE_1_aurelia_router__["Router"], __WEBPACK_IMPORTED_MODULE_1_aurelia_router__["AppRouter"]);
-}
-
-
-
-/***/ }),
-/* 57 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_router__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_aurelia_path__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_aurelia_metadata__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__router_view__ = __webpack_require__(12);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemplatingRouteLoader", function() { return TemplatingRouteLoader; });
-var _dec, _class;
-
-
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-
-
-var TemplatingRouteLoader = (_dec = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["inject"])(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["CompositionEngine"]), _dec(_class = function (_RouteLoader) {
-  _inherits(TemplatingRouteLoader, _RouteLoader);
-
-  function TemplatingRouteLoader(compositionEngine) {
-    
-
-    var _this = _possibleConstructorReturn(this, _RouteLoader.call(this));
-
-    _this.compositionEngine = compositionEngine;
-    return _this;
-  }
-
-  TemplatingRouteLoader.prototype.loadRoute = function loadRoute(router, config) {
-    var childContainer = router.container.createChild();
-
-    var viewModel = /\.html/.test(config.moduleId) ? createDynamicClass(config.moduleId) : __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_aurelia_path__["relativeToFile"])(config.moduleId, __WEBPACK_IMPORTED_MODULE_4_aurelia_metadata__["Origin"].get(router.container.viewModel.constructor).moduleId);
-
-    var instruction = {
-      viewModel: viewModel,
-      childContainer: childContainer,
-      view: config.view || config.viewStrategy,
-      router: router
-    };
-
-    childContainer.registerSingleton(__WEBPACK_IMPORTED_MODULE_5__router_view__["RouterViewLocator"]);
-
-    childContainer.getChildRouter = function () {
-      var childRouter = void 0;
-
-      childContainer.registerHandler(__WEBPACK_IMPORTED_MODULE_2_aurelia_router__["Router"], function (c) {
-        return childRouter || (childRouter = router.createChild(childContainer));
-      });
-
-      return childContainer.get(__WEBPACK_IMPORTED_MODULE_2_aurelia_router__["Router"]);
-    };
-
-    return this.compositionEngine.ensureViewModel(instruction);
-  };
-
-  return TemplatingRouteLoader;
-}(__WEBPACK_IMPORTED_MODULE_2_aurelia_router__["RouteLoader"])) || _class);
-
-function createDynamicClass(moduleId) {
-  var _dec2, _dec3, _class2;
-
-  var name = /([^\/^\?]+)\.html/i.exec(moduleId)[1];
-
-  var DynamicClass = (_dec2 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["customElement"])(name), _dec3 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["useView"])(moduleId), _dec2(_class2 = _dec3(_class2 = function () {
-    function DynamicClass() {
-      
-    }
-
-    DynamicClass.prototype.bind = function bind(bindingContext) {
-      this.$parent = bindingContext;
-    };
-
-    return DynamicClass;
-  }()) || _class2) || _class2);
-
-
-  return DynamicClass;
-}
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
-    "use strict";
-
-    if (global.setImmediate) {
-        return;
-    }
-
-    var nextHandle = 1; // Spec says greater than zero
-    var tasksByHandle = {};
-    var currentlyRunningATask = false;
-    var doc = global.document;
-    var registerImmediate;
-
-    function setImmediate(callback) {
-      // Callback can either be a function or a string
-      if (typeof callback !== "function") {
-        callback = new Function("" + callback);
-      }
-      // Copy function arguments
-      var args = new Array(arguments.length - 1);
-      for (var i = 0; i < args.length; i++) {
-          args[i] = arguments[i + 1];
-      }
-      // Store and register the task
-      var task = { callback: callback, args: args };
-      tasksByHandle[nextHandle] = task;
-      registerImmediate(nextHandle);
-      return nextHandle++;
-    }
-
-    function clearImmediate(handle) {
-        delete tasksByHandle[handle];
-    }
-
-    function run(task) {
-        var callback = task.callback;
-        var args = task.args;
-        switch (args.length) {
-        case 0:
-            callback();
-            break;
-        case 1:
-            callback(args[0]);
-            break;
-        case 2:
-            callback(args[0], args[1]);
-            break;
-        case 3:
-            callback(args[0], args[1], args[2]);
-            break;
-        default:
-            callback.apply(undefined, args);
-            break;
-        }
-    }
-
-    function runIfPresent(handle) {
-        // From the spec: "Wait until any invocations of this algorithm started before this one have completed."
-        // So if we're currently running a task, we'll need to delay this invocation.
-        if (currentlyRunningATask) {
-            // Delay by doing a setTimeout. setImmediate was tried instead, but in Firefox 7 it generated a
-            // "too much recursion" error.
-            setTimeout(runIfPresent, 0, handle);
-        } else {
-            var task = tasksByHandle[handle];
-            if (task) {
-                currentlyRunningATask = true;
-                try {
-                    run(task);
-                } finally {
-                    clearImmediate(handle);
-                    currentlyRunningATask = false;
-                }
-            }
-        }
-    }
-
-    function installNextTickImplementation() {
-        registerImmediate = function(handle) {
-            process.nextTick(function () { runIfPresent(handle); });
-        };
-    }
-
-    function canUsePostMessage() {
-        // The test against `importScripts` prevents this implementation from being installed inside a web worker,
-        // where `global.postMessage` means something completely different and can't be used for this purpose.
-        if (global.postMessage && !global.importScripts) {
-            var postMessageIsAsynchronous = true;
-            var oldOnMessage = global.onmessage;
-            global.onmessage = function() {
-                postMessageIsAsynchronous = false;
-            };
-            global.postMessage("", "*");
-            global.onmessage = oldOnMessage;
-            return postMessageIsAsynchronous;
-        }
-    }
-
-    function installPostMessageImplementation() {
-        // Installs an event handler on `global` for the `message` event: see
-        // * https://developer.mozilla.org/en/DOM/window.postMessage
-        // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
-
-        var messagePrefix = "setImmediate$" + Math.random() + "$";
-        var onGlobalMessage = function(event) {
-            if (event.source === global &&
-                typeof event.data === "string" &&
-                event.data.indexOf(messagePrefix) === 0) {
-                runIfPresent(+event.data.slice(messagePrefix.length));
-            }
-        };
-
-        if (global.addEventListener) {
-            global.addEventListener("message", onGlobalMessage, false);
-        } else {
-            global.attachEvent("onmessage", onGlobalMessage);
-        }
-
-        registerImmediate = function(handle) {
-            global.postMessage(messagePrefix + handle, "*");
-        };
-    }
-
-    function installMessageChannelImplementation() {
-        var channel = new MessageChannel();
-        channel.port1.onmessage = function(event) {
-            var handle = event.data;
-            runIfPresent(handle);
-        };
-
-        registerImmediate = function(handle) {
-            channel.port2.postMessage(handle);
-        };
-    }
-
-    function installReadyStateChangeImplementation() {
-        var html = doc.documentElement;
-        registerImmediate = function(handle) {
-            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
-            // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
-            var script = doc.createElement("script");
-            script.onreadystatechange = function () {
-                runIfPresent(handle);
-                script.onreadystatechange = null;
-                html.removeChild(script);
-                script = null;
-            };
-            html.appendChild(script);
-        };
-    }
-
-    function installSetTimeoutImplementation() {
-        registerImmediate = function(handle) {
-            setTimeout(runIfPresent, 0, handle);
-        };
-    }
-
-    // If supported, we should attach to the prototype of global, since that is where setTimeout et al. live.
-    var attachTo = Object.getPrototypeOf && Object.getPrototypeOf(global);
-    attachTo = attachTo && attachTo.setTimeout ? attachTo : global;
-
-    // Don't get fooled by e.g. browserify environments.
-    if ({}.toString.call(global.process) === "[object process]") {
-        // For Node.js before 0.9
-        installNextTickImplementation();
-
-    } else if (canUsePostMessage()) {
-        // For non-IE10 modern browsers
-        installPostMessageImplementation();
-
-    } else if (global.MessageChannel) {
-        // For web workers, where supported
-        installMessageChannelImplementation();
-
-    } else if (doc && "onreadystatechange" in doc.createElement("script")) {
-        // For IE 6–8
-        installReadyStateChangeImplementation();
-
-    } else {
-        // For older browsers
-        installSetTimeoutImplementation();
-    }
-
-    attachTo.setImmediate = setImmediate;
-    attachTo.clearImmediate = clearImmediate;
-}(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(44), __webpack_require__(43)))
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var apply = Function.prototype.apply;
-
-// DOM APIs, for completeness
-
-exports.setTimeout = function() {
-  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
-};
-exports.setInterval = function() {
-  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
-};
-exports.clearTimeout =
-exports.clearInterval = function(timeout) {
-  if (timeout) {
-    timeout.close();
-  }
-};
-
-function Timeout(id, clearFn) {
-  this._id = id;
-  this._clearFn = clearFn;
-}
-Timeout.prototype.unref = Timeout.prototype.ref = function() {};
-Timeout.prototype.close = function() {
-  this._clearFn.call(window, this._id);
-};
-
-// Does not start the time, just sets up the members needed.
-exports.enroll = function(item, msecs) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = msecs;
-};
-
-exports.unenroll = function(item) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = -1;
-};
-
-exports._unrefActive = exports.active = function(item) {
-  clearTimeout(item._idleTimeoutId);
-
-  var msecs = item._idleTimeout;
-  if (msecs >= 0) {
-    item._idleTimeoutId = setTimeout(function onTimeout() {
-      if (item._onTimeout)
-        item._onTimeout();
-    }, msecs);
-  }
-};
-
-// setimmediate attaches itself to the global object
-__webpack_require__(58);
-exports.setImmediate = setImmediate;
-exports.clearImmediate = clearImmediate;
-
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__;
 
 /***/ })
 /******/ ]);

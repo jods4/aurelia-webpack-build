@@ -12,7 +12,7 @@ module.exports = {
 
   resolve: {
     extensions: [".ts", ".js"],
-    modules: ["App", "node_modules"],    
+    modules: ["App", "node_modules"].map(x => path.resolve(x)),    
   },
 
   module: {
