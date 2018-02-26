@@ -1,9 +1,9 @@
 const path = require("path");
-const BabiliPlugin = require("babili-webpack-plugin");
 const { AureliaPlugin } = require("aurelia-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
+  mode: "production",
   entry: "aurelia-bootstrapper",
 
   output: {
@@ -29,8 +29,6 @@ module.exports = {
     new AureliaPlugin({
       dist: 'es2015',
       features: { ie: false, svg: false, unparser: false, polyfills: "esnext" },
-    }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new BabiliPlugin(),
+    })
   ],
 };

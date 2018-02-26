@@ -3,6 +3,7 @@ const { DllPlugin } = require("webpack");
 const { AureliaPlugin } = require("aurelia-webpack-plugin");
 
 module.exports = {
+  mode: "development",
   entry: {
     vendor: [
       "aurelia-bootstrapper",      

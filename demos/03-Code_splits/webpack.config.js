@@ -2,6 +2,7 @@ const path = require("path");
 const { AureliaPlugin } = require("aurelia-webpack-plugin");
 
 module.exports = {
+  mode: "development",
   entry: "aurelia-bootstrapper",
 
   output: {
