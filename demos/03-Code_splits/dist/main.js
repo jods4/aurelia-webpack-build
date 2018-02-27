@@ -1,6 +1,41 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1]
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 	};
+/******/
+/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	var installedChunks = {
+/******/ 		"main": 0
+/******/ 	};
+/******/
+/******/
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -26,6 +61,64 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
+/******/ 		var promises = [];
+/******/
+/******/
+/******/ 		// JSONP chunk loading for javascript
+/******/
+/******/ 		var installedChunkData = installedChunks[chunkId];
+/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
+/******/
+/******/ 			// a Promise means "currently loading".
+/******/ 			if(installedChunkData) {
+/******/ 				promises.push(installedChunkData[2]);
+/******/ 			} else {
+/******/ 				// setup Promise in chunk cache
+/******/ 				var promise = new Promise(function(resolve, reject) {
+/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
+/******/ 				});
+/******/ 				promises.push(installedChunkData[2] = promise);
+/******/
+/******/ 				// start chunk loading
+/******/ 				var head = document.getElementsByTagName('head')[0];
+/******/ 				var script = document.createElement('script');
+/******/
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120000;
+/******/
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.src = __webpack_require__.p + "" + ({"about":"about","hello":"hello"}[chunkId]||chunkId) + ".js";
+/******/ 				var timeout = setTimeout(function(){
+/******/ 					onScriptComplete({ type: 'timeout', target: script });
+/******/ 				}, 120000);
+/******/ 				script.onerror = script.onload = onScriptComplete;
+/******/ 				function onScriptComplete(event) {
+/******/ 					// avoid mem leaks in IE.
+/******/ 					script.onerror = script.onload = null;
+/******/ 					clearTimeout(timeout);
+/******/ 					var chunk = installedChunks[chunkId];
+/******/ 					if(chunk !== 0) {
+/******/ 						if(chunk) {
+/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 							var realSrc = event && event.target && event.target.src;
+/******/ 							var error = new Error('Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')');
+/******/ 							error.type = errorType;
+/******/ 							error.request = realSrc;
+/******/ 							chunk[1](error);
+/******/ 						}
+/******/ 						installedChunks[chunkId] = undefined;
+/******/ 					}
+/******/ 				};
+/******/ 				head.appendChild(script);
+/******/ 			}
+/******/ 		}
+/******/ 		return Promise.all(promises);
+/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -63,6 +156,16 @@
 /******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/dist/";
+/******/
+/******/ 	// on error function for async loading
+/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
+/******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -615,9 +718,9 @@ eval("module.exports = \"<template>\\r\\n  <h2>Aurelia + Webpack</h2>\\r\\n  <na
   !*** ./node_modules/bundle-loader?lazy&name=about!./src/page-about.ts ***!
   \************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("throw new Error(\"Module build failed: TypeError: Cannot read property 'context' of undefined\\n    at Object.module.exports.pitch (g:\\\\code\\\\webpack-build\\\\demos\\\\03-Code_splits\\\\node_modules\\\\bundle-loader\\\\index.js:13:43)\");\n\n//# sourceURL=webpack:///./src/page-about.ts?./node_modules/bundle-loader?lazy&name=about");
+eval("module.exports = function(cb) {\n\t__webpack_require__.e(/*! require.ensure | about */ \"about\").then((function(require) {\n\t\tcb(__webpack_require__(/*! !../node_modules/ts-loader!./page-about.ts */ \"page-about\"));\n\t}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);\n}\n\n//# sourceURL=webpack:///./src/page-about.ts?./node_modules/bundle-loader?lazy&name=about");
 
 /***/ }),
 
@@ -626,9 +729,9 @@ eval("throw new Error(\"Module build failed: TypeError: Cannot read property 'co
   !*** ./node_modules/bundle-loader?lazy&name=hello!./src/page-hello.ts ***!
   \************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("throw new Error(\"Module build failed: TypeError: Cannot read property 'context' of undefined\\n    at Object.module.exports.pitch (g:\\\\code\\\\webpack-build\\\\demos\\\\03-Code_splits\\\\node_modules\\\\bundle-loader\\\\index.js:13:43)\");\n\n//# sourceURL=webpack:///./src/page-hello.ts?./node_modules/bundle-loader?lazy&name=hello");
+eval("module.exports = function(cb) {\n\t__webpack_require__.e(/*! require.ensure | hello */ \"hello\").then((function(require) {\n\t\tcb(__webpack_require__(/*! !../node_modules/ts-loader!./page-hello.ts */ \"page-hello\"));\n\t}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);\n}\n\n//# sourceURL=webpack:///./src/page-hello.ts?./node_modules/bundle-loader?lazy&name=hello");
 
 /***/ }),
 

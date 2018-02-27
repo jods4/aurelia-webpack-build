@@ -2,7 +2,7 @@
   "license": "MIT",
   "devDependencies": {
     "aspnet-webpack": "^2.0.3",
-    "aurelia-webpack-plugin": "^2.0.0-rc.6",
+    "aurelia-webpack-plugin": "^3.0.0-rc.1",
     "ts-loader": "^4.0.0",
     "typescript": "^2.7.2",
     "webpack": "^4.0.0",
